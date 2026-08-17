@@ -8,6 +8,9 @@
 #include "core/gpu_backend_pref.h" // crispasr_init_gpu_backend (#214)
 #include "core/crispasr_env.h"
 #include "core/parallel_for.h"
+#include "core/ggml_cpu_backend.h"   // core_cpu_backend::is_cpu
+#include "core/vad_progress.h"       // memory counter + async reporter
+#include "core/vad_frame_batching.h" // exact frame-axis blocking
 #include "ggml.h"
 #include "ggml-backend.h"
 #include "gguf.h"
@@ -37,6 +40,13 @@ static bool firered_vad_use_scalar() {
 #ifndef M_PI
 #define M_PI 3.14159265358979323846
 #endif
+
+// Frames per graph compute when the caller did not pick one (~41 s at the 10 ms
+// frame hop). See the note above fr_graph_forward for why the graph path cannot
+// just take the whole file. Measured on a 570 s clip / GTX 1050 Ti: 4096 -> 2.7 s,
+// 1024 -> 3.3 s, 256 -> 5.6 s, and the scalar CPU path -> 36.8 s. All four
+// return byte-identical spans.
+#define CRISPASR_FIRERED_VAD_GRAPH_BATCH 4096
 
 // ===========================================================================
 // Bench instrumentation — `FIRERED_VAD_BENCH=1` for per-stage timings.
@@ -118,8 +128,43 @@ struct firered_vad_model {
     std::vector<float> cmvn_mean, cmvn_std;
 };
 
+// The same weights again, shaped for ggml ops. A PyTorch Linear [N_out, K_in]
+// is row-major, which is exactly ggml's [K_in, N_out] with nb0 = 4, so building
+// these is a layout-preserving flat copy — no transpose anywhere. Same for the
+// FSMN filters: Conv1d(P, P, K, groups=P).weight is [P, 1, K] flat as p*K + k,
+// i.e. ggml [K, P] with [k, p] at k + p*K.
+struct firered_vad_graph_weights {
+    ggml_tensor* fc1_w = nullptr;
+    ggml_tensor* fc1_b = nullptr;
+    ggml_tensor* fc2_w = nullptr;
+    ggml_tensor* fc2_b = nullptr;
+    ggml_tensor* fsmn1_lb = nullptr;
+    ggml_tensor* fsmn1_la = nullptr;
+    struct block_w {
+        ggml_tensor *fc1_w = nullptr, *fc1_b = nullptr, *fc2_w = nullptr, *lb = nullptr, *la = nullptr;
+    };
+    std::vector<block_w> blocks;
+    ggml_tensor* dnn_w = nullptr;
+    ggml_tensor* dnn_b = nullptr;
+    ggml_tensor* out_w = nullptr;
+    ggml_tensor* out_b = nullptr;
+};
+
 struct firered_vad_context {
     firered_vad_model model;
+
+    // Graph path. Populated only when use_graph; the weights above are still
+    // read for the scalar path either way (2.4 MB — not worth branching over).
+    bool use_graph = false;
+    ggml_context* ctx_w = nullptr;
+    ggml_backend_buffer_t buf_w = nullptr;
+    ggml_backend_t backend = nullptr;     // where the weights live (gpu or cpu)
+    ggml_backend_t backend_cpu = nullptr; // second leg of the sched, when on gpu
+    ggml_backend_sched_t sched = nullptr;
+    firered_vad_graph_weights gw;
+    std::vector<uint8_t> meta;
+    int batch_size = 0; // frames per graph compute; 0 = whole file
+    int rf_half = 0;    // receptive field, frames (both directions)
 };
 
 // ===========================================================================
@@ -344,10 +389,122 @@ static void compute_fbank_vad(const float* pcm, int n_samples, std::vector<float
 }
 
 // ===========================================================================
+// Graph path — the same DFSMN as a ggml graph, so it can run on the GPU.
+//
+// Why a graph at all: the scalar path below is plain C++ loops, and the only
+// route to CUDA in this tree is a ggml backend. Why it is not the default on
+// CPU: ggml_conv_1d_dw materialises an im2col matrix per FSMN conv, sized
+// T x N x P floats — 57020 x 20 x 128 x 4 B = 580 MB for ONE conv on a
+// 10-minute file. That is also why the frame axis is batched on this path.
+// ===========================================================================
+
+// [K, T] x [K, N] -> [N, T], plus bias. `x` must already be in ggml [K, T]
+// orientation, which is what a row-major [T, K] float buffer is.
+static ggml_tensor* fr_graph_linear(ggml_context* c0, ggml_tensor* w, ggml_tensor* b, ggml_tensor* x) {
+    ggml_tensor* h = ggml_mul_mat(c0, w, x);
+    if (b)
+        h = ggml_add(c0, h, b);
+    return h;
+}
+
+// mem = x + lookback(x) + lookahead(x), replicating PyTorch's two Conv1d's
+// including their asymmetric trims (see cpu_fsmn for the derivation).
+static ggml_tensor* fr_graph_fsmn(ggml_context* c0, const firered_vad_hparams& hp, ggml_tensor* x, ggml_tensor* lb_w,
+                                  ggml_tensor* la_w) {
+    const int T = (int)x->ne[0];
+    const int P = (int)x->ne[1];
+    ggml_tensor* out = x;
+
+    if (hp.N1 > 0) {
+        // Conv1d(P, P, N1, padding=(N1-1)*S1, dilation=S1, groups=P), then keep
+        // the first T outputs — the Python side trims the right padding.
+        const int pad = (hp.N1 - 1) * hp.S1;
+        ggml_tensor* full = ggml_conv_1d_dw(c0, lb_w, x, 1, pad, hp.S1); // [T + pad, P]
+        ggml_tensor* lb = pad > 0 ? ggml_view_2d(c0, full, T, P, full->nb[1], 0) : full;
+        out = ggml_add(c0, out, lb);
+    }
+
+    if (hp.N2 > 0 && T > 1) {
+        // Conv1d(..., padding=(N2-1)*S2, dilation=S2, groups=P), drop the first
+        // N2*S2 outputs, zero-pad S2 on the right -> back to length T.
+        const int pad = (hp.N2 - 1) * hp.S2;
+        ggml_tensor* full = ggml_conv_1d_dw(c0, la_w, x, 1, pad, hp.S2);
+        const int keep = (int)full->ne[0] - hp.N2 * hp.S2;
+        if (keep > 0) {
+            ggml_tensor* la = ggml_view_2d(c0, full, keep, P, full->nb[1], (size_t)hp.N2 * hp.S2 * full->nb[0]);
+            la = ggml_pad_ext(c0, ggml_cont(c0, la), 0, hp.S2, 0, 0, 0, 0, 0, 0);
+            if ((int)la->ne[0] > T)
+                la = ggml_view_2d(c0, la, T, P, la->nb[1], 0);
+            out = ggml_add(c0, out, la);
+        }
+    }
+    return out;
+}
+
+// Speech probability per frame for `T` CMVN'd frames.
+static bool fr_graph_forward(firered_vad_context* ctx, const float* feats, int T, std::vector<float>& probs) {
+    const auto& hp = ctx->model.hp;
+    const auto& gw = ctx->gw;
+
+    const size_t arena = ggml_tensor_overhead() * 1024 + ggml_graph_overhead_custom(4096, false);
+    if (ctx->meta.size() < arena)
+        ctx->meta.resize(arena);
+    ggml_init_params ip = {arena, ctx->meta.data(), true};
+    ggml_context* c0 = ggml_init(ip);
+    if (!c0)
+        return false;
+    ggml_cgraph* gf = ggml_new_graph_custom(c0, 4096, false);
+
+    // feats is row-major [T, idim], i.e. ggml [idim, T] with nb0 = 4.
+    ggml_tensor* inp = ggml_new_tensor_2d(c0, GGML_TYPE_F32, hp.idim, T);
+    ggml_set_name(inp, "feats");
+    ggml_set_input(inp);
+
+    ggml_tensor* h = ggml_relu(c0, fr_graph_linear(c0, gw.fc1_w, gw.fc1_b, inp)); // [H, T]
+    ggml_tensor* p = ggml_relu(c0, fr_graph_linear(c0, gw.fc2_w, gw.fc2_b, h));   // [P, T]
+
+    // FSMN wants [T, P]; come back to [P, T] after every block.
+    ggml_tensor* mem = fr_graph_fsmn(c0, hp, ggml_cont(c0, ggml_transpose(c0, p)), gw.fsmn1_lb, gw.fsmn1_la);
+
+    for (size_t i = 0; i < gw.blocks.size(); i++) {
+        const auto& bw = gw.blocks[i];
+        ggml_tensor* hh = ggml_relu(c0, fr_graph_linear(c0, bw.fc1_w, bw.fc1_b, ggml_cont(c0, ggml_transpose(c0, mem))));
+        ggml_tensor* pp = fr_graph_linear(c0, bw.fc2_w, nullptr, hh);
+        mem = ggml_add(c0, mem, fr_graph_fsmn(c0, hp, ggml_cont(c0, ggml_transpose(c0, pp)), bw.lb, bw.la));
+    }
+
+    h = ggml_relu(c0, fr_graph_linear(c0, gw.dnn_w, gw.dnn_b, ggml_cont(c0, ggml_transpose(c0, mem))));
+    ggml_tensor* logits = fr_graph_linear(c0, gw.out_w, gw.out_b, h); // [1, T]
+    logits = ggml_sigmoid(c0, logits);
+    ggml_set_name(logits, "prob");
+    ggml_set_output(logits);
+    ggml_build_forward_expand(gf, logits);
+
+    ggml_backend_sched_reset(ctx->sched);
+    if (!ggml_backend_sched_alloc_graph(ctx->sched, gf)) {
+        ggml_free(c0);
+        return false;
+    }
+    ggml_backend_tensor_set(ggml_graph_get_tensor(gf, "feats"), feats, 0, (size_t)hp.idim * T * sizeof(float));
+    const bool ok = ggml_backend_sched_graph_compute(ctx->sched, gf) == GGML_STATUS_SUCCESS;
+    if (ok) {
+        probs.resize(T);
+        ggml_backend_tensor_get(ggml_graph_get_tensor(gf, "prob"), probs.data(), 0, (size_t)T * sizeof(float));
+    }
+    ggml_backend_sched_reset(ctx->sched);
+    ggml_free(c0);
+    return ok;
+}
+
+// ===========================================================================
 // Init / Free
 // ===========================================================================
 
 extern "C" struct firered_vad_context* firered_vad_init(const char* model_path) {
+    return firered_vad_init_ex(model_path, /*use_gpu=*/0, /*batch_size=*/0);
+}
+
+extern "C" struct firered_vad_context* firered_vad_init_ex(const char* model_path, int use_gpu, int batch_size) {
     auto* ctx = new firered_vad_context();
     auto& m = ctx->model;
     auto& hp = m.hp;
@@ -426,6 +583,160 @@ extern "C" struct firered_vad_context* firered_vad_init(const char* model_path) 
     rd("cmvn.mean", m.cmvn_mean);
     rd("cmvn.std", m.cmvn_std);
 
+    // ---- implementation choice ----
+    // Default: scalar on CPU (no graph, no im2col), graph when a GPU was asked
+    // for. CRISPASR_FIRERED_VAD_IMPL forces either one — `graph` on the CPU
+    // backend is what the parity check compares against `scalar`.
+    if (const char* impl = crispasr_env::get("CRISPASR_FIRERED_VAD_IMPL")) {
+        if (std::strcmp(impl, "graph") == 0)
+            use_gpu = 1;
+        else if (std::strcmp(impl, "scalar") == 0)
+            use_gpu = 0;
+    }
+    ctx->use_graph = use_gpu != 0;
+    // The graph path is always batched (see the im2col note above
+    // fr_graph_forward). The scalar path needs no cap — it never materialises
+    // an im2col matrix, so 0 there means "one pass", as before. It also needs
+    // no batching: it runs the whole frame axis in one go. Say so, rather than
+    // letting `--vad-batch` look like it was ignored.
+    if (!ctx->use_graph && batch_size > 0) {
+        fprintf(stderr, "firered_vad: batch_size %d ignored — the scalar CPU path processes the whole "
+                        "frame axis in one pass (batching applies to the graph path, i.e. use_gpu)\n",
+                batch_size);
+    }
+    ctx->batch_size =
+        !ctx->use_graph ? 0 : (batch_size > 0 ? batch_size : CRISPASR_FIRERED_VAD_GRAPH_BATCH);
+
+    // Receptive field: each of the R FSMN layers adds (N1-1)*S1 frames of
+    // lookback and N2*S2 of lookahead; the layers stack, so the context
+    // accumulates linearly. Used to cut the frame axis without changing the
+    // answer (see core/vad_frame_batching.h).
+    ctx->rf_half = hp.R * std::max((hp.N1 - 1) * hp.S1, hp.N2 * hp.S2);
+
+    if (ctx->use_graph) {
+        ctx->backend = use_gpu > 0 ? crispasr_init_gpu_backend() : core_cpu_backend::init();
+        if (!ctx->backend) {
+            fprintf(stderr, "firered_vad: no backend available for the graph path\n");
+            core_gguf::free_weights(wl);
+            ggml_backend_free(backend);
+            delete ctx;
+            return nullptr;
+        }
+        if (use_gpu > 0 && core_cpu_backend::is_cpu(ctx->backend))
+            fprintf(stderr, "firered_vad: no GPU device registered — graph path falls back to the CPU backend\n");
+
+        ggml_init_params wip = {ggml_tensor_overhead() * 256, nullptr, true};
+        ctx->ctx_w = ggml_init(wip);
+        if (!ctx->ctx_w) {
+            core_gguf::free_weights(wl);
+            ggml_backend_free(backend);
+            delete ctx;
+            return nullptr;
+        }
+
+        // Reinterpret each GGUF weight into the shape the ggml op wants. The
+        // flat buffer is already in the right order (see the struct comment),
+        // so each of these is a straight copy — no transpose.
+        std::vector<std::pair<ggml_tensor*, ggml_tensor*>> copies; // {dst, src}
+        auto mk2 = [&](const char* name, int ne0, int ne1) -> ggml_tensor* {
+            ggml_tensor* src = get(name);
+            if (!src) {
+                fprintf(stderr, "firered_vad: missing weight '%s'\n", name);
+                return nullptr;
+            }
+            ggml_tensor* dst = ggml_new_tensor_2d(ctx->ctx_w, GGML_TYPE_F32, ne0, ne1);
+            copies.emplace_back(dst, src);
+            return dst;
+        };
+        auto mk1 = [&](const char* name, int ne0) -> ggml_tensor* {
+            ggml_tensor* src = get(name);
+            if (!src) {
+                fprintf(stderr, "firered_vad: missing weight '%s'\n", name);
+                return nullptr;
+            }
+            ggml_tensor* dst = ggml_new_tensor_1d(ctx->ctx_w, GGML_TYPE_F32, ne0);
+            copies.emplace_back(dst, src);
+            return dst;
+        };
+        // Depthwise kernel, shaped the way ggml_conv_1d_dw wants it: [K, 1, C].
+        // (Its im2col asserts a->ne[1] == 1, and the result's channel axis is
+        // a->ne[2].) The flat buffer is unchanged — [K,1,C] with element
+        // [k,0,c] at k + c*K is the same order as PyTorch's [C,1,K] at c*K + k.
+        auto mk3 = [&](const char* name, int k, int c) -> ggml_tensor* {
+            ggml_tensor* src = get(name);
+            if (!src) {
+                fprintf(stderr, "firered_vad: missing weight '%s'\n", name);
+                return nullptr;
+            }
+            ggml_tensor* dst = ggml_new_tensor_3d(ctx->ctx_w, GGML_TYPE_F32, k, 1, c);
+            copies.emplace_back(dst, src);
+            return dst;
+        };
+
+        auto& gw = ctx->gw;
+        gw.fc1_w = mk2("dfsmn.fc1.0.weight", hp.idim, hp.H);
+        gw.fc1_b = mk1("dfsmn.fc1.0.bias", hp.H);
+        gw.fc2_w = mk2("dfsmn.fc2.0.weight", hp.H, hp.P);
+        gw.fc2_b = mk1("dfsmn.fc2.0.bias", hp.P);
+        gw.fsmn1_lb = mk3("dfsmn.fsmn1.lookback_filter.weight", hp.N1, hp.P);
+        gw.fsmn1_la = mk3("dfsmn.fsmn1.lookahead_filter.weight", hp.N2, hp.P);
+        gw.blocks.resize(R_blocks);
+        for (int i = 0; i < R_blocks; i++) {
+            char b[128];
+            auto& bw = gw.blocks[i];
+            snprintf(b, sizeof(b), "dfsmn.fsmns.%d.fc1.0.weight", i);
+            bw.fc1_w = mk2(b, hp.P, hp.H);
+            snprintf(b, sizeof(b), "dfsmn.fsmns.%d.fc1.0.bias", i);
+            bw.fc1_b = mk1(b, hp.H);
+            snprintf(b, sizeof(b), "dfsmn.fsmns.%d.fc2.weight", i);
+            bw.fc2_w = mk2(b, hp.H, hp.P);
+            snprintf(b, sizeof(b), "dfsmn.fsmns.%d.fsmn.lookback_filter.weight", i);
+            bw.lb = mk3(b, hp.N1, hp.P);
+            snprintf(b, sizeof(b), "dfsmn.fsmns.%d.fsmn.lookahead_filter.weight", i);
+            bw.la = mk3(b, hp.N2, hp.P);
+        }
+        gw.dnn_w = mk2("dfsmn.dnns.0.weight", hp.P, hp.H);
+        gw.dnn_b = mk1("dfsmn.dnns.0.bias", hp.H);
+        gw.out_w = mk2("out.weight", hp.H, 1);
+        gw.out_b = mk1("out.bias", 1);
+
+        bool w_ok = true;
+        for (auto& c : copies)
+            w_ok = w_ok && c.first != nullptr;
+        ctx->buf_w = w_ok ? ggml_backend_alloc_ctx_tensors(ctx->ctx_w, ctx->backend) : nullptr;
+        if (!ctx->buf_w) {
+            fprintf(stderr, "firered_vad: failed to allocate graph weights\n");
+            core_gguf::free_weights(wl);
+            ggml_backend_free(backend);
+            firered_vad_free(ctx);
+            return nullptr;
+        }
+        for (auto& c : copies) {
+            std::vector<float> tmp((size_t)ggml_nelements(c.second));
+            read_f32(c.second, tmp);
+            ggml_backend_tensor_set(c.first, tmp.data(), 0, tmp.size() * sizeof(float));
+        }
+
+        // The scheduler requires the CPU backend to come LAST
+        // (ggml_backend_sched_new asserts it): a GPU leg is [gpu, cpu].
+        ggml_backend_t be[2] = {ctx->backend, nullptr};
+        int n_be = 1;
+        if (!core_cpu_backend::is_cpu(ctx->backend)) {
+            ctx->backend_cpu = core_cpu_backend::init();
+            if (!ctx->backend_cpu) {
+                fprintf(stderr, "firered_vad: failed to init the CPU backend for the sched\n");
+                core_gguf::free_weights(wl);
+                ggml_backend_free(backend);
+                firered_vad_free(ctx);
+                return nullptr;
+            }
+            be[n_be++] = ctx->backend_cpu;
+        }
+        ctx->sched = ggml_backend_sched_new(be, nullptr, n_be, 4096, false, false);
+        fprintf(stderr, "firered_vad: graph path on %s (batch %d, ctx %d frames)\n",
+                core_cpu_backend::is_cpu(ctx->backend) ? "cpu" : "gpu", ctx->batch_size, ctx->rf_half);
+    }
+
     // Clean up weight loading context
     core_gguf::free_weights(wl);
     ggml_backend_free(backend);
@@ -434,6 +745,18 @@ extern "C" struct firered_vad_context* firered_vad_init(const char* model_path) 
 }
 
 extern "C" void firered_vad_free(struct firered_vad_context* ctx) {
+    if (!ctx)
+        return;
+    if (ctx->sched)
+        ggml_backend_sched_free(ctx->sched);
+    if (ctx->buf_w)
+        ggml_backend_buffer_free(ctx->buf_w);
+    if (ctx->ctx_w)
+        ggml_free(ctx->ctx_w);
+    if (ctx->backend)
+        ggml_backend_free(ctx->backend);
+    if (ctx->backend_cpu)
+        ggml_backend_free(ctx->backend_cpu);
     delete ctx;
 }
 
@@ -470,50 +793,82 @@ extern "C" int firered_vad_detect(struct firered_vad_context* ctx, const float* 
 
     // Forward pass
     int T = n_frames;
-
-    // fc1: [T, 80] → [T, 256] + ReLU
-    std::vector<float> h(T * hp.H);
-    cpu_linear(features.data(), m.fc1_w.data(), m.fc1_b.data(), h.data(), T, hp.idim, hp.H);
-    cpu_relu(h.data(), T * hp.H);
-
-    // fc2: [T, 256] → [T, 128] + ReLU
-    std::vector<float> p(T * hp.P);
-    cpu_linear(h.data(), m.fc2_w.data(), m.fc2_b.data(), p.data(), T, hp.H, hp.P);
-    cpu_relu(p.data(), T * hp.P);
-
-    // fsmn1
-    std::vector<float> mem(T * hp.P);
-    cpu_fsmn(p.data(), mem.data(), m.fsmn1_lb.data(), m.fsmn1_la.data(), T, hp.P, hp.N1, hp.S1, hp.N2, hp.S2);
-
-
-    // FSMN blocks
-    std::vector<float> tmp_h(T * hp.H), tmp_p(T * hp.P), tmp_mem(T * hp.P);
-    for (int i = 0; i < (int)m.blocks.size(); i++) {
-        auto& b = m.blocks[i];
-        // fc1: [T, P] → [T, H] + ReLU
-        cpu_linear(mem.data(), b.fc1_w.data(), b.fc1_b.data(), tmp_h.data(), T, hp.P, hp.H);
-        cpu_relu(tmp_h.data(), T * hp.H);
-        // fc2: [T, H] → [T, P] (no bias, no ReLU)
-        cpu_linear(tmp_h.data(), b.fc2_w.data(), nullptr, tmp_p.data(), T, hp.H, hp.P);
-        // FSMN
-        cpu_fsmn(tmp_p.data(), tmp_mem.data(), b.lb_w.data(), b.la_w.data(), T, hp.P, hp.N1, hp.S1, hp.N2, hp.S2);
-        if (i == 0) {
-        }
-        // Skip connection
-        for (int j = 0; j < T * hp.P; j++)
-            mem[j] = tmp_mem[j] + mem[j];
-    }
-
-
-    // DNN: [T, P] → [T, H] + ReLU
-    cpu_linear(mem.data(), m.dnn_w.data(), m.dnn_b.data(), h.data(), T, hp.P, hp.H);
-    cpu_relu(h.data(), T * hp.H);
-
-    // Output: [T, H] → [T, 1] + sigmoid
     std::vector<float> probs(T);
-    cpu_linear(h.data(), m.out_w.data(), m.out_b.data(), probs.data(), T, hp.H, 1);
-    for (int t = 0; t < T; t++)
-        probs[t] = 1.0f / (1.0f + expf(-probs[t]));
+
+    if (ctx->use_graph) {
+        // Batched. Here the batch size is not about launch overhead — it is
+        // what bounds ggml's per-conv im2col matrix (T x N x P floats), see the
+        // note above fr_graph_forward.
+        const auto blocks = core_vad_batching::plan(T, T, 1, ctx->rf_half, ctx->batch_size);
+        // Count the context frames too, or the ticker can run past 100% (each
+        // block feeds its overlap again).
+        long long planned = 0;
+        for (const auto& b : blocks)
+            planned += std::max(0, b.in_end - b.in_begin);
+        core_vad_progress::counter prog("firered", planned);
+        for (const auto& b : blocks) {
+            const int T_sub = b.in_end - b.in_begin;
+            if (T_sub <= 0)
+                continue;
+            std::vector<float> part;
+            if (!fr_graph_forward(ctx, features.data() + (size_t)b.in_begin * hp.idim, T_sub, part) ||
+                (int)part.size() < b.keep_end) {
+                fprintf(stderr, "firered_vad: graph compute failed\n");
+                return -1;
+            }
+            for (int i = b.keep_begin; i < b.keep_end; i++)
+                probs[b.out_offset + i] = part[i];
+            prog.add(T_sub);
+        }
+        prog.finish();
+    } else {
+        // Scalar CPU path. The FSMN stack dominates (the linears go through
+        // BLAS, the FSMN convs are hand-rolled), so that is what the counter
+        // tracks — one tick per layer, plus the initial fsmn1.
+        core_vad_progress::counter prog("firered layers", (long long)m.blocks.size() + 1);
+
+        // fc1: [T, 80] → [T, 256] + ReLU
+        std::vector<float> h(T * hp.H);
+        cpu_linear(features.data(), m.fc1_w.data(), m.fc1_b.data(), h.data(), T, hp.idim, hp.H);
+        cpu_relu(h.data(), T * hp.H);
+
+        // fc2: [T, 256] → [T, 128] + ReLU
+        std::vector<float> p(T * hp.P);
+        cpu_linear(h.data(), m.fc2_w.data(), m.fc2_b.data(), p.data(), T, hp.H, hp.P);
+        cpu_relu(p.data(), T * hp.P);
+
+        // fsmn1
+        std::vector<float> mem(T * hp.P);
+        cpu_fsmn(p.data(), mem.data(), m.fsmn1_lb.data(), m.fsmn1_la.data(), T, hp.P, hp.N1, hp.S1, hp.N2, hp.S2);
+        prog.add();
+
+        // FSMN blocks
+        std::vector<float> tmp_h(T * hp.H), tmp_p(T * hp.P), tmp_mem(T * hp.P);
+        for (int i = 0; i < (int)m.blocks.size(); i++) {
+            auto& b = m.blocks[i];
+            // fc1: [T, P] → [T, H] + ReLU
+            cpu_linear(mem.data(), b.fc1_w.data(), b.fc1_b.data(), tmp_h.data(), T, hp.P, hp.H);
+            cpu_relu(tmp_h.data(), T * hp.H);
+            // fc2: [T, H] → [T, P] (no bias, no ReLU)
+            cpu_linear(tmp_h.data(), b.fc2_w.data(), nullptr, tmp_p.data(), T, hp.H, hp.P);
+            // FSMN
+            cpu_fsmn(tmp_p.data(), tmp_mem.data(), b.lb_w.data(), b.la_w.data(), T, hp.P, hp.N1, hp.S1, hp.N2, hp.S2);
+            // Skip connection
+            for (int j = 0; j < T * hp.P; j++)
+                mem[j] = tmp_mem[j] + mem[j];
+            prog.add();
+        }
+        prog.finish();
+
+        // DNN: [T, P] → [T, H] + ReLU
+        cpu_linear(mem.data(), m.dnn_w.data(), m.dnn_b.data(), h.data(), T, hp.P, hp.H);
+        cpu_relu(h.data(), T * hp.H);
+
+        // Output: [T, H] → [T, 1] + sigmoid
+        cpu_linear(h.data(), m.out_w.data(), m.out_b.data(), probs.data(), T, hp.H, 1);
+        for (int t = 0; t < T; t++)
+            probs[t] = 1.0f / (1.0f + expf(-probs[t]));
+    }
 
     // Debug: show probability stats. Issue #84 — gated behind the
     // CRISPASR_FIRERED_VAD_DEBUG env var (set by --firered-vad-debug

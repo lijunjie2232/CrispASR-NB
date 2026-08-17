@@ -23,6 +23,19 @@ struct firered_vad_segment {
 };
 
 struct firered_vad_context* firered_vad_init(const char* model_path);
+
+// Extended init.
+//   use_gpu    != 0 -> build the DFSMN as a ggml graph on the GPU backend
+//               (CUDA) instead of the scalar CPU loops. The scalar path stays
+//               the default on CPU: it needs no graph, no im2col and no
+//               backend buffer.
+//   batch_size -> frames per graph compute, 0 = whole file. Only meaningful on
+//               the graph path, where it bounds the im2col matrix ggml
+//               materialises for every FSMN conv (T x N x P floats).
+// CRISPASR_FIRERED_VAD_IMPL=scalar|graph overrides the choice (graph on the
+// CPU backend is what the parity check compares against the scalar path).
+struct firered_vad_context* firered_vad_init_ex(const char* model_path, int use_gpu, int batch_size);
+
 void firered_vad_free(struct firered_vad_context* ctx);
 
 // Detect speech segments in 16kHz mono PCM audio.
