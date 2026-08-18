@@ -25,6 +25,9 @@
 #include "core/crispasr_env.h"
 #include "core/parallel_for.h"
 #include "core/ggml_cpu_backend.h"
+#include "core/gpu_backend_pref.h"      // crispasr_init_gpu_backend()
+#include "core/vad_progress.h"          // memory counter + async reporter
+#include "core/vad_frame_batching.h"    // exact frame-axis blocking
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846
@@ -100,9 +103,34 @@ struct mbn_model {
 
 struct marblenet_vad_context {
     mbn_model model;
-    ggml_backend_t backend = nullptr;
+    ggml_backend_t backend = nullptr;     // where the weights live (gpu or cpu)
+    ggml_backend_t backend_cpu = nullptr; // second leg of the sched, when on gpu
     ggml_backend_sched_t sched = nullptr;
+
+    // Derived from the GGUF block table at init. `out_stride` is mel frames per
+    // output frame (the product of every block's stride) and `rf_half_mel` is
+    // how many mel frames of context one output frame depends on; together they
+    // let detect() cut the frame axis into blocks without changing the result.
+    int out_stride = 1;
+    int rf_half_mel = 0;
+    int batch_size = 0; // output frames per graph compute; 0 = whole file
 };
+
+// How many output frames a stack of same-padding convs yields for `T_in` mel
+// frames. Mirrors ggml_im2col's 1-D length, which is what ggml_conv_1d_dw uses:
+//   out = (in + 2*pad - dilation*(kernel-1) - 1) / stride + 1
+static int mbn_out_len(const mbn_model& m, int T_in) {
+    int t = T_in;
+    for (const auto& b : m.blocks) {
+        for (int s = 0; s < b.repeat; s++) {
+            if (!b.separable)
+                continue;
+            const int pad = (b.kernel - 1) * b.dilation / 2;
+            t = (t + 2 * pad - b.dilation * (b.kernel - 1) - 1) / b.stride + 1;
+        }
+    }
+    return t;
+}
 
 // #305 audit: the ggml graph is multi-threaded (CPU backend), but the mel FFT
 // front-end was single-threaded — the recurring VAD bottleneck (see whisper-vad
@@ -216,8 +244,13 @@ static std::vector<float> mbn_compute_mel(const float* pcm, int n_samples, const
 // ── Init ───────────────────────────────────────────────────────────────────
 
 extern "C" struct marblenet_vad_context* marblenet_vad_init(const char* path) {
+    return marblenet_vad_init_ex(path, /*use_gpu=*/0, /*batch_size=*/0);
+}
+
+extern "C" struct marblenet_vad_context* marblenet_vad_init_ex(const char* path, int use_gpu, int batch_size) {
     auto* ctx = new marblenet_vad_context();
     auto& m = ctx->model;
+    ctx->batch_size = batch_size > 0 ? batch_size : 0;
 
     struct gguf_init_params gp = {true, &m.ctx_w};
     gguf_context* gctx = gguf_init_from_file(path, gp);
@@ -259,9 +292,31 @@ extern "C" struct marblenet_vad_context* marblenet_vad_init(const char* path) {
     }
     gguf_free(gctx);
 
+    // Geometry of the block stack: both the frame stride and the receptive
+    // field fall out of the GGUF config, so the batch planner in detect() does
+    // not have to know anything about the architecture.
+    {
+        int stride = 1;
+        for (const auto& b : m.blocks) {
+            for (int s = 0; s < b.repeat; s++) {
+                if (!b.separable)
+                    continue;
+                ctx->rf_half_mel += (b.kernel - 1) * b.dilation / 2 * stride;
+                stride *= b.stride;
+            }
+        }
+        ctx->out_stride = stride;
+    }
+
     // Load weights
-    ctx->backend = core_cpu_backend::init();
-    core_cpu_backend::set_n_threads(ctx->backend, 4);
+    ctx->backend = use_gpu ? crispasr_init_gpu_backend() : core_cpu_backend::init();
+    if (!ctx->backend) {
+        fprintf(stderr, "marblenet_vad: no backend available\n");
+        delete ctx;
+        return nullptr;
+    }
+    if (core_cpu_backend::is_cpu(ctx->backend))
+        core_cpu_backend::set_n_threads(ctx->backend, 4);
 
     struct gguf_init_params gp2 = {true, &m.ctx_w};
     gguf_context* gctx2 = gguf_init_from_file(path, gp2);
@@ -312,15 +367,45 @@ extern "C" struct marblenet_vad_context* marblenet_vad_init(const char* path) {
     m.dec_w = get("decoder.weight");
     m.dec_b = get("decoder.bias");
 
-    ggml_backend_t backends[1] = {ctx->backend};
-    ctx->sched = ggml_backend_sched_new(backends, nullptr, 1, 8192, false, false);
+    // The scheduler requires the CPU backend to come LAST (ggml_backend_sched_new
+    // asserts it), so a GPU leg is [gpu, cpu] and a CPU leg is just [cpu].
+    ggml_backend_t backends[2] = {ctx->backend, nullptr};
+    int n_backends = 1;
+    if (!core_cpu_backend::is_cpu(ctx->backend)) {
+        ctx->backend_cpu = core_cpu_backend::init();
+        if (!ctx->backend_cpu) {
+            fprintf(stderr, "marblenet_vad: failed to init the CPU backend for the sched\n");
+            marblenet_vad_free(ctx);
+            return nullptr;
+        }
+        backends[n_backends++] = ctx->backend_cpu;
+    }
+    ctx->sched = ggml_backend_sched_new(backends, nullptr, n_backends, 8192, false, false);
 
-    fprintf(stderr, "marblenet_vad: %d blocks, %d classes, %d KB\n", m.n_blocks, m.num_classes, (int)(buf_size / 1024));
+    fprintf(stderr, "marblenet_vad: %d blocks, %d classes, %d KB, %s, stride %d, ctx %d frames\n", m.n_blocks,
+            m.num_classes, (int)(buf_size / 1024), core_cpu_backend::is_cpu(ctx->backend) ? "cpu" : "gpu",
+            ctx->out_stride, ctx->rf_half_mel);
     return ctx;
 }
 
 // ── Forward ────────────────────────────────────────────────────────────────
 
+// ⚠ KNOWN PRE-EXISTING BUG (not introduced by the batching/GPU work — the
+// unmodified tree reproduces it): the output for a given frame depends on the
+// TOTAL frame count T, which no op in this graph can legitimately do (every
+// layer is a same-padding conv or a 1×1 linear, so a frame's logits can only
+// depend on ±145 mel frames). Reproduce with
+// tests/test_vad_gpu_batch.py, or by hand: 5 s of audio gives frame 0
+// l0-l1 = -5971 (non-speech), the same 5 s followed by 20 s of silence gives
+// frame 0 l0-l1 = -3304 (still non-speech), but 10.7 s of that audio gives
+// frame 0 l0-l1 = +262 (speech) — same mel prefix in all three. CPU and CUDA
+// agree to 6 digits, so it is not a backend kernel; it is either the graph
+// definition or ggml's scheduler aliasing. Practical effect before this
+// change: marblenet returned 0 spans on every clip tried (the whole-file pass
+// is the case that lands on the wrong side of it), so `-vm marblenet` has been
+// silently producing nothing. Batching moves the problem around rather than
+// fixing it — `--vad-batch` therefore CHANGES marblenet's output. Fixing the
+// forward is a separate job.
 static std::vector<float> mbn_forward(marblenet_vad_context* ctx, const float* mel, int T) {
     auto& m = ctx->model;
     const int n_mels = m.n_mels;
@@ -466,9 +551,63 @@ extern "C" int marblenet_vad_detect(struct marblenet_vad_context* ctx, const flo
     if (mel.empty())
         return -1;
 
-    auto probs = mbn_forward(ctx, mel.data(), T_mel);
-    if (probs.empty())
+    std::vector<float> probs;
+    if (ctx->batch_size <= 0) {
+        // Unbatched: one whole-file pass, exactly the pre-batching path.
+        probs = mbn_forward(ctx, mel.data(), T_mel);
+    } else {
+        // Batched: cut the output frame axis, give each block the receptive
+        // field of mel context on both sides, keep only the interior outputs.
+        // Identical to the whole-file pass — see core/vad_frame_batching.h.
+        const int T_out = mbn_out_len(m, T_mel);
+        const auto blocks = core_vad_batching::plan(T_mel, T_out, ctx->out_stride, ctx->rf_half_mel, ctx->batch_size);
+        probs.assign(T_out, 0.0f);
+
+        // Count the context frames too, or the ticker can run past 100% (each
+        // block feeds its overlap again).
+        long long planned = 0;
+        for (const auto &b : blocks)
+            planned += std::max(0, b.in_end - b.in_begin);
+        core_vad_progress::counter prog("marblenet", planned);
+        std::vector<float> mel_sub;
+        for (const auto& b : blocks) {
+            const int T_sub = b.in_end - b.in_begin;
+            if (T_sub <= 0)
+                continue;
+            // The mel is [n_mels, T] row-major, so a frame range is a strided
+            // gather — repack it into a contiguous block first.
+            mel_sub.resize((size_t)m.n_mels * T_sub);
+            for (int c = 0; c < m.n_mels; c++)
+                memcpy(&mel_sub[(size_t)c * T_sub], &mel[(size_t)c * T_mel + b.in_begin], T_sub * sizeof(float));
+
+            const auto part = mbn_forward(ctx, mel_sub.data(), T_sub);
+            if (part.empty()) {
+                fprintf(stderr, "marblenet_vad: graph compute failed\n");
+                return -1;
+            }
+            const int n_keep = std::min(b.keep_end, (int)part.size()) - b.keep_begin;
+            for (int i = 0; i < n_keep; i++)
+                probs[b.out_offset + b.keep_begin + i] = part[b.keep_begin + i];
+            prog.add(T_sub);
+        }
+        prog.finish();
+    }
+    if (probs.empty()) {
+        // Used to fail silently, which is why a caller could not tell "the
+        // model never ran" from "no speech in this clip".
+        fprintf(stderr, "marblenet_vad: graph compute failed\n");
         return -1;
+    }
+    if (const char* dbg = crispasr_env::get("CRISPASR_MARBLENET_VAD_DEBUG"); dbg && dbg[0] && dbg[0] != '0') {
+        float mx = 0, mean = 0;
+        for (float p : probs) {
+            mx = std::max(mx, p);
+            mean += p;
+        }
+        mean /= (float)probs.size();
+        fprintf(stderr, "marblenet_vad: %d frames, batch %d, max_prob=%.4f, mean_prob=%.4f\n", (int)probs.size(),
+                ctx->batch_size, mx, mean);
+    }
 
     // Block 0 has stride=2, so output frame rate = 20ms (2 * hop_length/sr)
     float frame_sec = 0.02f; // 20ms per output frame
@@ -526,5 +665,7 @@ extern "C" void marblenet_vad_free(struct marblenet_vad_context* ctx) {
         ggml_free(ctx->model.ctx_w);
     if (ctx->backend)
         ggml_backend_free(ctx->backend);
+    if (ctx->backend_cpu)
+        ggml_backend_free(ctx->backend_cpu);
     delete ctx;
 }
