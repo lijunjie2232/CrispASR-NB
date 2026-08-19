@@ -9,6 +9,8 @@
 #include "ggml-cpu.h"
 #include "core/gpu_backend_pref.h"       // crispasr_init_gpu_backend (#214)
 #include "core/whisper_special_tokens.h" // serialized-vs-legacy special ids (#322)
+#include "core/vad_progress.h"           // memory-counter + async-thread progress
+#include "core/ggml_cpu_backend.h"       // core_cpu_backend::is_cpu (GPU vs CPU VAD loop)
 
 #ifdef CRISPASR_USE_COREML
 #include "coreml/whisper-encoder.h"
@@ -153,6 +155,39 @@ static void whisper_log_callback_default(ggml_log_level level, const char* text,
 static constexpr float CRISPASR_HISTORY_CONDITIONING_TEMP_CUTOFF = 0.5f;
 
 #define CRISPASR_MAX_NODES 4096
+
+// Silero VAD: windows per graph compute.
+//
+// The graph is unrolled once per window, so its size is linear in the batch and
+// the arena/scheduler budget has to follow it (see whisper_sched_graph_init).
+// NODES_PER_WINDOW is a generous bound on one window's tensor objects — the
+// measured count is 83 (81 for a 1-wide graph, then +83 per window).
+//
+// MAX_BATCH is a MEMORY bound, not a compute one, and it is NOT a property of
+// the model: Silero runs at any batch and batching is exact at any batch. What
+// caps it is how a batched graph is expressed plus how the runtime accounts for
+// it. Unrolling B windows makes the graph 83×B nodes, and ggml_backend_sched
+// mallocs a `context_buffer` of
+// `graph_size × GGML_SCHED_MAX_SPLIT_INPUTS(30) × 2 × sizeof(ggml_tensor)`
+// eagerly, i.e. a measured 24.8 KB of commit charge per graph node
+// (sizeof(ggml_tensor) ≈ 413 B). So 4096 windows would ask for ~9 GB — and that
+// buffer only ever holds the cross-backend copies and graph-input views
+// (ggml-backend.cpp:1441/1462/1588), of which a single-backend graph has ~none.
+// It is a worst-case reservation, not a real requirement.
+//
+// Measured commit: 507 MB at batch 1, 657 MB at 64. A 512-wide graph measured
+// 1724 MB, which is exactly what this cap exists to avoid — and there is no
+// upside to lifting it, because a wider graph is *slower* here (the LSTM
+// recurrence is sequential, so unrolling merges no work: 2.73 s at batch 1 vs
+// 3.89 s at 512). Frame-axis models have no such cap at all — their graph has a
+// fixed node count (FireRedVAD verified to batch=32768).
+//
+// A caller asking for more than MAX_BATCH gets a warning and this value; see
+// whisper_vad_init_context. The cap is device-independent: the arena and the
+// scheduler are the same on CPU and GPU, so clamping only the GPU path would
+// leave the CPU path able to abort on the same request.
+#define CRISPASR_VAD_NODES_PER_WINDOW 96
+#define CRISPASR_VAD_MAX_BATCH 64
 
 static std::string format(const char* fmt, ...) {
     va_list ap;
@@ -1051,23 +1086,36 @@ static size_t whisper_sched_size(struct whisper_sched& allocr) {
 }
 
 // measure the memory usage of a graph and prepare the allocr's internal data buffer
+//
+// `max_nodes` must cover the graph `get_graph()` builds — it sizes BOTH the meta
+// arena (which holds the tensor objects) and the scheduler's own node/leaf
+// arrays. Exceeding either one aborts rather than returning: the meta arena
+// trips `GGML_ASSERT(obj_new)` in ggml_new_object, which the caller sees as a
+// process-killing fail-fast. The VAD passes a batch-derived value (its graph is
+// unrolled once per window); every other caller keeps the ASR default.
 static bool whisper_sched_graph_init(struct whisper_sched& allocr, std::vector<ggml_backend_t> backends,
-                                     std::function<struct ggml_cgraph*()>&& get_graph) {
+                                     std::function<struct ggml_cgraph*()>&& get_graph,
+                                     size_t max_nodes = CRISPASR_MAX_NODES) {
     auto& sched = allocr.sched;
     auto& meta = allocr.meta;
 
-    sched = ggml_backend_sched_new(backends.data(), nullptr, backends.size(), CRISPASR_MAX_NODES, false, true);
+    sched = ggml_backend_sched_new(backends.data(), nullptr, backends.size(), max_nodes, false, true);
     crispasr_imatrix_install(sched); // no-op unless CRISPASR_IMATRIX_OUT is set
 
-    meta.resize(ggml_tensor_overhead() * CRISPASR_MAX_NODES + ggml_graph_overhead());
+    meta.resize(ggml_tensor_overhead() * max_nodes + ggml_graph_overhead_custom(max_nodes, false));
 
     // since there are dependencies between the different graphs,
     // we need to allocate them instead of only reserving to get the correct compute buffer size
-    if (!ggml_backend_sched_alloc_graph(sched, get_graph())) {
+    struct ggml_cgraph* gf = get_graph();
+    if (!ggml_backend_sched_alloc_graph(sched, gf)) {
         // failed to allocate the compute buffer
         CRISPASR_LOG_ERROR("%s: failed to allocate the compute buffer\n", __func__);
         return false;
     }
+    // How much of `max_nodes` the graph actually took — the number to raise if
+    // a future change to the graph makes it overflow. (ggml_graph_n_nodes, not
+    // gf->n_nodes: ggml_cgraph is opaque from here.)
+    CRISPASR_LOG_INFO("%s: graph = %d nodes (budget %zu)\n", __func__, ggml_graph_n_nodes(gf), max_nodes);
 
     ggml_backend_sched_reset(sched);
 
@@ -4991,6 +5039,15 @@ struct whisper_vad_context {
     std::vector<float> window_buf;          // pre-allocated per-chunk window (#132)
     std::vector<uint8_t> work_buf;          // pre-allocated ggml_cplan work buffer (#132)
     ggml_threadpool_t threadpool = nullptr; // persistent 1-thread pool for inner loop (#132)
+
+    // Windows per graph compute (>= 1). Resolved in whisper_vad_init_context
+    // from params.batch_size + whether a GPU backend was actually taken, and
+    // baked into the graph by whisper_vad_build_graph — the two must agree.
+    int batch_size = 1;
+    bool on_gpu = false;
+    // Graph capacity for that batch: the meta arena and the scheduler are both
+    // sized from it, and ggml aborts (not returns) if the built graph is wider.
+    size_t max_nodes = CRISPASR_MAX_NODES;
 };
 
 struct whisper_vad_context_params whisper_vad_default_context_params(void) {
@@ -4998,6 +5055,7 @@ struct whisper_vad_context_params whisper_vad_default_context_params(void) {
         /*.n_thread                = */ 4,
         /*.use_gpu                 = */ false,
         /*.gpu_device              = */ 0,
+        /*.batch_size              = */ 0, // auto
     };
     return result;
 }
@@ -5184,8 +5242,14 @@ static ggml_tensor* whisper_vad_build_lstm_layer(ggml_context* ctx0, const whisp
     return out;
 }
 
+// Graph for `vctx.batch_size` consecutive windows. The LSTM recurrence is
+// sequential, so a batch is B unrolled steps sharing vctx.h_state / c_state —
+// the same arithmetic the one-window-per-call loop produced, with B× fewer
+// graph launches. The input is [n_window, B] (column b = window b) and the
+// output is [B] probabilities.
 static struct ggml_cgraph* whisper_vad_build_graph(whisper_vad_context& vctx) {
     const auto& model = vctx.model;
+    const int batch = std::max(1, vctx.batch_size);
 
     struct ggml_init_params params = {
         /*.mem_size   =*/vctx.sched.meta.size(),
@@ -5195,15 +5259,22 @@ static struct ggml_cgraph* whisper_vad_build_graph(whisper_vad_context& vctx) {
 
     struct ggml_context* ctx0 = ggml_init(params);
 
-    ggml_cgraph* gf = ggml_new_graph(ctx0);
+    // Not ggml_new_graph(): its default capacity (2048) is below what even a
+    // 32-wide batch needs, and ggml aborts (not returns) on overflow.
+    ggml_cgraph* gf = ggml_new_graph_custom(ctx0, (int)vctx.max_nodes, false);
 
-    struct ggml_tensor* frame = ggml_new_tensor_2d(ctx0, GGML_TYPE_F32, vctx.n_window, 1);
+    struct ggml_tensor* frame = ggml_new_tensor_2d(ctx0, GGML_TYPE_F32, vctx.n_window, batch);
     ggml_set_name(frame, "frame");
     ggml_set_input(frame);
 
-    struct ggml_tensor* cur = nullptr;
-    {
-        cur = whisper_vad_build_stft_layer(ctx0, model, frame);
+    struct ggml_tensor* prob = nullptr;
+    for (int b = 0; b < batch; b++) {
+        // Column view — a zero-copy [n_window, 1] window.
+        struct ggml_tensor* win =
+            batch == 1 ? frame
+                       : ggml_view_2d(ctx0, frame, vctx.n_window, 1, frame->nb[1], (size_t)b * frame->nb[1]);
+
+        struct ggml_tensor* cur = whisper_vad_build_stft_layer(ctx0, model, win);
 
         cur = whisper_vad_build_encoder_layer(ctx0, model, cur);
 
@@ -5216,22 +5287,41 @@ static struct ggml_cgraph* whisper_vad_build_graph(whisper_vad_context& vctx) {
         cur = ggml_conv_1d(ctx0, model.final_conv_weight, cur, 1, 0, 1);
         cur = ggml_add(ctx0, cur, model.final_conv_bias);
         cur = ggml_sigmoid(ctx0, cur);
-        ggml_set_name(cur, "prob");
-        ggml_set_output(cur);
-    }
 
-    ggml_build_forward_expand(gf, cur);
+        // Each step is [1, 1]; stack them into [batch, 1] = batch contiguous
+        // floats, which is what the caller reads back in one tensor_get.
+        prob = prob == nullptr ? cur : ggml_concat(ctx0, prob, cur, 0);
+    }
+    ggml_set_name(prob, "prob");
+    ggml_set_output(prob);
+
+    ggml_build_forward_expand(gf, prob);
 
     ggml_free(ctx0);
 
     return gf;
 }
 
+// Does the process have a GPU device registered? whisper_backend_init() and
+// make_buft_list() both walk the registry and tolerate "no GPU", but the
+// weight placement decision (make_buft_list, before this runs) and the graph
+// build (after) must agree on the answer, so resolve it once here.
+static bool whisper_vad_have_gpu_device(void) {
+    for (size_t i = 0; i < ggml_backend_dev_count(); ++i) {
+        const enum ggml_backend_dev_type t = ggml_backend_dev_type(ggml_backend_dev_get(i));
+        if (t == GGML_BACKEND_DEVICE_TYPE_GPU || t == GGML_BACKEND_DEVICE_TYPE_IGPU)
+            return true;
+    }
+    return false;
+}
+
 static bool whisper_vad_init_context(whisper_vad_context* vctx) {
     auto whisper_context_params = whisper_context_default_params();
-    // TODO: GPU VAD is forced disabled until the performance is improved
-    //whisper_context_params.use_gpu    = vctx->params.use_gpu;
-    whisper_context_params.use_gpu = false;
+    // GPU VAD used to be forced off here: the graph carried one window, and a
+    // kernel launch per window costs more than the window. vctx->batch_size
+    // (resolved below) unrolls that many windows into one graph, which is what
+    // makes the offload worth it, so the caller's flag is honoured now.
+    whisper_context_params.use_gpu = vctx->params.use_gpu;
     whisper_context_params.gpu_device = vctx->params.gpu_device;
 
     vctx->backends = whisper_backend_init(whisper_context_params);
@@ -5239,6 +5329,37 @@ static bool whisper_vad_init_context(whisper_vad_context* vctx) {
         CRISPASR_LOG_ERROR("%s: whisper_backend_init() failed\n", __func__);
         return false;
     }
+
+    // Resolve the batch before the graph is built — build_graph bakes it in, and
+    // detect_speech must walk the chunks in the same stride. On entry
+    // vctx->batch_size still holds the *requested* value (0 = auto), set by
+    // whisper_vad_init_with_params.
+    vctx->on_gpu =
+        vctx->params.use_gpu && !vctx->backends.empty() && !core_cpu_backend::is_cpu(vctx->backends[0]);
+    // Default 1 window per graph, on CPU and GPU alike. Unrolling B windows
+    // cannot merge any work here — the LSTM recurrence is sequential and the
+    // rest of the graph is per-window — so a wider graph only trades graph
+    // boundaries for a bigger graph, and the ggml scheduler's per-node
+    // bookkeeping makes that a loss. Measured on a 120 s clip / GTX 1050 Ti:
+    // GPU 2.73 s at batch 1, 3.00 s at 32, 3.89 s at 512; CPU is flat at ~2.05 s
+    // and wins at every batch. The knob is still honoured (it is exact, and the
+    // frame-axis models need it) — it just is not a speedup for this model.
+    const int requested_batch = vctx->batch_size;
+    vctx->batch_size = requested_batch > 0 ? requested_batch : 1;
+    if (vctx->batch_size > CRISPASR_VAD_MAX_BATCH) {
+        // Warn rather than clamp silently: a silent cap reads as the option
+        // being ignored, and the reason (ggml_backend_sched's eager
+        // context_buffer, see the constant) is not something a caller can
+        // guess from the outside.
+        CRISPASR_LOG_WARN("%s: VAD batch_size %d exceeds the %d-window cap — using %d\n", __func__,
+                          vctx->batch_size, CRISPASR_VAD_MAX_BATCH, CRISPASR_VAD_MAX_BATCH);
+        vctx->batch_size = CRISPASR_VAD_MAX_BATCH;
+    }
+    // batch_size IS the graph width now: one window per graph at 1, B unrolled
+    // windows at B. Size the budget for it BEFORE anything builds the graph.
+    vctx->max_nodes = (size_t)CRISPASR_VAD_NODES_PER_WINDOW * (size_t)vctx->batch_size + 256;
+    CRISPASR_LOG_INFO("%s: VAD on %s, batch_size = %d (budget %zu nodes)\n", __func__,
+                      vctx->on_gpu ? "GPU" : "CPU", vctx->batch_size, vctx->max_nodes);
 
     const int32_t lstm_hidden_size = vctx->model.hparams.lstm_hidden_size;
 
@@ -5272,8 +5393,8 @@ static bool whisper_vad_init_context(whisper_vad_context* vctx) {
     }
 
     {
-        bool ok =
-            whisper_sched_graph_init(vctx->sched, vctx->backends, [&]() { return whisper_vad_build_graph(*vctx); });
+        bool ok = whisper_sched_graph_init(vctx->sched, vctx->backends,
+                                           [&]() { return whisper_vad_build_graph(*vctx); }, vctx->max_nodes);
 
         if (!ok) {
             CRISPASR_LOG_ERROR("%s: failed to init VAD allocator\n", __func__);
@@ -5349,8 +5470,14 @@ struct whisper_vad_context* whisper_vad_init_with_params(struct whisper_model_lo
 
     whisper_vad_context* vctx = new whisper_vad_context;
     vctx->n_threads = params.n_threads;
-    vctx->params.use_gpu = params.use_gpu;
+    // Downgrade to CPU here (not in init_context) so weight placement and the
+    // graph build cannot disagree: make_buft_list() runs below, the graph is
+    // built in init_context().
+    vctx->params.use_gpu = params.use_gpu && whisper_vad_have_gpu_device();
+    if (params.use_gpu && !vctx->params.use_gpu)
+        CRISPASR_LOG_WARN("%s: VAD GPU requested but no GPU device is registered — falling back to CPU\n", __func__);
     vctx->params.gpu_device = params.gpu_device;
+    vctx->batch_size = params.batch_size; // requested; resolved in init_context()
 
     auto& model = vctx->model;
     auto& hparams = model.hparams;
@@ -5437,7 +5564,7 @@ struct whisper_vad_context* whisper_vad_init_with_params(struct whisper_model_lo
     };
 
     whisper_context_params wparams = whisper_context_default_params();
-    wparams.use_gpu = params.use_gpu;
+    wparams.use_gpu = vctx->params.use_gpu;
     wparams.gpu_device = params.gpu_device;
     buft_list_t buft_list = make_buft_list(wparams);
     if (!ggml_backend_dev_by_type(GGML_BACKEND_DEVICE_TYPE_CPU)) {
@@ -5656,13 +5783,19 @@ bool whisper_vad_detect_speech(struct whisper_vad_context* vctx, const float* sa
     // Reset LSTM hidden/cell states
     ggml_backend_buffer_clear(vctx->buffer, 0);
 
-    vctx->probs.resize(n_chunks);
-    CRISPASR_LOG_INFO("%s: props size: %u\n", __func__, n_chunks);
+    vctx->probs.assign(n_chunks, 0.0f);
+    CRISPASR_LOG_INFO("%s: props size: %d\n", __func__, n_chunks);
+
+    // Windows per graph compute. whisper_vad_build_graph() bakes this in, so a
+    // mismatch here would read past the "prob" tensor — it is resolved once in
+    // whisper_vad_init_context() and never touched again.
+    const int batch = std::max(1, vctx->batch_size);
 
     // Use pre-allocated window buffer to avoid per-call heap allocation
-    // that fragments memory across repeated server requests (#132).
-    if ((int)vctx->window_buf.size() != vctx->n_window) {
-        vctx->window_buf.resize(vctx->n_window, 0.0f);
+    // that fragments memory across repeated server requests (#132). One slot
+    // per window in a batch; column b is the b-th window.
+    if ((int)vctx->window_buf.size() != vctx->n_window * batch) {
+        vctx->window_buf.assign((size_t)vctx->n_window * batch, 0.0f);
     }
     auto& window = vctx->window_buf;
 
@@ -5694,47 +5827,63 @@ bool whisper_vad_detect_speech(struct whisper_vad_context* vctx, const float* sa
     // tiny, multi-threading hurts), allocate its work buffer once, and call
     // ggml_graph_compute directly per chunk.  This bypasses the scheduler
     // overhead and all threadpool creation entirely.
+    //
+    // CPU only: that path runs the CPU backend directly, so it cannot drive a
+    // GPU graph. On GPU the scheduler does the compute (and owns the copies),
+    // which is exactly the per-window overhead the batching amortises.
 
-    struct ggml_cplan cplan = core_cpu_backend::plan(gf, /*n_threads=*/1, vctx->threadpool);
+    struct ggml_cplan cplan = {};
+    if (!vctx->on_gpu) {
+        cplan = core_cpu_backend::plan(gf, /*n_threads=*/1, vctx->threadpool);
 
-    // Persistent work buffer — reused across calls via vctx member.
-    if (vctx->work_buf.size() < cplan.work_size) {
-        vctx->work_buf.resize(cplan.work_size);
+        // Persistent work buffer — reused across calls via vctx member.
+        if (vctx->work_buf.size() < cplan.work_size) {
+            vctx->work_buf.resize(cplan.work_size);
+        }
+        cplan.work_data = vctx->work_buf.data();
     }
-    cplan.work_data = vctx->work_buf.data();
 
     const int64_t t_start_vad_us = ggml_time_us();
 
-    for (int i = 0; i < n_chunks; i++) {
-        const int idx_start = i * vctx->n_window;
-        const int idx_end = std::min(idx_start + vctx->n_window, n_samples);
+    // The counter is the "memory counter + async thread" half: add() is one
+    // relaxed atomic, the printing happens on the counter's own thread.
+    core_vad_progress::counter prog("silero", n_chunks);
+    std::vector<float> prob_batch(batch);
 
-        const int chunk_len = idx_end - idx_start;
+    for (int i0 = 0; i0 < n_chunks; i0 += batch) {
+        const int nb = std::min(batch, n_chunks - i0);
 
-        if (chunk_len < vctx->n_window) {
-            CRISPASR_LOG_INFO("%s: chunk_len: %d < n_window: %d\n", __func__, chunk_len, vctx->n_window);
-            // Zero-pad the last partial chunk directly into window.
-            std::copy(samples + idx_start, samples + idx_end, window.begin());
-            std::fill(window.begin() + chunk_len, window.end(), 0.0f);
-        } else {
-            // Copy current frame samples to the window.
-            std::copy(samples + idx_start, samples + idx_start + vctx->n_window, window.begin());
+        // Fill every column; the unused tail of the last batch is zeroed so the
+        // padded windows cannot influence anything (their probs are dropped).
+        for (int b = 0; b < batch; b++) {
+            float* dst = window.data() + (size_t)b * vctx->n_window;
+            if (b >= nb) {
+                std::fill(dst, dst + vctx->n_window, 0.0f);
+                continue;
+            }
+            const int idx_start = (i0 + b) * vctx->n_window;
+            const int chunk_len = std::min(vctx->n_window, n_samples - idx_start);
+            std::copy(samples + idx_start, samples + idx_start + chunk_len, dst);
+            std::fill(dst + chunk_len, dst + vctx->n_window, 0.0f);
         }
 
         // Set the frame tensor data with the samples.
-        ggml_backend_tensor_set(frame, window.data(), 0, ggml_nelements(frame) * sizeof(float));
+        ggml_backend_tensor_set(frame, window.data(), 0, (size_t)ggml_nelements(frame) * sizeof(float));
 
-        // Direct graph compute — no scheduler, no threadpool churn.
-        if (core_cpu_backend::compute_planned(gf, &cplan, 1) != GGML_STATUS_SUCCESS) {
+        const enum ggml_status st = vctx->on_gpu ? ggml_backend_sched_graph_compute(sched, gf)
+                                                 : core_cpu_backend::compute_planned(gf, &cplan, 1);
+        if (st != GGML_STATUS_SUCCESS) {
             CRISPASR_LOG_ERROR("%s: failed to compute VAD graph\n", __func__);
             break;
         }
 
-        // Get the probability for this chunk.
-        ggml_backend_tensor_get(prob, &vctx->probs[i], 0, sizeof(float));
+        // Get the probabilities for this batch (prob is [batch, 1]).
+        ggml_backend_tensor_get(prob, prob_batch.data(), 0, (size_t)batch * sizeof(float));
+        std::copy(prob_batch.begin(), prob_batch.begin() + nb, vctx->probs.begin() + i0);
 
-        //CRISPASR_LOG_DEBUG("chunk %d: p = %7.3f\n", i, probs[i]);
+        prog.add(nb);
     }
+    prog.finish();
 
     const int64_t t_this_vad = ggml_time_us() - t_start_vad_us;
     vctx->t_vad_us = t_this_vad; // per-call only, not accumulated (#132)
