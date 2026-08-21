@@ -815,9 +815,10 @@ CA_EXPORT int crispasr_vad_segments(const char* vad_model_path, const float* pcm
 // years — and this wrapper was dropping it, so a missing or unreadable model
 // returned 0 slices and every binding read that as "this audio has no speech".
 // A caller cannot tell those apart from the outside, so the ABI has to.
-CA_EXPORT int crispasr_vad_slices(const char* vad_model_path, const float* pcm, int n_samples, int sample_rate,
-                                  float threshold, int min_speech_ms, int min_silence_ms, int speech_pad_ms,
-                                  float max_chunk_duration_s, int n_threads, float** out_spans) {
+CA_EXPORT int crispasr_vad_slices_ex(const char* vad_model_path, const float* pcm, int n_samples, int sample_rate,
+                                     float threshold, int min_speech_ms, int min_silence_ms, int speech_pad_ms,
+                                     float max_chunk_duration_s, int n_threads, int use_gpu, int batch_size,
+                                     float** out_spans) {
     if (!vad_model_path || !*vad_model_path || !pcm || n_samples <= 0 || sample_rate <= 0 || !out_spans)
         return -1;
     *out_spans = nullptr;
@@ -841,6 +842,23 @@ CA_EXPORT int crispasr_vad_slices(const char* vad_model_path, const float* pcm, 
         opts.chunk_seconds = 0;
     if (n_threads > 0)
         opts.n_threads = n_threads;
+
+    // Device: > 0 forces GPU on, 0 forces it off, < 0 defers to
+    // CRISPASR_VAD_GPU (unset or "0" = off; "1" = on with the auto backend;
+    // anything else = on with that backend preferred, e.g. "cuda"/"vulkan").
+    // The "1"-vs-name split mirrors --gpu-backend on the CLI so a wrapper can
+    // pass either.
+    if (use_gpu >= 0) {
+        opts.use_gpu = use_gpu > 0;
+    } else if (const char* env = std::getenv("CRISPASR_VAD_GPU")) {
+        if (env[0] && std::strcmp(env, "0") != 0) {
+            opts.use_gpu = true;
+            if (std::strcmp(env, "1") != 0)
+                crispasr_set_gpu_backend_pref(env);
+        }
+    }
+    if (batch_size > 0)
+        opts.batch_size = batch_size;
 
     bool load_failed = false;
     std::vector<crispasr_audio_slice> slices =
@@ -869,6 +887,17 @@ CA_EXPORT int crispasr_vad_slices(const char* vad_model_path, const float* pcm, 
     }
     *out_spans = buf;
     return n;
+}
+
+CA_EXPORT int crispasr_vad_slices(const char* vad_model_path, const float* pcm, int n_samples, int sample_rate,
+                                  float threshold, int min_speech_ms, int min_silence_ms, int speech_pad_ms,
+                                  float max_chunk_duration_s, int n_threads, float** out_spans) {
+    // use_gpu = 0 pins this to the CPU, which is what every pre-existing caller
+    // was already getting (Silero VAD was hard-disabled on the GPU, the other
+    // models had no GPU path at all) — so their behaviour is unchanged.
+    return crispasr_vad_slices_ex(vad_model_path, pcm, n_samples, sample_rate, threshold, min_speech_ms, min_silence_ms,
+                                  speech_pad_ms, max_chunk_duration_s, n_threads, /*use_gpu=*/0, /*batch_size=*/0,
+                                  out_spans);
 }
 
 CA_EXPORT void crispasr_vad_free(float* spans) {

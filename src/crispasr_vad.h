@@ -61,6 +61,12 @@ struct crispasr_vad_options {
     // Post-VAD clean-up
     int chunk_seconds = 30; // split any merged slice longer than this; 0 = no split
     int n_threads = 4;      // VAD inference threads
+    // Device / batching. Honoured by the three model-based VADs (Silero,
+    // FireRedVAD, MarbleNet); webrtc is a GMM with no model and always runs on
+    // the CPU. batch_size is windows (Silero) or frames (FireRed/MarbleNet)
+    // per graph compute; 0 = auto, resolved per model (1 on CPU, 32 on GPU).
+    bool use_gpu = false;
+    int batch_size = 0;
     crispasr_vad_post_merge_policy post_merge_policy = crispasr_vad_post_merge_policy::offline;
     int stream_close_gap_ms = 250;
     int stream_final_silence_ms = 0;

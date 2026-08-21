@@ -826,6 +826,13 @@ struct whisper_vad_context_params {
     int n_threads; // The number of threads to use for processing.
     bool use_gpu;
     int gpu_device; // CUDA device
+    // Windows evaluated per graph compute. The VAD graph carries one LSTM step
+    // per window and the recurrence is sequential, so this is B unrolled steps
+    // in one graph — the same arithmetic as B single-window calls, with B×
+    // fewer launches. That is what makes `use_gpu` pay for itself: a lone
+    // window is far too small to cover a kernel launch. 0 = auto (1 on CPU,
+    // 32 on GPU), capped at CRISPASR_VAD_MAX_BATCH.
+    int batch_size;
 };
 
 CRISPASR_API struct whisper_vad_context_params whisper_vad_default_context_params(void);
@@ -873,6 +880,21 @@ CRISPASR_API int crispasr_vad_segments(const char* vad_model_path, const float* 
 CRISPASR_API int crispasr_vad_slices(const char* vad_model_path, const float* pcm, int n_samples, int sample_rate,
                                      float threshold, int min_speech_ms, int min_silence_ms, int speech_pad_ms,
                                      float max_chunk_duration_s, int n_threads, float** out_spans);
+
+// Same as crispasr_vad_slices, plus the device/batching knobs. A separate
+// export rather than two more parameters on the existing one: the Go, Java,
+// Ruby, Rust and Dart bindings declare that signature themselves, so widening
+// it would have them read two garbage arguments on the next call (the symbol
+// still resolves — the ABI just silently means something else).
+//
+//   use_gpu    > 0 force on, 0 force off, < 0 consult CRISPASR_VAD_GPU
+//              ("1" = on with the auto backend, any other value = on with that
+//              backend preferred, e.g. "cuda"/"vulkan"/"metal")
+//   batch_size windows/frames per graph compute; 0 = auto (1 on CPU, 32 on GPU)
+CRISPASR_API int crispasr_vad_slices_ex(const char* vad_model_path, const float* pcm, int n_samples, int sample_rate,
+                                        float threshold, int min_speech_ms, int min_silence_ms, int speech_pad_ms,
+                                        float max_chunk_duration_s, int n_threads, int use_gpu, int batch_size,
+                                        float** out_spans);
 
 CRISPASR_API void crispasr_vad_free(float* spans);
 
