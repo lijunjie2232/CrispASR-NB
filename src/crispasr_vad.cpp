@@ -45,18 +45,26 @@
 static std::mutex g_firered_cache_mtx;
 static firered_vad_context* g_firered_cache_ctx = nullptr;
 static std::string g_firered_cache_path;
+// The device and batch decide which implementation is built (scalar vs ggml
+// graph) and where the weights land, so both belong in the cache key.
+static bool g_firered_cache_use_gpu = false;
+static int g_firered_cache_batch = 0;
 
-static firered_vad_context* firered_vad_get_cached_locked(const char* path) {
-    if (g_firered_cache_ctx && g_firered_cache_path == path)
+static firered_vad_context* firered_vad_get_cached_locked(const char* path, bool use_gpu, int batch_size) {
+    if (g_firered_cache_ctx && g_firered_cache_path == path && g_firered_cache_use_gpu == use_gpu &&
+        g_firered_cache_batch == batch_size)
         return g_firered_cache_ctx;
     if (g_firered_cache_ctx) {
         firered_vad_free(g_firered_cache_ctx);
         g_firered_cache_ctx = nullptr;
         g_firered_cache_path.clear();
     }
-    g_firered_cache_ctx = firered_vad_init(path);
-    if (g_firered_cache_ctx)
+    g_firered_cache_ctx = firered_vad_init_ex(path, use_gpu ? 1 : 0, batch_size);
+    if (g_firered_cache_ctx) {
         g_firered_cache_path = path;
+        g_firered_cache_use_gpu = use_gpu;
+        g_firered_cache_batch = batch_size;
+    }
     return g_firered_cache_ctx;
 }
 
@@ -66,18 +74,26 @@ static firered_vad_context* firered_vad_get_cached_locked(const char* path) {
 static std::mutex g_marblenet_cache_mtx;
 static marblenet_vad_context* g_marblenet_cache_ctx = nullptr;
 static std::string g_marblenet_cache_path;
+// Device + batch decide where the weights live and how wide the graph is, so
+// they belong in the cache key alongside the path.
+static bool g_marblenet_cache_use_gpu = false;
+static int g_marblenet_cache_batch = 0;
 
-static marblenet_vad_context* marblenet_vad_get_cached_locked(const char* path) {
-    if (g_marblenet_cache_ctx && g_marblenet_cache_path == path)
+static marblenet_vad_context* marblenet_vad_get_cached_locked(const char* path, bool use_gpu, int batch_size) {
+    if (g_marblenet_cache_ctx && g_marblenet_cache_path == path && g_marblenet_cache_use_gpu == use_gpu &&
+        g_marblenet_cache_batch == batch_size)
         return g_marblenet_cache_ctx;
     if (g_marblenet_cache_ctx) {
         marblenet_vad_free(g_marblenet_cache_ctx);
         g_marblenet_cache_ctx = nullptr;
         g_marblenet_cache_path.clear();
     }
-    g_marblenet_cache_ctx = marblenet_vad_init(path);
-    if (g_marblenet_cache_ctx)
+    g_marblenet_cache_ctx = marblenet_vad_init_ex(path, use_gpu ? 1 : 0, batch_size);
+    if (g_marblenet_cache_ctx) {
         g_marblenet_cache_path = path;
+        g_marblenet_cache_use_gpu = use_gpu;
+        g_marblenet_cache_batch = batch_size;
+    }
     return g_marblenet_cache_ctx;
 }
 #endif
@@ -111,6 +127,11 @@ static whisper_vad_encdec_context* encdec_vad_get_cached_locked(const char* path
 static std::mutex g_silero_cache_mtx;
 static whisper_vad_context* g_silero_cache_ctx = nullptr;
 static std::string g_silero_cache_path;
+// Device + batch are baked into the context (they decide where the weights
+// land and how wide the graph is), so a change in either must rebuild it —
+// keying on the path alone would silently keep serving the old config.
+static bool g_silero_cache_use_gpu = false;
+static int g_silero_cache_batch = 0;
 
 // Return the cached Silero context (creating it on first use or when
 // the model path changed). Caller must NOT free the returned pointer.
@@ -122,11 +143,13 @@ static std::string g_silero_cache_path;
 // concurrently. The server runs VAD slicing outside its model_mutex
 // (crispasr_server.cpp), so this mutex is the only thing serializing
 // concurrent requests against the single cached context (#132).
-static whisper_vad_context* silero_vad_get_cached_locked(const char* vad_model_path, int n_threads) {
-    if (g_silero_cache_ctx && g_silero_cache_path == vad_model_path) {
+static whisper_vad_context* silero_vad_get_cached_locked(const char* vad_model_path, int n_threads, bool use_gpu,
+                                                         int batch_size) {
+    if (g_silero_cache_ctx && g_silero_cache_path == vad_model_path && g_silero_cache_use_gpu == use_gpu &&
+        g_silero_cache_batch == batch_size) {
         return g_silero_cache_ctx;
     }
-    // Path changed or first call — (re)create.
+    // Path or device/batch config changed, or first call — (re)create.
     if (g_silero_cache_ctx) {
         whisper_vad_free(g_silero_cache_ctx);
         g_silero_cache_ctx = nullptr;
@@ -134,9 +157,13 @@ static whisper_vad_context* silero_vad_get_cached_locked(const char* vad_model_p
     }
     whisper_vad_context_params vcp = whisper_vad_default_context_params();
     vcp.n_threads = n_threads;
+    vcp.use_gpu = use_gpu;
+    vcp.batch_size = batch_size;
     g_silero_cache_ctx = whisper_vad_init_from_file_with_params(vad_model_path, vcp);
     if (g_silero_cache_ctx) {
         g_silero_cache_path = vad_model_path;
+        g_silero_cache_use_gpu = use_gpu;
+        g_silero_cache_batch = batch_size;
     }
     return g_silero_cache_ctx;
 }
@@ -149,6 +176,21 @@ void crispasr_vad_free_cache() {
             g_silero_cache_ctx = nullptr;
             g_silero_cache_path.clear();
         }
+        g_silero_cache_use_gpu = false;
+        g_silero_cache_batch = 0;
+    }
+    // FireRedVAD was missing here entirely — its cache (weights, and now a
+    // backend + buffer + scheduler on the graph path) outlived every
+    // crispasr_vad_free_cache() call.
+    {
+        std::lock_guard<std::mutex> lock(g_firered_cache_mtx);
+        if (g_firered_cache_ctx) {
+            firered_vad_free(g_firered_cache_ctx);
+            g_firered_cache_ctx = nullptr;
+            g_firered_cache_path.clear();
+        }
+        g_firered_cache_use_gpu = false;
+        g_firered_cache_batch = 0;
     }
 #ifdef CA_HAVE_MARBLENET_VAD
     {
@@ -158,6 +200,8 @@ void crispasr_vad_free_cache() {
             g_marblenet_cache_ctx = nullptr;
             g_marblenet_cache_path.clear();
         }
+        g_marblenet_cache_use_gpu = false;
+        g_marblenet_cache_batch = 0;
     }
 #endif
 #ifdef CA_HAVE_WVAD_ENCDEC
@@ -188,7 +232,7 @@ static std::vector<crispasr_audio_slice> compute_firered_vad_slices(const float*
     std::vector<crispasr_audio_slice> slices;
 
     std::unique_lock<std::mutex> lock(g_firered_cache_mtx);
-    firered_vad_context* vctx = firered_vad_get_cached_locked(vad_model_path);
+    firered_vad_context* vctx = firered_vad_get_cached_locked(vad_model_path, opts.use_gpu, opts.batch_size);
     if (!vctx) {
         fprintf(stderr, "crispasr: warning: failed to load FireRedVAD model '%s'\n", vad_model_path);
         return slices;
@@ -232,7 +276,8 @@ std::vector<crispasr_audio_slice> crispasr_compute_vad_slices(const float* sampl
 #ifdef CA_HAVE_MARBLENET_VAD
     else if (vpath.find("marblenet") != std::string::npos && vpath.find(".gguf") != std::string::npos) {
         std::lock_guard<std::mutex> vad_lock(g_marblenet_cache_mtx);
-        marblenet_vad_context* vctx = marblenet_vad_get_cached_locked(vad_model_path);
+        marblenet_vad_context* vctx =
+            marblenet_vad_get_cached_locked(vad_model_path, opts.use_gpu, opts.batch_size);
         if (vctx) {
             marblenet_vad_segment* segs = nullptr;
             int n_segs = 0;
@@ -334,7 +379,8 @@ std::vector<crispasr_audio_slice> crispasr_compute_vad_slices(const float* sampl
         // not be touched concurrently (the server slices VAD outside its
         // model_mutex, so concurrent requests would otherwise race here).
         std::lock_guard<std::mutex> vad_lock(g_silero_cache_mtx);
-        whisper_vad_context* vctx = silero_vad_get_cached_locked(vad_model_path, opts.n_threads);
+        whisper_vad_context* vctx =
+            silero_vad_get_cached_locked(vad_model_path, opts.n_threads, opts.use_gpu, opts.batch_size);
         if (!vctx) {
             fprintf(stderr, "crispasr: warning: failed to load VAD model '%s'\n", vad_model_path);
             if (out_load_failed)
