@@ -102,20 +102,33 @@ def _register_dll_dir(directory: Path) -> None:
 
     No-op off Windows, and deliberately quiet: on a system install the loader
     already resolves these, so a failure here must not break a working setup.
+    A CUDA source build needs one more directory: `ggml-cuda.dll` links the
+    toolkit's `cudart64_*.dll` / `cublas64_*.dll`, which live in the CUDA `bin/`
+    and are *not* shipped beside the library. Registering that too is what makes
+    a local `-DGGML_CUDA=1` build loadable from Python at all — without it the
+    error is the same misleading "could not find module ... (or one of its
+    dependencies)" naming `crispasr.dll`.
     """
     if os.name != "nt":
         return
     add = getattr(os, "add_dll_directory", None)  # Python 3.8+
     if add is None:
         return
-    key = str(directory)
-    if key in _dll_dirs:
-        return
-    try:
-        add(key)          # keep the cookie alive for the process lifetime
-        _dll_dirs[key] = True
-    except OSError:
-        pass
+    dirs = [directory]
+    for var in ("CUDA_PATH_V12_1", "CUDA_PATH"):
+        cuda = os.environ.get(var)
+        if cuda:
+            dirs.append(Path(cuda) / "bin")
+            break
+    for d in dirs:
+        key = str(d)
+        if key in _dll_dirs:
+            continue
+        try:
+            add(key)          # keep the cookie alive for the process lifetime
+            _dll_dirs[key] = True
+        except OSError:
+            pass
 
 
 # Directories already handed to os.add_dll_directory (Windows).
