@@ -314,6 +314,15 @@ class CrispASR:
                 ctypes.POINTER(ctypes.POINTER(ctypes.c_float)),
             ]
             lib.crispasr_vad_slices.restype = ctypes.c_int
+        if hasattr(lib, "crispasr_vad_slices_ex"):
+            lib.crispasr_vad_slices_ex.argtypes = [
+                ctypes.c_char_p, ctypes.POINTER(ctypes.c_float), ctypes.c_int,
+                ctypes.c_int, ctypes.c_float, ctypes.c_int, ctypes.c_int,
+                ctypes.c_int, ctypes.c_float, ctypes.c_int, ctypes.c_int,
+                ctypes.c_int,
+                ctypes.POINTER(ctypes.POINTER(ctypes.c_float)),
+            ]
+            lib.crispasr_vad_slices_ex.restype = ctypes.c_int
 
         # Streaming (whisper context).
         if hasattr(lib, "crispasr_stream_open"):
@@ -3907,6 +3916,8 @@ def vad_slices(
     speech_pad_ms: int = 30,
     max_chunk_duration_s: float = 30.0,
     n_threads: int = 4,
+    use_gpu: int = -1,
+    batch_size: int = 0,
     lib_path: Optional[str] = None,
 ) -> List[VadSpan]:
     """Run the unified VAD dispatcher returning speech spans in seconds.
@@ -3914,13 +3925,22 @@ def vad_slices(
     Can use Silero, FireRedVAD, MarbleNet, or Whisper-VAD-EncDec depending
     on the concrete model at ``model_path``. threshold <= 0 leaves per-model
     default intact.
+
+    ``use_gpu``: > 0 force GPU, 0 force CPU, < 0 defer to CRISPASR_VAD_GPU.
+    ``batch_size``: windows/frames per graph compute, 0 = auto (1 CPU / 32 GPU).
+    Both are ignored by webrtc (a GMM with no model file).
     """
     lib = ctypes.CDLL(lib_path or _find_lib())
-    fn = lib.crispasr_vad_slices
+    if not hasattr(lib, "crispasr_vad_slices_ex"):
+        raise RuntimeError(
+            "crispasr_vad_slices_ex missing from the loaded library — rebuild CrispASR "
+            "(use_gpu/batch_size need the newer C ABI)")
+    fn = lib.crispasr_vad_slices_ex
     fn.argtypes = [
         ctypes.c_char_p, ctypes.POINTER(ctypes.c_float), ctypes.c_int,
         ctypes.c_int, ctypes.c_float, ctypes.c_int, ctypes.c_int,
-        ctypes.c_int, ctypes.c_float, ctypes.c_int,
+        ctypes.c_int, ctypes.c_float, ctypes.c_int, ctypes.c_int,
+        ctypes.c_int,
         ctypes.POINTER(ctypes.POINTER(ctypes.c_float)),
     ]
     fn.restype = ctypes.c_int
@@ -3934,11 +3954,11 @@ def vad_slices(
         pcm_arr.ctypes.data_as(ctypes.POINTER(ctypes.c_float)),
         int(pcm_arr.size), sample_rate, threshold,
         min_speech_ms, min_silence_ms, speech_pad_ms,
-        max_chunk_duration_s, n_threads,
+        max_chunk_duration_s, n_threads, int(use_gpu), int(batch_size),
         ctypes.byref(out_spans),
     )
     if n < 0:
-        raise RuntimeError(f"crispasr_vad_slices failed (rc={n})")
+        raise RuntimeError(f"crispasr_vad_slices_ex failed (rc={n})")
     spans = []
     for i in range(n):
         spans.append(VadSpan(start=float(out_spans[2 * i]),
