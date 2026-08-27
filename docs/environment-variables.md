@@ -152,6 +152,20 @@ surviving artifact. Applied on both the CLI and the session C-ABI.
 | `CRISPASR_ALIGN_NO_ROMANIZE` | `1` passes non-Latin reference text through raw instead of auto-romanizing it for a CTC aligner with a Latin vocabulary (#252). Since #419 the romanization is only the aligner's internal label — aligned words hand back the original script, so srt/vtt/`-sp`/`-sow` output no longer flips Cyrillic/CJK transcripts to transliteration. |
 | `CRISPASR_ALIGN_DEBUG` | `1` prints the romanized reference transcript the aligner actually used. |
 
+### VAD device, batching and progress
+
+Silero, FireRedVAD and MarbleNet all take a device and a batch size through the
+C ABI (`crispasr_vad_slices_ex`) and the bindings (`vad_slices(use_gpu=,
+batch_size=)`); these env vars are the process-wide defaults and the diagnostics.
+WebRTC VAD is a GMM with no model file and always runs on the CPU.
+
+| Variable | Purpose |
+|----------|---------|
+| `CRISPASR_VAD_GPU` | Default device for the VAD when the caller passes `use_gpu < 0`. Unset or `0` = CPU; `1` = GPU with the auto-selected backend; any other value = GPU with that backend preferred (`cuda`/`vulkan`/`metal`), i.e. it feeds `--gpu-backend`. |
+| `CRISPASR_VAD_PROGRESS` | `0` silences the per-second VAD progress line on stderr. On by default. The models only bump an atomic counter; a background thread samples it and prints, so the hot loop never does I/O. |
+| `CRISPASR_VAD_PROGRESS_MS` | Progress report interval in ms (default `1000`). The reporter sleeps in 50 ms slices, so this also bounds how long the closing `finish()` waits. |
+| `CRISPASR_FIRERED_VAD_IMPL` | `scalar` forces the hand-rolled CPU DFSMN, `graph` forces the ggml graph (which is also the GPU path — on the CPU backend it is the parity reference for the rewrite). Default: `graph` when the caller asked for the GPU, `scalar` otherwise. |
+
 ### Decoding / beam search (shared)
 
 | Variable | Purpose |
