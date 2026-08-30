@@ -116,6 +116,16 @@ option(CRISPASR_PORTABLE_CPU
        "crispasr: compile bundled ggml-cpu for generic x86-64 (no optional ISA)"
        OFF)
 
+# Apply a local diff to the bundled ggml submodule at configure time instead of
+# committing it to the submodule (keeps the pin clean). The diff itself lives in
+# cmake/patches/force_enable_ggml_graph.patch and lets pre-Volta CUDA cards reach
+# the graph-capture path; it stays inert at runtime unless GGML_CUDA_GRAPHS_FORCE=1.
+#   ON  -> ensure the patch is applied to ggml/
+#   OFF -> restore a clean ggml/ if this option had previously applied it
+option(FORCE_GGML_GRAPH_ENABLE
+       "crispasr: apply cmake/patches/force_enable_ggml_graph.patch to the bundled ggml submodule"
+       OFF)
+
 # sanitizers
 option(CRISPASR_SANITIZE_THREAD    "crispasr: enable thread sanitizer"    OFF)
 option(CRISPASR_SANITIZE_ADDRESS   "crispasr: enable address sanitizer"   OFF)
@@ -336,6 +346,57 @@ if (NOT TARGET ggml)
                         "    git add ggml && git commit")
                 endif()
             endif()
+        endif()
+
+        # FORCE_GGML_GRAPH_ENABLE: sync the bundled ggml tree to the desired
+        # state before it is added, so the patch is decided once at configure
+        # time and never bleeds into the submodule's committed pin. Detecting
+        # the current state via `apply --reverse --check` keeps this idempotent
+        # across re-runs in the same build directory (flip ON/OFF freely).
+        set(_ggml_graph_patch "${CMAKE_CURRENT_SOURCE_DIR}/cmake/patches/force_enable_ggml_graph.patch")
+        if (EXISTS "${_ggml_graph_patch}")
+            find_package(Git QUIET)
+            if (GIT_FOUND)
+                execute_process(
+                    COMMAND "${GIT_EXECUTABLE}" apply --reverse --check "${_ggml_graph_patch}"
+                    WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/ggml"
+                    RESULT_VARIABLE _ggml_patch_state
+                    OUTPUT_QUIET ERROR_QUIET)
+                # state 0 => patch currently applied; non-zero => not applied.
+                if (FORCE_GGML_GRAPH_ENABLE AND NOT (_ggml_patch_state EQUAL 0))
+                    execute_process(
+                        COMMAND "${GIT_EXECUTABLE}" apply "${_ggml_graph_patch}"
+                        WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/ggml"
+                        RESULT_VARIABLE _ggml_patch_rc
+                        OUTPUT_VARIABLE _ggml_patch_out
+                        ERROR_VARIABLE _ggml_patch_err)
+                    if (NOT _ggml_patch_rc EQUAL 0)
+                        message(FATAL_ERROR
+                            "FORCE_GGML_GRAPH_ENABLE=ON but the ggml patch failed to apply "
+                            "(the submodule is probably not at the expected commit):\n"
+                            "  ${_ggml_patch_out}\n  ${_ggml_patch_err}\n"
+                            "Reset the file and retry:\n"
+                            "    git -C ggml checkout -- src/ggml-cuda/ggml-cuda.cu")
+                    endif()
+                    message(STATUS "FORCE_GGML_GRAPH_ENABLE=ON: applied ggml CUDA-graph patch")
+                elseif (NOT FORCE_GGML_GRAPH_ENABLE AND _ggml_patch_state EQUAL 0)
+                    execute_process(
+                        COMMAND "${GIT_EXECUTABLE}" apply -R "${_ggml_graph_patch}"
+                        WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/ggml"
+                        RESULT_VARIABLE _ggml_patch_rc
+                        OUTPUT_VARIABLE _ggml_patch_out
+                        ERROR_VARIABLE _ggml_patch_err)
+                    if (_ggml_patch_rc EQUAL 0)
+                        message(STATUS "FORCE_GGML_GRAPH_ENABLE=OFF: reverted ggml CUDA-graph patch")
+                    else()
+                        message(WARNING
+                            "FORCE_GGML_GRAPH_ENABLE=OFF but reverting the ggml patch failed:\n"
+                            "  ${_ggml_patch_out}\n  ${_ggml_patch_err}")
+                    endif()
+                endif()
+            endif()
+        elseif (FORCE_GGML_GRAPH_ENABLE)
+            message(FATAL_ERROR "FORCE_GGML_GRAPH_ENABLE=ON but ${_ggml_graph_patch} is missing.")
         endif()
 
         add_subdirectory(ggml)

@@ -1,0 +1,22 @@
+diff --git a/src/ggml-cuda/ggml-cuda.cu b/src/ggml-cuda/ggml-cuda.cu
+index 546040a7..05055048 100644
+--- a/src/ggml-cuda/ggml-cuda.cu
++++ b/src/ggml-cuda/ggml-cuda.cu
+@@ -4466,8 +4466,15 @@ static bool ggml_cuda_graph_set_enabled(ggml_backend_cuda_context * cuda_ctx, co
+     ggml_cuda_graph * graph = cuda_ctx->cuda_graph(graph_key);
+ 
+     if (graph->graph == nullptr) {
+-        if (ggml_cuda_info().devices[cuda_ctx->device].cc < GGML_CUDA_CC_VOLTA) {
+-            if (!graph->disable_due_to_gpu_arch) {
++        // Pre-Volta (Pascal/Maxwell/Kepler) is off by default. GGML_CUDA_GRAPHS_FORCE=1
++        // opts back in so the capture path can be exercised on those cards.
++        static const bool force_graphs = (getenv("GGML_CUDA_GRAPHS_FORCE") != nullptr);
++        if (!force_graphs && ggml_cuda_info().devices[cuda_ctx->device].cc < GGML_CUDA_CC_VOLTA) {
++            // disable_due_to_gpu_arch is per-graph, so it only silences the notice for the
++            // graph it was set on. Say it once per process instead of once per graph key.
++            static bool warned = false;
++            if (!warned) {
++                warned = true;
+                 GGML_LOG_DEBUG("%s: disabling CUDA graphs due to GPU architecture\n", __func__);
+             }
+             graph->disable_due_to_gpu_arch = true;
