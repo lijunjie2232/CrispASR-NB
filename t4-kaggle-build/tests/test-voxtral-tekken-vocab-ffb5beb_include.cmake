@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-voxtral-tekken-vocab-ffb5beb_tests.cmake")
+  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-voxtral-tekken-vocab-ffb5beb_tests.cmake")
+else()
+  add_test(test-voxtral-tekken-vocab_NOT_BUILT-ffb5beb test-voxtral-tekken-vocab_NOT_BUILT-ffb5beb)
+endif()

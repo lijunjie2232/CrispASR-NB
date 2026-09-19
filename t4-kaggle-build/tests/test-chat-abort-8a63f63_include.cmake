@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-chat-abort-8a63f63_tests.cmake")
+  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-chat-abort-8a63f63_tests.cmake")
+else()
+  add_test(test-chat-abort_NOT_BUILT-8a63f63 test-chat-abort_NOT_BUILT-8a63f63)
+endif()

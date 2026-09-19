@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-vad-boundaries-ffb5beb_tests.cmake")
+  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-vad-boundaries-ffb5beb_tests.cmake")
+else()
+  add_test(test-vad-boundaries_NOT_BUILT-ffb5beb test-vad-boundaries_NOT_BUILT-ffb5beb)
+endif()

@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-core-midi-writer-b12d07c_tests.cmake")
+  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-core-midi-writer-b12d07c_tests.cmake")
+else()
+  add_test(test-core-midi-writer_NOT_BUILT-b12d07c test-core-midi-writer_NOT_BUILT-b12d07c)
+endif()

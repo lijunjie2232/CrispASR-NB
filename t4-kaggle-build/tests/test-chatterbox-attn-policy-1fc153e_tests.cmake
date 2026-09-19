@@ -1,0 +1,7 @@
+add_test( [==[t3 attn policy: Vulkan defaults to naive, others to flash]==] /kaggle/working/CrispASR-NB/t4-kaggle-build/bin/test-chatterbox-attn-policy [==[t3 attn policy: Vulkan defaults to naive\, others to flash]==]  )
+set_tests_properties( [==[t3 attn policy: Vulkan defaults to naive, others to flash]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-NB LABELS unit SKIP_RETURN_CODE 4)
+add_test( [==[t3 attn policy: CRISPASR_CHATTERBOX_NAIVE_ATTN forces naive everywhere]==] /kaggle/working/CrispASR-NB/t4-kaggle-build/bin/test-chatterbox-attn-policy [==[t3 attn policy: CRISPASR_CHATTERBOX_NAIVE_ATTN forces naive everywhere]==]  )
+set_tests_properties( [==[t3 attn policy: CRISPASR_CHATTERBOX_NAIVE_ATTN forces naive everywhere]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-NB LABELS unit SKIP_RETURN_CODE 4)
+add_test( [==[t3 attn policy: CRISPASR_CHATTERBOX_FLASH_ATTN opts Vulkan back into flash]==] /kaggle/working/CrispASR-NB/t4-kaggle-build/bin/test-chatterbox-attn-policy [==[t3 attn policy: CRISPASR_CHATTERBOX_FLASH_ATTN opts Vulkan back into flash]==]  )
+set_tests_properties( [==[t3 attn policy: CRISPASR_CHATTERBOX_FLASH_ATTN opts Vulkan back into flash]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-NB LABELS unit SKIP_RETURN_CODE 4)
+set( test-chatterbox-attn-policy_TESTS [==[t3 attn policy: Vulkan defaults to naive, others to flash]==] [==[t3 attn policy: CRISPASR_CHATTERBOX_NAIVE_ATTN forces naive everywhere]==] [==[t3 attn policy: CRISPASR_CHATTERBOX_FLASH_ATTN opts Vulkan back into flash]==])

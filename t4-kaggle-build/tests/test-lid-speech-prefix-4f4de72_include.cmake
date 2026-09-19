@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-lid-speech-prefix-4f4de72_tests.cmake")
+  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-lid-speech-prefix-4f4de72_tests.cmake")
+else()
+  add_test(test-lid-speech-prefix_NOT_BUILT-4f4de72 test-lid-speech-prefix_NOT_BUILT-4f4de72)
+endif()

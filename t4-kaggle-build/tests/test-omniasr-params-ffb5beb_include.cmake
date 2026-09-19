@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-omniasr-params-ffb5beb_tests.cmake")
+  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-omniasr-params-ffb5beb_tests.cmake")
+else()
+  add_test(test-omniasr-params_NOT_BUILT-ffb5beb test-omniasr-params_NOT_BUILT-ffb5beb)
+endif()

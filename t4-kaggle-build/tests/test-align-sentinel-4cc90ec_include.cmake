@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-align-sentinel-4cc90ec_tests.cmake")
+  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-align-sentinel-4cc90ec_tests.cmake")
+else()
+  add_test(test-align-sentinel_NOT_BUILT-4cc90ec test-align-sentinel_NOT_BUILT-4cc90ec)
+endif()

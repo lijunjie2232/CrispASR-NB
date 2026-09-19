@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-issue-150-cjk-fallback-b66ee44_tests.cmake")
+  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-issue-150-cjk-fallback-b66ee44_tests.cmake")
+else()
+  add_test(test-issue-150-cjk-fallback_NOT_BUILT-b66ee44 test-issue-150-cjk-fallback_NOT_BUILT-b66ee44)
+endif()

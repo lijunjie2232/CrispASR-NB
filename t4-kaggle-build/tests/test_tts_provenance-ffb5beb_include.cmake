@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test_tts_provenance-ffb5beb_tests.cmake")
+  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test_tts_provenance-ffb5beb_tests.cmake")
+else()
+  add_test(test_tts_provenance_NOT_BUILT-ffb5beb test_tts_provenance_NOT_BUILT-ffb5beb)
+endif()

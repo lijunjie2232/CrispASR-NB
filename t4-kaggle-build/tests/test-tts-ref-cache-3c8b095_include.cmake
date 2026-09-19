@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-tts-ref-cache-3c8b095_tests.cmake")
+  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-tts-ref-cache-3c8b095_tests.cmake")
+else()
+  add_test(test-tts-ref-cache_NOT_BUILT-3c8b095 test-tts-ref-cache_NOT_BUILT-3c8b095)
+endif()

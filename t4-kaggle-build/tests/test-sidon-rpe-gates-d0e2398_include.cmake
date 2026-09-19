@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-sidon-rpe-gates-d0e2398_tests.cmake")
+  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-sidon-rpe-gates-d0e2398_tests.cmake")
+else()
+  add_test(test-sidon-rpe-gates_NOT_BUILT-d0e2398 test-sidon-rpe-gates_NOT_BUILT-d0e2398)
+endif()

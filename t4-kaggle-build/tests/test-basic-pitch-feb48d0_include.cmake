@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-basic-pitch-feb48d0_tests.cmake")
+  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-basic-pitch-feb48d0_tests.cmake")
+else()
+  add_test(test-basic-pitch_NOT_BUILT-feb48d0 test-basic-pitch_NOT_BUILT-feb48d0)
+endif()

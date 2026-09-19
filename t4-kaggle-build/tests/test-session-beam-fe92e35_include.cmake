@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-session-beam-fe92e35_tests.cmake")
+  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-session-beam-fe92e35_tests.cmake")
+else()
+  add_test(test-session-beam_NOT_BUILT-fe92e35 test-session-beam_NOT_BUILT-fe92e35)
+endif()

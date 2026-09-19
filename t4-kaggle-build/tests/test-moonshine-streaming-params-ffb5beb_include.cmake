@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-moonshine-streaming-params-ffb5beb_tests.cmake")
+  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-moonshine-streaming-params-ffb5beb_tests.cmake")
+else()
+  add_test(test-moonshine-streaming-params_NOT_BUILT-ffb5beb test-moonshine-streaming-params_NOT_BUILT-ffb5beb)
+endif()

@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-core-decode-ffb5beb_tests.cmake")
+  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-core-decode-ffb5beb_tests.cmake")
+else()
+  add_test(test-core-decode_NOT_BUILT-ffb5beb test-core-decode_NOT_BUILT-ffb5beb)
+endif()

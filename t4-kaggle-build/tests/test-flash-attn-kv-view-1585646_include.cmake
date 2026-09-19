@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-flash-attn-kv-view-1585646_tests.cmake")
+  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-flash-attn-kv-view-1585646_tests.cmake")
+else()
+  add_test(test-flash-attn-kv-view_NOT_BUILT-1585646 test-flash-attn-kv-view_NOT_BUILT-1585646)
+endif()

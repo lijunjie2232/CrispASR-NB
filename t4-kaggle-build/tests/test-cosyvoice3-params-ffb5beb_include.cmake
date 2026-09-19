@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-cosyvoice3-params-ffb5beb_tests.cmake")
+  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-cosyvoice3-params-ffb5beb_tests.cmake")
+else()
+  add_test(test-cosyvoice3-params_NOT_BUILT-ffb5beb test-cosyvoice3-params_NOT_BUILT-ffb5beb)
+endif()
