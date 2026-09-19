@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-btc-chords-4580ed7_tests.cmake")
+  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-btc-chords-4580ed7_tests.cmake")
+else()
+  add_test(test-btc-chords_NOT_BUILT-4580ed7 test-btc-chords_NOT_BUILT-4580ed7)
+endif()

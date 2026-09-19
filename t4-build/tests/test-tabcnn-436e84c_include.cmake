@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-tabcnn-436e84c_tests.cmake")
+  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-tabcnn-436e84c_tests.cmake")
+else()
+  add_test(test-tabcnn_NOT_BUILT-436e84c test-tabcnn_NOT_BUILT-436e84c)
+endif()

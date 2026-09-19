@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-windows-mic-c23d9dc_tests.cmake")
+  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-windows-mic-c23d9dc_tests.cmake")
+else()
+  add_test(test-windows-mic_NOT_BUILT-c23d9dc test-windows-mic_NOT_BUILT-c23d9dc)
+endif()

@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-sidon-live-d0e2398_tests.cmake")
+  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-sidon-live-d0e2398_tests.cmake")
+else()
+  add_test(test-sidon-live_NOT_BUILT-d0e2398 test-sidon-live_NOT_BUILT-d0e2398)
+endif()

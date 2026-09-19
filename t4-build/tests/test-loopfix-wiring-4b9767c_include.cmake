@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-loopfix-wiring-4b9767c_tests.cmake")
+  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-loopfix-wiring-4b9767c_tests.cmake")
+else()
+  add_test(test-loopfix-wiring_NOT_BUILT-4b9767c test-loopfix-wiring_NOT_BUILT-4b9767c)
+endif()

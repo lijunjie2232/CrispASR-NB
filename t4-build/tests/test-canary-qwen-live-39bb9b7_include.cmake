@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-canary-qwen-live-39bb9b7_tests.cmake")
+  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-canary-qwen-live-39bb9b7_tests.cmake")
+else()
+  add_test(test-canary-qwen-live_NOT_BUILT-39bb9b7 test-canary-qwen-live_NOT_BUILT-39bb9b7)
+endif()

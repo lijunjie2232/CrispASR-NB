@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-gguf-release-ffb5beb_tests.cmake")
+  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-gguf-release-ffb5beb_tests.cmake")
+else()
+  add_test(test-gguf-release_NOT_BUILT-ffb5beb test-gguf-release_NOT_BUILT-ffb5beb)
+endif()

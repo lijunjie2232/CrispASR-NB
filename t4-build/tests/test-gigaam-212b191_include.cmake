@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-gigaam-212b191_tests.cmake")
+  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-gigaam-212b191_tests.cmake")
+else()
+  add_test(test-gigaam_NOT_BUILT-212b191 test-gigaam_NOT_BUILT-212b191)
+endif()

@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-moss-audio-0c994ef_tests.cmake")
+  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-moss-audio-0c994ef_tests.cmake")
+else()
+  add_test(test-moss-audio_NOT_BUILT-0c994ef test-moss-audio_NOT_BUILT-0c994ef)
+endif()

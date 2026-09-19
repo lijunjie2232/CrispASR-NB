@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-rvc-svc-32df929_tests.cmake")
+  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-rvc-svc-32df929_tests.cmake")
+else()
+  add_test(test-rvc-svc_NOT_BUILT-32df929 test-rvc-svc_NOT_BUILT-32df929)
+endif()

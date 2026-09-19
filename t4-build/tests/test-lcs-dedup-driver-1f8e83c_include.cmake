@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-lcs-dedup-driver-1f8e83c_tests.cmake")
+  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-lcs-dedup-driver-1f8e83c_tests.cmake")
+else()
+  add_test(test-lcs-dedup-driver_NOT_BUILT-1f8e83c test-lcs-dedup-driver_NOT_BUILT-1f8e83c)
+endif()

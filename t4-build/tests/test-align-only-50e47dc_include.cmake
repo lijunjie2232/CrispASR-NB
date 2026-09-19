@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-align-only-50e47dc_tests.cmake")
+  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-align-only-50e47dc_tests.cmake")
+else()
+  add_test(test-align-only_NOT_BUILT-50e47dc test-align-only_NOT_BUILT-50e47dc)
+endif()

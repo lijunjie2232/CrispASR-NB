@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-vad-keywords-e1392d2_tests.cmake")
+  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-vad-keywords-e1392d2_tests.cmake")
+else()
+  add_test(test-vad-keywords_NOT_BUILT-e1392d2 test-vad-keywords_NOT_BUILT-e1392d2)
+endif()

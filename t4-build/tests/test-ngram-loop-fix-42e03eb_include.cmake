@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-ngram-loop-fix-42e03eb_tests.cmake")
+  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-ngram-loop-fix-42e03eb_tests.cmake")
+else()
+  add_test(test-ngram-loop-fix_NOT_BUILT-42e03eb test-ngram-loop-fix_NOT_BUILT-42e03eb)
+endif()

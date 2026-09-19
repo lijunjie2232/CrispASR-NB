@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test_vibevoice_wav_ref-ffb5beb_tests.cmake")
+  include("/kaggle/working/CrispASR-T4/t4-build/tests/test_vibevoice_wav_ref-ffb5beb_tests.cmake")
+else()
+  add_test(test_vibevoice_wav_ref_NOT_BUILT-ffb5beb test_vibevoice_wav_ref_NOT_BUILT-ffb5beb)
+endif()

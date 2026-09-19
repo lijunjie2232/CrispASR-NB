@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-vad-load-failure-d7baade_tests.cmake")
+  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-vad-load-failure-d7baade_tests.cmake")
+else()
+  add_test(test-vad-load-failure_NOT_BUILT-d7baade test-vad-load-failure_NOT_BUILT-d7baade)
+endif()

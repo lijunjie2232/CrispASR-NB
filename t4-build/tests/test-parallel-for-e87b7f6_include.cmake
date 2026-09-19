@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-parallel-for-e87b7f6_tests.cmake")
+  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-parallel-for-e87b7f6_tests.cmake")
+else()
+  add_test(test-parallel-for_NOT_BUILT-e87b7f6 test-parallel-for_NOT_BUILT-e87b7f6)
+endif()

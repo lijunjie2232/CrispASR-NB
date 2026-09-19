@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-lfm2-audio-9607040_tests.cmake")
+  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-lfm2-audio-9607040_tests.cmake")
+else()
+  add_test(test-lfm2-audio_NOT_BUILT-9607040 test-lfm2-audio_NOT_BUILT-9607040)
+endif()

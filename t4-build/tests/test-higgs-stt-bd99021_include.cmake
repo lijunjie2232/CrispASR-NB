@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-higgs-stt-bd99021_tests.cmake")
+  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-higgs-stt-bd99021_tests.cmake")
+else()
+  add_test(test-higgs-stt_NOT_BUILT-bd99021 test-higgs-stt_NOT_BUILT-bd99021)
+endif()

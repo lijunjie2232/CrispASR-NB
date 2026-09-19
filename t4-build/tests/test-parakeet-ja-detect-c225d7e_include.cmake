@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-parakeet-ja-detect-c225d7e_tests.cmake")
+  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-parakeet-ja-detect-c225d7e_tests.cmake")
+else()
+  add_test(test-parakeet-ja-detect_NOT_BUILT-c225d7e test-parakeet-ja-detect_NOT_BUILT-c225d7e)
+endif()

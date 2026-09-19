@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-worker-pool-89b859c_tests.cmake")
+  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-worker-pool-89b859c_tests.cmake")
+else()
+  add_test(test-worker-pool_NOT_BUILT-89b859c test-worker-pool_NOT_BUILT-89b859c)
+endif()
