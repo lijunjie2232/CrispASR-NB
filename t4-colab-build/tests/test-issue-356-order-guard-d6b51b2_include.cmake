@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-issue-356-order-guard-d6b51b2_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-issue-356-order-guard-d6b51b2_tests.cmake")
-else()
-  add_test(test-issue-356-order-guard_NOT_BUILT-d6b51b2 test-issue-356-order-guard_NOT_BUILT-d6b51b2)
-endif()

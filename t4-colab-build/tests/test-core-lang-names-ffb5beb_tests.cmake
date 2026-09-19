@@ -1,7 +1,0 @@
-add_test( [==[core_lang: common 15 codes map identically]==] /content/CrispASR-NB/t4-colab-build/bin/test-core-lang-names [==[core_lang: common 15 codes map identically]==]  )
-set_tests_properties( [==[core_lang: common 15 codes map identically]==] PROPERTIES WORKING_DIRECTORY /content/CrispASR-NB/t4-colab-build/tests LABELS unit SKIP_RETURN_CODE 4)
-add_test( [==[core_lang: gemma4-only union codes (uk/vi)]==] /content/CrispASR-NB/t4-colab-build/bin/test-core-lang-names [==[core_lang: gemma4-only union codes (uk/vi)]==]  )
-set_tests_properties( [==[core_lang: gemma4-only union codes (uk/vi)]==] PROPERTIES WORKING_DIRECTORY /content/CrispASR-NB/t4-colab-build/tests LABELS unit SKIP_RETURN_CODE 4)
-add_test( [==[core_lang: unknown/spelled-out passthrough]==] /content/CrispASR-NB/t4-colab-build/bin/test-core-lang-names [==[core_lang: unknown/spelled-out passthrough]==]  )
-set_tests_properties( [==[core_lang: unknown/spelled-out passthrough]==] PROPERTIES WORKING_DIRECTORY /content/CrispASR-NB/t4-colab-build/tests LABELS unit SKIP_RETURN_CODE 4)
-set( test-core-lang-names_TESTS [==[core_lang: common 15 codes map identically]==] [==[core_lang: gemma4-only union codes (uk/vi)]==] [==[core_lang: unknown/spelled-out passthrough]==])

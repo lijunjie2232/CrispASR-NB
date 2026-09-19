@@ -1,5 +1,0 @@
-add_test( [==[nemo_lcs_merge matches NeMo's longest_common_subsequence_merge]==] /content/CrispASR-NB/t4-colab-build/bin/test-canary-chunk-merge [==[nemo_lcs_merge matches NeMo's longest_common_subsequence_merge]==]  )
-set_tests_properties( [==[nemo_lcs_merge matches NeMo's longest_common_subsequence_merge]==] PROPERTIES WORKING_DIRECTORY /content/CrispASR-NB/t4-colab-build/tests LABELS unit asr SKIP_RETURN_CODE 4)
-add_test( [==[optimal_chunk_samples matches NeMo's _find_optimal_chunk_size]==] /content/CrispASR-NB/t4-colab-build/bin/test-canary-chunk-merge [==[optimal_chunk_samples matches NeMo's _find_optimal_chunk_size]==]  )
-set_tests_properties( [==[optimal_chunk_samples matches NeMo's _find_optimal_chunk_size]==] PROPERTIES WORKING_DIRECTORY /content/CrispASR-NB/t4-colab-build/tests LABELS unit asr SKIP_RETURN_CODE 4)
-set( test-canary-chunk-merge_TESTS [==[nemo_lcs_merge matches NeMo's longest_common_subsequence_merge]==] [==[optimal_chunk_samples matches NeMo's _find_optimal_chunk_size]==])

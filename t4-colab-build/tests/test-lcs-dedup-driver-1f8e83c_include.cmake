@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-lcs-dedup-driver-1f8e83c_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-lcs-dedup-driver-1f8e83c_tests.cmake")
-else()
-  add_test(test-lcs-dedup-driver_NOT_BUILT-1f8e83c test-lcs-dedup-driver_NOT_BUILT-1f8e83c)
-endif()

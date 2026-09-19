@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-htdemucs-gates-95fe88f_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-htdemucs-gates-95fe88f_tests.cmake")
-else()
-  add_test(test-htdemucs-gates_NOT_BUILT-95fe88f test-htdemucs-gates_NOT_BUILT-95fe88f)
-endif()

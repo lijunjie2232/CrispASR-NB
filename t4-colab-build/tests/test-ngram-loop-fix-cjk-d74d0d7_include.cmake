@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-ngram-loop-fix-cjk-d74d0d7_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-ngram-loop-fix-cjk-d74d0d7_tests.cmake")
-else()
-  add_test(test-ngram-loop-fix-cjk_NOT_BUILT-d74d0d7 test-ngram-loop-fix-cjk_NOT_BUILT-d74d0d7)
-endif()

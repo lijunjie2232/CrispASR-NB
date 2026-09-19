@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-internal-chunking-gate-436d1a4_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-internal-chunking-gate-436d1a4_tests.cmake")
-else()
-  add_test(test-internal-chunking-gate_NOT_BUILT-436d1a4 test-internal-chunking-gate_NOT_BUILT-436d1a4)
-endif()

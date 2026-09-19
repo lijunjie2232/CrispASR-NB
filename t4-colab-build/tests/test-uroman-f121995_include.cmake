@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-uroman-f121995_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-uroman-f121995_tests.cmake")
-else()
-  add_test(test-uroman_NOT_BUILT-f121995 test-uroman_NOT_BUILT-f121995)
-endif()

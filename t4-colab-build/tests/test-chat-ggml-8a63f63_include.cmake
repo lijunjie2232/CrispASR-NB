@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-chat-ggml-8a63f63_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-chat-ggml-8a63f63_tests.cmake")
-else()
-  add_test(test-chat-ggml_NOT_BUILT-8a63f63 test-chat-ggml_NOT_BUILT-8a63f63)
-endif()

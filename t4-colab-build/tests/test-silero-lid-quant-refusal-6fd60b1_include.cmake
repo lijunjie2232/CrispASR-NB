@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-silero-lid-quant-refusal-6fd60b1_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-silero-lid-quant-refusal-6fd60b1_tests.cmake")
-else()
-  add_test(test-silero-lid-quant-refusal_NOT_BUILT-6fd60b1 test-silero-lid-quant-refusal_NOT_BUILT-6fd60b1)
-endif()

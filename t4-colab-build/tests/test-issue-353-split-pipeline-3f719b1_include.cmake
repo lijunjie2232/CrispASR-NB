@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-issue-353-split-pipeline-3f719b1_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-issue-353-split-pipeline-3f719b1_tests.cmake")
-else()
-  add_test(test-issue-353-split-pipeline_NOT_BUILT-3f719b1 test-issue-353-split-pipeline_NOT_BUILT-3f719b1)
-endif()

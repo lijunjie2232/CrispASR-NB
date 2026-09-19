@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-flash-attn-kv-view-1585646_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-flash-attn-kv-view-1585646_tests.cmake")
-else()
-  add_test(test-flash-attn-kv-view_NOT_BUILT-1585646 test-flash-attn-kv-view_NOT_BUILT-1585646)
-endif()

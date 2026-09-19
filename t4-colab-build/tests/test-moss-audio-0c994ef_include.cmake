@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-moss-audio-0c994ef_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-moss-audio-0c994ef_tests.cmake")
-else()
-  add_test(test-moss-audio_NOT_BUILT-0c994ef test-moss-audio_NOT_BUILT-0c994ef)
-endif()

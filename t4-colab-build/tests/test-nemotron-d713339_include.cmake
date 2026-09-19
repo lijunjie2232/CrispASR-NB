@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-nemotron-d713339_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-nemotron-d713339_tests.cmake")
-else()
-  add_test(test-nemotron_NOT_BUILT-d713339 test-nemotron_NOT_BUILT-d713339)
-endif()

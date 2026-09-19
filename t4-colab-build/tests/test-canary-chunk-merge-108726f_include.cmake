@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-canary-chunk-merge-108726f_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-canary-chunk-merge-108726f_tests.cmake")
-else()
-  add_test(test-canary-chunk-merge_NOT_BUILT-108726f test-canary-chunk-merge_NOT_BUILT-108726f)
-endif()

@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-vibevoice-enc-policy-d5b182f_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-vibevoice-enc-policy-d5b182f_tests.cmake")
-else()
-  add_test(test-vibevoice-enc-policy_NOT_BUILT-d5b182f test-vibevoice-enc-policy_NOT_BUILT-d5b182f)
-endif()

@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-worker-pool-89b859c_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-worker-pool-89b859c_tests.cmake")
-else()
-  add_test(test-worker-pool_NOT_BUILT-89b859c test-worker-pool_NOT_BUILT-89b859c)
-endif()

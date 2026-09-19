@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-subprocess-quoting-67d00cf_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-subprocess-quoting-67d00cf_tests.cmake")
-else()
-  add_test(test-subprocess-quoting_NOT_BUILT-67d00cf test-subprocess-quoting_NOT_BUILT-67d00cf)
-endif()

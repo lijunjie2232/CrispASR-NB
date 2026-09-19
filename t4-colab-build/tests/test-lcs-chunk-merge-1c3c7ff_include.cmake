@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-lcs-chunk-merge-1c3c7ff_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-lcs-chunk-merge-1c3c7ff_tests.cmake")
-else()
-  add_test(test-lcs-chunk-merge_NOT_BUILT-1c3c7ff test-lcs-chunk-merge_NOT_BUILT-1c3c7ff)
-endif()

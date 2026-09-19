@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-wespeaker-a429a3a_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-wespeaker-a429a3a_tests.cmake")
-else()
-  add_test(test-wespeaker_NOT_BUILT-a429a3a test-wespeaker_NOT_BUILT-a429a3a)
-endif()

@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-f5tts-params-ffb5beb_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-f5tts-params-ffb5beb_tests.cmake")
-else()
-  add_test(test-f5tts-params_NOT_BUILT-ffb5beb test-f5tts-params_NOT_BUILT-ffb5beb)
-endif()

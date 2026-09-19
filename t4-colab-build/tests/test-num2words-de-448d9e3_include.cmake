@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-num2words-de-448d9e3_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-num2words-de-448d9e3_tests.cmake")
-else()
-  add_test(test-num2words-de_NOT_BUILT-448d9e3 test-num2words-de_NOT_BUILT-448d9e3)
-endif()

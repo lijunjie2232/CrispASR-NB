@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-chatterbox-f0-simd-71d2ebf_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-chatterbox-f0-simd-71d2ebf_tests.cmake")
-else()
-  add_test(test-chatterbox-f0-simd_NOT_BUILT-71d2ebf test-chatterbox-f0-simd_NOT_BUILT-71d2ebf)
-endif()

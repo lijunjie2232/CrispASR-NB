@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-sidon-rpe-gates-d0e2398_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-sidon-rpe-gates-d0e2398_tests.cmake")
-else()
-  add_test(test-sidon-rpe-gates_NOT_BUILT-d0e2398 test-sidon-rpe-gates_NOT_BUILT-d0e2398)
-endif()

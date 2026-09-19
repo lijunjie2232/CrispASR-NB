@@ -1,5 +1,0 @@
-add_test( [==[math: M_PI is available and accurate]==] /content/CrispASR-NB/t4-colab-build/bin/test-math-consistency [==[math: M_PI is available and accurate]==]  )
-set_tests_properties( [==[math: M_PI is available and accurate]==] PROPERTIES WORKING_DIRECTORY /content/CrispASR-NB/t4-colab-build/tests LABELS unit SKIP_RETURN_CODE 4)
-add_test( [==[math: common trigonometric functions work]==] /content/CrispASR-NB/t4-colab-build/bin/test-math-consistency [==[math: common trigonometric functions work]==]  )
-set_tests_properties( [==[math: common trigonometric functions work]==] PROPERTIES WORKING_DIRECTORY /content/CrispASR-NB/t4-colab-build/tests LABELS unit SKIP_RETURN_CODE 4)
-set( test-math-consistency_TESTS [==[math: M_PI is available and accurate]==] [==[math: common trigonometric functions work]==])

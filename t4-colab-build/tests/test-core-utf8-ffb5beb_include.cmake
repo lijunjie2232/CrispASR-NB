@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-core-utf8-ffb5beb_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-core-utf8-ffb5beb_tests.cmake")
-else()
-  add_test(test-core-utf8_NOT_BUILT-ffb5beb test-core-utf8_NOT_BUILT-ffb5beb)
-endif()

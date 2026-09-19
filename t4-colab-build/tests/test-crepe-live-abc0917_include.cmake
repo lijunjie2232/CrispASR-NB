@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-crepe-live-abc0917_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-crepe-live-abc0917_tests.cmake")
-else()
-  add_test(test-crepe-live_NOT_BUILT-abc0917 test-crepe-live_NOT_BUILT-abc0917)
-endif()

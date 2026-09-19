@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-ark-asr-008b59f_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-ark-asr-008b59f_tests.cmake")
-else()
-  add_test(test-ark-asr_NOT_BUILT-008b59f test-ark-asr_NOT_BUILT-008b59f)
-endif()

@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-vad-failover-cb0579e_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-vad-failover-cb0579e_tests.cmake")
-else()
-  add_test(test-vad-failover_NOT_BUILT-cb0579e test-vad-failover_NOT_BUILT-cb0579e)
-endif()

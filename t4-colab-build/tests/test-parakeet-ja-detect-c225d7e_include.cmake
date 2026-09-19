@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-parakeet-ja-detect-c225d7e_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-parakeet-ja-detect-c225d7e_tests.cmake")
-else()
-  add_test(test-parakeet-ja-detect_NOT_BUILT-c225d7e test-parakeet-ja-detect_NOT_BUILT-c225d7e)
-endif()

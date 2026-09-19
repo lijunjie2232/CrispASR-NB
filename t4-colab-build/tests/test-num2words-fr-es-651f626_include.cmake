@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-num2words-fr-es-651f626_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-num2words-fr-es-651f626_tests.cmake")
-else()
-  add_test(test-num2words-fr-es_NOT_BUILT-651f626 test-num2words-fr-es_NOT_BUILT-651f626)
-endif()

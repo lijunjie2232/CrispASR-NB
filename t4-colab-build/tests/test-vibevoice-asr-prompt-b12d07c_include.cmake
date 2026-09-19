@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-vibevoice-asr-prompt-b12d07c_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-vibevoice-asr-prompt-b12d07c_tests.cmake")
-else()
-  add_test(test-vibevoice-asr-prompt_NOT_BUILT-b12d07c test-vibevoice-asr-prompt_NOT_BUILT-b12d07c)
-endif()

@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-session-autochunk-3fc302c_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-session-autochunk-3fc302c_tests.cmake")
-else()
-  add_test(test-session-autochunk_NOT_BUILT-3fc302c test-session-autochunk_NOT_BUILT-3fc302c)
-endif()

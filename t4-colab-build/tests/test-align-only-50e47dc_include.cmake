@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-align-only-50e47dc_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-align-only-50e47dc_tests.cmake")
-else()
-  add_test(test-align-only_NOT_BUILT-50e47dc test-align-only_NOT_BUILT-50e47dc)
-endif()

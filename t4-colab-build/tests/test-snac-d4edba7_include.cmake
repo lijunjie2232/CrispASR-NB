@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-snac-d4edba7_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-snac-d4edba7_tests.cmake")
-else()
-  add_test(test-snac_NOT_BUILT-d4edba7 test-snac_NOT_BUILT-d4edba7)
-endif()

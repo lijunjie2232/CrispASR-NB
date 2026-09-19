@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-cpu-backend-shim-e480f04_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-cpu-backend-shim-e480f04_tests.cmake")
-else()
-  add_test(test-cpu-backend-shim_NOT_BUILT-e480f04 test-cpu-backend-shim_NOT_BUILT-e480f04)
-endif()

@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-issue-89-long-audio-fallback-91022cb_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-issue-89-long-audio-fallback-91022cb_tests.cmake")
-else()
-  add_test(test-issue-89-long-audio-fallback_NOT_BUILT-91022cb test-issue-89-long-audio-fallback_NOT_BUILT-91022cb)
-endif()

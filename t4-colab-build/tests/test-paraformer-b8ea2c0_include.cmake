@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-paraformer-b8ea2c0_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-paraformer-b8ea2c0_tests.cmake")
-else()
-  add_test(test-paraformer_NOT_BUILT-b8ea2c0 test-paraformer_NOT_BUILT-b8ea2c0)
-endif()

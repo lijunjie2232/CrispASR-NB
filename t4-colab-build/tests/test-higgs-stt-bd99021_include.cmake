@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-higgs-stt-bd99021_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-higgs-stt-bd99021_tests.cmake")
-else()
-  add_test(test-higgs-stt_NOT_BUILT-bd99021 test-higgs-stt_NOT_BUILT-bd99021)
-endif()

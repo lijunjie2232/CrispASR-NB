@@ -1,5 +1,0 @@
-if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-diarize-slice-rewalk-ccbd252_tests.cmake")
-  include("/content/CrispASR-NB/t4-colab-build/tests/test-diarize-slice-rewalk-ccbd252_tests.cmake")
-else()
-  add_test(test-diarize-slice-rewalk_NOT_BUILT-ccbd252 test-diarize-slice-rewalk_NOT_BUILT-ccbd252)
-endif()
