@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-audio-formats-d4ac18e_tests.cmake")
-  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-audio-formats-d4ac18e_tests.cmake")
-else()
-  add_test(test-audio-formats_NOT_BUILT-d4ac18e test-audio-formats_NOT_BUILT-d4ac18e)
-endif()

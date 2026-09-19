@@ -1,7 +1,0 @@
-add_test( [==[core_istft: matches independent full-DFT reference (fuzz)]==] /kaggle/working/CrispASR-T4/t4-build/bin/test-core-istft [==[core_istft: matches independent full-DFT reference (fuzz)]==]  )
-set_tests_properties( [==[core_istft: matches independent full-DFT reference (fuzz)]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-T4/t4-build/tests LABELS unit SKIP_RETURN_CODE 4)
-add_test( [==[core_istft: forward-STFT → iSTFT recovers a sinusoid (round-trip)]==] /kaggle/working/CrispASR-T4/t4-build/bin/test-core-istft [==[core_istft: forward-STFT → iSTFT recovers a sinusoid (round-trip)]==]  )
-set_tests_properties( [==[core_istft: forward-STFT → iSTFT recovers a sinusoid (round-trip)]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-T4/t4-build/tests LABELS unit SKIP_RETURN_CODE 4)
-add_test( [==[core_istft: zero_below_eps zeroes edge samples (kokoro vs outetts)]==] /kaggle/working/CrispASR-T4/t4-build/bin/test-core-istft [==[core_istft: zero_below_eps zeroes edge samples (kokoro vs outetts)]==]  )
-set_tests_properties( [==[core_istft: zero_below_eps zeroes edge samples (kokoro vs outetts)]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-T4/t4-build/tests LABELS unit SKIP_RETURN_CODE 4)
-set( test-core-istft_TESTS [==[core_istft: matches independent full-DFT reference (fuzz)]==] [==[core_istft: forward-STFT → iSTFT recovers a sinusoid (round-trip)]==] [==[core_istft: zero_below_eps zeroes edge samples (kokoro vs outetts)]==])

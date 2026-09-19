@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-cpu-backend-shim-e480f04_tests.cmake")
-  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-cpu-backend-shim-e480f04_tests.cmake")
-else()
-  add_test(test-cpu-backend-shim_NOT_BUILT-e480f04 test-cpu-backend-shim_NOT_BUILT-e480f04)
-endif()

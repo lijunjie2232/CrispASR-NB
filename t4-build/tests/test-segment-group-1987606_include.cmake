@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-segment-group-1987606_tests.cmake")
-  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-segment-group-1987606_tests.cmake")
-else()
-  add_test(test-segment-group_NOT_BUILT-1987606 test-segment-group_NOT_BUILT-1987606)
-endif()

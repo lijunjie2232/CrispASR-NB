@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-granitespeech-params-ffb5beb_tests.cmake")
-  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-granitespeech-params-ffb5beb_tests.cmake")
-else()
-  add_test(test-granitespeech-params_NOT_BUILT-ffb5beb test-granitespeech-params_NOT_BUILT-ffb5beb)
-endif()

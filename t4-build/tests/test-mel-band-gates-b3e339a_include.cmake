@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-mel-band-gates-b3e339a_tests.cmake")
-  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-mel-band-gates-b3e339a_tests.cmake")
-else()
-  add_test(test-mel-band-gates_NOT_BUILT-b3e339a test-mel-band-gates_NOT_BUILT-b3e339a)
-endif()

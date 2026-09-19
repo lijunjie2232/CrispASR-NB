@@ -1,7 +1,0 @@
-add_test( [==[every duplicated implementation is in sync]==] /kaggle/working/CrispASR-T4/t4-build/bin/test-copies-in-sync [==[every duplicated implementation is in sync]==]  )
-set_tests_properties( [==[every duplicated implementation is in sync]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-T4/t4-build/tests LABELS unit SKIP_RETURN_CODE 4)
-add_test( [==[the sync list covers every file that exists twice]==] /kaggle/working/CrispASR-T4/t4-build/bin/test-copies-in-sync [==[the sync list covers every file that exists twice]==]  )
-set_tests_properties( [==[the sync list covers every file that exists twice]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-T4/t4-build/tests LABELS unit SKIP_RETURN_CODE 4)
-add_test( [==[both copies carry the #308 capitalisation guard]==] /kaggle/working/CrispASR-T4/t4-build/bin/test-copies-in-sync [==[both copies carry the #308 capitalisation guard]==]  )
-set_tests_properties( [==[both copies carry the #308 capitalisation guard]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-T4/t4-build/tests LABELS unit SKIP_RETURN_CODE 4)
-set( test-copies-in-sync_TESTS [==[every duplicated implementation is in sync]==] [==[the sync list covers every file that exists twice]==] [==[both copies carry the #308 capitalisation guard]==])

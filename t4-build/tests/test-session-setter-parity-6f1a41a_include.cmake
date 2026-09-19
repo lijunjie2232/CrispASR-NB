@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-session-setter-parity-6f1a41a_tests.cmake")
-  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-session-setter-parity-6f1a41a_tests.cmake")
-else()
-  add_test(test-session-setter-parity_NOT_BUILT-6f1a41a test-session-setter-parity_NOT_BUILT-6f1a41a)
-endif()

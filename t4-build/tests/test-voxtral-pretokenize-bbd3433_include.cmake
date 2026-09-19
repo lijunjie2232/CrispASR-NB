@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-voxtral-pretokenize-bbd3433_tests.cmake")
-  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-voxtral-pretokenize-bbd3433_tests.cmake")
-else()
-  add_test(test-voxtral-pretokenize_NOT_BUILT-bbd3433 test-voxtral-pretokenize_NOT_BUILT-bbd3433)
-endif()

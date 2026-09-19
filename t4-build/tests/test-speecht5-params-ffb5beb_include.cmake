@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-speecht5-params-ffb5beb_tests.cmake")
-  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-speecht5-params-ffb5beb_tests.cmake")
-else()
-  add_test(test-speecht5-params_NOT_BUILT-ffb5beb test-speecht5-params_NOT_BUILT-ffb5beb)
-endif()

@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-issue-239-popen-mode-4babfaf_tests.cmake")
-  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-issue-239-popen-mode-4babfaf_tests.cmake")
-else()
-  add_test(test-issue-239-popen-mode_NOT_BUILT-4babfaf test-issue-239-popen-mode_NOT_BUILT-4babfaf)
-endif()

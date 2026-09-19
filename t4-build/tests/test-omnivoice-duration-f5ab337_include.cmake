@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-omnivoice-duration-f5ab337_tests.cmake")
-  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-omnivoice-duration-f5ab337_tests.cmake")
-else()
-  add_test(test-omnivoice-duration_NOT_BUILT-f5ab337 test-omnivoice-duration_NOT_BUILT-f5ab337)
-endif()

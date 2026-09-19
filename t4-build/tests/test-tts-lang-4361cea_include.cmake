@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-tts-lang-4361cea_tests.cmake")
-  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-tts-lang-4361cea_tests.cmake")
-else()
-  add_test(test-tts-lang_NOT_BUILT-4361cea test-tts-lang_NOT_BUILT-4361cea)
-endif()

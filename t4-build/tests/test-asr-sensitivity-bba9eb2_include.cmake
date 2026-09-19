@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-asr-sensitivity-bba9eb2_tests.cmake")
-  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-asr-sensitivity-bba9eb2_tests.cmake")
-else()
-  add_test(test-asr-sensitivity_NOT_BUILT-bba9eb2 test-asr-sensitivity_NOT_BUILT-bba9eb2)
-endif()

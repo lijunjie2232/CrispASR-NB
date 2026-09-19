@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-glint-simd-detect-33bc88f_tests.cmake")
-  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-glint-simd-detect-33bc88f_tests.cmake")
-else()
-  add_test(test-glint-simd-detect_NOT_BUILT-33bc88f test-glint-simd-detect_NOT_BUILT-33bc88f)
-endif()

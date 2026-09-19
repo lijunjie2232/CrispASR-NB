@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-script-mismatch-95f221c_tests.cmake")
-  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-script-mismatch-95f221c_tests.cmake")
-else()
-  add_test(test-script-mismatch_NOT_BUILT-95f221c test-script-mismatch_NOT_BUILT-95f221c)
-endif()

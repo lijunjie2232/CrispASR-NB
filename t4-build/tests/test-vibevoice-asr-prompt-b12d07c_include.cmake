@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-vibevoice-asr-prompt-b12d07c_tests.cmake")
-  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-vibevoice-asr-prompt-b12d07c_tests.cmake")
-else()
-  add_test(test-vibevoice-asr-prompt_NOT_BUILT-b12d07c test-vibevoice-asr-prompt_NOT_BUILT-b12d07c)
-endif()

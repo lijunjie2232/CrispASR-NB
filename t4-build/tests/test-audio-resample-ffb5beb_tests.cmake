@@ -1,7 +1,0 @@
-add_test( [==[polyphase resampling preserves DC gain]==] /kaggle/working/CrispASR-T4/t4-build/bin/test-audio-resample [==[polyphase resampling preserves DC gain]==]  )
-set_tests_properties( [==[polyphase resampling preserves DC gain]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-T4/t4-build/tests LABELS unit SKIP_RETURN_CODE 4)
-add_test( [==[polyphase resampling is ripple-free on a constant input]==] /kaggle/working/CrispASR-T4/t4-build/bin/test-audio-resample [==[polyphase resampling is ripple-free on a constant input]==]  )
-set_tests_properties( [==[polyphase resampling is ripple-free on a constant input]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-T4/t4-build/tests LABELS unit SKIP_RETURN_CODE 4)
-add_test( [==[polyphase resampling bounds the expansion ratio]==] /kaggle/working/CrispASR-T4/t4-build/bin/test-audio-resample [==[polyphase resampling bounds the expansion ratio]==]  )
-set_tests_properties( [==[polyphase resampling bounds the expansion ratio]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-T4/t4-build/tests LABELS unit SKIP_RETURN_CODE 4)
-set( test-audio-resample_TESTS [==[polyphase resampling preserves DC gain]==] [==[polyphase resampling is ripple-free on a constant input]==] [==[polyphase resampling bounds the expansion ratio]==])

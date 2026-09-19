@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-paraformer-b8ea2c0_tests.cmake")
-  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-paraformer-b8ea2c0_tests.cmake")
-else()
-  add_test(test-paraformer_NOT_BUILT-b8ea2c0 test-paraformer_NOT_BUILT-b8ea2c0)
-endif()

@@ -1,7 +1,0 @@
-add_test( [==[every --vad-model keyword the resolver accepts is advertised]==] /kaggle/working/CrispASR-T4/t4-build/bin/test-vad-keywords [==[every --vad-model keyword the resolver accepts is advertised]==]  )
-set_tests_properties( [==[every --vad-model keyword the resolver accepts is advertised]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-T4/t4-build/tests LABELS unit vad-keywords SKIP_RETURN_CODE 4)
-add_test( [==[the resolver still accepts every advertised keyword]==] /kaggle/working/CrispASR-T4/t4-build/bin/test-vad-keywords [==[the resolver still accepts every advertised keyword]==]  )
-set_tests_properties( [==[the resolver still accepts every advertised keyword]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-T4/t4-build/tests LABELS unit vad-keywords SKIP_RETURN_CODE 4)
-add_test( [==[the help line consumes the shared keyword string]==] /kaggle/working/CrispASR-T4/t4-build/bin/test-vad-keywords [==[the help line consumes the shared keyword string]==]  )
-set_tests_properties( [==[the help line consumes the shared keyword string]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-T4/t4-build/tests LABELS unit vad-keywords SKIP_RETURN_CODE 4)
-set( test-vad-keywords_TESTS [==[every --vad-model keyword the resolver accepts is advertised]==] [==[the resolver still accepts every advertised keyword]==] [==[the help line consumes the shared keyword string]==])

@@ -1,7 +1,0 @@
-add_test( [==[backends with a phonemes-in entry point are accepted]==] /kaggle/working/CrispASR-T4/t4-build/bin/test-tts-phonemes-policy [==[backends with a phonemes-in entry point are accepted]==]  )
-set_tests_properties( [==[backends with a phonemes-in entry point are accepted]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-T4/t4-build/tests LABELS unit SKIP_RETURN_CODE 4)
-add_test( [==[every other TTS backend is refused]==] /kaggle/working/CrispASR-T4/t4-build/bin/test-tts-phonemes-policy [==[every other TTS backend is refused]==]  )
-set_tests_properties( [==[every other TTS backend is refused]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-T4/t4-build/tests LABELS unit SKIP_RETURN_CODE 4)
-add_test( [==[the refusal names the backend and the alternatives]==] /kaggle/working/CrispASR-T4/t4-build/bin/test-tts-phonemes-policy [==[the refusal names the backend and the alternatives]==]  )
-set_tests_properties( [==[the refusal names the backend and the alternatives]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-T4/t4-build/tests LABELS unit SKIP_RETURN_CODE 4)
-set( test-tts-phonemes-policy_TESTS [==[backends with a phonemes-in entry point are accepted]==] [==[every other TTS backend is refused]==] [==[the refusal names the backend and the alternatives]==])

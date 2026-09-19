@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-speech-window-f2d7255_tests.cmake")
-  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-speech-window-f2d7255_tests.cmake")
-else()
-  add_test(test-speech-window_NOT_BUILT-f2d7255 test-speech-window_NOT_BUILT-f2d7255)
-endif()

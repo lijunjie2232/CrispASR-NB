@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-registry-ffb5beb_tests.cmake")
-  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-registry-ffb5beb_tests.cmake")
-else()
-  add_test(test-registry_NOT_BUILT-ffb5beb test-registry_NOT_BUILT-ffb5beb)
-endif()

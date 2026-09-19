@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-T4/t4-build/tests/test-campplus-segpool-3c970ca_tests.cmake")
-  include("/kaggle/working/CrispASR-T4/t4-build/tests/test-campplus-segpool-3c970ca_tests.cmake")
-else()
-  add_test(test-campplus-segpool_NOT_BUILT-3c970ca test-campplus-segpool_NOT_BUILT-3c970ca)
-endif()

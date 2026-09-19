@@ -1,5 +1,0 @@
-add_test( [==[an explicitly-requested VAD that fails to resolve reports load failure]==] /kaggle/working/CrispASR-T4/t4-build/bin/test-vad-load-failure [==[an explicitly-requested VAD that fails to resolve reports load failure]==]  )
-set_tests_properties( [==[an explicitly-requested VAD that fails to resolve reports load failure]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-T4/t4-build/tests LABELS unit vad-load-failure SKIP_RETURN_CODE 4)
-add_test( [==[the #311 strict guard still keys off the load-failed flag]==] /kaggle/working/CrispASR-T4/t4-build/bin/test-vad-load-failure [==[the #311 strict guard still keys off the load-failed flag]==]  )
-set_tests_properties( [==[the #311 strict guard still keys off the load-failed flag]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-T4/t4-build/tests LABELS unit vad-load-failure SKIP_RETURN_CODE 4)
-set( test-vad-load-failure_TESTS [==[an explicitly-requested VAD that fails to resolve reports load failure]==] [==[the #311 strict guard still keys off the load-failed flag]==])
