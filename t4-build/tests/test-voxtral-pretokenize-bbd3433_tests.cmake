@@ -1,0 +1,7 @@
+add_test( [==[tekken pre-tokenizer matches the published regex]==] /kaggle/working/CrispASR-T4/t4-build/bin/test-voxtral-pretokenize [==[tekken pre-tokenizer matches the published regex]==]  )
+set_tests_properties( [==[tekken pre-tokenizer matches the published regex]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-T4 LABELS unit SKIP_RETURN_CODE 4)
+add_test( [==[pre-tokenizer is total: pieces always rejoin to the input]==] /kaggle/working/CrispASR-T4/t4-build/bin/test-voxtral-pretokenize [==[pre-tokenizer is total: pieces always rejoin to the input]==]  )
+set_tests_properties( [==[pre-tokenizer is total: pieces always rejoin to the input]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-T4 LABELS unit SKIP_RETURN_CODE 4)
+add_test( [==[pre-tokenizer terminates on malformed UTF-8]==] /kaggle/working/CrispASR-T4/t4-build/bin/test-voxtral-pretokenize [==[pre-tokenizer terminates on malformed UTF-8]==]  )
+set_tests_properties( [==[pre-tokenizer terminates on malformed UTF-8]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-T4 LABELS unit SKIP_RETURN_CODE 4)
+set( test-voxtral-pretokenize_TESTS [==[tekken pre-tokenizer matches the published regex]==] [==[pre-tokenizer is total: pieces always rejoin to the input]==] [==[pre-tokenizer terminates on malformed UTF-8]==])

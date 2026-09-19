@@ -1,0 +1,5 @@
+add_test( [==[pinyin g2p parity vs pypinyin reference]==] /kaggle/working/CrispASR-T4/t4-build/bin/test-pinyin-g2p [==[pinyin g2p parity vs pypinyin reference]==]  )
+set_tests_properties( [==[pinyin g2p parity vs pypinyin reference]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-T4/t4-build/tests LABELS unit SKIP_RETURN_CODE 4)
+add_test( [==[pinyin g2p: has_han + ascii passthrough is unaffected]==] /kaggle/working/CrispASR-T4/t4-build/bin/test-pinyin-g2p [==[pinyin g2p: has_han + ascii passthrough is unaffected]==]  )
+set_tests_properties( [==[pinyin g2p: has_han + ascii passthrough is unaffected]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-T4/t4-build/tests LABELS unit SKIP_RETURN_CODE 4)
+set( test-pinyin-g2p_TESTS [==[pinyin g2p parity vs pypinyin reference]==] [==[pinyin g2p: has_han + ascii passthrough is unaffected]==])

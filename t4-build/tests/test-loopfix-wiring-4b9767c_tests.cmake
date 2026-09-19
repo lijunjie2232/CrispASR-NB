@@ -1,0 +1,7 @@
+add_test( [==[every AR CLI adapter on the list calls core_ngram::fix_loops]==] /kaggle/working/CrispASR-T4/t4-build/bin/test-loopfix-wiring [==[every AR CLI adapter on the list calls core_ngram::fix_loops]==]  )
+set_tests_properties( [==[every AR CLI adapter on the list calls core_ngram::fix_loops]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-T4/t4-build/tests LABELS unit ngram-loop SKIP_RETURN_CODE 4)
+add_test( [==[the shared collapse header is not silently unreferenced]==] /kaggle/working/CrispASR-T4/t4-build/bin/test-loopfix-wiring [==[the shared collapse header is not silently unreferenced]==]  )
+set_tests_properties( [==[the shared collapse header is not silently unreferenced]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-T4/t4-build/tests LABELS unit ngram-loop SKIP_RETURN_CODE 4)
+add_test( [==[firered-asr's decode-time break is not mistaken for the collapse]==] /kaggle/working/CrispASR-T4/t4-build/bin/test-loopfix-wiring [==[firered-asr's decode-time break is not mistaken for the collapse]==]  )
+set_tests_properties( [==[firered-asr's decode-time break is not mistaken for the collapse]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-T4/t4-build/tests LABELS unit ngram-loop SKIP_RETURN_CODE 4)
+set( test-loopfix-wiring_TESTS [==[every AR CLI adapter on the list calls core_ngram::fix_loops]==] [==[the shared collapse header is not silently unreferenced]==] [==[firered-asr's decode-time break is not mistaken for the collapse]==])
