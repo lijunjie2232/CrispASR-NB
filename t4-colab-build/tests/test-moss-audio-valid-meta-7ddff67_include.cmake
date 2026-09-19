@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-moss-audio-valid-meta-7ddff67_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-moss-audio-valid-meta-7ddff67_tests.cmake")
+else()
+  add_test(test-moss-audio-valid-meta_NOT_BUILT-7ddff67 test-moss-audio-valid-meta_NOT_BUILT-7ddff67)
+endif()

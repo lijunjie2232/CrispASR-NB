@@ -1,0 +1,7 @@
+add_test( [==[polyphase resampling preserves DC gain]==] /content/CrispASR-NB/t4-colab-build/bin/test-audio-resample [==[polyphase resampling preserves DC gain]==]  )
+set_tests_properties( [==[polyphase resampling preserves DC gain]==] PROPERTIES WORKING_DIRECTORY /content/CrispASR-NB/t4-colab-build/tests LABELS unit SKIP_RETURN_CODE 4)
+add_test( [==[polyphase resampling is ripple-free on a constant input]==] /content/CrispASR-NB/t4-colab-build/bin/test-audio-resample [==[polyphase resampling is ripple-free on a constant input]==]  )
+set_tests_properties( [==[polyphase resampling is ripple-free on a constant input]==] PROPERTIES WORKING_DIRECTORY /content/CrispASR-NB/t4-colab-build/tests LABELS unit SKIP_RETURN_CODE 4)
+add_test( [==[polyphase resampling bounds the expansion ratio]==] /content/CrispASR-NB/t4-colab-build/bin/test-audio-resample [==[polyphase resampling bounds the expansion ratio]==]  )
+set_tests_properties( [==[polyphase resampling bounds the expansion ratio]==] PROPERTIES WORKING_DIRECTORY /content/CrispASR-NB/t4-colab-build/tests LABELS unit SKIP_RETURN_CODE 4)
+set( test-audio-resample_TESTS [==[polyphase resampling preserves DC gain]==] [==[polyphase resampling is ripple-free on a constant input]==] [==[polyphase resampling bounds the expansion ratio]==])

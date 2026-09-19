@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-parakeet-longform-97b98a4_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-parakeet-longform-97b98a4_tests.cmake")
+else()
+  add_test(test-parakeet-longform_NOT_BUILT-97b98a4 test-parakeet-longform_NOT_BUILT-97b98a4)
+endif()

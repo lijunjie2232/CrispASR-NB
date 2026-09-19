@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-issue-150-cjk-fallback-b66ee44_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-issue-150-cjk-fallback-b66ee44_tests.cmake")
+else()
+  add_test(test-issue-150-cjk-fallback_NOT_BUILT-b66ee44 test-issue-150-cjk-fallback_NOT_BUILT-b66ee44)
+endif()

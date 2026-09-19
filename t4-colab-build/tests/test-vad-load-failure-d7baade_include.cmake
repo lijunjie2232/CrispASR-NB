@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-vad-load-failure-d7baade_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-vad-load-failure-d7baade_tests.cmake")
+else()
+  add_test(test-vad-load-failure_NOT_BUILT-d7baade test-vad-load-failure_NOT_BUILT-d7baade)
+endif()

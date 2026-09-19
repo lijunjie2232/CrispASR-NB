@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-vad-boundaries-ffb5beb_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-vad-boundaries-ffb5beb_tests.cmake")
+else()
+  add_test(test-vad-boundaries_NOT_BUILT-ffb5beb test-vad-boundaries_NOT_BUILT-ffb5beb)
+endif()

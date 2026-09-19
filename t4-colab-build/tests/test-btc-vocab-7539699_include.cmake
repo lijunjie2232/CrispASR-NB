@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-btc-vocab-7539699_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-btc-vocab-7539699_tests.cmake")
+else()
+  add_test(test-btc-vocab_NOT_BUILT-7539699 test-btc-vocab_NOT_BUILT-7539699)
+endif()

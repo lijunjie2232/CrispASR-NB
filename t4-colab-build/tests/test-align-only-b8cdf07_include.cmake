@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-align-only-b8cdf07_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-align-only-b8cdf07_tests.cmake")
+else()
+  add_test(test-align-only_NOT_BUILT-b8cdf07 test-align-only_NOT_BUILT-b8cdf07)
+endif()

@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-campplus-segpool-3c970ca_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-campplus-segpool-3c970ca_tests.cmake")
+else()
+  add_test(test-campplus-segpool_NOT_BUILT-3c970ca test-campplus-segpool_NOT_BUILT-3c970ca)
+endif()

@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-gguf-null-backend-bff908f_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-gguf-null-backend-bff908f_tests.cmake")
+else()
+  add_test(test-gguf-null-backend_NOT_BUILT-bff908f test-gguf-null-backend_NOT_BUILT-bff908f)
+endif()

@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-moss-transcribe-b036383_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-moss-transcribe-b036383_tests.cmake")
+else()
+  add_test(test-moss-transcribe_NOT_BUILT-b036383 test-moss-transcribe_NOT_BUILT-b036383)
+endif()

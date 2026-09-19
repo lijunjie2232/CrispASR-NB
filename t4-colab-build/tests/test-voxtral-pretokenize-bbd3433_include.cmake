@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-voxtral-pretokenize-bbd3433_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-voxtral-pretokenize-bbd3433_tests.cmake")
+else()
+  add_test(test-voxtral-pretokenize_NOT_BUILT-bbd3433 test-voxtral-pretokenize_NOT_BUILT-bbd3433)
+endif()

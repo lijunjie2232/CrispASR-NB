@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-btc-chords-4580ed7_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-btc-chords-4580ed7_tests.cmake")
+else()
+  add_test(test-btc-chords_NOT_BUILT-4580ed7 test-btc-chords_NOT_BUILT-4580ed7)
+endif()

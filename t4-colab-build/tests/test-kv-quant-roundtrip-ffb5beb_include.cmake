@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-kv-quant-roundtrip-ffb5beb_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-kv-quant-roundtrip-ffb5beb_tests.cmake")
+else()
+  add_test(test-kv-quant-roundtrip_NOT_BUILT-ffb5beb test-kv-quant-roundtrip_NOT_BUILT-ffb5beb)
+endif()

@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-confucius4-tts-params-ffb5beb_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-confucius4-tts-params-ffb5beb_tests.cmake")
+else()
+  add_test(test-confucius4-tts-params_NOT_BUILT-ffb5beb test-confucius4-tts-params_NOT_BUILT-ffb5beb)
+endif()

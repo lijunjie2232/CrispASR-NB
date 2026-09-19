@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-asr-parity-1af3a87_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-asr-parity-1af3a87_tests.cmake")
+else()
+  add_test(test-asr-parity_NOT_BUILT-1af3a87 test-asr-parity_NOT_BUILT-1af3a87)
+endif()

@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-htdemucs-binbcast-95fe88f_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-htdemucs-binbcast-95fe88f_tests.cmake")
+else()
+  add_test(test-htdemucs-binbcast_NOT_BUILT-95fe88f test-htdemucs-binbcast_NOT_BUILT-95fe88f)
+endif()

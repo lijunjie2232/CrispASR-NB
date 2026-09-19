@@ -1,0 +1,7 @@
+add_test( [==[core_rvq::encode_euclidean matches full-distance reference]==] /content/CrispASR-NB/t4-colab-build/bin/test-core-rvq [==[core_rvq::encode_euclidean matches full-distance reference]==]  )
+set_tests_properties( [==[core_rvq::encode_euclidean matches full-distance reference]==] PROPERTIES WORKING_DIRECTORY /content/CrispASR-NB/t4-colab-build/tests LABELS unit SKIP_RETURN_CODE 4)
+add_test( [==[core_rvq::encode_euclidean_per_stage matches the scalar reference (kyutai §176l layout)]==] /content/CrispASR-NB/t4-colab-build/bin/test-core-rvq [==[core_rvq::encode_euclidean_per_stage matches the scalar reference (kyutai §176l layout)]==]  )
+set_tests_properties( [==[core_rvq::encode_euclidean_per_stage matches the scalar reference (kyutai §176l layout)]==] PROPERTIES WORKING_DIRECTORY /content/CrispASR-NB/t4-colab-build/tests LABELS unit SKIP_RETURN_CODE 4)
+add_test( [==[core_rvq::encode_euclidean rejects malformed input]==] /content/CrispASR-NB/t4-colab-build/bin/test-core-rvq [==[core_rvq::encode_euclidean rejects malformed input]==]  )
+set_tests_properties( [==[core_rvq::encode_euclidean rejects malformed input]==] PROPERTIES WORKING_DIRECTORY /content/CrispASR-NB/t4-colab-build/tests LABELS unit SKIP_RETURN_CODE 4)
+set( test-core-rvq_TESTS [==[core_rvq::encode_euclidean matches full-distance reference]==] [==[core_rvq::encode_euclidean_per_stage matches the scalar reference (kyutai §176l layout)]==] [==[core_rvq::encode_euclidean rejects malformed input]==])

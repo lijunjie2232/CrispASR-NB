@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-tabcnn-436e84c_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-tabcnn-436e84c_tests.cmake")
+else()
+  add_test(test-tabcnn_NOT_BUILT-436e84c test-tabcnn_NOT_BUILT-436e84c)
+endif()

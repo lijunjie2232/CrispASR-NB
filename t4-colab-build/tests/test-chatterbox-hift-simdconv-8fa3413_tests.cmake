@@ -1,0 +1,7 @@
+add_test( [==[Chatterbox HiFT SIMDCONV scalar matches symmetric Conv1d]==] /content/CrispASR-NB/t4-colab-build/bin/test-chatterbox-hift-simdconv [==[Chatterbox HiFT SIMDCONV scalar matches symmetric Conv1d]==]  )
+set_tests_properties( [==[Chatterbox HiFT SIMDCONV scalar matches symmetric Conv1d]==] PROPERTIES WORKING_DIRECTORY /content/CrispASR-NB/t4-colab-build/tests LABELS unit tts chatterbox SKIP_RETURN_CODE 4)
+add_test( [==[Chatterbox HiFT SIMDCONV SIMD is bit-identical to scalar]==] /content/CrispASR-NB/t4-colab-build/bin/test-chatterbox-hift-simdconv [==[Chatterbox HiFT SIMDCONV SIMD is bit-identical to scalar]==]  )
+set_tests_properties( [==[Chatterbox HiFT SIMDCONV SIMD is bit-identical to scalar]==] PROPERTIES WORKING_DIRECTORY /content/CrispASR-NB/t4-colab-build/tests LABELS unit tts chatterbox SKIP_RETURN_CODE 4)
+add_test( [==[Chatterbox HiFT SIMDCONV falls back for an unaligned channel count]==] /content/CrispASR-NB/t4-colab-build/bin/test-chatterbox-hift-simdconv [==[Chatterbox HiFT SIMDCONV falls back for an unaligned channel count]==]  )
+set_tests_properties( [==[Chatterbox HiFT SIMDCONV falls back for an unaligned channel count]==] PROPERTIES WORKING_DIRECTORY /content/CrispASR-NB/t4-colab-build/tests LABELS unit tts chatterbox SKIP_RETURN_CODE 4)
+set( test-chatterbox-hift-simdconv_TESTS [==[Chatterbox HiFT SIMDCONV scalar matches symmetric Conv1d]==] [==[Chatterbox HiFT SIMDCONV SIMD is bit-identical to scalar]==] [==[Chatterbox HiFT SIMDCONV falls back for an unaligned channel count]==])

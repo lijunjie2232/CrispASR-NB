@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-sidon-live-d0e2398_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-sidon-live-d0e2398_tests.cmake")
+else()
+  add_test(test-sidon-live_NOT_BUILT-d0e2398 test-sidon-live_NOT_BUILT-d0e2398)
+endif()

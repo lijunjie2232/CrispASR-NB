@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-repeat-break-881bda5_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-repeat-break-881bda5_tests.cmake")
+else()
+  add_test(test-repeat-break_NOT_BUILT-881bda5 test-repeat-break_NOT_BUILT-881bda5)
+endif()

@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-mt3-ed950bc_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-mt3-ed950bc_tests.cmake")
+else()
+  add_test(test-mt3_NOT_BUILT-ed950bc test-mt3_NOT_BUILT-ed950bc)
+endif()

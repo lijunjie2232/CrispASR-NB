@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-stream-vad-skip-ffb5beb_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-stream-vad-skip-ffb5beb_tests.cmake")
+else()
+  add_test(test-stream-vad-skip_NOT_BUILT-ffb5beb test-stream-vad-skip_NOT_BUILT-ffb5beb)
+endif()

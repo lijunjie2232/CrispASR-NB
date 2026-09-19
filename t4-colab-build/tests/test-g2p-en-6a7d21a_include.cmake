@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-g2p-en-6a7d21a_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-g2p-en-6a7d21a_tests.cmake")
+else()
+  add_test(test-g2p-en_NOT_BUILT-6a7d21a test-g2p-en_NOT_BUILT-6a7d21a)
+endif()

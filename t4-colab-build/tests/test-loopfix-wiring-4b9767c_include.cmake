@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-loopfix-wiring-4b9767c_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-loopfix-wiring-4b9767c_tests.cmake")
+else()
+  add_test(test-loopfix-wiring_NOT_BUILT-4b9767c test-loopfix-wiring_NOT_BUILT-4b9767c)
+endif()

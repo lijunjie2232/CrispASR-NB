@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-arch-backend-map-1c1bed7_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-arch-backend-map-1c1bed7_tests.cmake")
+else()
+  add_test(test-arch-backend-map_NOT_BUILT-1c1bed7 test-arch-backend-map_NOT_BUILT-1c1bed7)
+endif()

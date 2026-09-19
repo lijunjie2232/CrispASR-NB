@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-issue-114-chunk-context-gate-12550f4_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-issue-114-chunk-context-gate-12550f4_tests.cmake")
+else()
+  add_test(test-issue-114-chunk-context-gate_NOT_BUILT-12550f4 test-issue-114-chunk-context-gate_NOT_BUILT-12550f4)
+endif()

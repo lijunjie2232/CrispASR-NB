@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-gigaam-212b191_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-gigaam-212b191_tests.cmake")
+else()
+  add_test(test-gigaam_NOT_BUILT-212b191 test-gigaam_NOT_BUILT-212b191)
+endif()

@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-align-sentinel-4cc90ec_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-align-sentinel-4cc90ec_tests.cmake")
+else()
+  add_test(test-align-sentinel_NOT_BUILT-4cc90ec test-align-sentinel_NOT_BUILT-4cc90ec)
+endif()

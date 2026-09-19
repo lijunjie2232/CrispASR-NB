@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-orpheussnac-params-ffb5beb_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-orpheussnac-params-ffb5beb_tests.cmake")
+else()
+  add_test(test-orpheussnac-params_NOT_BUILT-ffb5beb test-orpheussnac-params_NOT_BUILT-ffb5beb)
+endif()

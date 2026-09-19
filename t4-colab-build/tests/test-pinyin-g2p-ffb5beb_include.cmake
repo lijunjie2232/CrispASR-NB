@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-pinyin-g2p-ffb5beb_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-pinyin-g2p-ffb5beb_tests.cmake")
+else()
+  add_test(test-pinyin-g2p_NOT_BUILT-ffb5beb test-pinyin-g2p_NOT_BUILT-ffb5beb)
+endif()

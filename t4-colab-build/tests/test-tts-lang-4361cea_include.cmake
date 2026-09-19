@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-tts-lang-4361cea_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-tts-lang-4361cea_tests.cmake")
+else()
+  add_test(test-tts-lang_NOT_BUILT-4361cea test-tts-lang_NOT_BUILT-4361cea)
+endif()

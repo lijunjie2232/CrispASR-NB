@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-core-gru-b12d07c_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-core-gru-b12d07c_tests.cmake")
+else()
+  add_test(test-core-gru_NOT_BUILT-b12d07c test-core-gru_NOT_BUILT-b12d07c)
+endif()

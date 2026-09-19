@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-parallel-for-e87b7f6_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-parallel-for-e87b7f6_tests.cmake")
+else()
+  add_test(test-parallel-for_NOT_BUILT-e87b7f6 test-parallel-for_NOT_BUILT-e87b7f6)
+endif()

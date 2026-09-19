@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-piano-transcription-0961f96_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-piano-transcription-0961f96_tests.cmake")
+else()
+  add_test(test-piano-transcription_NOT_BUILT-0961f96 test-piano-transcription_NOT_BUILT-0961f96)
+endif()

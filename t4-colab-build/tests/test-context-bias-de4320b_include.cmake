@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-context-bias-de4320b_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-context-bias-de4320b_tests.cmake")
+else()
+  add_test(test-context-bias_NOT_BUILT-de4320b test-context-bias_NOT_BUILT-de4320b)
+endif()

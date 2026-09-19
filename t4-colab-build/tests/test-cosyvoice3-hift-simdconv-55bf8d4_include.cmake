@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-cosyvoice3-hift-simdconv-55bf8d4_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-cosyvoice3-hift-simdconv-55bf8d4_tests.cmake")
+else()
+  add_test(test-cosyvoice3-hift-simdconv_NOT_BUILT-55bf8d4 test-cosyvoice3-hift-simdconv_NOT_BUILT-55bf8d4)
+endif()

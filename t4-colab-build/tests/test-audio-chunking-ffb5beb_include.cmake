@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-audio-chunking-ffb5beb_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-audio-chunking-ffb5beb_tests.cmake")
+else()
+  add_test(test-audio-chunking_NOT_BUILT-ffb5beb test-audio-chunking_NOT_BUILT-ffb5beb)
+endif()

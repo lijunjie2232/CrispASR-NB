@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-parakeet-strategy-3119042_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-parakeet-strategy-3119042_tests.cmake")
+else()
+  add_test(test-parakeet-strategy_NOT_BUILT-3119042 test-parakeet-strategy_NOT_BUILT-3119042)
+endif()

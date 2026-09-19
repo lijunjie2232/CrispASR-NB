@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-fastconformer-ctc-params-ffb5beb_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-fastconformer-ctc-params-ffb5beb_tests.cmake")
+else()
+  add_test(test-fastconformer-ctc-params_NOT_BUILT-ffb5beb test-fastconformer-ctc-params_NOT_BUILT-ffb5beb)
+endif()

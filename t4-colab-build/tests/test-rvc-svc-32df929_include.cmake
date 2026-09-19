@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-rvc-svc-32df929_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-rvc-svc-32df929_tests.cmake")
+else()
+  add_test(test-rvc-svc_NOT_BUILT-32df929 test-rvc-svc_NOT_BUILT-32df929)
+endif()

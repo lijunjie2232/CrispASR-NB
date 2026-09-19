@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-segment-hygiene-4a48ad1_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-segment-hygiene-4a48ad1_tests.cmake")
+else()
+  add_test(test-segment-hygiene_NOT_BUILT-4a48ad1 test-segment-hygiene_NOT_BUILT-4a48ad1)
+endif()

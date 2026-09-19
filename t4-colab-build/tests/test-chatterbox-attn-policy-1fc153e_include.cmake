@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-chatterbox-attn-policy-1fc153e_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-chatterbox-attn-policy-1fc153e_tests.cmake")
+else()
+  add_test(test-chatterbox-attn-policy_NOT_BUILT-1fc153e test-chatterbox-attn-policy_NOT_BUILT-1fc153e)
+endif()

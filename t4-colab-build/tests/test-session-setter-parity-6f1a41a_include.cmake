@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-session-setter-parity-6f1a41a_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-session-setter-parity-6f1a41a_tests.cmake")
+else()
+  add_test(test-session-setter-parity_NOT_BUILT-6f1a41a test-session-setter-parity_NOT_BUILT-6f1a41a)
+endif()

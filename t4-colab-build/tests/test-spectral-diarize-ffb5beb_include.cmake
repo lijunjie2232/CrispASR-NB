@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-spectral-diarize-ffb5beb_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-spectral-diarize-ffb5beb_tests.cmake")
+else()
+  add_test(test-spectral-diarize_NOT_BUILT-ffb5beb test-spectral-diarize_NOT_BUILT-ffb5beb)
+endif()

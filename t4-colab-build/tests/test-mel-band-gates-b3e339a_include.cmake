@@ -1,0 +1,5 @@
+if(EXISTS "/content/CrispASR-NB/t4-colab-build/tests/test-mel-band-gates-b3e339a_tests.cmake")
+  include("/content/CrispASR-NB/t4-colab-build/tests/test-mel-band-gates-b3e339a_tests.cmake")
+else()
+  add_test(test-mel-band-gates_NOT_BUILT-b3e339a test-mel-band-gates_NOT_BUILT-b3e339a)
+endif()
