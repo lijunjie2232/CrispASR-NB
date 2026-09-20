@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-voxcpm2-vae-live-7e2eab0_tests.cmake")
-  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-voxcpm2-vae-live-7e2eab0_tests.cmake")
-else()
-  add_test(test-voxcpm2-vae-live_NOT_BUILT-7e2eab0 test-voxcpm2-vae-live_NOT_BUILT-7e2eab0)
-endif()

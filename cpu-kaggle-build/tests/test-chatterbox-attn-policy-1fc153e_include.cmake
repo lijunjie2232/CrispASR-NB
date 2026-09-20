@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-chatterbox-attn-policy-1fc153e_tests.cmake")
-  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-chatterbox-attn-policy-1fc153e_tests.cmake")
-else()
-  add_test(test-chatterbox-attn-policy_NOT_BUILT-1fc153e test-chatterbox-attn-policy_NOT_BUILT-1fc153e)
-endif()

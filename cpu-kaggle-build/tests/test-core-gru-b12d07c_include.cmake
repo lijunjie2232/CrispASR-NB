@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-core-gru-b12d07c_tests.cmake")
-  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-core-gru-b12d07c_tests.cmake")
-else()
-  add_test(test-core-gru_NOT_BUILT-b12d07c test-core-gru_NOT_BUILT-b12d07c)
-endif()

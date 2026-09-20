@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-moss-audio-valid-meta-7ddff67_tests.cmake")
-  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-moss-audio-valid-meta-7ddff67_tests.cmake")
-else()
-  add_test(test-moss-audio-valid-meta_NOT_BUILT-7ddff67 test-moss-audio-valid-meta_NOT_BUILT-7ddff67)
-endif()

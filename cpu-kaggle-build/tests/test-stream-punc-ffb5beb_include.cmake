@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-stream-punc-ffb5beb_tests.cmake")
-  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-stream-punc-ffb5beb_tests.cmake")
-else()
-  add_test(test-stream-punc_NOT_BUILT-ffb5beb test-stream-punc_NOT_BUILT-ffb5beb)
-endif()

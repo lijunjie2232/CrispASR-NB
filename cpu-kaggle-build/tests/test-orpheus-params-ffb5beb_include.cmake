@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-orpheus-params-ffb5beb_tests.cmake")
-  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-orpheus-params-ffb5beb_tests.cmake")
-else()
-  add_test(test-orpheus-params_NOT_BUILT-ffb5beb test-orpheus-params_NOT_BUILT-ffb5beb)
-endif()

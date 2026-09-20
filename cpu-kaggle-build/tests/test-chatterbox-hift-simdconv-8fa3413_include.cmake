@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-chatterbox-hift-simdconv-8fa3413_tests.cmake")
-  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-chatterbox-hift-simdconv-8fa3413_tests.cmake")
-else()
-  add_test(test-chatterbox-hift-simdconv_NOT_BUILT-8fa3413 test-chatterbox-hift-simdconv_NOT_BUILT-8fa3413)
-endif()

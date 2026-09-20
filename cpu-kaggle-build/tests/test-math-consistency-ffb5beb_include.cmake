@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-math-consistency-ffb5beb_tests.cmake")
-  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-math-consistency-ffb5beb_tests.cmake")
-else()
-  add_test(test-math-consistency_NOT_BUILT-ffb5beb test-math-consistency_NOT_BUILT-ffb5beb)
-endif()

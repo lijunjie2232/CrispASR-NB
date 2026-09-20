@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-wav2vec2-params-ffb5beb_tests.cmake")
-  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-wav2vec2-params-ffb5beb_tests.cmake")
-else()
-  add_test(test-wav2vec2-params_NOT_BUILT-ffb5beb test-wav2vec2-params_NOT_BUILT-ffb5beb)
-endif()

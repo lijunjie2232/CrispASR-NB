@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-core-utf8-ffb5beb_tests.cmake")
-  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-core-utf8-ffb5beb_tests.cmake")
-else()
-  add_test(test-core-utf8_NOT_BUILT-ffb5beb test-core-utf8_NOT_BUILT-ffb5beb)
-endif()

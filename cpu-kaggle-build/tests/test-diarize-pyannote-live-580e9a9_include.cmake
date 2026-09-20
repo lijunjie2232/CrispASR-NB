@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-diarize-pyannote-live-580e9a9_tests.cmake")
-  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-diarize-pyannote-live-580e9a9_tests.cmake")
-else()
-  add_test(test-diarize-pyannote-live_NOT_BUILT-580e9a9 test-diarize-pyannote-live_NOT_BUILT-580e9a9)
-endif()

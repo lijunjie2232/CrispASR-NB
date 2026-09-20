@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-chat-close-8a63f63_tests.cmake")
-  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-chat-close-8a63f63_tests.cmake")
-else()
-  add_test(test-chat-close_NOT_BUILT-8a63f63 test-chat-close_NOT_BUILT-8a63f63)
-endif()

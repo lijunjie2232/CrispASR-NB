@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-kokoro-params-ffb5beb_tests.cmake")
-  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-kokoro-params-ffb5beb_tests.cmake")
-else()
-  add_test(test-kokoro-params_NOT_BUILT-ffb5beb test-kokoro-params_NOT_BUILT-ffb5beb)
-endif()

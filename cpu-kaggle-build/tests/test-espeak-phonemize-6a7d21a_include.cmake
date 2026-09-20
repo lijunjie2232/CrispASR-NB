@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-espeak-phonemize-6a7d21a_tests.cmake")
-  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-espeak-phonemize-6a7d21a_tests.cmake")
-else()
-  add_test(test-espeak-phonemize_NOT_BUILT-6a7d21a test-espeak-phonemize_NOT_BUILT-6a7d21a)
-endif()

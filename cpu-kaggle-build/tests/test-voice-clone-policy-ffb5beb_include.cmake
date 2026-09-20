@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-voice-clone-policy-ffb5beb_tests.cmake")
-  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-voice-clone-policy-ffb5beb_tests.cmake")
-else()
-  add_test(test-voice-clone-policy_NOT_BUILT-ffb5beb test-voice-clone-policy_NOT_BUILT-ffb5beb)
-endif()

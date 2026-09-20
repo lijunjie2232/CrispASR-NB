@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-vad-failover-cb0579e_tests.cmake")
-  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-vad-failover-cb0579e_tests.cmake")
-else()
-  add_test(test-vad-failover_NOT_BUILT-cb0579e test-vad-failover_NOT_BUILT-cb0579e)
-endif()

@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-mt3-ed950bc_tests.cmake")
-  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-mt3-ed950bc_tests.cmake")
-else()
-  add_test(test-mt3_NOT_BUILT-ed950bc test-mt3_NOT_BUILT-ed950bc)
-endif()

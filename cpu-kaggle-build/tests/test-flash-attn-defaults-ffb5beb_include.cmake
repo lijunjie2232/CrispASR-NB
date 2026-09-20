@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-flash-attn-defaults-ffb5beb_tests.cmake")
-  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-flash-attn-defaults-ffb5beb_tests.cmake")
-else()
-  add_test(test-flash-attn-defaults_NOT_BUILT-ffb5beb test-flash-attn-defaults_NOT_BUILT-ffb5beb)
-endif()

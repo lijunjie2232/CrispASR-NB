@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-gguf-null-backend-bff908f_tests.cmake")
-  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-gguf-null-backend-bff908f_tests.cmake")
-else()
-  add_test(test-gguf-null-backend_NOT_BUILT-bff908f test-gguf-null-backend_NOT_BUILT-bff908f)
-endif()

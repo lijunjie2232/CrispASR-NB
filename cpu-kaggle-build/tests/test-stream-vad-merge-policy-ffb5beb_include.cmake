@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-stream-vad-merge-policy-ffb5beb_tests.cmake")
-  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-stream-vad-merge-policy-ffb5beb_tests.cmake")
-else()
-  add_test(test-stream-vad-merge-policy_NOT_BUILT-ffb5beb test-stream-vad-merge-policy_NOT_BUILT-ffb5beb)
-endif()

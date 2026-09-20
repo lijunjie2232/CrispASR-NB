@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-silero-lid-quant-refusal-6fd60b1_tests.cmake")
-  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-silero-lid-quant-refusal-6fd60b1_tests.cmake")
-else()
-  add_test(test-silero-lid-quant-refusal_NOT_BUILT-6fd60b1 test-silero-lid-quant-refusal_NOT_BUILT-6fd60b1)
-endif()

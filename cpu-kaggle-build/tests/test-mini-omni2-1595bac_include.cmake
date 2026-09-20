@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-mini-omni2-1595bac_tests.cmake")
-  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-mini-omni2-1595bac_tests.cmake")
-else()
-  add_test(test-mini-omni2_NOT_BUILT-1595bac test-mini-omni2_NOT_BUILT-1595bac)
-endif()

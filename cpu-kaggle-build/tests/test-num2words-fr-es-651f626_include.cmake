@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-num2words-fr-es-651f626_tests.cmake")
-  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-num2words-fr-es-651f626_tests.cmake")
-else()
-  add_test(test-num2words-fr-es_NOT_BUILT-651f626 test-num2words-fr-es_NOT_BUILT-651f626)
-endif()

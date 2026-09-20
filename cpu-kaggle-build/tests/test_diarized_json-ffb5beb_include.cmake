@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test_diarized_json-ffb5beb_tests.cmake")
-  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test_diarized_json-ffb5beb_tests.cmake")
-else()
-  add_test(test_diarized_json_NOT_BUILT-ffb5beb test_diarized_json_NOT_BUILT-ffb5beb)
-endif()
