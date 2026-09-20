@@ -1,0 +1,10 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: crispasr
+Description: Port of OpenAI's Whisper model in C/C++
+Version: 0.8.33
+Libs: -L${libdir} -lggml  -lggml-base -lcrispasr
+Cflags: -I${includedir}
