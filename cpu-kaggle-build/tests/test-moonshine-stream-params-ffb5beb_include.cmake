@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-moonshine-stream-params-ffb5beb_tests.cmake")
+  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-moonshine-stream-params-ffb5beb_tests.cmake")
+else()
+  add_test(test-moonshine-stream-params_NOT_BUILT-ffb5beb test-moonshine-stream-params_NOT_BUILT-ffb5beb)
+endif()

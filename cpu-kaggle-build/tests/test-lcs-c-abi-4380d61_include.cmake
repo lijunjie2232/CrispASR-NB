@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-lcs-c-abi-4380d61_tests.cmake")
+  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-lcs-c-abi-4380d61_tests.cmake")
+else()
+  add_test(test-lcs-c-abi_NOT_BUILT-4380d61 test-lcs-c-abi_NOT_BUILT-4380d61)
+endif()

@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-diarize-global-bc59cad_tests.cmake")
+  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-diarize-global-bc59cad_tests.cmake")
+else()
+  add_test(test-diarize-global_NOT_BUILT-bc59cad test-diarize-global_NOT_BUILT-bc59cad)
+endif()

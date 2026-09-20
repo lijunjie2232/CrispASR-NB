@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-parakeet-ja-longform-8aade90_tests.cmake")
+  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-parakeet-ja-longform-8aade90_tests.cmake")
+else()
+  add_test(test-parakeet-ja-longform_NOT_BUILT-8aade90 test-parakeet-ja-longform_NOT_BUILT-8aade90)
+endif()

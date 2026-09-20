@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-miotts-live-ca90f24_tests.cmake")
+  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-miotts-live-ca90f24_tests.cmake")
+else()
+  add_test(test-miotts-live_NOT_BUILT-ca90f24 test-miotts-live_NOT_BUILT-ca90f24)
+endif()

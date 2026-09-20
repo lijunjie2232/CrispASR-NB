@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-internal-chunking-gate-436d1a4_tests.cmake")
+  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-internal-chunking-gate-436d1a4_tests.cmake")
+else()
+  add_test(test-internal-chunking-gate_NOT_BUILT-436d1a4 test-internal-chunking-gate_NOT_BUILT-436d1a4)
+endif()

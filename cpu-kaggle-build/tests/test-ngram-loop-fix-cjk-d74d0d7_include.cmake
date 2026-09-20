@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-ngram-loop-fix-cjk-d74d0d7_tests.cmake")
+  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-ngram-loop-fix-cjk-d74d0d7_tests.cmake")
+else()
+  add_test(test-ngram-loop-fix-cjk_NOT_BUILT-d74d0d7 test-ngram-loop-fix-cjk_NOT_BUILT-d74d0d7)
+endif()

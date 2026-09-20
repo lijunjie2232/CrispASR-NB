@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-qwen3-tts-cv-style-ffb5beb_tests.cmake")
+  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-qwen3-tts-cv-style-ffb5beb_tests.cmake")
+else()
+  add_test(test-qwen3-tts-cv-style_NOT_BUILT-ffb5beb test-qwen3-tts-cv-style_NOT_BUILT-ffb5beb)
+endif()

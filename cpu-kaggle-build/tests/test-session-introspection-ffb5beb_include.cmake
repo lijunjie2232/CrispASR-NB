@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-session-introspection-ffb5beb_tests.cmake")
+  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-session-introspection-ffb5beb_tests.cmake")
+else()
+  add_test(test-session-introspection_NOT_BUILT-ffb5beb test-session-introspection_NOT_BUILT-ffb5beb)
+endif()

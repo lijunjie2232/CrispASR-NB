@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-piano-transcription-0961f96_tests.cmake")
+  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-piano-transcription-0961f96_tests.cmake")
+else()
+  add_test(test-piano-transcription_NOT_BUILT-0961f96 test-piano-transcription_NOT_BUILT-0961f96)
+endif()

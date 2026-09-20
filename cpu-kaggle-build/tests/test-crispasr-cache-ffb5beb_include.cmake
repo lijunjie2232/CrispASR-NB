@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-crispasr-cache-ffb5beb_tests.cmake")
+  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-crispasr-cache-ffb5beb_tests.cmake")
+else()
+  add_test(test-crispasr-cache_NOT_BUILT-ffb5beb test-crispasr-cache_NOT_BUILT-ffb5beb)
+endif()

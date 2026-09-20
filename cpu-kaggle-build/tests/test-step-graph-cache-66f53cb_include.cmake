@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-step-graph-cache-66f53cb_tests.cmake")
+  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-step-graph-cache-66f53cb_tests.cmake")
+else()
+  add_test(test-step-graph-cache_NOT_BUILT-66f53cb test-step-graph-cache_NOT_BUILT-66f53cb)
+endif()

@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test_chunk_context-ffb5beb_tests.cmake")
+  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test_chunk_context-ffb5beb_tests.cmake")
+else()
+  add_test(test_chunk_context_NOT_BUILT-ffb5beb test_chunk_context_NOT_BUILT-ffb5beb)
+endif()

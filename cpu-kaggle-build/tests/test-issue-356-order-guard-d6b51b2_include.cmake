@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-issue-356-order-guard-d6b51b2_tests.cmake")
+  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-issue-356-order-guard-d6b51b2_tests.cmake")
+else()
+  add_test(test-issue-356-order-guard_NOT_BUILT-d6b51b2 test-issue-356-order-guard_NOT_BUILT-d6b51b2)
+endif()

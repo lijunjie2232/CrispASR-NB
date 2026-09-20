@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-compliance-wiring-ffb5beb_tests.cmake")
+  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-compliance-wiring-ffb5beb_tests.cmake")
+else()
+  add_test(test-compliance-wiring_NOT_BUILT-ffb5beb test-compliance-wiring_NOT_BUILT-ffb5beb)
+endif()

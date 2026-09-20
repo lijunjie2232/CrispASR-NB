@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-session-autochunk-3fc302c_tests.cmake")
+  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-session-autochunk-3fc302c_tests.cmake")
+else()
+  add_test(test-session-autochunk_NOT_BUILT-3fc302c test-session-autochunk_NOT_BUILT-3fc302c)
+endif()

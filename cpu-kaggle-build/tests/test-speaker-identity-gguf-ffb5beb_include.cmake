@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-speaker-identity-gguf-ffb5beb_tests.cmake")
+  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-speaker-identity-gguf-ffb5beb_tests.cmake")
+else()
+  add_test(test-speaker-identity-gguf_NOT_BUILT-ffb5beb test-speaker-identity-gguf_NOT_BUILT-ffb5beb)
+endif()

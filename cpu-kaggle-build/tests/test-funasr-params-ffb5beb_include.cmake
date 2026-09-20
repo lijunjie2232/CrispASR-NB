@@ -1,0 +1,5 @@
+if(EXISTS "/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-funasr-params-ffb5beb_tests.cmake")
+  include("/kaggle/working/CrispASR/cpu-kaggle-build/tests/test-funasr-params-ffb5beb_tests.cmake")
+else()
+  add_test(test-funasr-params_NOT_BUILT-ffb5beb test-funasr-params_NOT_BUILT-ffb5beb)
+endif()
