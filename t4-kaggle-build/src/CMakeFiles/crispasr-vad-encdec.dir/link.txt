@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcrispasr-vad-encdec.a "CMakeFiles/crispasr-vad-encdec.dir/crispasr_vad_encdec.cpp.o"
+/usr/bin/ranlib libcrispasr-vad-encdec.a

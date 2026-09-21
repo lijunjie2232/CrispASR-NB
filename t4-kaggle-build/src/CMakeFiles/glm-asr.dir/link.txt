@@ -1,0 +1,2 @@
+/usr/bin/ar qc libglm-asr.a "CMakeFiles/glm-asr.dir/glm_asr.cpp.o"
+/usr/bin/ranlib libglm-asr.a

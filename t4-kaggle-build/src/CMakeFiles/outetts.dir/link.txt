@@ -1,0 +1,2 @@
+/usr/bin/ar qc liboutetts.a CMakeFiles/outetts.dir/outetts.cpp.o CMakeFiles/outetts.dir/outetts_wavtok.cpp.o
+/usr/bin/ranlib liboutetts.a

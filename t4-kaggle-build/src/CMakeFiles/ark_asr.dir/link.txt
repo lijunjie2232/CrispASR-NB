@@ -1,0 +1,2 @@
+/usr/bin/ar qc libark_asr.a CMakeFiles/ark_asr.dir/ark_asr.cpp.o
+/usr/bin/ranlib libark_asr.a

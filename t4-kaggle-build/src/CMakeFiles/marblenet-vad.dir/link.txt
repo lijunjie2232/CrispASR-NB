@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmarblenet-vad.a "CMakeFiles/marblenet-vad.dir/marblenet_vad.cpp.o"
+/usr/bin/ranlib libmarblenet-vad.a

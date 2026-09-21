@@ -1,0 +1,2 @@
+/usr/bin/ar qc libecapa-lid.a "CMakeFiles/ecapa-lid.dir/ecapa_lid.cpp.o"
+/usr/bin/ranlib libecapa-lid.a

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libbtc-chords.a "CMakeFiles/btc-chords.dir/btc_chords.cpp.o"
+/usr/bin/ranlib libbtc-chords.a

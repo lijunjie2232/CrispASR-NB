@@ -1,0 +1,2 @@
+/usr/bin/ar qc libdots-tts.a "CMakeFiles/dots-tts.dir/dots_tts.cpp.o"
+/usr/bin/ranlib libdots-tts.a

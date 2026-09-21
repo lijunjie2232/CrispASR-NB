@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmoss_tts_local.a CMakeFiles/moss_tts_local.dir/moss_tts_local.cpp.o CMakeFiles/moss_tts_local.dir/moss_tts_local_codec.cpp.o
+/usr/bin/ranlib libmoss_tts_local.a

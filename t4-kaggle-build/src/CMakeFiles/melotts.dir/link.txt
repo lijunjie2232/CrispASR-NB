@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmelotts.a CMakeFiles/melotts.dir/melotts.cpp.o
+/usr/bin/ranlib libmelotts.a

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libconfucius4-tts.a "CMakeFiles/confucius4-tts.dir/confucius4_tts.cpp.o"
+/usr/bin/ranlib libconfucius4-tts.a

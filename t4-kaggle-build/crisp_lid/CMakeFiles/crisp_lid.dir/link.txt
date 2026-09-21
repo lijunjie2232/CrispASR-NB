@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcrisp_lid.a CMakeFiles/crisp_lid.dir/src/lid_fasttext.cpp.o CMakeFiles/crisp_lid.dir/src/lid_cld3.cpp.o CMakeFiles/crisp_lid.dir/src/text_lid_dispatch.cpp.o
+/usr/bin/ranlib libcrisp_lid.a

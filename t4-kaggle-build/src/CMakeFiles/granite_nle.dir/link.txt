@@ -1,0 +1,2 @@
+/usr/bin/ar qc libgranite_nle.a CMakeFiles/granite_nle.dir/granite_nle.cpp.o
+/usr/bin/ranlib libgranite_nle.a

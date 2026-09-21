@@ -1,0 +1,2 @@
+/usr/bin/ar qc libkokoro.a CMakeFiles/kokoro.dir/kokoro.cpp.o
+/usr/bin/ranlib libkokoro.a

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libbasic-pitch.a "CMakeFiles/basic-pitch.dir/basic_pitch.cpp.o"
+/usr/bin/ranlib libbasic-pitch.a

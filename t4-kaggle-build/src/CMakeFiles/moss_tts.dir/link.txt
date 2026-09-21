@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmoss_tts.a CMakeFiles/moss_tts.dir/moss_tts.cpp.o CMakeFiles/moss_tts.dir/moss_tts_codec.cpp.o
+/usr/bin/ranlib libmoss_tts.a

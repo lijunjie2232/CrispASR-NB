@@ -1,0 +1,2 @@
+/usr/bin/ar qc libsidon.a CMakeFiles/sidon.dir/sidon.cpp.o
+/usr/bin/ranlib libsidon.a

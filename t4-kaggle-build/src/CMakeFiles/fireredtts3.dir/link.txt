@@ -1,0 +1,2 @@
+/usr/bin/ar qc libfireredtts3.a CMakeFiles/fireredtts3.dir/fireredtts3_tts.cpp.o
+/usr/bin/ranlib libfireredtts3.a

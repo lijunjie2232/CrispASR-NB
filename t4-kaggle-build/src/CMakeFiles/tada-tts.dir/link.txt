@@ -1,0 +1,2 @@
+/usr/bin/ar qc libtada-tts.a "CMakeFiles/tada-tts.dir/tada_tts.cpp.o"
+/usr/bin/ranlib libtada-tts.a

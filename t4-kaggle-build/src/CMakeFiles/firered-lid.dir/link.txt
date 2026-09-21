@@ -1,0 +1,2 @@
+/usr/bin/ar qc libfirered-lid.a "CMakeFiles/firered-lid.dir/firered_lid.cpp.o"
+/usr/bin/ranlib libfirered-lid.a

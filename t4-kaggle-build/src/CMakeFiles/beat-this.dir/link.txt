@@ -1,0 +1,2 @@
+/usr/bin/ar qc libbeat-this.a "CMakeFiles/beat-this.dir/beat_this.cpp.o"
+/usr/bin/ranlib libbeat-this.a

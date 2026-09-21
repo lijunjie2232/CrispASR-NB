@@ -1,0 +1,2 @@
+/usr/bin/ar qc libomniasr.a CMakeFiles/omniasr.dir/omniasr.cpp.o
+/usr/bin/ranlib libomniasr.a

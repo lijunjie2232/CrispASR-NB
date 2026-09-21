@@ -1,0 +1,2 @@
+/usr/bin/ar qc libomnivoice.a CMakeFiles/omnivoice.dir/omnivoice.cpp.o
+/usr/bin/ranlib libomnivoice.a

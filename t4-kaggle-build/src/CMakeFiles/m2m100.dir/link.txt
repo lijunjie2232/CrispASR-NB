@@ -1,0 +1,2 @@
+/usr/bin/ar qc libm2m100.a CMakeFiles/m2m100.dir/m2m100.cpp.o
+/usr/bin/ranlib libm2m100.a

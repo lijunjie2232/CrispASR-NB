@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmiotts.a CMakeFiles/miotts.dir/miotts.cpp.o
+/usr/bin/ranlib libmiotts.a

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libpyannote-seg.a "CMakeFiles/pyannote-seg.dir/pyannote_seg.cpp.o"
+/usr/bin/ranlib libpyannote-seg.a

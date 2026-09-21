@@ -1,0 +1,2 @@
+/usr/bin/ar qc libwespeaker.a CMakeFiles/wespeaker.dir/wespeaker.cpp.o
+/usr/bin/ranlib libwespeaker.a

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libnemotron.a CMakeFiles/nemotron.dir/nemotron.cpp.o
+/usr/bin/ranlib libnemotron.a

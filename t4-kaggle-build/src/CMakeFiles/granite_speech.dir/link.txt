@@ -1,0 +1,2 @@
+/usr/bin/ar qc libgranite_speech.a CMakeFiles/granite_speech.dir/granite_speech.cpp.o
+/usr/bin/ranlib libgranite_speech.a

@@ -1,0 +1,2 @@
+/usr/bin/ar qc liborpheus.a CMakeFiles/orpheus.dir/orpheus.cpp.o
+/usr/bin/ranlib liborpheus.a

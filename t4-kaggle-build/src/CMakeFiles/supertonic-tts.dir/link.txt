@@ -1,0 +1,2 @@
+/usr/bin/ar qc libsupertonic-tts.a "CMakeFiles/supertonic-tts.dir/supertonic_tts.cpp.o"
+/usr/bin/ranlib libsupertonic-tts.a

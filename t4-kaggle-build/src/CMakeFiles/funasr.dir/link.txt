@@ -1,0 +1,2 @@
+/usr/bin/ar qc libfunasr.a CMakeFiles/funasr.dir/funasr.cpp.o
+/usr/bin/ranlib libfunasr.a

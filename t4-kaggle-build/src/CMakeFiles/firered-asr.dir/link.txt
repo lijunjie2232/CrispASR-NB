@@ -1,0 +1,2 @@
+/usr/bin/ar qc libfirered-asr.a "CMakeFiles/firered-asr.dir/firered_asr.cpp.o"
+/usr/bin/ranlib libfirered-asr.a

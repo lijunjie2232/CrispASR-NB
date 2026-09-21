@@ -1,0 +1,2 @@
+/usr/bin/ar qc libbark-tts.a "CMakeFiles/bark-tts.dir/bark_tts.cpp.o"
+/usr/bin/ranlib libbark-tts.a

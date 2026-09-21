@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcrisp_truecase.a CMakeFiles/crisp_truecase.dir/src/truecaser.cpp.o CMakeFiles/crisp_truecase.dir/src/truecaser_crf.cpp.o CMakeFiles/crisp_truecase.dir/src/truecaser_lstm.cpp.o
+/usr/bin/ranlib libcrisp_truecase.a

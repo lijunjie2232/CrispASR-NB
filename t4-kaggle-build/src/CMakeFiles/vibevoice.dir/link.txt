@@ -1,0 +1,2 @@
+/usr/bin/ar qc libvibevoice.a CMakeFiles/vibevoice.dir/vibevoice.cpp.o
+/usr/bin/ranlib libvibevoice.a

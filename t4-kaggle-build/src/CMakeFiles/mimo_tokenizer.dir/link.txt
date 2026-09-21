@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmimo_tokenizer.a CMakeFiles/mimo_tokenizer.dir/mimo_tokenizer.cpp.o
+/usr/bin/ranlib libmimo_tokenizer.a

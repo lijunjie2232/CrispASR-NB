@@ -1,0 +1,2 @@
+/usr/bin/ar qc libtitanet.a CMakeFiles/titanet.dir/titanet.cpp.o CMakeFiles/titanet.dir/speaker_db.cpp.o
+/usr/bin/ranlib libtitanet.a

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libbert-encoder.a "CMakeFiles/bert-encoder.dir/bert_encoder.cpp.o"
+/usr/bin/ranlib libbert-encoder.a

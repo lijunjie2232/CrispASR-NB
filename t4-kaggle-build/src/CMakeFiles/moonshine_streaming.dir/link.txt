@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmoonshine_streaming.a CMakeFiles/moonshine_streaming.dir/moonshine_streaming.cpp.o
+/usr/bin/ranlib libmoonshine_streaming.a

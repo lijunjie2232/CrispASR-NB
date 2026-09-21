@@ -1,0 +1,2 @@
+/usr/bin/ar qc libhiggs_stt.a CMakeFiles/higgs_stt.dir/higgs_stt.cpp.o
+/usr/bin/ranlib libhiggs_stt.a

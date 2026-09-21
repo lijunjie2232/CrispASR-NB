@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcohere.a CMakeFiles/cohere.dir/cohere.cpp.o
+/usr/bin/ranlib libcohere.a

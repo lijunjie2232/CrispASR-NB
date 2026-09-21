@@ -1,0 +1,2 @@
+/usr/bin/ar qc libf5-tts.a "CMakeFiles/f5-tts.dir/f5_tts.cpp.o"
+/usr/bin/ranlib libf5-tts.a

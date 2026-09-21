@@ -1,0 +1,2 @@
+/usr/bin/ar qc libfirered-vad.a "CMakeFiles/firered-vad.dir/firered_vad.cpp.o"
+/usr/bin/ranlib libfirered-vad.a

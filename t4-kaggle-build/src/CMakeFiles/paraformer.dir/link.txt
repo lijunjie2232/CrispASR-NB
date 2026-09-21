@@ -1,0 +1,2 @@
+/usr/bin/ar qc libparaformer.a CMakeFiles/paraformer.dir/paraformer.cpp.o
+/usr/bin/ranlib libparaformer.a

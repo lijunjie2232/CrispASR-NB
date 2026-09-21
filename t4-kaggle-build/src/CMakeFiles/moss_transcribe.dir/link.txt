@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmoss_transcribe.a CMakeFiles/moss_transcribe.dir/moss_transcribe.cpp.o
+/usr/bin/ranlib libmoss_transcribe.a
