@@ -1,4 +1,4 @@
-ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_12.cu.o : ../../../../ggml/src/ggml-cuda/template-instances/mmf-instance-ncols_12.cu \
+ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_12.cu.o: ../../../../ggml/src/ggml-cuda/template-instances/mmf-instance-ncols_12.cu \
     /usr/include/stdc-predef.h \
     /usr/local/cuda-12.8/targets/x86_64-linux/include/cuda_runtime.h \
     /usr/local/cuda-12.8/targets/x86_64-linux/include/crt/host_config.h \

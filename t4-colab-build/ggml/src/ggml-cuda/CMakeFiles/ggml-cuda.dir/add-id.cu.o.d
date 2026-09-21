@@ -1,4 +1,4 @@
-ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/add-id.cu.o : ../../../../ggml/src/ggml-cuda/add-id.cu \
+ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/add-id.cu.o: ../../../../ggml/src/ggml-cuda/add-id.cu \
     /usr/include/stdc-predef.h \
     /usr/local/cuda-12.8/targets/x86_64-linux/include/cuda_runtime.h \
     /usr/local/cuda-12.8/targets/x86_64-linux/include/crt/host_config.h \

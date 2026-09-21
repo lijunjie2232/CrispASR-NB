@@ -1,4 +1,4 @@
-ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/out-prod.cu.o : ../../../../ggml/src/ggml-cuda/out-prod.cu \
+ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/out-prod.cu.o: ../../../../ggml/src/ggml-cuda/out-prod.cu \
     /usr/include/stdc-predef.h \
     /usr/local/cuda-12.8/targets/x86_64-linux/include/cuda_runtime.h \
     /usr/local/cuda-12.8/targets/x86_64-linux/include/crt/host_config.h \
