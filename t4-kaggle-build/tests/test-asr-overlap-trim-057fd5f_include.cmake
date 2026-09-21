@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-asr-overlap-trim-057fd5f_tests.cmake")
-  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-asr-overlap-trim-057fd5f_tests.cmake")
-else()
-  add_test(test-asr-overlap-trim_NOT_BUILT-057fd5f test-asr-overlap-trim_NOT_BUILT-057fd5f)
-endif()

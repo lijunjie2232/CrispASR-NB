@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-align-only-b8cdf07_tests.cmake")
-  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-align-only-b8cdf07_tests.cmake")
-else()
-  add_test(test-align-only_NOT_BUILT-b8cdf07 test-align-only_NOT_BUILT-b8cdf07)
-endif()

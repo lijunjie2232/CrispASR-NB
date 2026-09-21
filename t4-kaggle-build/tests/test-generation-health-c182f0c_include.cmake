@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-generation-health-c182f0c_tests.cmake")
-  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-generation-health-c182f0c_tests.cmake")
-else()
-  add_test(test-generation-health_NOT_BUILT-c182f0c test-generation-health_NOT_BUILT-c182f0c)
-endif()

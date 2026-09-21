@@ -1,7 +1,0 @@
-add_test( [==[core_rvq::encode_euclidean matches full-distance reference]==] /kaggle/working/CrispASR-NB/t4-kaggle-build/bin/test-core-rvq [==[core_rvq::encode_euclidean matches full-distance reference]==]  )
-set_tests_properties( [==[core_rvq::encode_euclidean matches full-distance reference]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-NB/t4-kaggle-build/tests LABELS unit SKIP_RETURN_CODE 4)
-add_test( [==[core_rvq::encode_euclidean_per_stage matches the scalar reference (kyutai §176l layout)]==] /kaggle/working/CrispASR-NB/t4-kaggle-build/bin/test-core-rvq [==[core_rvq::encode_euclidean_per_stage matches the scalar reference (kyutai §176l layout)]==]  )
-set_tests_properties( [==[core_rvq::encode_euclidean_per_stage matches the scalar reference (kyutai §176l layout)]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-NB/t4-kaggle-build/tests LABELS unit SKIP_RETURN_CODE 4)
-add_test( [==[core_rvq::encode_euclidean rejects malformed input]==] /kaggle/working/CrispASR-NB/t4-kaggle-build/bin/test-core-rvq [==[core_rvq::encode_euclidean rejects malformed input]==]  )
-set_tests_properties( [==[core_rvq::encode_euclidean rejects malformed input]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-NB/t4-kaggle-build/tests LABELS unit SKIP_RETURN_CODE 4)
-set( test-core-rvq_TESTS [==[core_rvq::encode_euclidean matches full-distance reference]==] [==[core_rvq::encode_euclidean_per_stage matches the scalar reference (kyutai §176l layout)]==] [==[core_rvq::encode_euclidean rejects malformed input]==])

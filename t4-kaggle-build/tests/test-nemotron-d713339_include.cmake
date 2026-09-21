@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-nemotron-d713339_tests.cmake")
-  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-nemotron-d713339_tests.cmake")
-else()
-  add_test(test-nemotron_NOT_BUILT-d713339 test-nemotron_NOT_BUILT-d713339)
-endif()

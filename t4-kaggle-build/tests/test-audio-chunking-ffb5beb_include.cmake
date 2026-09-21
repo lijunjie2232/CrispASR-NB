@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-audio-chunking-ffb5beb_tests.cmake")
-  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-audio-chunking-ffb5beb_tests.cmake")
-else()
-  add_test(test-audio-chunking_NOT_BUILT-ffb5beb test-audio-chunking_NOT_BUILT-ffb5beb)
-endif()

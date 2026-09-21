@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-supertonic-live-580e9a9_tests.cmake")
-  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-supertonic-live-580e9a9_tests.cmake")
-else()
-  add_test(test-supertonic-live_NOT_BUILT-580e9a9 test-supertonic-live_NOT_BUILT-580e9a9)
-endif()

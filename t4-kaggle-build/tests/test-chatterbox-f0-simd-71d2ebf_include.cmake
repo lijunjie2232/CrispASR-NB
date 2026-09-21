@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-chatterbox-f0-simd-71d2ebf_tests.cmake")
-  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-chatterbox-f0-simd-71d2ebf_tests.cmake")
-else()
-  add_test(test-chatterbox-f0-simd_NOT_BUILT-71d2ebf test-chatterbox-f0-simd_NOT_BUILT-71d2ebf)
-endif()

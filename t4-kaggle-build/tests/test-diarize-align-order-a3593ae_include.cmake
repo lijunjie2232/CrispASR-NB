@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-diarize-align-order-a3593ae_tests.cmake")
-  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-diarize-align-order-a3593ae_tests.cmake")
-else()
-  add_test(test-diarize-align-order_NOT_BUILT-a3593ae test-diarize-align-order_NOT_BUILT-a3593ae)
-endif()

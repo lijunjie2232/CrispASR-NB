@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-crispasr-speaker-resample-ffb5beb_tests.cmake")
-  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-crispasr-speaker-resample-ffb5beb_tests.cmake")
-else()
-  add_test(test-crispasr-speaker-resample_NOT_BUILT-ffb5beb test-crispasr-speaker-resample_NOT_BUILT-ffb5beb)
-endif()

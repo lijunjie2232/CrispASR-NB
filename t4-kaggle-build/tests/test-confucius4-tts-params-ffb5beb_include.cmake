@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-confucius4-tts-params-ffb5beb_tests.cmake")
-  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-confucius4-tts-params-ffb5beb_tests.cmake")
-else()
-  add_test(test-confucius4-tts-params_NOT_BUILT-ffb5beb test-confucius4-tts-params_NOT_BUILT-ffb5beb)
-endif()

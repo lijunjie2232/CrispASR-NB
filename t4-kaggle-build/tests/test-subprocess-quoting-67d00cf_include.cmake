@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-subprocess-quoting-67d00cf_tests.cmake")
-  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-subprocess-quoting-67d00cf_tests.cmake")
-else()
-  add_test(test-subprocess-quoting_NOT_BUILT-67d00cf test-subprocess-quoting_NOT_BUILT-67d00cf)
-endif()

@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-fastconformer-ctc-params-ffb5beb_tests.cmake")
-  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-fastconformer-ctc-params-ffb5beb_tests.cmake")
-else()
-  add_test(test-fastconformer-ctc-params_NOT_BUILT-ffb5beb test-fastconformer-ctc-params_NOT_BUILT-ffb5beb)
-endif()

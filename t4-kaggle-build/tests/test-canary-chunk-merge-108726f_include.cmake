@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-canary-chunk-merge-108726f_tests.cmake")
-  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-canary-chunk-merge-108726f_tests.cmake")
-else()
-  add_test(test-canary-chunk-merge_NOT_BUILT-108726f test-canary-chunk-merge_NOT_BUILT-108726f)
-endif()

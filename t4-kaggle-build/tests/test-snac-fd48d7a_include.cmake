@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-snac-fd48d7a_tests.cmake")
-  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-snac-fd48d7a_tests.cmake")
-else()
-  add_test(test-snac_NOT_BUILT-fd48d7a test-snac_NOT_BUILT-fd48d7a)
-endif()

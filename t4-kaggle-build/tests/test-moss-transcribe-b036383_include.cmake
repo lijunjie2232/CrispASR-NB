@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-moss-transcribe-b036383_tests.cmake")
-  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-moss-transcribe-b036383_tests.cmake")
-else()
-  add_test(test-moss-transcribe_NOT_BUILT-b036383 test-moss-transcribe_NOT_BUILT-b036383)
-endif()

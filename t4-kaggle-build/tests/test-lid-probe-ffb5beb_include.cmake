@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-lid-probe-ffb5beb_tests.cmake")
-  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-lid-probe-ffb5beb_tests.cmake")
-else()
-  add_test(test-lid-probe_NOT_BUILT-ffb5beb test-lid-probe_NOT_BUILT-ffb5beb)
-endif()

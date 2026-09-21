@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test_server_chunking-ffb5beb_tests.cmake")
-  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test_server_chunking-ffb5beb_tests.cmake")
-else()
-  add_test(test_server_chunking_NOT_BUILT-ffb5beb test_server_chunking_NOT_BUILT-ffb5beb)
-endif()

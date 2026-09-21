@@ -1,7 +1,0 @@
-add_test( [==[crispasr_popen: mode 'r' opens a subprocess]==] /kaggle/working/CrispASR-NB/t4-kaggle-build/bin/test-issue-239-popen-mode [==[crispasr_popen: mode 'r' opens a subprocess]==]  )
-set_tests_properties( [==[crispasr_popen: mode 'r' opens a subprocess]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-NB/t4-kaggle-build/tests LABELS unit popen issue-239 SKIP_RETURN_CODE 4)
-add_test( [==[crispasr_popen: mode 'rb' opens a subprocess on all platforms]==] /kaggle/working/CrispASR-NB/t4-kaggle-build/bin/test-issue-239-popen-mode [==[crispasr_popen: mode 'rb' opens a subprocess on all platforms]==]  )
-set_tests_properties( [==[crispasr_popen: mode 'rb' opens a subprocess on all platforms]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-NB/t4-kaggle-build/tests LABELS unit popen issue-239 SKIP_RETURN_CODE 4)
-add_test( [==[crispasr_popen: 'wb' mode strips 'b' cleanly]==] /kaggle/working/CrispASR-NB/t4-kaggle-build/bin/test-issue-239-popen-mode [==[crispasr_popen: 'wb' mode strips 'b' cleanly]==]  )
-set_tests_properties( [==[crispasr_popen: 'wb' mode strips 'b' cleanly]==] PROPERTIES WORKING_DIRECTORY /kaggle/working/CrispASR-NB/t4-kaggle-build/tests LABELS unit popen issue-239 SKIP_RETURN_CODE 4)
-set( test-issue-239-popen-mode_TESTS [==[crispasr_popen: mode 'r' opens a subprocess]==] [==[crispasr_popen: mode 'rb' opens a subprocess on all platforms]==] [==[crispasr_popen: 'wb' mode strips 'b' cleanly]==])

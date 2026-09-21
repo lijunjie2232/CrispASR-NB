@@ -1,5 +1,0 @@
-if(EXISTS "/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-vibevoice-enc-policy-d5b182f_tests.cmake")
-  include("/kaggle/working/CrispASR-NB/t4-kaggle-build/tests/test-vibevoice-enc-policy-d5b182f_tests.cmake")
-else()
-  add_test(test-vibevoice-enc-policy_NOT_BUILT-d5b182f test-vibevoice-enc-policy_NOT_BUILT-d5b182f)
-endif()
