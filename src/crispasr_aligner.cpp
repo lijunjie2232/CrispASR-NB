@@ -84,6 +84,29 @@ static bool is_cjk_codepoint(uint32_t cp) {
            || (cp >= 0xFF00 && cp <= 0xFFEF); // Fullwidth Forms
 }
 
+// Qwen's Python aligner removes punctuation before it creates timestamp
+// slots.  Keep apostrophes (the blueprint explicitly does), and treat the
+// common Unicode punctuation blocks as separators rather than alignment
+// units.  Non-ASCII letters remain intact for the CTC backends.
+static bool is_alignment_punctuation(uint32_t cp) {
+    if (cp == '\'')
+        return false;
+    if (cp < 0x80)
+        return !std::isalnum((unsigned char)cp) && !std::isspace((unsigned char)cp);
+    return (cp >= 0x2000 && cp <= 0x206F) || // General Punctuation
+           (cp >= 0x3000 && cp <= 0x303F) || // CJK Symbols and Punctuation
+           (cp >= 0xFE10 && cp <= 0xFE1F) || // Vertical Forms
+           (cp >= 0xFE30 && cp <= 0xFE4F) || // CJK Compatibility Forms
+           (cp >= 0xFF00 && cp <= 0xFF65);   // Fullwidth punctuation
+}
+
+static bool is_opening_punctuation(uint32_t cp) {
+    return cp == '(' || cp == '[' || cp == '{' || cp == 0x2018 || cp == 0x201C || // ‘ “
+           cp == 0x3008 || cp == 0x300A || cp == 0x300C || cp == 0x300E ||        // 〈《「『
+           cp == 0x3010 || cp == 0x3014 || cp == 0x3016 || cp == 0x3018 ||        // 【〔〖〘
+           cp == 0x301A || cp == 0xFF08 || cp == 0xFF3B || cp == 0xFF5B;          // 〚（［｛
+}
+
 // Decode one UTF-8 codepoint from pos, return (codepoint, byte_length).
 static std::pair<uint32_t, int> decode_utf8(const std::string& s, size_t pos) {
     unsigned char b = (unsigned char)s[pos];
@@ -112,6 +135,11 @@ std::vector<std::string> tokenise_words(const std::string& text) {
                 out.push_back(cur);
                 cur.clear();
             }
+        } else if (is_alignment_punctuation(cp)) {
+            if (!cur.empty()) {
+                out.push_back(cur);
+                cur.clear();
+            }
         } else if (is_cjk_codepoint(cp)) {
             // Flush any accumulated non-CJK text
             if (!cur.empty()) {
@@ -127,6 +155,52 @@ std::vector<std::string> tokenise_words(const std::string& text) {
     }
     if (!cur.empty())
         out.push_back(cur);
+    return out;
+}
+
+// Build the same number of units as tokenise_words(), but preserve punctuation
+// on the unit next to it. The aligner labels remain punctuation-free; this form
+// is only restored after inference so --split-on-punct can use measured word
+// timestamps. Without it, crispasr_make_disp_segments treats otherwise-useful
+// CJK character timings as unusable and interpolates every sentence across the
+// enclosing VAD segment (#444's v0.8.34 timing-accuracy regression).
+std::vector<std::string> tokenise_display_words(const std::string& text) {
+    std::vector<std::string> out;
+    std::string current;
+    std::string prefix;
+    const auto flush = [&]() {
+        if (current.empty())
+            return;
+        out.push_back(prefix + current);
+        prefix.clear();
+        current.clear();
+    };
+
+    for (size_t i = 0; i < text.size();) {
+        const auto [cp, len] = decode_utf8(text, i);
+        const std::string bytes = text.substr(i, len);
+        if (cp == ' ' || cp == '\n' || cp == '\t' || cp == '\r') {
+            flush();
+        } else if (is_alignment_punctuation(cp)) {
+            flush();
+            if (is_opening_punctuation(cp))
+                prefix += bytes;
+            else if (!out.empty())
+                out.back() += bytes;
+            else
+                prefix += bytes;
+        } else if (is_cjk_codepoint(cp)) {
+            flush();
+            out.push_back(prefix + bytes);
+            prefix.clear();
+        } else {
+            current += bytes;
+        }
+        i += len;
+    }
+    flush();
+    if (!prefix.empty() && !out.empty())
+        out.back() += prefix;
     return out;
 }
 
@@ -375,6 +449,10 @@ std::vector<std::string> crispasr_tokenise_align_words(const std::string& text) 
     return tokenise_words(text);
 }
 
+std::vector<std::string> crispasr_tokenise_align_display_words(const std::string& text) {
+    return tokenise_display_words(text);
+}
+
 std::vector<std::string> crispasr_parse_srt_cues(const std::string& raw) {
     std::vector<std::string> cues;
     std::string cue;
@@ -605,6 +683,10 @@ static std::vector<CrispasrAlignedWord> align_words_impl(const std::string& alig
     if (aligner_model.empty() || transcript.empty() || !samples || n_samples <= 0)
         return out;
 
+    const bool is_qwen3_fa = path_contains_ci(aligner_model, "forced-aligner") ||
+                             path_contains_ci(aligner_model, "qwen3-fa") ||
+                             path_contains_ci(aligner_model, "qwen3-forced");
+
     // #252: auto-romanize non-Latin reference text for CTC aligners with Latin
     // vocab. #419: romanization is an ALIGNMENT KEY, never a display
     // transform. It used to romanize the whole transcript and let the
@@ -617,10 +699,14 @@ static std::vector<CrispasrAlignedWord> align_words_impl(const std::string& alig
     // original words back onto the aligned timings before returning.
     // Disable the romanized labels with CRISPASR_ALIGN_NO_ROMANIZE=1.
     const auto orig_words = tokenise_words(transcript);
+    const auto display_words = tokenise_display_words(transcript);
     std::vector<std::string> label_words = orig_words;
     {
         const char* no_rom = std::getenv("CRISPASR_ALIGN_NO_ROMANIZE");
-        if (!(no_rom && no_rom[0] == '1') && core_uroman::needs_romanization(transcript)) {
+        // Qwen3-ForcedAligner is multilingual and its blueprint feeds the
+        // original script. Romanizing Chinese here changed every prompt token
+        // and was the primary #444 divergence.
+        if (!is_qwen3_fa && !(no_rom && no_rom[0] == '1') && core_uroman::needs_romanization(transcript)) {
             for (auto& w : label_words) {
                 if (core_uroman::needs_romanization(w))
                     w = core_uroman::romanize(w);
@@ -641,9 +727,9 @@ static std::vector<CrispasrAlignedWord> align_words_impl(const std::string& alig
     // aligns label_words 1:1, so a size match is the expected case; on a
     // mismatch (an arm dropped words) keep the arm's text rather than guess.
     auto restore_text = [&](std::vector<CrispasrAlignedWord> v) {
-        if (v.size() == orig_words.size()) {
+        if (v.size() == orig_words.size() && display_words.size() == orig_words.size()) {
             for (size_t i = 0; i < v.size(); i++)
-                v[i].text = orig_words[i];
+                v[i].text = display_words[i];
         } else if (!v.empty()) {
             fprintf(stderr,
                     "crispasr[aligner]: aligned %zu words for %zu inputs — keeping the aligner's "
@@ -653,9 +739,6 @@ static std::vector<CrispasrAlignedWord> align_words_impl(const std::string& alig
         return v;
     };
 
-    const bool is_qwen3_fa = path_contains_ci(aligner_model, "forced-aligner") ||
-                             path_contains_ci(aligner_model, "qwen3-fa") ||
-                             path_contains_ci(aligner_model, "qwen3-forced");
     if (is_qwen3_fa) {
         return restore_text(align_qwen3_fa(aligner_model, label_words, samples, n_samples, t_offset_cs, n_threads));
     }
@@ -722,4 +805,23 @@ static std::vector<CrispasrAlignedWord> align_words_impl(const std::string& alig
         out.push_back(std::move(cw));
     }
     return restore_text(std::move(out));
+}
+// Convert a segment's absolute centisecond timestamps to a sample interval and
+// clamp it to the audio slice that produced the segment.  Use integer math so
+// adjacent segments get stable boundaries on every platform; round the end up
+// to avoid dropping a partial centisecond of speech.
+CrispasrAlignmentAudioRange crispasr_alignment_audio_range(int64_t segment_t0_cs, int64_t segment_t1_cs,
+                                                           int slice_start, int slice_end, int sample_rate) {
+    CrispasrAlignmentAudioRange out;
+    if (sample_rate <= 0 || slice_end <= slice_start || segment_t1_cs <= segment_t0_cs)
+        return out;
+
+    const int64_t raw_start = segment_t0_cs * sample_rate / 100;
+    const int64_t raw_end = (segment_t1_cs * sample_rate + 99) / 100;
+    out.start = (int)std::clamp<int64_t>(raw_start, slice_start, slice_end);
+    out.end = (int)std::clamp<int64_t>(raw_end, slice_start, slice_end);
+    if (!out.valid())
+        return {};
+    out.offset_cs = (int64_t)out.start * 100 / sample_rate;
+    return out;
 }

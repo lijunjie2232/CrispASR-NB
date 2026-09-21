@@ -4525,12 +4525,38 @@ with speech. Always use VAD to trim silence before alignment.
 
 ### Qwen3 forced aligner monotonicity
 
-The reference implementation (`qwen3_forced_aligner.py`) has a
-`fix_timestamp()` function using longest-increasing-subsequence (LIS)
-to correct non-monotonic timestamps. We use a simpler forward clamp
-(each timestamp >= previous). This handles most cases but may miss
-complex inversions. Parakeet's native TDT timestamps are always
-better when available.
+The reference implementation (`qwen3_forced_aligner.py`, QwenLM/Qwen3-ASR
+`7c6daf77`) runs once for an audio chunk and its complete transcript. Its
+`fix_timestamp()` is an O(n²) longest-non-decreasing-subsequence DP: it selects
+the first maximum-length chain, snaps anomaly runs of one or two values to the
+nearest retained neighbour, and linearly interpolates only longer runs. An
+O(n log n) LIS with a different tie rule and unconditional interpolation is not
+equivalent; `[0, 0, 1, 0]` becomes `[0, 0, 1, 1]` in the blueprint but became
+`[0, 0, 0, 0]` in the former port.
+
+The VAD caller originally made one aligner call per ASR segment. Replacing that
+with one alignment for the complete VAD slice removed the overlap, but the
+reporter's follow-up exposed an apparently separate failure: several starts
+moved 1.4–2.35 seconds early. Exact A/B showed the aligned and no-aligner output
+had almost identical interpolated boundaries, while the CLI supplied one long
+text segment per VAD slice. The model was not moving those sentence boundaries.
+
+The output layer was. Blueprint parity correctly removed punctuation before
+creating timestamp slots, and the aligned words therefore carried no sentence
+marks. `--split-on-punct` saw punctuation in the original segment but none in
+its words, declared the word timings unusable, and split the text by UTF-8 byte
+fraction across the whole segment. Preserve two forms: punctuation-free labels
+for inference, and a one-to-one display copy with punctuation reattached to the
+adjacent word. The latter lets sentence splitting use measured word boundaries
+without inventing model slots.
+
+Test both properties: an ordered cue stream alone can be consistently wrong, so
+the live gate also bounds movement of known-good anchors. Chinese remains in
+its original script, punctuation gets no timestamp slots, and no leading BPE
+space is invented between alignment units. Reject results outside the supplied
+audio range (#444).
+
+Parakeet's native TDT timestamps remain preferable when available.
 
 ### CrispASR vs voxtral.c: 3.8× faster on CPU
 
