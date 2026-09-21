@@ -1,0 +1,2 @@
+/usr/bin/ar qc libvoxcpm2_tts.a CMakeFiles/voxcpm2_tts.dir/voxcpm2_tts.cpp.o
+/usr/bin/ranlib libvoxcpm2_tts.a

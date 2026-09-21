@@ -1,0 +1,2 @@
+/usr/bin/ar qc libvoxtral4b.a CMakeFiles/voxtral4b.dir/voxtral4b.cpp.o
+/usr/bin/ranlib libvoxtral4b.a

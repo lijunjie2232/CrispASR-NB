@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcanary_ctc.a CMakeFiles/canary_ctc.dir/canary_ctc.cpp.o
+/usr/bin/ranlib libcanary_ctc.a

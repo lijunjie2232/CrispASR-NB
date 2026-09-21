@@ -1,0 +1,2 @@
+/usr/bin/ar qc libvoxtral_tts.a CMakeFiles/voxtral_tts.dir/voxtral_tts.cpp.o
+/usr/bin/ranlib libvoxtral_tts.a

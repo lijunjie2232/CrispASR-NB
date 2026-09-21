@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmoonshine.a CMakeFiles/moonshine.dir/moonshine.cpp.o
+/usr/bin/ranlib libmoonshine.a

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libspeecht5-tts.a "CMakeFiles/speecht5-tts.dir/speecht5_tts.cpp.o"
+/usr/bin/ranlib libspeecht5-tts.a

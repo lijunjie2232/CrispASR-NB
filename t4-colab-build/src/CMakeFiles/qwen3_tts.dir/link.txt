@@ -1,0 +1,2 @@
+/usr/bin/ar qc libqwen3_tts.a CMakeFiles/qwen3_tts.dir/qwen3_tts.cpp.o
+/usr/bin/ranlib libqwen3_tts.a

@@ -1,0 +1,154 @@
+../../bin/moss-tts-local-smoke: \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/Scrt1.o \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crti.o \
+  /usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o \
+  /usr/local/cuda-12.8/lib64/stubs/libcuda.so \
+  CMakeFiles/moss-tts-local-smoke.dir/moss_tts_local_smoke.cpp.o \
+  ../../src/libmoss_tts_local.a \
+  ../../src/libcrispasr-core.a \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libdl.a \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so \
+  /usr/lib/x86_64-linux-gnu/libpthread.a \
+  /usr/lib/x86_64-linux-gnu/libcblas.so \
+  ../../ggml/src/libggml.so.0.23.0 \
+  ../../ggml/src/libggml-cpu.so.0.23.0 \
+  ../../ggml/src/ggml-cuda/libggml-cuda.so.0.23.0 \
+  ../../ggml/src/libggml-base.so.0.23.0 \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libstdc++.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so \
+  /lib/x86_64-linux-gnu/libm.so.6 \
+  /lib/x86_64-linux-gnu/libmvec.so.1 \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libgcc_s.so.1 \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgcc.a \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgcc.a \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libc.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libc.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libc.so \
+  /lib/x86_64-linux-gnu/libc.so.6 \
+  /usr/lib/x86_64-linux-gnu/libc_nonshared.a \
+  /lib64/ld-linux-x86-64.so.2 \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libgcc_s.so.1 \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgcc.a \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgcc.a \
+  /usr/lib/gcc/x86_64-linux-gnu/13/crtendS.o \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crtn.o \
+  ../../ggml/src/ggml-cuda/libggml-cuda.so.0.23.0 \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so \
+  /lib64/ld-linux-x86-64.so.2 \
+  /usr/local/cuda-12.8/lib64/libcudart.so.12 \
+  /usr/local/cuda-12.8/lib64/libcublas.so.12 \
+  /usr/local/cuda-12.8/lib64/stubs/libcuda.so \
+  /lib/x86_64-linux-gnu/libdl.so.2 \
+  /lib/x86_64-linux-gnu/libpthread.so.0 \
+  /lib/x86_64-linux-gnu/librt.so.1 \
+  /usr/local/cuda-12.8/lib64/libcublasLt.so.12
+
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/Scrt1.o:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crti.o:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o:
+
+/usr/local/cuda-12.8/lib64/stubs/libcuda.so:
+
+CMakeFiles/moss-tts-local-smoke.dir/moss_tts_local_smoke.cpp.o:
+
+../../src/libmoss_tts_local.a:
+
+../../src/libcrispasr-core.a:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libdl.a:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so:
+
+/usr/lib/x86_64-linux-gnu/libpthread.a:
+
+/usr/lib/x86_64-linux-gnu/libcblas.so:
+
+../../ggml/src/libggml.so.0.23.0:
+
+../../ggml/src/libggml-cpu.so.0.23.0:
+
+../../ggml/src/ggml-cuda/libggml-cuda.so.0.23.0:
+
+../../ggml/src/libggml-base.so.0.23.0:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libstdc++.so:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so:
+
+/lib/x86_64-linux-gnu/libm.so.6:
+
+/lib/x86_64-linux-gnu/libmvec.so.1:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libgcc_s.so.1:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libgcc.a:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libgcc.a:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libc.so:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libc.so:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libc.so:
+
+/lib/x86_64-linux-gnu/libc.so.6:
+
+/usr/lib/x86_64-linux-gnu/libc_nonshared.a:
+
+/lib64/ld-linux-x86-64.so.2:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libgcc_s.so.1:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libgcc.a:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libgcc.a:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/crtendS.o:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crtn.o:
+
+../../ggml/src/ggml-cuda/libggml-cuda.so.0.23.0:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so:
+
+/lib64/ld-linux-x86-64.so.2:
+
+/usr/local/cuda-12.8/lib64/libcudart.so.12:
+
+/usr/local/cuda-12.8/lib64/libcublas.so.12:
+
+/usr/local/cuda-12.8/lib64/stubs/libcuda.so:
+
+/lib/x86_64-linux-gnu/libdl.so.2:
+
+/lib/x86_64-linux-gnu/libpthread.so.0:
+
+/lib/x86_64-linux-gnu/librt.so.1:
+
+/usr/local/cuda-12.8/lib64/libcublasLt.so.12:

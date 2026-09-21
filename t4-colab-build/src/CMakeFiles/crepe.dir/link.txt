@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcrepe.a CMakeFiles/crepe.dir/crepe.cpp.o
+/usr/bin/ranlib libcrepe.a

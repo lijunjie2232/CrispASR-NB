@@ -1,0 +1,2 @@
+/usr/bin/ar qc libzonos-tts.a "CMakeFiles/zonos-tts.dir/zonos_tts.cpp.o"
+/usr/bin/ranlib libzonos-tts.a

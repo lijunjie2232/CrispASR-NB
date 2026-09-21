@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcrispasr-diff-lib.a "CMakeFiles/crispasr-diff-lib.dir/crispasr_diff.cpp.o"
+/usr/bin/ranlib libcrispasr-diff-lib.a

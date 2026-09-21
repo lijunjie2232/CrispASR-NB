@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmoss_transcribe_diarize.a CMakeFiles/moss_transcribe_diarize.dir/moss_transcribe_diarize.cpp.o
+/usr/bin/ranlib libmoss_transcribe_diarize.a

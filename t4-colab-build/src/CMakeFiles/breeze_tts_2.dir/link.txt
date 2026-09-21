@@ -1,0 +1,2 @@
+/usr/bin/ar qc libbreeze_tts_2.a CMakeFiles/breeze_tts_2.dir/breeze_tts_2.cpp.o
+/usr/bin/ranlib libbreeze_tts_2.a

@@ -1,0 +1,2 @@
+# Empty dependencies file for moonshine_tokenizer.
+# This may be replaced when dependencies are built.

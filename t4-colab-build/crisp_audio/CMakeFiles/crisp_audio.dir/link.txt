@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcrisp_audio.a CMakeFiles/crisp_audio.dir/src/audio_tower.cpp.o
+/usr/bin/ranlib libcrisp_audio.a

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libpiano-transcription.a "CMakeFiles/piano-transcription.dir/piano_transcription.cpp.o"
+/usr/bin/ranlib libpiano-transcription.a

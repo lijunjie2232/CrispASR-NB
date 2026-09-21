@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmt3.a CMakeFiles/mt3.dir/mt3.cpp.o
+/usr/bin/ranlib libmt3.a

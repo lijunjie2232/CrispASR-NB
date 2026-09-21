@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmoss_audio.a CMakeFiles/moss_audio.dir/moss_audio.cpp.o
+/usr/bin/ranlib libmoss_audio.a

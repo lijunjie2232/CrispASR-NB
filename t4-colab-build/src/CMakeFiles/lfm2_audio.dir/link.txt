@@ -1,0 +1,2 @@
+/usr/bin/ar qc liblfm2_audio.a CMakeFiles/lfm2_audio.dir/lfm2_audio.cpp.o
+/usr/bin/ranlib liblfm2_audio.a

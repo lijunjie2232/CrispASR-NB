@@ -1,0 +1,2 @@
+/usr/bin/ar qc libirodori-tts.a "CMakeFiles/irodori-tts.dir/irodori_tts.cpp.o"
+/usr/bin/ranlib libirodori-tts.a

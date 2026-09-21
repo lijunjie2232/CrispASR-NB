@@ -1,0 +1,2 @@
+/usr/bin/ar qc libhtdemucs.a CMakeFiles/htdemucs.dir/htdemucs.cpp.o
+/usr/bin/ranlib libhtdemucs.a

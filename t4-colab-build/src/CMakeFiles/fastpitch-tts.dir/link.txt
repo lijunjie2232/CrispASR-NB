@@ -1,0 +1,2 @@
+/usr/bin/ar qc libfastpitch-tts.a "CMakeFiles/fastpitch-tts.dir/fastpitch_tts.cpp.o"
+/usr/bin/ranlib libfastpitch-tts.a

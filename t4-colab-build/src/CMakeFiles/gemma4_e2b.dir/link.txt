@@ -1,0 +1,2 @@
+/usr/bin/ar qc libgemma4_e2b.a CMakeFiles/gemma4_e2b.dir/gemma4_e2b.cpp.o
+/usr/bin/ranlib libgemma4_e2b.a

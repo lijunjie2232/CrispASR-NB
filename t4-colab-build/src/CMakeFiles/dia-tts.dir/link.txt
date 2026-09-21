@@ -1,0 +1,2 @@
+/usr/bin/ar qc libdia-tts.a "CMakeFiles/dia-tts.dir/dia_tts.cpp.o"
+/usr/bin/ranlib libdia-tts.a

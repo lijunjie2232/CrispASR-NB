@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmel-band-roformer.a "CMakeFiles/mel-band-roformer.dir/mel_band_roformer.cpp.o"
+/usr/bin/ranlib libmel-band-roformer.a

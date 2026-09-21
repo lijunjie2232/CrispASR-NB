@@ -1,0 +1,2 @@
+/usr/bin/ar qc libindextts.a CMakeFiles/indextts.dir/indextts.cpp.o CMakeFiles/indextts.dir/indextts_voc.cpp.o
+/usr/bin/ranlib libindextts.a

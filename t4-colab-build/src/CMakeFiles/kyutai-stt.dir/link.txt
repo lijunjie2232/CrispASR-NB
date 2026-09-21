@@ -1,0 +1,2 @@
+/usr/bin/ar qc libkyutai-stt.a "CMakeFiles/kyutai-stt.dir/kyutai_stt.cpp.o"
+/usr/bin/ranlib libkyutai-stt.a

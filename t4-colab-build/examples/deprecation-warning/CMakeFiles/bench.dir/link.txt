@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -L/usr/local/cuda-12.8/lib64/stubs -lcuda -Wl,--dependency-file=CMakeFiles/bench.dir/link.d "CMakeFiles/bench.dir/deprecation-warning.cpp.o" -o ../../bin/bench

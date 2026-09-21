@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmiocodec.a CMakeFiles/miocodec.dir/miocodec.cpp.o
+/usr/bin/ranlib libmiocodec.a

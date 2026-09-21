@@ -1,0 +1,2 @@
+/usr/bin/ar qc libaudioseal.a CMakeFiles/audioseal.dir/audioseal.cpp.o
+/usr/bin/ranlib libaudioseal.a

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libwav2vec2-ggml.a "CMakeFiles/wav2vec2-ggml.dir/wav2vec2-ggml.cpp.o"
+/usr/bin/ranlib libwav2vec2-ggml.a

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libchatterbox.a CMakeFiles/chatterbox.dir/chatterbox.cpp.o CMakeFiles/chatterbox.dir/chatterbox_s3gen.cpp.o CMakeFiles/chatterbox.dir/chatterbox_ve.cpp.o CMakeFiles/chatterbox.dir/chatterbox_s3tok.cpp.o CMakeFiles/chatterbox.dir/chatterbox_campplus.cpp.o
+/usr/bin/ranlib libchatterbox.a

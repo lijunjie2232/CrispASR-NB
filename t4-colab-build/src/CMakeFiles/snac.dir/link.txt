@@ -1,0 +1,2 @@
+/usr/bin/ar qc libsnac.a CMakeFiles/snac.dir/core/snac.cpp.o
+/usr/bin/ranlib libsnac.a

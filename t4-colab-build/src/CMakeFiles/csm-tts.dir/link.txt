@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcsm-tts.a "CMakeFiles/csm-tts.dir/csm_tts.cpp.o"
+/usr/bin/ranlib libcsm-tts.a

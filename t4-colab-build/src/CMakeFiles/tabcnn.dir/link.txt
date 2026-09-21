@@ -1,0 +1,2 @@
+/usr/bin/ar qc libtabcnn.a CMakeFiles/tabcnn.dir/tabcnn.cpp.o
+/usr/bin/ranlib libtabcnn.a

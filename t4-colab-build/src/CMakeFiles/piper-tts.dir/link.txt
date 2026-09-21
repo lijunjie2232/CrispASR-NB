@@ -1,0 +1,2 @@
+/usr/bin/ar qc libpiper-tts.a "CMakeFiles/piper-tts.dir/piper_tts.cpp.o"
+/usr/bin/ranlib libpiper-tts.a

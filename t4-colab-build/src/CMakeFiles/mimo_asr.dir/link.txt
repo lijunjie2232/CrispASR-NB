@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmimo_asr.a CMakeFiles/mimo_asr.dir/mimo_asr.cpp.o
+/usr/bin/ranlib libmimo_asr.a

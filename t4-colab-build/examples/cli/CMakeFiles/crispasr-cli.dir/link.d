@@ -1,0 +1,790 @@
+../../bin/crispasr: \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/Scrt1.o \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crti.o \
+  /usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o \
+  /usr/local/cuda-12.8/lib64/stubs/libcuda.so \
+  CMakeFiles/crispasr-cli.dir/cli.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_crispasr.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_nemotron.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_gigaam.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_parakeet.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_canary.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_canary_qwen.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_lfm2_audio.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_mini_omni2.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_cohere.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_granite.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_granite_nle.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral4b.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral_tts.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_higgs_stt.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_qwen3.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_fastconformer_ctc.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_wav2vec2.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_vibevoice.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_kugelaudio.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_qwen3_tts.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_omnivoice.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_orpheus.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_chatterbox.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_tada.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_indextts.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_f5_tts.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_irodori_tts.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_supertonic.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_pocket_tts.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_csm.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_parler.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_fastpitch.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_bananamind_tts.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_bark.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_dia.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_dots_tts.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_fireredtts3.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_confucius4_tts.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_voxcpm2_tts.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_voxcpm2_vae.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_cosyvoice3.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_kokoro.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_piper.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_melotts.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_m2m100.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_t5.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_glm_asr.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_htdemucs.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_crepe.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_btc.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_rvc.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_piano_cli.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_beat_this.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_mel_band_roformer.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_kyutai_stt.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_firered_asr.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_moonshine.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_moonshine_streaming.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_gemma4_e2b.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_omniasr.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_mimo_asr.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_ark_asr.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_miotts.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_bt2_tts.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_piano_transcription.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_basic_pitch.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_mt3.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_audio.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts_local.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe_diarize.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_funasr.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_paraformer.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_sensevoice.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_sidon.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_speecht5.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_zonos.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_aligner_cli.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_vad_cli.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_separate_cli.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_beats_cli.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_chords_cli.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_tab_cli.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_tabcnn.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_pitch_cli.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_lid_cli.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_diarize_cli.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_output.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_model_mgr_cli.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_diagnostics.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_run.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_server.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_tts_chunking.cpp.o \
+  CMakeFiles/crispasr-cli.dir/__/server/ws_stream.cpp.o \
+  CMakeFiles/crispasr-cli.dir/__/server/realtime_server.cpp.o \
+  CMakeFiles/crispasr-cli.dir/wyoming.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_outetts.cpp.o \
+  ../libcommon.a \
+  ../../src/libcrispasr.so.0.8.34 \
+  ../../src/libparakeet.a \
+  ../../src/libwespeaker.a \
+  ../../src/libgigaam.a \
+  ../../src/libcanary.a \
+  ../../src/libcohere.a \
+  ../../src/libgranite_speech.a \
+  ../../src/libgranite_nle.a \
+  ../../src/libvoxtral.a \
+  ../../src/libvoxtral4b.a \
+  ../../src/libvoxtral_tts.a \
+  ../../src/libhiggs_stt.a \
+  ../../src/libqwen3_asr.a \
+  ../../src/libqwen3_tts.a \
+  ../../src/libomnivoice.a \
+  ../../src/liborpheus.a \
+  ../../src/libchatterbox.a \
+  ../../src/libtada-tts.a \
+  ../../src/libtada-encoder.a \
+  ../../src/libindextts.a \
+  ../../src/libkokoro.a \
+  ../../src/libpiper-tts.a \
+  ../../src/libspeecht5-tts.a \
+  ../../src/libfastpitch-tts.a \
+  ../../src/libbananamind-tts.a \
+  ../../src/libbark-tts.a \
+  ../../src/libdia-tts.a \
+  ../../src/libdots-tts.a \
+  ../../src/libfireredtts3.a \
+  ../../src/libconfucius4-tts.a \
+  ../../src/libirodori-tts.a \
+  ../../src/libsupertonic-tts.a \
+  ../../src/libpocket-tts.a \
+  ../../src/libcsm-tts.a \
+  ../../src/libvoxcpm2_tts.a \
+  ../../src/libm2m100.a \
+  ../../src/libt5_translate.a \
+  ../../src/libcanary_ctc.a \
+  ../../src/libwav2vec2-ggml.a \
+  ../../src/libvibevoice.a \
+  ../../src/libkugelaudio.a \
+  ../../src/libsilero-lid.a \
+  ../../src/libpyannote-seg.a \
+  ../../src/libfunasr.a \
+  ../../src/libparaformer.a \
+  ../../src/libsensevoice.a \
+  ../../src/libsidon.a \
+  ../../src/libmoss_audio.a \
+  ../../src/libmoss_tts.a \
+  ../../src/libmoss_tts_local.a \
+  ../../src/libmoss_transcribe.a \
+  ../../src/libmoss_transcribe_diarize.a \
+  ../../src/libmiotts.a \
+  ../../src/libbreeze_tts_2.a \
+  ../../src/liboutetts.a \
+  ../../src/libparler-tts.a \
+  ../../glint/libglint.a \
+  /usr/lib/x86_64-linux-gnu/libopus.so \
+  ../../crisp_audio/libcrisp_audio.a \
+  ../../src/libtada-codec.a \
+  ../../src/libchatterbox.a \
+  ../../src/libqwen3_tts.a \
+  ../../src/libcrispasr_c2pa_native.a \
+  ../../src/libaudioseal.a \
+  ../../src/libnemotron.a \
+  ../../src/libcanary_qwen.a \
+  ../../src/liblfm2_audio.a \
+  ../../src/libctc-align.a \
+  ../../src/libglm-asr.a \
+  ../../src/libhtdemucs.a \
+  ../../src/libmini-omni2.a \
+  ../../src/libsnac.a \
+  ../../src/libkyutai-stt.a \
+  ../../src/libfirered-vad.a \
+  ../../src/libmarblenet-vad.a \
+  ../../src/libcrispasr-vad-encdec.a \
+  ../../src/libwebrtc-vad.a \
+  ../../src/libfirered-lid.a \
+  ../../src/libfirered-asr.a \
+  ../../crisp_lid/libcrisp_lid.a \
+  ../../src/libomniasr.a \
+  ../../src/libpiano-transcription.a \
+  ../../src/libbasic-pitch.a \
+  ../../src/libmt3.a \
+  ../../src/libecapa-lid.a \
+  ../../src/libtitanet.a \
+  ../../src/libmoonshine.a \
+  ../../src/libmoonshine_streaming.a \
+  ../../src/libmoonshine_tokenizer.a \
+  ../../src/libgemma4_e2b.a \
+  ../../src/libark_asr.a \
+  ../../src/libmimo_asr.a \
+  ../../src/libmimo_tokenizer.a \
+  ../../src/libchatterbox.a \
+  ../../src/libcosyvoice3_tts.a \
+  ../../src/libzonos-tts.a \
+  ../../src/libf5-tts.a \
+  ../../src/libmelotts.a \
+  ../../src/libbert-encoder.a \
+  ../../src/libopenvoice2.a \
+  ../../crisp_punc/libcrisp_punc.a \
+  ../../crisp_truecase/libcrisp_truecase.a \
+  ../../src/libmel-band-roformer.a \
+  /usr/lib/x86_64-linux-gnu/libopenblas.so \
+  ../../src/libcrepe.a \
+  ../../src/libbtc-chords.a \
+  ../../src/libtabcnn.a \
+  ../../src/libbeatrice-pitch.a \
+  ../../src/librvc-svc.a \
+  ../../src/libbeat-this.a \
+  ../../src/libcrispasr-core.a \
+  ../../ggml/src/libggml.so.0.23.0 \
+  ../../ggml/src/ggml-cuda/libggml-cuda.so.0.23.0 \
+  /usr/lib/x86_64-linux-gnu/libcblas.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so \
+  /usr/lib/x86_64-linux-gnu/libpthread.a \
+  ../../ggml/src/libggml-cpu.so.0.23.0 \
+  ../../ggml/src/libggml-base.so.0.23.0 \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libdl.a \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libstdc++.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so \
+  /lib/x86_64-linux-gnu/libm.so.6 \
+  /lib/x86_64-linux-gnu/libmvec.so.1 \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libgcc_s.so.1 \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgcc.a \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgcc.a \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libc.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libc.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libc.so \
+  /lib/x86_64-linux-gnu/libc.so.6 \
+  /usr/lib/x86_64-linux-gnu/libc_nonshared.a \
+  /lib64/ld-linux-x86-64.so.2 \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libgcc_s.so.1 \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgcc.a \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgcc.a \
+  /usr/lib/gcc/x86_64-linux-gnu/13/crtendS.o \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crtn.o \
+  /usr/lib/x86_64-linux-gnu/libopenblas.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so \
+  ../../ggml/src/ggml-cuda/libggml-cuda.so.0.23.0 \
+  /lib/x86_64-linux-gnu/libatlas.so.3 \
+  /lib/x86_64-linux-gnu/libgfortran.so.5 \
+  /usr/local/cuda-12.8/lib64/libcudart.so.12 \
+  /usr/local/cuda-12.8/lib64/libcublas.so.12 \
+  /usr/local/cuda-12.8/lib64/stubs/libcuda.so \
+  /lib/x86_64-linux-gnu/libdl.so.2 \
+  /lib/x86_64-linux-gnu/libpthread.so.0 \
+  /lib/x86_64-linux-gnu/librt.so.1 \
+  /usr/local/cuda-12.8/lib64/libcublasLt.so.12
+
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/Scrt1.o:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crti.o:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o:
+
+/usr/local/cuda-12.8/lib64/stubs/libcuda.so:
+
+CMakeFiles/crispasr-cli.dir/cli.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_crispasr.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_nemotron.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_gigaam.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_parakeet.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_canary.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_canary_qwen.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_lfm2_audio.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_mini_omni2.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_cohere.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_granite.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_granite_nle.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral4b.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral_tts.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_higgs_stt.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_qwen3.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_fastconformer_ctc.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_wav2vec2.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_vibevoice.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_kugelaudio.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_qwen3_tts.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_omnivoice.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_orpheus.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_chatterbox.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_tada.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_indextts.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_f5_tts.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_irodori_tts.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_supertonic.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_pocket_tts.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_csm.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_parler.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_fastpitch.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_bananamind_tts.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_bark.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_dia.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_dots_tts.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_fireredtts3.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_confucius4_tts.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_voxcpm2_tts.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_voxcpm2_vae.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_cosyvoice3.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_kokoro.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_piper.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_melotts.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_m2m100.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_t5.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_glm_asr.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_htdemucs.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_crepe.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_btc.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_rvc.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_piano_cli.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_beat_this.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_mel_band_roformer.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_kyutai_stt.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_firered_asr.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_moonshine.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_moonshine_streaming.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_gemma4_e2b.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_omniasr.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_mimo_asr.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_ark_asr.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_miotts.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_bt2_tts.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_piano_transcription.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_basic_pitch.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_mt3.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_audio.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts_local.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe_diarize.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_funasr.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_paraformer.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_sensevoice.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_sidon.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_speecht5.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_zonos.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_aligner_cli.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_vad_cli.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_separate_cli.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_beats_cli.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_chords_cli.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_tab_cli.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_tabcnn.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_pitch_cli.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_lid_cli.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_diarize_cli.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_output.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_model_mgr_cli.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_diagnostics.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_run.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_server.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_tts_chunking.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/__/server/ws_stream.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/__/server/realtime_server.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/wyoming.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_outetts.cpp.o:
+
+../libcommon.a:
+
+../../src/libcrispasr.so.0.8.34:
+
+../../src/libparakeet.a:
+
+../../src/libwespeaker.a:
+
+../../src/libgigaam.a:
+
+../../src/libcanary.a:
+
+../../src/libcohere.a:
+
+../../src/libgranite_speech.a:
+
+../../src/libgranite_nle.a:
+
+../../src/libvoxtral.a:
+
+../../src/libvoxtral4b.a:
+
+../../src/libvoxtral_tts.a:
+
+../../src/libhiggs_stt.a:
+
+../../src/libqwen3_asr.a:
+
+../../src/libqwen3_tts.a:
+
+../../src/libomnivoice.a:
+
+../../src/liborpheus.a:
+
+../../src/libchatterbox.a:
+
+../../src/libtada-tts.a:
+
+../../src/libtada-encoder.a:
+
+../../src/libindextts.a:
+
+../../src/libkokoro.a:
+
+../../src/libpiper-tts.a:
+
+../../src/libspeecht5-tts.a:
+
+../../src/libfastpitch-tts.a:
+
+../../src/libbananamind-tts.a:
+
+../../src/libbark-tts.a:
+
+../../src/libdia-tts.a:
+
+../../src/libdots-tts.a:
+
+../../src/libfireredtts3.a:
+
+../../src/libconfucius4-tts.a:
+
+../../src/libirodori-tts.a:
+
+../../src/libsupertonic-tts.a:
+
+../../src/libpocket-tts.a:
+
+../../src/libcsm-tts.a:
+
+../../src/libvoxcpm2_tts.a:
+
+../../src/libm2m100.a:
+
+../../src/libt5_translate.a:
+
+../../src/libcanary_ctc.a:
+
+../../src/libwav2vec2-ggml.a:
+
+../../src/libvibevoice.a:
+
+../../src/libkugelaudio.a:
+
+../../src/libsilero-lid.a:
+
+../../src/libpyannote-seg.a:
+
+../../src/libfunasr.a:
+
+../../src/libparaformer.a:
+
+../../src/libsensevoice.a:
+
+../../src/libsidon.a:
+
+../../src/libmoss_audio.a:
+
+../../src/libmoss_tts.a:
+
+../../src/libmoss_tts_local.a:
+
+../../src/libmoss_transcribe.a:
+
+../../src/libmoss_transcribe_diarize.a:
+
+../../src/libmiotts.a:
+
+../../src/libbreeze_tts_2.a:
+
+../../src/liboutetts.a:
+
+../../src/libparler-tts.a:
+
+../../glint/libglint.a:
+
+/usr/lib/x86_64-linux-gnu/libopus.so:
+
+../../crisp_audio/libcrisp_audio.a:
+
+../../src/libtada-codec.a:
+
+../../src/libchatterbox.a:
+
+../../src/libqwen3_tts.a:
+
+../../src/libcrispasr_c2pa_native.a:
+
+../../src/libaudioseal.a:
+
+../../src/libnemotron.a:
+
+../../src/libcanary_qwen.a:
+
+../../src/liblfm2_audio.a:
+
+../../src/libctc-align.a:
+
+../../src/libglm-asr.a:
+
+../../src/libhtdemucs.a:
+
+../../src/libmini-omni2.a:
+
+../../src/libsnac.a:
+
+../../src/libkyutai-stt.a:
+
+../../src/libfirered-vad.a:
+
+../../src/libmarblenet-vad.a:
+
+../../src/libcrispasr-vad-encdec.a:
+
+../../src/libwebrtc-vad.a:
+
+../../src/libfirered-lid.a:
+
+../../src/libfirered-asr.a:
+
+../../crisp_lid/libcrisp_lid.a:
+
+../../src/libomniasr.a:
+
+../../src/libpiano-transcription.a:
+
+../../src/libbasic-pitch.a:
+
+../../src/libmt3.a:
+
+../../src/libecapa-lid.a:
+
+../../src/libtitanet.a:
+
+../../src/libmoonshine.a:
+
+../../src/libmoonshine_streaming.a:
+
+../../src/libmoonshine_tokenizer.a:
+
+../../src/libgemma4_e2b.a:
+
+../../src/libark_asr.a:
+
+../../src/libmimo_asr.a:
+
+../../src/libmimo_tokenizer.a:
+
+../../src/libchatterbox.a:
+
+../../src/libcosyvoice3_tts.a:
+
+../../src/libzonos-tts.a:
+
+../../src/libf5-tts.a:
+
+../../src/libmelotts.a:
+
+../../src/libbert-encoder.a:
+
+../../src/libopenvoice2.a:
+
+../../crisp_punc/libcrisp_punc.a:
+
+../../crisp_truecase/libcrisp_truecase.a:
+
+../../src/libmel-band-roformer.a:
+
+/usr/lib/x86_64-linux-gnu/libopenblas.so:
+
+../../src/libcrepe.a:
+
+../../src/libbtc-chords.a:
+
+../../src/libtabcnn.a:
+
+../../src/libbeatrice-pitch.a:
+
+../../src/librvc-svc.a:
+
+../../src/libbeat-this.a:
+
+../../src/libcrispasr-core.a:
+
+../../ggml/src/libggml.so.0.23.0:
+
+../../ggml/src/ggml-cuda/libggml-cuda.so.0.23.0:
+
+/usr/lib/x86_64-linux-gnu/libcblas.so:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so:
+
+/usr/lib/x86_64-linux-gnu/libpthread.a:
+
+../../ggml/src/libggml-cpu.so.0.23.0:
+
+../../ggml/src/libggml-base.so.0.23.0:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libdl.a:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libstdc++.so:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so:
+
+/lib/x86_64-linux-gnu/libm.so.6:
+
+/lib/x86_64-linux-gnu/libmvec.so.1:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libgcc_s.so.1:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libgcc.a:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libgcc.a:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libc.so:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libc.so:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libc.so:
+
+/lib/x86_64-linux-gnu/libc.so.6:
+
+/usr/lib/x86_64-linux-gnu/libc_nonshared.a:
+
+/lib64/ld-linux-x86-64.so.2:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libgcc_s.so:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libgcc_s.so.1:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libgcc.a:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libgcc.a:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/crtendS.o:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crtn.o:
+
+/usr/lib/x86_64-linux-gnu/libopenblas.so:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so:
+
+../../ggml/src/ggml-cuda/libggml-cuda.so.0.23.0:
+
+/lib/x86_64-linux-gnu/libatlas.so.3:
+
+/lib/x86_64-linux-gnu/libgfortran.so.5:
+
+/usr/local/cuda-12.8/lib64/libcudart.so.12:
+
+/usr/local/cuda-12.8/lib64/libcublas.so.12:
+
+/usr/local/cuda-12.8/lib64/stubs/libcuda.so:
+
+/lib/x86_64-linux-gnu/libdl.so.2:
+
+/lib/x86_64-linux-gnu/libpthread.so.0:
+
+/lib/x86_64-linux-gnu/librt.so.1:
+
+/usr/local/cuda-12.8/lib64/libcublasLt.so.12:

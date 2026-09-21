@@ -1,0 +1,2 @@
+/usr/bin/ar qc libctc-align.a "CMakeFiles/ctc-align.dir/align.cpp.o"
+/usr/bin/ranlib libctc-align.a

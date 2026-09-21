@@ -1,0 +1,2 @@
+/usr/bin/ar qc libtada-codec.a "CMakeFiles/tada-codec.dir/tada_codec.cpp.o"
+/usr/bin/ranlib libtada-codec.a

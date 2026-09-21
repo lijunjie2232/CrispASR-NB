@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcanary_qwen.a CMakeFiles/canary_qwen.dir/canary_qwen.cpp.o
+/usr/bin/ranlib libcanary_qwen.a

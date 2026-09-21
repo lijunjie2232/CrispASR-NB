@@ -1,0 +1,2 @@
+/usr/bin/ar qc librvc-svc.a "CMakeFiles/rvc-svc.dir/rvc_svc.cpp.o"
+/usr/bin/ranlib librvc-svc.a

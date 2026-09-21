@@ -1,0 +1,2 @@
+/usr/bin/ar qc libparler-tts.a "CMakeFiles/parler-tts.dir/parler_tts.cpp.o"
+/usr/bin/ranlib libparler-tts.a

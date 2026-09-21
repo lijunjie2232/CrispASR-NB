@@ -1,0 +1,2 @@
+/usr/bin/ar qc libsensevoice.a CMakeFiles/sensevoice.dir/sensevoice.cpp.o
+/usr/bin/ranlib libsensevoice.a

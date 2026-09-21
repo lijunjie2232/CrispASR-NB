@@ -1,0 +1,2 @@
+/usr/bin/ar qc libsilero-lid.a "CMakeFiles/silero-lid.dir/silero_lid.cpp.o"
+/usr/bin/ranlib libsilero-lid.a

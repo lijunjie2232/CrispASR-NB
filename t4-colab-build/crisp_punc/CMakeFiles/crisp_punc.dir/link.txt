@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcrisp_punc.a CMakeFiles/crisp_punc.dir/src/fireredpunc.cpp.o CMakeFiles/crisp_punc.dir/src/pcs.cpp.o
+/usr/bin/ranlib libcrisp_punc.a

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libkugelaudio.a CMakeFiles/kugelaudio.dir/kugelaudio.cpp.o
+/usr/bin/ranlib libkugelaudio.a

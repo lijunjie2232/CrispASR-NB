@@ -1,0 +1,2 @@
+/usr/bin/ar qc libbananamind-tts.a "CMakeFiles/bananamind-tts.dir/bananamind_tts.cpp.o"
+/usr/bin/ranlib libbananamind-tts.a

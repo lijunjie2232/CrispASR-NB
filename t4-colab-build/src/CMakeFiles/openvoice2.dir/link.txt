@@ -1,0 +1,2 @@
+/usr/bin/ar qc libopenvoice2.a CMakeFiles/openvoice2.dir/openvoice2.cpp.o
+/usr/bin/ranlib libopenvoice2.a

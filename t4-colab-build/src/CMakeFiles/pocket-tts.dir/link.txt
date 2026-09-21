@@ -1,0 +1,2 @@
+/usr/bin/ar qc libpocket-tts.a "CMakeFiles/pocket-tts.dir/pocket_tts.cpp.o"
+/usr/bin/ranlib libpocket-tts.a

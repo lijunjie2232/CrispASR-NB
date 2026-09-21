@@ -1,0 +1,2 @@
+/usr/bin/ar qc libbeatrice-pitch.a "CMakeFiles/beatrice-pitch.dir/beatrice_pitch.cpp.o" "CMakeFiles/beatrice-pitch.dir/beatrice_phone.cpp.o"
+/usr/bin/ranlib libbeatrice-pitch.a

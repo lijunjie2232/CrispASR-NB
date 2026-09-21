@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmoonshine_tokenizer.a "CMakeFiles/moonshine_tokenizer.dir/moonshine-tokenizer.cpp.o"
+/usr/bin/ranlib libmoonshine_tokenizer.a

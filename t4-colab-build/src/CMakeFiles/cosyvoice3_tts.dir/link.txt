@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcosyvoice3_tts.a CMakeFiles/cosyvoice3_tts.dir/cosyvoice3_tts.cpp.o
+/usr/bin/ranlib libcosyvoice3_tts.a

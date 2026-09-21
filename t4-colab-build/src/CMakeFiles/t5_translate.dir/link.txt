@@ -1,0 +1,2 @@
+/usr/bin/ar qc libt5_translate.a CMakeFiles/t5_translate.dir/t5_translate.cpp.o
+/usr/bin/ranlib libt5_translate.a
