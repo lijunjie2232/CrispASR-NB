@@ -1,6 +1,5 @@
-src/CMakeFiles/ctc-align.dir/align.cpp.o: \
- /kaggle/working/CrispASR-NB/src/align.cpp /usr/include/stdc-predef.h \
- /kaggle/working/CrispASR-NB/src/align.h /usr/include/c++/11/string \
+src/CMakeFiles/ctc-align.dir/align.cpp.o: ../../src/align.cpp \
+ /usr/include/stdc-predef.h ../../src/align.h /usr/include/c++/11/string \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \

@@ -1,8 +1,6 @@
 ggml/src/CMakeFiles/ggml-base.dir/ggml-threading.cpp.o: \
- /kaggle/working/CrispASR-NB/ggml/src/ggml-threading.cpp \
- /usr/include/stdc-predef.h \
- /kaggle/working/CrispASR-NB/ggml/src/ggml-threading.h \
- /kaggle/working/CrispASR-NB/ggml/src/../include/ggml.h \
+ ../../../ggml/src/ggml-threading.cpp /usr/include/stdc-predef.h \
+ ../../../ggml/src/ggml-threading.h ../../../ggml/include/ggml.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \

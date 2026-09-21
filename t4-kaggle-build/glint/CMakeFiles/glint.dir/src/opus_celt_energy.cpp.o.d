@@ -1,8 +1,6 @@
 glint/CMakeFiles/glint.dir/src/opus_celt_energy.cpp.o: \
- /kaggle/working/CrispASR-NB/glint/src/opus_celt_energy.cpp \
- /usr/include/stdc-predef.h \
- /kaggle/working/CrispASR-NB/glint/src/opus_celt_energy.hpp \
- /kaggle/working/CrispASR-NB/glint/src/opus_ec.hpp \
+ ../../glint/src/opus_celt_energy.cpp /usr/include/stdc-predef.h \
+ ../../glint/src/opus_celt_energy.hpp ../../glint/src/opus_ec.hpp \
  /usr/include/c++/11/cstddef \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -94,5 +92,4 @@ glint/CMakeFiles/glint.dir/src/opus_celt_energy.cpp.o: \
  /usr/include/c++/11/tr1/poly_hermite.tcc \
  /usr/include/c++/11/tr1/poly_laguerre.tcc \
  /usr/include/c++/11/tr1/riemann_zeta.tcc \
- /kaggle/working/CrispASR-NB/glint/src/opus_celt_tables.hpp \
- /kaggle/working/CrispASR-NB/glint/src/opus_laplace.hpp
+ ../../glint/src/opus_celt_tables.hpp ../../glint/src/opus_laplace.hpp

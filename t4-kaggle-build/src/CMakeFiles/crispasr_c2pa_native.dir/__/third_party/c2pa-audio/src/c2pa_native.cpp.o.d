@@ -1,7 +1,7 @@
 src/CMakeFiles/crispasr_c2pa_native.dir/__/third_party/c2pa-audio/src/c2pa_native.cpp.o: \
- /kaggle/working/CrispASR-NB/third_party/c2pa-audio/src/c2pa_native.cpp \
+ ../../third_party/c2pa-audio/src/c2pa_native.cpp \
  /usr/include/stdc-predef.h \
- /kaggle/working/CrispASR-NB/third_party/c2pa-audio/src/c2pa_native.h \
+ ../../third_party/c2pa-audio/src/c2pa_native.h \
  /usr/include/c++/11/cstdint \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -188,6 +188,5 @@ src/CMakeFiles/crispasr_c2pa_native.dir/__/third_party/c2pa-audio/src/c2pa_nativ
  /usr/include/c++/11/bits/random.tcc /usr/include/c++/11/numeric \
  /usr/include/c++/11/bits/stl_numeric.h /usr/include/c++/11/bit \
  /usr/include/c++/11/pstl/glue_numeric_defs.h \
- /kaggle/working/CrispASR-NB/third_party/c2pa-audio/src/sha256.h \
- /usr/include/c++/11/cstddef \
- /kaggle/working/CrispASR-NB/third_party/c2pa-audio/third_party/uecc/uECC.h
+ ../../third_party/c2pa-audio/src/sha256.h /usr/include/c++/11/cstddef \
+ ../../third_party/c2pa-audio/third_party/uecc/uECC.h

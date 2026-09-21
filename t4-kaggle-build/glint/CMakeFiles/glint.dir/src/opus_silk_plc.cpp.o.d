@@ -1,8 +1,6 @@
 glint/CMakeFiles/glint.dir/src/opus_silk_plc.cpp.o: \
- /kaggle/working/CrispASR-NB/glint/src/opus_silk_plc.cpp \
- /usr/include/stdc-predef.h \
- /kaggle/working/CrispASR-NB/glint/src/opus_silk_plc.hpp \
- /usr/include/c++/11/cstdint \
+ ../../glint/src/opus_silk_plc.cpp /usr/include/stdc-predef.h \
+ ../../glint/src/opus_silk_plc.hpp /usr/include/c++/11/cstdint \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -22,9 +20,8 @@ glint/CMakeFiles/glint.dir/src/opus_silk_plc.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /kaggle/working/CrispASR-NB/glint/src/opus_silk_tables.hpp \
- /usr/include/c++/11/algorithm /usr/include/c++/11/utility \
- /usr/include/c++/11/bits/stl_relops.h \
+ ../../glint/src/opus_silk_tables.hpp /usr/include/c++/11/algorithm \
+ /usr/include/c++/11/utility /usr/include/c++/11/bits/stl_relops.h \
  /usr/include/c++/11/bits/stl_pair.h /usr/include/c++/11/bits/move.h \
  /usr/include/c++/11/type_traits /usr/include/c++/11/initializer_list \
  /usr/include/c++/11/bits/stl_algobase.h \
@@ -110,9 +107,6 @@ glint/CMakeFiles/glint.dir/src/opus_silk_plc.cpp.o: \
  /usr/include/string.h /usr/include/strings.h \
  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
- /kaggle/working/CrispASR-NB/glint/src/opus_silk_frame.hpp \
- /kaggle/working/CrispASR-NB/glint/src/opus_ec.hpp \
- /usr/include/c++/11/cstddef \
- /kaggle/working/CrispASR-NB/glint/src/opus_silk_indices.hpp \
- /kaggle/working/CrispASR-NB/glint/src/opus_silk_math.hpp \
- /kaggle/working/CrispASR-NB/glint/src/opus_silk_nlsf.hpp
+ ../../glint/src/opus_silk_frame.hpp ../../glint/src/opus_ec.hpp \
+ /usr/include/c++/11/cstddef ../../glint/src/opus_silk_indices.hpp \
+ ../../glint/src/opus_silk_math.hpp ../../glint/src/opus_silk_nlsf.hpp

@@ -1,8 +1,6 @@
 glint/CMakeFiles/glint.dir/src/opus_silk_resampler.cpp.o: \
- /kaggle/working/CrispASR-NB/glint/src/opus_silk_resampler.cpp \
- /usr/include/stdc-predef.h \
- /kaggle/working/CrispASR-NB/glint/src/opus_silk_resampler.hpp \
- /usr/include/c++/11/cstdint \
+ ../../glint/src/opus_silk_resampler.cpp /usr/include/stdc-predef.h \
+ ../../glint/src/opus_silk_resampler.hpp /usr/include/c++/11/cstdint \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -30,5 +28,4 @@ glint/CMakeFiles/glint.dir/src/opus_silk_resampler.cpp.o: \
  /usr/include/strings.h \
  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
- /kaggle/working/CrispASR-NB/glint/src/opus_silk_math.hpp \
- /kaggle/working/CrispASR-NB/glint/src/opus_silk_tables.hpp
+ ../../glint/src/opus_silk_math.hpp ../../glint/src/opus_silk_tables.hpp

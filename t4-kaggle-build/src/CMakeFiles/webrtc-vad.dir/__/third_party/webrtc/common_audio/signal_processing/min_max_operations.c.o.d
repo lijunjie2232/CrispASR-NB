@@ -1,5 +1,5 @@
 src/CMakeFiles/webrtc-vad.dir/__/third_party/webrtc/common_audio/signal_processing/min_max_operations.c.o: \
- /kaggle/working/CrispASR-NB/third_party/webrtc/common_audio/signal_processing/min_max_operations.c \
+ ../../third_party/webrtc/common_audio/signal_processing/min_max_operations.c \
  /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -43,18 +43,18 @@ src/CMakeFiles/webrtc-vad.dir/__/third_party/webrtc/common_audio/signal_processi
  /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
- /kaggle/working/CrispASR-NB/third_party/webrtc/rtc_base/checks.h \
- /kaggle/working/CrispASR-NB/third_party/webrtc/common_audio/signal_processing/include/signal_processing_library.h \
+ ../../third_party/webrtc/rtc_base/checks.h \
+ ../../third_party/webrtc/common_audio/signal_processing/include/signal_processing_library.h \
  /usr/include/string.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/strings.h \
  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
- /kaggle/working/CrispASR-NB/third_party/webrtc/common_audio/signal_processing/dot_product_with_scale.h \
+ ../../third_party/webrtc/common_audio/signal_processing/dot_product_with_scale.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /kaggle/working/CrispASR-NB/third_party/webrtc/common_audio/signal_processing/include/spl_inl.h \
- /kaggle/working/CrispASR-NB/third_party/webrtc/rtc_base/compile_assert_c.h \
- /kaggle/working/CrispASR-NB/third_party/webrtc/common_audio/third_party/spl_sqrt_floor/spl_sqrt_floor.h
+ ../../third_party/webrtc/common_audio/signal_processing/include/spl_inl.h \
+ ../../third_party/webrtc/rtc_base/compile_assert_c.h \
+ ../../third_party/webrtc/common_audio/third_party/spl_sqrt_floor/spl_sqrt_floor.h

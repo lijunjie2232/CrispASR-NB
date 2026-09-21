@@ -1,7 +1,6 @@
 ggml/src/CMakeFiles/ggml-base.dir/ggml-quants.c.o: \
- /kaggle/working/CrispASR-NB/ggml/src/ggml-quants.c \
- /usr/include/stdc-predef.h \
- /kaggle/working/CrispASR-NB/ggml/src/ggml-common.h \
+ ../../../ggml/src/ggml-quants.c /usr/include/stdc-predef.h \
+ ../../../ggml/src/ggml-common.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -17,8 +16,7 @@ ggml/src/CMakeFiles/ggml-base.dir/ggml-quants.c.o: \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /kaggle/working/CrispASR-NB/ggml/src/ggml-quants.h \
- /kaggle/working/CrispASR-NB/ggml/src/../include/ggml.h \
+ ../../../ggml/src/ggml-quants.h ../../../ggml/include/ggml.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h /usr/include/stdio.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
@@ -34,8 +32,7 @@ ggml/src/CMakeFiles/ggml-base.dir/ggml-quants.c.o: \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
- /kaggle/working/CrispASR-NB/ggml/src/ggml-impl.h \
- /kaggle/working/CrispASR-NB/ggml/src/../include/gguf.h \
+ ../../../ggml/src/ggml-impl.h ../../../ggml/include/gguf.h \
  /usr/include/assert.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -78,7 +75,7 @@ ggml/src/CMakeFiles/ggml-base.dir/ggml-quants.c.o: \
  /usr/include/strings.h \
  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
- /kaggle/working/CrispASR-NB/ggml/src/ggml-cpu/ggml-cpu-impl.h \
+ ../../../ggml/src/ggml-cpu/ggml-cpu-impl.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/immintrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/x86gprintrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/ia32intrin.h \
@@ -163,8 +160,7 @@ ggml/src/CMakeFiles/ggml-base.dir/ggml-quants.c.o: \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/amxbf16intrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/prfchwintrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/keylockerintrin.h \
- /kaggle/working/CrispASR-NB/ggml/src/../include/ggml-cpu.h \
- /kaggle/working/CrispASR-NB/ggml/src/../include/ggml-backend.h \
- /kaggle/working/CrispASR-NB/ggml/src/../include/ggml-alloc.h \
+ ../../../ggml/include/ggml-cpu.h ../../../ggml/include/ggml-backend.h \
+ ../../../ggml/include/ggml-alloc.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/float.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/omp.h

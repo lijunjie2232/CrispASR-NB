@@ -1,7 +1,7 @@
 src/CMakeFiles/webrtc-vad.dir/__/third_party/webrtc/common_audio/vad/webrtc_vad.c.o: \
- /kaggle/working/CrispASR-NB/third_party/webrtc/common_audio/vad/webrtc_vad.c \
+ ../../third_party/webrtc/common_audio/vad/webrtc_vad.c \
  /usr/include/stdc-predef.h \
- /kaggle/working/CrispASR-NB/third_party/webrtc/common_audio/vad/include/webrtc_vad.h \
+ ../../third_party/webrtc/common_audio/vad/include/webrtc_vad.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
@@ -52,9 +52,9 @@ src/CMakeFiles/webrtc-vad.dir/__/third_party/webrtc/common_audio/vad/webrtc_vad.
  /usr/include/strings.h \
  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
- /kaggle/working/CrispASR-NB/third_party/webrtc/common_audio/signal_processing/include/signal_processing_library.h \
- /kaggle/working/CrispASR-NB/third_party/webrtc/common_audio/signal_processing/dot_product_with_scale.h \
- /kaggle/working/CrispASR-NB/third_party/webrtc/common_audio/signal_processing/include/spl_inl.h \
- /kaggle/working/CrispASR-NB/third_party/webrtc/rtc_base/compile_assert_c.h \
- /kaggle/working/CrispASR-NB/third_party/webrtc/common_audio/third_party/spl_sqrt_floor/spl_sqrt_floor.h \
- /kaggle/working/CrispASR-NB/third_party/webrtc/common_audio/vad/vad_core.h
+ ../../third_party/webrtc/common_audio/signal_processing/include/signal_processing_library.h \
+ ../../third_party/webrtc/common_audio/signal_processing/dot_product_with_scale.h \
+ ../../third_party/webrtc/common_audio/signal_processing/include/spl_inl.h \
+ ../../third_party/webrtc/rtc_base/compile_assert_c.h \
+ ../../third_party/webrtc/common_audio/third_party/spl_sqrt_floor/spl_sqrt_floor.h \
+ ../../third_party/webrtc/common_audio/vad/vad_core.h

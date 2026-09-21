@@ -1,7 +1,7 @@
 src/CMakeFiles/crispasr_c2pa_native.dir/__/third_party/c2pa-audio/third_party/uecc/uECC.c.o: \
- /kaggle/working/CrispASR-NB/third_party/c2pa-audio/third_party/uecc/uECC.c \
+ ../../third_party/c2pa-audio/third_party/uecc/uECC.c \
  /usr/include/stdc-predef.h \
- /kaggle/working/CrispASR-NB/third_party/c2pa-audio/third_party/uecc/uECC.h \
+ ../../third_party/c2pa-audio/third_party/uecc/uECC.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -17,9 +17,9 @@ src/CMakeFiles/crispasr_c2pa_native.dir/__/third_party/c2pa-audio/third_party/ue
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /kaggle/working/CrispASR-NB/third_party/c2pa-audio/third_party/uecc/uECC_vli.h \
- /kaggle/working/CrispASR-NB/third_party/c2pa-audio/third_party/uecc/types.h \
- /kaggle/working/CrispASR-NB/third_party/c2pa-audio/third_party/uecc/platform-specific.inc \
+ ../../third_party/c2pa-audio/third_party/uecc/uECC_vli.h \
+ ../../third_party/c2pa-audio/third_party/uecc/types.h \
+ ../../third_party/c2pa-audio/third_party/uecc/platform-specific.inc \
  /usr/include/x86_64-linux-gnu/sys/types.h \
  /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
@@ -55,4 +55,4 @@ src/CMakeFiles/crispasr_c2pa_native.dir/__/third_party/c2pa-audio/third_party/ue
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
  /usr/include/x86_64-linux-gnu/bits/unistd.h \
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
- /kaggle/working/CrispASR-NB/third_party/c2pa-audio/third_party/uecc/curve-specific.inc
+ ../../third_party/c2pa-audio/third_party/uecc/curve-specific.inc

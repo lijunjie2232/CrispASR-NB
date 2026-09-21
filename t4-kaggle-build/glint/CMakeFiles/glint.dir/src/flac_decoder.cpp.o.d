@@ -1,8 +1,6 @@
 glint/CMakeFiles/glint.dir/src/flac_decoder.cpp.o: \
- /kaggle/working/CrispASR-NB/glint/src/flac_decoder.cpp \
- /usr/include/stdc-predef.h \
- /kaggle/working/CrispASR-NB/glint/src/flac_decoder.hpp \
- /usr/include/c++/11/cstddef \
+ ../../glint/src/flac_decoder.cpp /usr/include/stdc-predef.h \
+ ../../glint/src/flac_decoder.hpp /usr/include/c++/11/cstddef \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \

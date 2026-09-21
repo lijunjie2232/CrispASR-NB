@@ -1,8 +1,6 @@
-ggml/src/CMakeFiles/ggml-base.dir/ggml.c.o: \
- /kaggle/working/CrispASR-NB/ggml/src/ggml.c /usr/include/stdc-predef.h \
- /kaggle/working/CrispASR-NB/t4-kaggle-build/ggml/src/ggml-version.h \
- /kaggle/working/CrispASR-NB/ggml/src/../include/ggml-backend.h \
- /kaggle/working/CrispASR-NB/ggml/src/../include/ggml.h \
+ggml/src/CMakeFiles/ggml-base.dir/ggml.c.o: ../../../ggml/src/ggml.c \
+ /usr/include/stdc-predef.h ggml-version.h \
+ ../../../ggml/include/ggml-backend.h ../../../ggml/include/ggml.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
@@ -33,10 +31,8 @@ ggml/src/CMakeFiles/ggml-base.dir/ggml.c.o: \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
- /kaggle/working/CrispASR-NB/ggml/src/../include/ggml-alloc.h \
- /kaggle/working/CrispASR-NB/ggml/src/ggml-impl.h \
- /kaggle/working/CrispASR-NB/ggml/src/../include/gguf.h \
- /usr/include/assert.h /usr/include/math.h \
+ ../../../ggml/include/ggml-alloc.h ../../../ggml/src/ggml-impl.h \
+ ../../../ggml/include/gguf.h /usr/include/assert.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
@@ -78,12 +74,10 @@ ggml/src/CMakeFiles/ggml-base.dir/ggml.c.o: \
  /usr/include/strings.h \
  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
- /kaggle/working/CrispASR-NB/ggml/src/ggml-threading.h \
- /kaggle/working/CrispASR-NB/ggml/src/../include/ggml-cpu.h \
- /kaggle/working/CrispASR-NB/ggml/src/ggml-quants.h \
- /kaggle/working/CrispASR-NB/ggml/src/ggml-common.h /usr/include/errno.h \
- /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
- /usr/include/x86_64-linux-gnu/asm/errno.h \
+ ../../../ggml/src/ggml-threading.h ../../../ggml/include/ggml-cpu.h \
+ ../../../ggml/src/ggml-quants.h ../../../ggml/src/ggml-common.h \
+ /usr/include/errno.h /usr/include/x86_64-linux-gnu/bits/errno.h \
+ /usr/include/linux/errno.h /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h /usr/include/time.h \
  /usr/include/x86_64-linux-gnu/bits/time.h \

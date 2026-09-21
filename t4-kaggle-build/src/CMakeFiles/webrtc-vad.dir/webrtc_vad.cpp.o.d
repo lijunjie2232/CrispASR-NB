@@ -1,6 +1,5 @@
-src/CMakeFiles/webrtc-vad.dir/webrtc_vad.cpp.o: \
- /kaggle/working/CrispASR-NB/src/webrtc_vad.cpp \
- /usr/include/stdc-predef.h /kaggle/working/CrispASR-NB/src/webrtc_vad.h \
+src/CMakeFiles/webrtc-vad.dir/webrtc_vad.cpp.o: ../../src/webrtc_vad.cpp \
+ /usr/include/stdc-predef.h ../../src/webrtc_vad.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
@@ -142,4 +141,4 @@ src/CMakeFiles/webrtc-vad.dir/webrtc_vad.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
- /kaggle/working/CrispASR-NB/third_party/webrtc/common_audio/vad/include/webrtc_vad.h
+ ../../third_party/webrtc/common_audio/vad/include/webrtc_vad.h

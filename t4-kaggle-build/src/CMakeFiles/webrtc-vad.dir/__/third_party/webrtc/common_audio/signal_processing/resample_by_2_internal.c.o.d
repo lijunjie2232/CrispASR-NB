@@ -1,7 +1,7 @@
 src/CMakeFiles/webrtc-vad.dir/__/third_party/webrtc/common_audio/signal_processing/resample_by_2_internal.c.o: \
- /kaggle/working/CrispASR-NB/third_party/webrtc/common_audio/signal_processing/resample_by_2_internal.c \
+ ../../third_party/webrtc/common_audio/signal_processing/resample_by_2_internal.c \
  /usr/include/stdc-predef.h \
- /kaggle/working/CrispASR-NB/third_party/webrtc/common_audio/signal_processing/resample_by_2_internal.h \
+ ../../third_party/webrtc/common_audio/signal_processing/resample_by_2_internal.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -17,5 +17,5 @@ src/CMakeFiles/webrtc-vad.dir/__/third_party/webrtc/common_audio/signal_processi
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /kaggle/working/CrispASR-NB/third_party/webrtc/rtc_base/sanitizer.h \
+ ../../third_party/webrtc/rtc_base/sanitizer.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h

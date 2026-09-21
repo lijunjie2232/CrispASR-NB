@@ -1,7 +1,5 @@
-glint/CMakeFiles/glint.dir/src/huffman.cpp.o: \
- /kaggle/working/CrispASR-NB/glint/src/huffman.cpp \
- /usr/include/stdc-predef.h \
- /kaggle/working/CrispASR-NB/glint/src/huffman.hpp \
+glint/CMakeFiles/glint.dir/src/huffman.cpp.o: ../../glint/src/huffman.cpp \
+ /usr/include/stdc-predef.h ../../glint/src/huffman.hpp \
  /usr/include/c++/11/cstdint \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -22,16 +20,15 @@ glint/CMakeFiles/glint.dir/src/huffman.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /kaggle/working/CrispASR-NB/glint/src/bitstream.hpp \
- /usr/include/c++/11/cstring /usr/include/string.h \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
+ ../../glint/src/bitstream.hpp /usr/include/c++/11/cstring \
+ /usr/include/string.h /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/strings.h \
  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
- /kaggle/working/CrispASR-NB/glint/src/tables.hpp \
- /usr/include/c++/11/cmath /usr/include/c++/11/bits/cpp_type_traits.h \
+ ../../glint/src/tables.hpp /usr/include/c++/11/cmath \
+ /usr/include/c++/11/bits/cpp_type_traits.h \
  /usr/include/c++/11/ext/type_traits.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \

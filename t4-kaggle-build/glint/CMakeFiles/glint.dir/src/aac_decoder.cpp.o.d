@@ -1,8 +1,6 @@
 glint/CMakeFiles/glint.dir/src/aac_decoder.cpp.o: \
- /kaggle/working/CrispASR-NB/glint/src/aac_decoder.cpp \
- /usr/include/stdc-predef.h \
- /kaggle/working/CrispASR-NB/glint/src/aac_decoder.hpp \
- /usr/include/c++/11/cstdint \
+ ../../glint/src/aac_decoder.cpp /usr/include/stdc-predef.h \
+ ../../glint/src/aac_decoder.hpp /usr/include/c++/11/cstdint \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -121,5 +119,4 @@ glint/CMakeFiles/glint.dir/src/aac_decoder.cpp.o: \
  /usr/include/c++/11/bits/functional_hash.h \
  /usr/include/c++/11/bits/hash_bytes.h \
  /usr/include/c++/11/bits/range_access.h \
- /usr/include/c++/11/bits/vector.tcc \
- /kaggle/working/CrispASR-NB/glint/src/aac_tables.hpp
+ /usr/include/c++/11/bits/vector.tcc ../../glint/src/aac_tables.hpp

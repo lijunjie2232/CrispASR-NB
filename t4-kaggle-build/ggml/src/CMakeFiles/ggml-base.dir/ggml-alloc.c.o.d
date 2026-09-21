@@ -1,8 +1,6 @@
 ggml/src/CMakeFiles/ggml-base.dir/ggml-alloc.c.o: \
- /kaggle/working/CrispASR-NB/ggml/src/ggml-alloc.c \
- /usr/include/stdc-predef.h \
- /kaggle/working/CrispASR-NB/ggml/src/../include/ggml-alloc.h \
- /kaggle/working/CrispASR-NB/ggml/src/../include/ggml.h \
+ ../../../ggml/src/ggml-alloc.c /usr/include/stdc-predef.h \
+ ../../../ggml/include/ggml-alloc.h ../../../ggml/include/ggml.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
@@ -33,11 +31,9 @@ ggml/src/CMakeFiles/ggml-base.dir/ggml-alloc.c.o: \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
- /kaggle/working/CrispASR-NB/ggml/src/ggml-backend-impl.h \
- /kaggle/working/CrispASR-NB/ggml/src/../include/ggml-backend.h \
- /kaggle/working/CrispASR-NB/ggml/src/ggml-impl.h \
- /kaggle/working/CrispASR-NB/ggml/src/../include/gguf.h \
- /usr/include/assert.h /usr/include/math.h \
+ ../../../ggml/src/ggml-backend-impl.h \
+ ../../../ggml/include/ggml-backend.h ../../../ggml/src/ggml-impl.h \
+ ../../../ggml/include/gguf.h /usr/include/assert.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \

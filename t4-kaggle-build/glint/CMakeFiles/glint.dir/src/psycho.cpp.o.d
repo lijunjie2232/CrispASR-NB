@@ -1,9 +1,6 @@
-glint/CMakeFiles/glint.dir/src/psycho.cpp.o: \
- /kaggle/working/CrispASR-NB/glint/src/psycho.cpp \
- /usr/include/stdc-predef.h \
- /kaggle/working/CrispASR-NB/glint/src/psycho.hpp \
- /kaggle/working/CrispASR-NB/glint/src/tables.hpp \
- /usr/include/c++/11/cstdint \
+glint/CMakeFiles/glint.dir/src/psycho.cpp.o: ../../glint/src/psycho.cpp \
+ /usr/include/stdc-predef.h ../../glint/src/psycho.hpp \
+ ../../glint/src/tables.hpp /usr/include/c++/11/cstdint \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \

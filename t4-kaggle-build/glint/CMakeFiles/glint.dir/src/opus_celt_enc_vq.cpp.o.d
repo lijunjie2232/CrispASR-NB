@@ -1,8 +1,6 @@
 glint/CMakeFiles/glint.dir/src/opus_celt_enc_vq.cpp.o: \
- /kaggle/working/CrispASR-NB/glint/src/opus_celt_enc_vq.cpp \
- /usr/include/stdc-predef.h \
- /kaggle/working/CrispASR-NB/glint/src/opus_celt_enc_vq.hpp \
- /kaggle/working/CrispASR-NB/glint/src/opus_ec.hpp \
+ ../../glint/src/opus_celt_enc_vq.cpp /usr/include/stdc-predef.h \
+ ../../glint/src/opus_celt_enc_vq.hpp ../../glint/src/opus_ec.hpp \
  /usr/include/c++/11/cstddef \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -93,5 +91,4 @@ glint/CMakeFiles/glint.dir/src/opus_celt_enc_vq.cpp.o: \
  /usr/include/c++/11/tr1/modified_bessel_func.tcc \
  /usr/include/c++/11/tr1/poly_hermite.tcc \
  /usr/include/c++/11/tr1/poly_laguerre.tcc \
- /usr/include/c++/11/tr1/riemann_zeta.tcc \
- /kaggle/working/CrispASR-NB/glint/src/opus_cwrs.hpp
+ /usr/include/c++/11/tr1/riemann_zeta.tcc ../../glint/src/opus_cwrs.hpp

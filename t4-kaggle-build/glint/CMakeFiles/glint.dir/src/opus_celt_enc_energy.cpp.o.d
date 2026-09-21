@@ -1,8 +1,6 @@
 glint/CMakeFiles/glint.dir/src/opus_celt_enc_energy.cpp.o: \
- /kaggle/working/CrispASR-NB/glint/src/opus_celt_enc_energy.cpp \
- /usr/include/stdc-predef.h \
- /kaggle/working/CrispASR-NB/glint/src/opus_celt_enc_energy.hpp \
- /usr/include/c++/11/cstdint \
+ ../../glint/src/opus_celt_enc_energy.cpp /usr/include/stdc-predef.h \
+ ../../glint/src/opus_celt_enc_energy.hpp /usr/include/c++/11/cstdint \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -22,8 +20,7 @@ glint/CMakeFiles/glint.dir/src/opus_celt_enc_energy.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /kaggle/working/CrispASR-NB/glint/src/opus_ec.hpp \
- /usr/include/c++/11/cstddef \
+ ../../glint/src/opus_ec.hpp /usr/include/c++/11/cstddef \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
  /usr/include/c++/11/cmath /usr/include/c++/11/bits/cpp_type_traits.h \
  /usr/include/c++/11/ext/type_traits.h /usr/include/math.h \
@@ -112,7 +109,5 @@ glint/CMakeFiles/glint.dir/src/opus_celt_enc_energy.cpp.o: \
  /usr/include/c++/11/bits/functional_hash.h \
  /usr/include/c++/11/bits/hash_bytes.h \
  /usr/include/c++/11/bits/range_access.h \
- /usr/include/c++/11/bits/vector.tcc \
- /kaggle/working/CrispASR-NB/glint/src/opus_celt_energy.hpp \
- /kaggle/working/CrispASR-NB/glint/src/opus_celt_tables.hpp \
- /kaggle/working/CrispASR-NB/glint/src/opus_laplace.hpp
+ /usr/include/c++/11/bits/vector.tcc ../../glint/src/opus_celt_energy.hpp \
+ ../../glint/src/opus_celt_tables.hpp ../../glint/src/opus_laplace.hpp

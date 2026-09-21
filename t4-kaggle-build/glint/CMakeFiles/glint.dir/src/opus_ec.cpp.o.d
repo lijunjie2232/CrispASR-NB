@@ -1,7 +1,5 @@
-glint/CMakeFiles/glint.dir/src/opus_ec.cpp.o: \
- /kaggle/working/CrispASR-NB/glint/src/opus_ec.cpp \
- /usr/include/stdc-predef.h \
- /kaggle/working/CrispASR-NB/glint/src/opus_ec.hpp \
+glint/CMakeFiles/glint.dir/src/opus_ec.cpp.o: ../../glint/src/opus_ec.cpp \
+ /usr/include/stdc-predef.h ../../glint/src/opus_ec.hpp \
  /usr/include/c++/11/cstddef \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -24,8 +22,8 @@ glint/CMakeFiles/glint.dir/src/opus_ec.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /kaggle/working/CrispASR-NB/glint/src/intmath.hpp \
- /usr/include/c++/11/cmath /usr/include/c++/11/bits/cpp_type_traits.h \
+ ../../glint/src/intmath.hpp /usr/include/c++/11/cmath \
+ /usr/include/c++/11/bits/cpp_type_traits.h \
  /usr/include/c++/11/ext/type_traits.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \

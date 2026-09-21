@@ -1,6 +1,6 @@
 glint/CMakeFiles/glint.dir/src/decode_audio_c_api.cpp.o: \
- /kaggle/working/CrispASR-NB/glint/src/decode_audio_c_api.cpp \
- /usr/include/stdc-predef.h /usr/include/c++/11/cstdint \
+ ../../glint/src/decode_audio_c_api.cpp /usr/include/stdc-predef.h \
+ /usr/include/c++/11/cstdint \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -87,23 +87,16 @@ glint/CMakeFiles/glint.dir/src/decode_audio_c_api.cpp.o: \
  /usr/include/c++/11/bits/functional_hash.h \
  /usr/include/c++/11/bits/hash_bytes.h \
  /usr/include/c++/11/bits/range_access.h \
- /usr/include/c++/11/bits/vector.tcc \
- /kaggle/working/CrispASR-NB/glint/src/aac_decoder.hpp \
- /kaggle/working/CrispASR-NB/glint/src/flac_decoder.hpp \
- /usr/include/c++/11/cstddef \
- /kaggle/working/CrispASR-NB/glint/include/glint/glint.h \
- /kaggle/working/CrispASR-NB/glint/src/mp3_decoder.hpp \
- /kaggle/working/CrispASR-NB/glint/src/opus_decoder.hpp \
- /kaggle/working/CrispASR-NB/glint/src/opus_celt_decoder.hpp \
- /kaggle/working/CrispASR-NB/glint/src/opus_ec.hpp \
- /kaggle/working/CrispASR-NB/glint/src/opus_mdct.hpp \
- /kaggle/working/CrispASR-NB/glint/src/opus_silk_decoder.hpp \
- /kaggle/working/CrispASR-NB/glint/src/opus_silk_indices.hpp \
- /kaggle/working/CrispASR-NB/glint/src/opus_silk_plc.hpp \
- /kaggle/working/CrispASR-NB/glint/src/opus_silk_tables.hpp \
- /kaggle/working/CrispASR-NB/glint/src/opus_silk_resampler.hpp \
- /kaggle/working/CrispASR-NB/glint/src/opus_silk_stereo.hpp \
- /kaggle/working/CrispASR-NB/glint/src/opus_ms_decoder.hpp \
+ /usr/include/c++/11/bits/vector.tcc ../../glint/src/aac_decoder.hpp \
+ ../../glint/src/flac_decoder.hpp /usr/include/c++/11/cstddef \
+ ../../glint/include/glint/glint.h ../../glint/src/mp3_decoder.hpp \
+ ../../glint/src/opus_decoder.hpp ../../glint/src/opus_celt_decoder.hpp \
+ ../../glint/src/opus_ec.hpp ../../glint/src/opus_mdct.hpp \
+ ../../glint/src/opus_silk_decoder.hpp \
+ ../../glint/src/opus_silk_indices.hpp ../../glint/src/opus_silk_plc.hpp \
+ ../../glint/src/opus_silk_tables.hpp \
+ ../../glint/src/opus_silk_resampler.hpp \
+ ../../glint/src/opus_silk_stereo.hpp ../../glint/src/opus_ms_decoder.hpp \
  /usr/include/c++/11/memory /usr/include/c++/11/bits/stl_tempbuf.h \
  /usr/include/c++/11/bits/stl_raw_storage_iter.h \
  /usr/include/c++/11/bits/align.h /usr/include/c++/11/bit \
@@ -152,8 +145,6 @@ glint/CMakeFiles/glint.dir/src/decode_audio_c_api.cpp.o: \
  /usr/include/c++/11/bits/atomic_lockfree_defines.h \
  /usr/include/c++/11/backward/auto_ptr.h \
  /usr/include/c++/11/pstl/glue_memory_defs.h \
- /usr/include/c++/11/pstl/execution_defs.h \
- /kaggle/working/CrispASR-NB/glint/src/opus_ogg.hpp \
- /kaggle/working/CrispASR-NB/glint/src/resample.hpp \
- /kaggle/working/CrispASR-NB/glint/src/vorbis_decoder.hpp \
- /kaggle/working/CrispASR-NB/glint/src/vorbis_ogg.hpp
+ /usr/include/c++/11/pstl/execution_defs.h ../../glint/src/opus_ogg.hpp \
+ ../../glint/src/resample.hpp ../../glint/src/vorbis_decoder.hpp \
+ ../../glint/src/vorbis_ogg.hpp

@@ -1,8 +1,6 @@
 glint/CMakeFiles/glint.dir/src/opus_laplace.cpp.o: \
- /kaggle/working/CrispASR-NB/glint/src/opus_laplace.cpp \
- /usr/include/stdc-predef.h \
- /kaggle/working/CrispASR-NB/glint/src/opus_laplace.hpp \
- /kaggle/working/CrispASR-NB/glint/src/opus_ec.hpp \
+ ../../glint/src/opus_laplace.cpp /usr/include/stdc-predef.h \
+ ../../glint/src/opus_laplace.hpp ../../glint/src/opus_ec.hpp \
  /usr/include/c++/11/cstddef \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

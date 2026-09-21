@@ -1,8 +1,6 @@
 glint/CMakeFiles/glint.dir/src/opus_celt_pitch.cpp.o: \
- /kaggle/working/CrispASR-NB/glint/src/opus_celt_pitch.cpp \
- /usr/include/stdc-predef.h \
- /kaggle/working/CrispASR-NB/glint/src/opus_celt_pitch.hpp \
- /usr/include/c++/11/cmath \
+ ../../glint/src/opus_celt_pitch.cpp /usr/include/stdc-predef.h \
+ ../../glint/src/opus_celt_pitch.hpp /usr/include/c++/11/cmath \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \

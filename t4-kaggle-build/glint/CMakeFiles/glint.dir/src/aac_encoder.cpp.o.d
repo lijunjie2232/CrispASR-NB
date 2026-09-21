@@ -1,7 +1,6 @@
 glint/CMakeFiles/glint.dir/src/aac_encoder.cpp.o: \
- /kaggle/working/CrispASR-NB/glint/src/aac_encoder.cpp \
- /usr/include/stdc-predef.h \
- /kaggle/working/CrispASR-NB/glint/include/glint/glint.h \
+ ../../glint/src/aac_encoder.cpp /usr/include/stdc-predef.h \
+ ../../glint/include/glint/glint.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -17,18 +16,15 @@ glint/CMakeFiles/glint.dir/src/aac_encoder.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /kaggle/working/CrispASR-NB/glint/src/aac_coder.hpp \
- /usr/include/c++/11/cstdint \
+ ../../glint/src/aac_coder.hpp /usr/include/c++/11/cstdint \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h \
  /usr/include/c++/11/pstl/pstl_config.h \
- /kaggle/working/CrispASR-NB/glint/src/aac_coder_types_fwd.hpp \
- /kaggle/working/CrispASR-NB/glint/src/aac_tns.hpp \
- /kaggle/working/CrispASR-NB/glint/src/aac_mdct.hpp \
- /kaggle/working/CrispASR-NB/glint/src/aac_psy.hpp \
- /kaggle/working/CrispASR-NB/glint/src/aac_tables.hpp \
- /usr/include/c++/11/cmath /usr/include/c++/11/bits/cpp_type_traits.h \
+ ../../glint/src/aac_coder_types_fwd.hpp ../../glint/src/aac_tns.hpp \
+ ../../glint/src/aac_mdct.hpp ../../glint/src/aac_psy.hpp \
+ ../../glint/src/aac_tables.hpp /usr/include/c++/11/cmath \
+ /usr/include/c++/11/bits/cpp_type_traits.h \
  /usr/include/c++/11/ext/type_traits.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \

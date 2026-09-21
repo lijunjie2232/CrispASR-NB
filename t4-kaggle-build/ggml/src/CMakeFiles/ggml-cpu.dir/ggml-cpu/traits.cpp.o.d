@@ -1,10 +1,8 @@
 ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/traits.cpp.o: \
- /kaggle/working/CrispASR-NB/ggml/src/ggml-cpu/traits.cpp \
- /usr/include/stdc-predef.h \
- /kaggle/working/CrispASR-NB/ggml/src/ggml-cpu/traits.h \
- /kaggle/working/CrispASR-NB/ggml/src/./ggml-backend-impl.h \
- /kaggle/working/CrispASR-NB/ggml/src/../include/ggml-backend.h \
- /kaggle/working/CrispASR-NB/ggml/src/../include/ggml.h \
+ ../../../ggml/src/ggml-cpu/traits.cpp /usr/include/stdc-predef.h \
+ ../../../ggml/src/ggml-cpu/traits.h \
+ ../../../ggml/src/ggml-backend-impl.h \
+ ../../../ggml/include/ggml-backend.h ../../../ggml/include/ggml.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
@@ -35,12 +33,10 @@ ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/traits.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
- /kaggle/working/CrispASR-NB/ggml/src/../include/ggml-alloc.h \
- /kaggle/working/CrispASR-NB/ggml/src/ggml-cpu/ggml-cpu-impl.h \
- /kaggle/working/CrispASR-NB/ggml/src/./ggml-impl.h \
- /kaggle/working/CrispASR-NB/ggml/src/../include/gguf.h \
- /usr/include/assert.h /usr/include/c++/11/math.h \
- /usr/include/c++/11/cmath \
+ ../../../ggml/include/ggml-alloc.h \
+ ../../../ggml/src/ggml-cpu/ggml-cpu-impl.h ../../../ggml/src/ggml-impl.h \
+ ../../../ggml/include/gguf.h /usr/include/assert.h \
+ /usr/include/c++/11/math.h /usr/include/c++/11/cmath \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h \

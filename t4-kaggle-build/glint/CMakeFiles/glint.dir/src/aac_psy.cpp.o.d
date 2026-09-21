@@ -1,9 +1,6 @@
-glint/CMakeFiles/glint.dir/src/aac_psy.cpp.o: \
- /kaggle/working/CrispASR-NB/glint/src/aac_psy.cpp \
- /usr/include/stdc-predef.h \
- /kaggle/working/CrispASR-NB/glint/src/aac_psy.hpp \
- /kaggle/working/CrispASR-NB/glint/src/aac_coder_types_fwd.hpp \
- /usr/include/c++/11/cstdint \
+glint/CMakeFiles/glint.dir/src/aac_psy.cpp.o: ../../glint/src/aac_psy.cpp \
+ /usr/include/stdc-predef.h ../../glint/src/aac_psy.hpp \
+ ../../glint/src/aac_coder_types_fwd.hpp /usr/include/c++/11/cstdint \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -23,10 +20,9 @@ glint/CMakeFiles/glint.dir/src/aac_psy.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /kaggle/working/CrispASR-NB/glint/src/aac_coder.hpp \
- /kaggle/working/CrispASR-NB/glint/src/aac_tns.hpp \
- /kaggle/working/CrispASR-NB/glint/src/intmath.hpp \
- /usr/include/c++/11/cmath /usr/include/c++/11/bits/cpp_type_traits.h \
+ ../../glint/src/aac_coder.hpp ../../glint/src/aac_tns.hpp \
+ ../../glint/src/intmath.hpp /usr/include/c++/11/cmath \
+ /usr/include/c++/11/bits/cpp_type_traits.h \
  /usr/include/c++/11/ext/type_traits.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -95,5 +91,4 @@ glint/CMakeFiles/glint.dir/src/aac_psy.cpp.o: \
  /usr/include/c++/11/tr1/modified_bessel_func.tcc \
  /usr/include/c++/11/tr1/poly_hermite.tcc \
  /usr/include/c++/11/tr1/poly_laguerre.tcc \
- /usr/include/c++/11/tr1/riemann_zeta.tcc \
- /kaggle/working/CrispASR-NB/glint/src/aac_tables.hpp
+ /usr/include/c++/11/tr1/riemann_zeta.tcc ../../glint/src/aac_tables.hpp

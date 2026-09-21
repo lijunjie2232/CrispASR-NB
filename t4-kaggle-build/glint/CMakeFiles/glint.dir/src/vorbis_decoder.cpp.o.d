@@ -1,8 +1,6 @@
 glint/CMakeFiles/glint.dir/src/vorbis_decoder.cpp.o: \
- /kaggle/working/CrispASR-NB/glint/src/vorbis_decoder.cpp \
- /usr/include/stdc-predef.h \
- /kaggle/working/CrispASR-NB/glint/src/vorbis_decoder.hpp \
- /usr/include/c++/11/cstddef \
+ ../../glint/src/vorbis_decoder.cpp /usr/include/stdc-predef.h \
+ ../../glint/src/vorbis_decoder.hpp /usr/include/c++/11/cstddef \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -133,7 +131,5 @@ glint/CMakeFiles/glint.dir/src/vorbis_decoder.cpp.o: \
  /usr/include/string.h /usr/include/strings.h \
  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
- /kaggle/working/CrispASR-NB/glint/src/vorbis_bits.hpp \
- /kaggle/working/CrispASR-NB/glint/src/vorbis_imdct.hpp \
- /kaggle/working/CrispASR-NB/glint/src/vorbis_ogg.hpp \
- /kaggle/working/CrispASR-NB/glint/src/opus_ogg.hpp
+ ../../glint/src/vorbis_bits.hpp ../../glint/src/vorbis_imdct.hpp \
+ ../../glint/src/vorbis_ogg.hpp ../../glint/src/opus_ogg.hpp

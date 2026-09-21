@@ -1,7 +1,6 @@
-ggml/src/CMakeFiles/ggml-base.dir/ggml.cpp.o: \
- /kaggle/working/CrispASR-NB/ggml/src/ggml.cpp /usr/include/stdc-predef.h \
- /kaggle/working/CrispASR-NB/ggml/src/ggml-impl.h \
- /kaggle/working/CrispASR-NB/ggml/src/../include/ggml.h \
+ggml/src/CMakeFiles/ggml-base.dir/ggml.cpp.o: ../../../ggml/src/ggml.cpp \
+ /usr/include/stdc-predef.h ../../../ggml/src/ggml-impl.h \
+ ../../../ggml/include/ggml.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
@@ -31,8 +30,7 @@ ggml/src/CMakeFiles/ggml-base.dir/ggml.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/stdio.h \
- /usr/include/x86_64-linux-gnu/bits/stdio2.h \
- /kaggle/working/CrispASR-NB/ggml/src/../include/gguf.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio2.h ../../../ggml/include/gguf.h \
  /usr/include/assert.h /usr/include/c++/11/math.h \
  /usr/include/c++/11/cmath \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \

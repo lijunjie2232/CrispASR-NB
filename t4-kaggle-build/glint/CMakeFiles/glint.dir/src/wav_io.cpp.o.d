@@ -1,7 +1,5 @@
-glint/CMakeFiles/glint.dir/src/wav_io.cpp.o: \
- /kaggle/working/CrispASR-NB/glint/src/wav_io.cpp \
- /usr/include/stdc-predef.h \
- /kaggle/working/CrispASR-NB/glint/src/wav_io.hpp \
+glint/CMakeFiles/glint.dir/src/wav_io.cpp.o: ../../glint/src/wav_io.cpp \
+ /usr/include/stdc-predef.h ../../glint/src/wav_io.hpp \
  /usr/include/c++/11/cstddef \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

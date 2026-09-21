@@ -1,8 +1,6 @@
 glint/CMakeFiles/glint.dir/src/aac_mdct.cpp.o: \
- /kaggle/working/CrispASR-NB/glint/src/aac_mdct.cpp \
- /usr/include/stdc-predef.h \
- /kaggle/working/CrispASR-NB/glint/src/aac_mdct.hpp \
- /kaggle/working/CrispASR-NB/glint/src/aac_coder_types_fwd.hpp \
+ ../../glint/src/aac_mdct.cpp /usr/include/stdc-predef.h \
+ ../../glint/src/aac_mdct.hpp ../../glint/src/aac_coder_types_fwd.hpp \
  /usr/include/c++/11/cstdint \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

@@ -1,6 +1,6 @@
 glint/CMakeFiles/glint.dir/src/decoder_c_api.cpp.o: \
- /kaggle/working/CrispASR-NB/glint/src/decoder_c_api.cpp \
- /usr/include/stdc-predef.h /usr/include/c++/11/cstdint \
+ ../../glint/src/decoder_c_api.cpp /usr/include/stdc-predef.h \
+ /usr/include/c++/11/cstdint \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -21,10 +21,8 @@ glint/CMakeFiles/glint.dir/src/decoder_c_api.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /usr/include/c++/11/new /usr/include/c++/11/bits/exception.h \
- /kaggle/working/CrispASR-NB/glint/src/aac_decoder.hpp \
- /kaggle/working/CrispASR-NB/glint/include/glint/glint.h \
- /kaggle/working/CrispASR-NB/glint/src/mp3_decoder.hpp \
- /kaggle/working/CrispASR-NB/glint/src/resample.hpp \
+ ../../glint/src/aac_decoder.hpp ../../glint/include/glint/glint.h \
+ ../../glint/src/mp3_decoder.hpp ../../glint/src/resample.hpp \
  /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_algobase.h \
  /usr/include/c++/11/bits/functexcept.h \
  /usr/include/c++/11/bits/exception_defines.h \

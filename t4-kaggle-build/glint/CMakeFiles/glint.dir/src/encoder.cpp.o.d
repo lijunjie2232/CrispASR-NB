@@ -1,7 +1,5 @@
-glint/CMakeFiles/glint.dir/src/encoder.cpp.o: \
- /kaggle/working/CrispASR-NB/glint/src/encoder.cpp \
- /usr/include/stdc-predef.h \
- /kaggle/working/CrispASR-NB/glint/src/encoder.hpp \
+glint/CMakeFiles/glint.dir/src/encoder.cpp.o: ../../glint/src/encoder.cpp \
+ /usr/include/stdc-predef.h ../../glint/src/encoder.hpp \
  /usr/include/c++/11/cstdint \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -22,12 +20,9 @@ glint/CMakeFiles/glint.dir/src/encoder.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /kaggle/working/CrispASR-NB/glint/include/glint/glint.h \
- /kaggle/working/CrispASR-NB/glint/src/subband.hpp \
- /kaggle/working/CrispASR-NB/glint/src/mdct.hpp \
- /kaggle/working/CrispASR-NB/glint/src/quantize.hpp \
- /kaggle/working/CrispASR-NB/glint/src/huffman.hpp \
- /kaggle/working/CrispASR-NB/glint/src/bitstream.hpp \
+ ../../glint/include/glint/glint.h ../../glint/src/subband.hpp \
+ ../../glint/src/mdct.hpp ../../glint/src/quantize.hpp \
+ ../../glint/src/huffman.hpp ../../glint/src/bitstream.hpp \
  /usr/include/c++/11/cstring /usr/include/string.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
@@ -35,8 +30,8 @@ glint/CMakeFiles/glint.dir/src/encoder.cpp.o: \
  /usr/include/strings.h \
  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
- /kaggle/working/CrispASR-NB/glint/src/tables.hpp \
- /usr/include/c++/11/cmath /usr/include/c++/11/bits/cpp_type_traits.h \
+ ../../glint/src/tables.hpp /usr/include/c++/11/cmath \
+ /usr/include/c++/11/bits/cpp_type_traits.h \
  /usr/include/c++/11/ext/type_traits.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -105,8 +100,7 @@ glint/CMakeFiles/glint.dir/src/encoder.cpp.o: \
  /usr/include/c++/11/tr1/riemann_zeta.tcc /usr/include/c++/11/array \
  /usr/include/c++/11/utility /usr/include/c++/11/bits/stl_relops.h \
  /usr/include/c++/11/initializer_list \
- /usr/include/c++/11/bits/range_access.h \
- /kaggle/working/CrispASR-NB/glint/src/reservoir.hpp \
+ /usr/include/c++/11/bits/range_access.h ../../glint/src/reservoir.hpp \
  /usr/include/c++/11/algorithm /usr/include/c++/11/bits/stl_algo.h \
  /usr/include/c++/11/cstdlib /usr/include/c++/11/bits/algorithmfwd.h \
  /usr/include/c++/11/bits/stl_heap.h \
@@ -139,10 +133,8 @@ glint/CMakeFiles/glint.dir/src/encoder.cpp.o: \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
  /usr/include/c++/11/bits/vector.tcc \
- /usr/include/c++/11/pstl/execution_defs.h \
- /kaggle/working/CrispASR-NB/glint/src/psycho.hpp \
- /kaggle/working/CrispASR-NB/glint/src/fixedpoint.hpp \
- /kaggle/working/CrispASR-NB/glint/src/simd.hpp \
+ /usr/include/c++/11/pstl/execution_defs.h ../../glint/src/psycho.hpp \
+ ../../glint/src/fixedpoint.hpp ../../glint/src/simd.hpp \
  /usr/include/c++/11/cstdio /usr/include/stdio.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
