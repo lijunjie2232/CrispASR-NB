@@ -1,5 +1,41 @@
 # Changelog
 
+## 0.8.36
+
+* **New ASR backends in the bundled native library:** Dolphin CN-Dialect
+  (`dolphin`; Mandarin plus Chinese dialects, a two-level
+  `sourceLanguage` such as `zh-SICHUAN`), X-ASR zh-en (`xasr`; streaming
+  Zipformer2 transducer), Hojo-ASR-Multi-V1 (`hojo-asr`), and registry
+  entries for Orukeet and Confucius4-R2T2.
+* **Piano transcription** gains Onsets & Frames and hFT-Transformer
+  (`onsets-and-frames`, `hft-transformer`), both auto-downloading and
+  reachable through the existing piano-notes accessors.
+* **Front-end fixes** in the native library change transcripts for Kaldi-fbank
+  models (FireRedASR, SenseVoice, Paraformer and relatives), whose mel
+  triangles are now built in mel space as the reference does.
+* **Session TTS:** three defects fixed that only the session ABI (and so this
+  package) could hit; see the v0.8.36 release notes for details.
+
+## 0.8.35
+
+* **`pianoNotesWithPrograms()`** reports the General MIDI program of each
+  transcribed note — which instrument played it. `0`-`127` is a GM program,
+  `128` is percussion, and `-1` means the model does not identify an
+  instrument. Only MT3 fills it in; `piano-transcription` and `basic-pitch`
+  report `-1` throughout, and so does any native library predating the
+  export, so callers read the sentinel rather than probing for the symbol.
+  MT3's multi-instrument transcription was previously flattened to a single
+  part before any caller could see it.
+* **Basic Pitch convolutions gain SIMD and threading** in the native library:
+  3.59x on x86-64 and 2.67x on Apple Silicon at four threads, byte-identical
+  output, on by default with `CRISPASR_BASIC_PITCH_FASTCONV=0` as the way
+  back.
+* Fixes two build-guard defects around the piano accessors: note storage
+  accidentally required CREPE to be compiled in, and
+  `crispasr_session_piano_notes` was guarded more narrowly than
+  `crispasr_session_piano_n_notes`, so a build with MT3 or basic-pitch but
+  without piano-transcription reported a note count and returned `nullptr`.
+
 ## 0.8.34
 
 * **Breeze-TTS-2 (`bt2-tts`)** adds plain synthesis, voice cloning, and voice

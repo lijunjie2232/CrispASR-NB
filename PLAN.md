@@ -9,6 +9,89 @@ the reporter's reliable anchors. Reopen the issue, reproduce the exact command,
 and require both monotonic output and bounded timing displacement. Worktree
 `.claude/worktrees/fix-444-timing`, branch `fix/444-timing`.
 
+## CLAIMED 2026-09-23 — #436 Dolphin-CN-Dialect (then X-ASR)
+
+Worktree `.claude/worktrees/feat-436-dolphin`, branch `feat/436-dolphin`.
+NOW: blueprint read (docs/dolphin/PLAN.md on the branch); converter next.
+
+## DEFERRED 2026-09-24 — #456 nyra-forced-aligner
+
+Deferred by the maintainer. Assessment posted on the issue: WavLM-large + a
+Kaldi-style GMM-HMM (model.npz ~2 MB, decision trees, projections) + 41k-word
+lexicon + beam Viterbi. Inference code MIT, but model files AND outputs (the
+timestamps) are under the nyra health Non-Commercial Research License with
+share-alike and a contractual-binding clause (3.3) -> would ship as a gated NC
+GGUF; espeak-ng OOV fallback is GPL and cannot be bundled. WavLM exists in-tree
+(MioCodec). Not started.
+
+## DONE 2026-09-24 — #455 Raon-Speech-9B (speech-to-text only)
+
+Merged to main; GGUFs + card at cstr/raon-speech-9b-GGUF (F16/Q8_0/Q4_K), ref fixtures
+raon-speech/{jfk,ko}. F16 diff passes every stage on jfk (2 chunks) + ko; F16/Q8_0 text
+equals the remote-code greedy reference, Q4_K same words. Found on the way: crisp_audio's
+Whisper mel zero-padded the STFT edges (torch reflects) - fixed for the whole qwen3-asr
+family, R2T2 fixtures re-checked. Original claim:
+
+
+Worktree `.claude/worktrees/feat-455-raon-speech`, branch `feat/455-raon-speech`.
+ASR subset = Qwen3-Omni audio tower (24L/1024, proj2 -> 2048) + 2-layer
+EmbeddingAdaptor (2048->4096 GELU 4096->4096, RMSNorm) + Qwen3 36L/4096 LLM
+(RoPE theta 5e6, untied lm_head, vocab 153723). Plan: a `raon-speech` variant
+of the qwen3-asr runtime (adaptor after proj2, 8 s chunks with per-chunk mel
+max, 13 Hz -> 12.5 Hz truncation, placeholder 151676, prompt "Transcribe the
+audio into text"). Talker / Mimi / code predictor are not converted.
+CC-BY-NC-4.0: NC-gated registry entry like raon. 18 GB bf16 -> conversion and
+reference run on Kaggle only.
+
+## DONE 2026-09-24 — #454 moondream parakeet-ultra / parakeet-redux
+
+Merged; GGUFs + cards at cstr/parakeet-{ultra,redux}-GGUF. Every diff stage passes on
+jfk + de; F16/Q8_0/Q4_K transcripts equal transformers ParakeetForTDT and moondream Photon.
+crispasr-diff now prints the worst row (index + norms) on FAIL. Original claim:
+
+
+Worktree `.claude/worktrees/feat-454-parakeet`, branch `feat/454-parakeet-hf`.
+Both are HF-transformers ParakeetForTDT checkpoints (the stock v3 architecture,
+HF tensor names, no .nemo), so the work is converter-side: HF names -> the
+existing parakeet GGUF layout, a synthesised NeMo featurizer filterbank, and
+for redux an exact dequant of the base-3 packed ternary weights. Reference:
+transformers ParakeetForTDT. Runtime changes are not expected.
+
+## CLAIMED 2026-09-22 — #445 Orukeet + Confucius4-R2T2, then #438 Hojo, #436
+
+Taking over #445 from the 2026-09-20 roadmap claim below: its worktree
+(`roadmap-445-438-337-perf`) has no commits or changes since the claim, which
+is past the one-day staleness rule. Worktree
+`.claude/worktrees/fix-451-chunked`, branch `feat/445-orukeet-convert`.
+NOW: #445 done — orukeet merged earlier (4234bcd8 region + 7c614be7), and
+Confucius4-R2T2 merged 2026-09-23 (feat/445-r2t2, CI 35824680242 green): tied
+lm_head conversion, prefix-rollback streaming session (R2T2's example.py
+schedule), F16 offline + streaming final text identical to upstream on en + zh.
+#438 Hojo merged 2026-09-23 (CI 35824656929 green; F16 7/7 stages PASS, greedy text
+identical to upstream). #436 Dolphin merged 2026-09-23 (CI 35828799990 green; F16 every stage PASS,
+text identical to upstream on zh + jfk; Q4_K default after a 15-clip transcript
+check). #436 X-ASR merged 2026-09-23 (CI 35835631235 green): streaming Zipformer2
+transducer converted from the sherpa-onnx export; F16 every stage cos >= 0.99999,
+tokens + text identical to sherpa-onnx at 480 and 160 ms, streaming = one-shot.
+#436 done.
+Kaldi-fbank recheck (2026-09-23, fix/kaldi-mel-domain, CI 35868696147): core_kaldi
++ firered_asr/firered_vad build triangles in mel, as Kaldi/knf/torchaudio do.
+Every reference was rebaked on Kaggle (tools/kaggle/kaldi-mel-final), and every
+stage passes at F16 for wespeaker, sensevoice, funasr, firered-asr, dolphin and
+CAM++. Found and fixed on the way:
+- SenseVoice never applied am.mvn CMVN (upstream does), so its rich tags were
+  off. The GGUFs were re-uploaded with CMVN.
+- Paraformer skipped the sqrt(d)+sinusoidal PE at encoder entry.
+- The sensevoice/paraformer dumpers used a CMVN-less front-end, and the
+  funasr/_hooks captures aliased tensors that were later changed in place.
+- The FireRed dumper used knf's default dither (3e-5, random).
+Paraformer zh still differs by one CIF row: a float32 fire-threshold tie
+(running sum 1 ULP from 1.0); the text is identical.
+
+Done this session: #448 merged (8c359d80 + da258942 mask-width assert),
+#453 fixed (817d6bf3), #452 merged (1aa0d55f) plus a shell-injection fix in
+the audio-decode fallback found while testing it (6409647a).
+
 ## CLAIMED 2026-09-20 — roadmap cleanup, #445 Orukeet, #438 Hojo-ASR, #337 native HIP, profiler/F16 audit
 
 Worktree `.claude/worktrees/roadmap-445-438-337-perf`, staged strictly in that

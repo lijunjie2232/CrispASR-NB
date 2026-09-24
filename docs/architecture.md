@@ -285,8 +285,9 @@ everything below follows it.
   `crispasr_chords_cli.{h,cpp}`.
 - **Beats / downbeats** (`beat-this`) — `CAP_BEATS` (bit 26), `--beats`,
   `crispasr_beats_cli.{h,cpp}`.
-- **Piano transcription** (`piano-transcription`) — `CAP_PIANO` (bit 27),
-  `--piano`, `crispasr_piano_cli.{h,cpp}`.
+- **Piano transcription** (`piano-transcription`, `basic-pitch`, `mt3`,
+  `onsets-and-frames`, `hft-transformer`) — `CAP_PIANO` (bit 27), `--piano`,
+  `crispasr_piano_cli.{h,cpp}`.
 - **Guitar tablature** (`tabcnn`) — `CAP_TAB` (bit 28), `--tab`,
   `crispasr_tab_cli.{h,cpp}`. See [tabcnn](#tabcnn) below.
 
@@ -653,6 +654,114 @@ are injected as residual adds at LM blocks 0, 1, and 2, preserving
 multi-resolution audio features (low-level prosody/transients alongside
 high-level semantics) through the LM's early layers.
 
+### hojo-asr
+
+Multilingual conversational ASR (HojoAI/Hojo-ASR-Multi-V1, Apache-2.0,
+~5.2B params) in the classic **Encoder → Adapter → LLM** layout. Every
+weight — encoder, adapter and decoder — lives in the single
+`merged_full_model.safetensors` (11.96 GB); the bare
+`Qwen3-Omni-30B-A3B-Instruct/config.json` that ships beside it supplies
+audio hyper-parameters only and **no 30B checkpoint is ever fetched**.
+
+**Front end.** `WhisperFeatureExtractor(feature_size=128, n_fft=400,
+hop=160)` called with `padding=False`, so the 128-bin log-mel is the
+audio's natural length at 100 fps. The `chunk_length=40` in the reference
+only moves the unused `padding="max_length"` cap — nothing is ever padded
+to 30 s or 40 s, unlike most Whisper-derived front ends.
+
+**Encoder.** The *stock* Qwen3-Omni "AuT" audio tower — the same one
+[`moss-transcribe`](#moss-transcribe) runs — with `n_window=1500` and
+`n_window_infer=3000` patched in at construction: 3×Conv2d(3×3, stride 2,
+pad 1, 480 ch, GELU) → `conv_out` Linear(480·16=7680 → 1280, no bias) →
+per-chunk sinusoidal positions → 32 pre-LN layers (1280d, 20 heads, FFN
+5120, GELU) → `ln_post` → `proj1` → GELU → `proj2` (→2048). Mel is cut
+into 3000-frame (30 s) chunks with **block-diagonal attention** over them,
+so every chunk is mathematically independent; positions restart at 0 in
+each. 8× time downsample → 12.5 encoder frames per second.
+
+The conv stem is where the model card's "multi-frame acoustic fusion"
+actually lives: `conv_out` flattens (channel, freq) with **freq fastest**,
+fusing 8 mel frames × 128 mel bins into one 1280-d frame. That is the
+only frame-stacking in the model, and getting its order wrong yields
+fluent, confident, wrong transcripts.
+
+**Adapter.** A **WeNet `ConformerEncoder`** — `(2048 → 2560,
+linear_units=640, num_blocks=2, input_layer="linear")` with every other
+argument at WeNet's defaults: 4 heads, `rel_pos`, macaron (ff_scale 0.5),
+SiLU, cnn kernel 15, non-causal, BatchNorm, pre-LN, eps 1e-5. It is **1:1
+in time** — `linear_units: 640` is the conformer FFN's inner width, not a
+2:1 stack, and its input dim 2048 is simply the encoder's `output_dim`.
+
+Two details are invisible in the tensor shapes and wrong by default:
+`LinearNoSubsampling` feeds `RelPositionalEncoding`, whose forward applies
+**`x = x * sqrt(2560)`** (a 50.6× scale on the residual stream) and returns
+the position table *separately* — it is never added to `x`; and WeNet
+**deletes `rel_shift`**, so the positional term is
+`(q + pos_bias_v)·(W_pos·pe[0:T])ᵀ` with no shift, i.e. an absolute-position
+bias rather than Transformer-XL relative. The per-block conv module's
+`norm` is an eval-mode `BatchNorm1d`, folded to a per-channel (scale, shift)
+by the converter. A final `ln_speech` LayerNorm(2560) follows the
+bottleneck.
+
+**Decoder.** Qwen3-4B-Instruct-2507 (36L, 2560d, 32Q/8KV, head_dim 128,
+SwiGLU 9728, QK-norm, RoPE θ=5e6, RMS eps 1e-6), embeddings resized to
+151670 (Qwen3's 151669 + an added `[PAD]`), tied `lm_head`.
+
+**Conditioning.** `inputs_embeds = [embed(<|im_start|>)] ++ speech` —
+there is **no text prompt, no chat template and no audio placeholder
+token**. That is the entire conditioning, so `--ask` and `-l` have nowhere
+to go and are explicitly reported as ignored. Decode follows the
+checkpoint's `config.yaml` `generate:` block: beam 4, `do_sample=False`,
+`repetition_penalty=2.0`, `length_penalty=1.0`, and
+`max_new_tokens = max(10, min(200, T_enc·2 + 10))`. The repetition penalty
+is applied per beam over that beam's own generated suffix, matching
+transformers' `RepetitionPenaltyLogitsProcessor` — generating from
+`inputs_embeds` means the speech frames and the BOS are not tokens and are
+never penalised.
+
+**Runtime notes.** Attention runs per chunk rather than over one flat
+sequence with a block-diagonal mask (identical result; avoids a 112 MB mask
+for ten minutes of audio), and the conv stem is tiled along time with an
+8-frame halo (exact, since output frame `o` reads inputs `[8o-7, 8o+7]`;
+`CRISPASR_HOJO_ASR_CONV_TILE=0` restores the untiled path for A/B).
+Languages: de, fr, it, pt, es tagged; the card also claims ja, ar, ko, ru.
+
+### raon-speech
+
+Speech-to-text subset of KRAFTON/Raon-Speech-9B (CC-BY-NC-4.0, #455). The
+full model is a speech-in/speech-out duplex model. Only the transcription path
+is converted: the talker, code predictor, Mimi codec, output adaptor and
+speaker encoder serve speech output only. It runs on the **qwen3-asr runtime**
+as GGUF variant `qwen3asr.variant = raon-speech`.
+
+**Front end** (mirrors `RaonPipeline.stt`, `modeling_raon.py`). The processor
+resamples input to **24 kHz** and cuts it into **8 s chunks** (192000 samples),
+right-padded to the longest chunk. Each chunk is then resampled 24k → 16k.
+Both resamples use torchaudio's `sinc_interp_hann`, which
+`src/core/torchaudio_resample.h` ports exactly (1 ULP vs torchaudio). The
+16 kHz chunk is masked to its valid length (at least `n_fft`) and turned into
+a Whisper log-mel whose max-clip is taken **per chunk**. The STFT
+reflect-pads, like `torch.stft`; zero-padding here is what put a 0.32
+log-mel error on the first frame of every chunk that starts mid-speech.
+
+**Encoder.** The Qwen3-Omni audio tower (24 layers, d = 1024, `proj2` →
+2048), run on each chunk separately via `crisp_audio`. Positions restart per
+100-mel-frame conv chunk. The 13 Hz output is **truncated**, not resampled,
+to `ceil(padded_24k / 1920)` frames (12.5 Hz). The frames covering at least
+one valid 24 kHz sample are kept, and that count equals the number of
+`<|audio_input_placeholder|>` (id 151676) tokens in the prompt.
+
+**Adaptor.** `Linear(2048 → 4096) → GELU(erf) → Linear(4096 → 4096) →
+RMSNorm(eps 1e-6)`, applied frame-wise (`adaptor.*` tensors).
+
+**LLM.** Qwen3, 36 layers, hidden 4096, GQA 32/8, RoPE θ = 5e6, untied
+`lm_head`, vocab 153723. The prompt has no system turn:
+`<|im_start|>user\n<|audio_start|>…<|audio_end|>Transcribe the audio into
+text<|im_end|>\n<|im_start|>assistant\n`. `--ask` replaces the instruction.
+As in `generate()`, `<|audio_output_pad|>` is masked every step and
+`<|im_end|>` on the first step. The model has no language control; `-l` and
+`--translate` are ignored with a warning.
+
 ### moss-transcribe
 
 Dedicated ASR sibling of moss-audio (same author). Uses the **stock
@@ -757,6 +866,85 @@ transcription producing MIDI note events (88 keys, 100fps).
 - **Post-processing:** regression binarization (monotonicity check) → note detection (onset/offset/frame thresholds) → MIDI events
 - F16 GGUF: 77 MB, F32: 154 MB
 - `--backend piano-transcription -m piano-transcription-f16.gguf -f piano.wav`
+
+### onsets-and-frames
+
+`Onsets and Frames` (Hawthorne et al., ISMIR 2018; MIT reimplementation) —
+piano transcription, 26.49 M parameters, converted from the ONNX export (which
+has already folded BatchNorm into the convolutions).
+
+- **Input:** 16 kHz mono → STFT(2048, hop=512, **periodic** Hann, reflect pad)
+  → **magnitude** (power 1.0, not power 2.0) → mel(229 bins, 30–8000 Hz, **HTK**
+  scale, **slaney** filter norm) → `log(clamp(·, 1e-5))`. All four of those
+  emphasised settings are non-default somewhere; the filterbank and the window
+  are computed by the converter and **stored in the GGUF** so the question
+  cannot be got wrong at runtime.
+- **4× ConvStack** (onset / offset / frame / velocity, all reading the same mel):
+  Conv2d(1→48,3×3)+ReLU, Conv2d(48→48,3×3)+ReLU, MaxPool(1,2),
+  Conv2d(48→96,3×3)+ReLU, MaxPool(1,2), flatten to 96·57 = 5472 → Linear(5472→768)
+- **onset / offset:** ConvStack → BiLSTM(768→384) → Linear(768→88)
+- **frame_stack:** ConvStack → Linear(768→88) — this is the *activation*, not the
+  frame head
+- **combined_stack:** cat(onset, offset, activation) [264] → BiLSTM(264→384) →
+  Linear(768→88) — **this** is the frame head
+- Every head emits **logits**; the runtime applies the sigmoid, so
+  `onset_threshold` / `frame_threshold` are probabilities.
+- The ConvStacks and the linear layers run in a ggml graph (time-chunked with a
+  3-frame halo, which is bit-identical and bounds the im2col working set); the
+  BiLSTM is computed by hand outside it, as `piano_transcription.cpp` does for
+  Kong's BiGRU. **ONNX LSTM gate order is `iofc`, not PyTorch's `ifgo`** — the
+  GGUF records the order and the loader refuses a file that disagrees.
+- ⚠ **The ONNX export's output names are shifted by one** (four `output_names`
+  for a five-output forward), so the tensor called `frame` is the activation and
+  the one called `velocity` is the frame head. The converter establishes the
+  mapping structurally, by finding the Concat of three graph outputs and
+  following it; it does not trust the names.
+- F32 GGUF 107 MB, Q8_0 32 MB, Q4_0 20 MB
+- `--piano -m onsets-and-frames-q4_0.gguf -f piano.wav`
+
+### hft-transformer
+
+`hFT-Transformer` (Toyama et al., ISMIR 2023; `sony/hFT-Transformer`, MIT) —
+piano transcription, 5.48 M parameters, converted from the **pruned** ONNX
+export. The most accurate solo-piano model here and much the smallest; also
+much the most expensive to run. See
+[docs/music-transcription/HFT_TRANSFORMER.md](music-transcription/HFT_TRANSFORMER.md).
+
+- **Input:** 16 kHz mono → STFT(2048, hop=256, **periodic** Hann, **constant**
+  (zero) pad) → **power 2.0** → mel(256 bins, 0–8000 Hz, **HTK** scale,
+  **slaney** filter norm) → `log(mel + 1e-8)` — an *add*, not a clamp. The
+  filterbank and the window are computed by the converter and **stored in the
+  GGUF**. Unlike Onsets & Frames, hFT does **not** drop a sample before the
+  STFT, so `T = n/hop + 1`.
+- **Windowing:** the model answers 128 frames at a time from a 192-frame
+  window — 32 margin frames of `log(1e-8)` each side, tail padded to a multiple
+  of 128.
+- **Encoder** (batch 128 frames × 256 frequency tokens): per (frame, bin) the
+  65-frame window → Conv2d(1→4, (1,5)) → flatten 4·61 = 244 → Linear(244→256),
+  × √256, + `pos_embedding_freq`; 3 × post-LN transformer layer.
+- **Frequency decoder** (88 pitch queries cross-attending to those 256 tokens):
+  `layer_zero` is cross-attention only; 2 further layers are self + cross + FF.
+- **Time decoder** (batch 88 pitches × 128 time tokens): 3 layers, then
+  `Linear(256→1)` for onset / offset / mpe and `Linear(256→128)` for velocity.
+- Attention is 4 heads × 64, scale 1/8 everywhere. Every head emits **logits**;
+  the runtime applies the sigmoid, and the velocity head is decoded by argmax
+  over its 128 bins.
+- ⚠ **Each layer has ONE LayerNorm applied two or three times** — the
+  checkpoint has a single set of gains per layer, not one per application.
+- The converter **fuses** the (1,5) convolution into `tok_embedding_freq` into
+  one `Linear(65→256)`. Both are linear in the 65-tap window with nothing
+  between them, so the collapse is exact (`--verify-fusion`: 7.1e-07 relative);
+  the GGUF records `hft.front_end` and the loader refuses a file that declares
+  a different one.
+- ⚠ **The decoder's `mode_velocity='ignore_zero'` gate is the model's only
+  working filter** — it drops any note whose velocity head reads zero at the
+  onset frame, and it filters better than the onset threshold, which is flat
+  across 0.2–0.7.
+- The whole model runs in ggml graphs (no hand-rolled recurrence), with the
+  encoder and frequency decoder evaluated in frame chunks that are
+  bit-identical to the unchunked result.
+- F32 GGUF 21.8 MiB, Q8_0 7.0 MiB, Q4_0 4.5 MiB
+- `--piano -m hft-transformer-q8_0.gguf -f piano.wav`
 
 ### miotts
 
@@ -1687,6 +1875,25 @@ Key architectural points:
   package on gTTS Japanese test audio (verified on Kaggle, 2026-06-28).
 
 Models at `cstr/reazonspeech-nemo-v2-GGUF`: F16 (1240 MB), Q8_0 (704 MB), Q4_K (455 MB).
+
+### parakeet-ultra / parakeet-redux
+
+moondream's `parakeet-ultra` and `parakeet-redux` (CC-BY-4.0, #454) are the
+stock parakeet-tdt-0.6b-v3 architecture, published in transformers'
+`ParakeetForTDT` format instead of as a `.nemo`. They run on the unmodified
+`parakeet` backend. All the work is in `models/convert-parakeet-to-gguf.py
+--hf`:
+- it maps HF tensor names onto the NeMo-derived GGUF layout;
+- it synthesises NeMo's featurizer (librosa Slaney filterbank (1, 128, 257),
+  symmetric Hann 400);
+- it takes the vocabulary from `tokenizer.json`.
+
+**redux** stores its encoder linears as base-3 packed ternary codes: five
+codes per byte, least-significant digit first, with `w = scale · (code − 1)`
+per group. The converter unpacks them exactly, so the GGUF holds ordinary
+F16/Q8_0/Q4_K weights. The reference is transformers' `ParakeetForTDT`
+(`tools/reference_backends/parakeet_hf.py`), with moondream's Photon runtime
+as an independent transcript check.
 
 ### parakeet-ctc-1.1b-ja
 

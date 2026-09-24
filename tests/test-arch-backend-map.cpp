@@ -63,6 +63,8 @@ static const std::vector<std::pair<std::string, std::string>>& converter_archs()
         {"omniasr-ctc", "omniasr"},
         {"mimo_asr", "mimo-asr"},
         {"arkasr", "ark-asr"},
+        {"hojo_asr", "hojo-asr"},
+        {"hojo-asr", "hojo-asr"},
         {"moss_audio", "moss-audio"},
         {"moss_transcribe", "moss-transcribe"},
         {"moss_transcribe_diarize", "moss-diarize"},
@@ -204,6 +206,7 @@ TEST_CASE("every emitted backend name is a name a surface can open", "[unit][arc
         "omniasr",
         "mimo-asr",
         "ark-asr",
+        "hojo-asr",
         "moss-audio",
         "moss-transcribe",
         "moss-diarize",
@@ -258,6 +261,8 @@ TEST_CASE("every emitted backend name is a name a surface can open", "[unit][arc
         "beat-this",
         "piano-transcription",
         "basic-pitch",
+        "onsets-and-frames",
+        "hft-transformer",
         "mt3",
         "bt2-tts", // Breeze-TTS-2 (#412)
     };

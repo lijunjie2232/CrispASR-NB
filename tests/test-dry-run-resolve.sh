@@ -41,16 +41,20 @@ else
     FAIL=$((FAIL+1))
 fi
 
-# arg|expected-registry-filename
+# arg|expected-registry-filename[|backend (default parakeet)]
 CASES="
 parakeet-tdt_ctc-110m|parakeet-tdt_ctc-110m-q4_k.gguf
 parakeet|parakeet-tdt-0.6b-v3-q4_k.gguf
 parakeet-v2|parakeet-tdt-0.6b-v2-q4_k.gguf
 parakeet-tdt-1.1b|parakeet-tdt-1.1b-q4_k.gguf
+orukeet|orukeet-q4_k.gguf
+confucius4-r2t2|confucius4-r2t2-q4_k.gguf
+dolphin|dolphin-cn-dialect-small-streaming-q4_k.gguf|dolphin
+xasr|x-asr-zh-en-q8_0.gguf|xasr
 "
-while IFS='|' read -r arg expected; do
+while IFS='|' read -r arg expected backend; do
     [ -z "$arg" ] && continue
-    got=$("$CRISPASR" -m "$arg" --backend parakeet --auto-download --dry-run-resolve 2>&1 \
+    got=$("$CRISPASR" -m "$arg" --backend "${backend:-parakeet}" --auto-download --dry-run-resolve 2>&1 \
         | sed -n 's/^  registry:[[:space:]]*//p' | head -1)
     if [ "$got" = "$expected" ]; then
         echo "  ✓ -m $arg → $got"; PASS=$((PASS+1))

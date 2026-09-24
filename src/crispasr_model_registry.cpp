@@ -182,6 +182,22 @@ constexpr Entry k_registry[] = {
     {"qwen3-1.7b", "qwen3-asr-1.7b-q4_k.gguf",
      "https://huggingface.co/cstr/qwen3-asr-1.7b-GGUF/resolve/main/qwen3-asr-1.7b-q4_k.gguf",
      "~1.3 GB", nullptr, nullptr},
+    // confucius4-r2t2 (#445) — NetEase Youdao's streaming Qwen3-ASR-1.7B
+    // fine-tune (tied lm_head). Carries qwen3asr.streaming_recipe=r2t2, which
+    // enables the prefix-rollback realtime session (CrispasrRealtimeSession).
+    // Weights are under the NetEase Youdao Model Use License, not open source.
+    {"confucius4-r2t2", "confucius4-r2t2-q4_k.gguf",
+     "https://huggingface.co/cstr/confucius4-r2t2-GGUF/resolve/main/confucius4-r2t2-q4_k.gguf", "~1.5 GB", nullptr,
+     nullptr, nullptr, "NetEase Youdao Model Use License (see https://huggingface.co/cstr/confucius4-r2t2-GGUF)"},
+    // raon-speech (#455) — KRAFTON/Raon-Speech-9B, speech-to-text subset only
+    // (Qwen3-Omni audio tower + EmbeddingAdaptor + Qwen3 36L LLM); runs on the
+    // qwen3-asr runtime (qwen3asr.variant = raon-speech). English + Korean.
+    // CC-BY-NC-4.0: NON-COMMERCIAL, like the raon TTS entries.
+    {"raon-speech", "raon-speech-9b-q4_k.gguf",
+     "https://huggingface.co/cstr/raon-speech-9b-GGUF/resolve/main/raon-speech-9b-q4_k.gguf", "~5.0 GB", nullptr,
+     nullptr, nullptr,
+     "CC-BY-NC-4.0 — NON-COMMERCIAL use only (KRAFTON/Raon-Speech-9B, "
+     "https://huggingface.co/KRAFTON/Raon-Speech-9B)"},
     // Qwen3-ASR-1.7B fine-tuned for Japanese anime/galgame speech (Apache-2.0).
     // Same architecture as qwen3-1.7b; uses the standard qwen3 backend.
     {"qwen3-ja-anime", "qwen3-asr-1.7b-ja-anime-q4_k.gguf",
@@ -350,6 +366,9 @@ constexpr Entry k_registry[] = {
      "mimo-tokenizer-q4_k.gguf",
      "https://huggingface.co/cstr/mimo-tokenizer-GGUF/resolve/main/mimo-tokenizer-q4_k.gguf",
      "~395 MB"},
+    {"hojo-asr", "hojo-asr-multi-v1-q4_k.gguf",
+     "https://huggingface.co/cstr/Hojo-ASR-Multi-V1-GGUF/resolve/main/hojo-asr-multi-v1-q4_k.gguf",
+     "~4.4 GB", nullptr, nullptr},
     {"moss-audio", "moss-audio-4b-instruct-q4_k.gguf",
      "https://huggingface.co/cstr/MOSS-Audio-4B-Instruct-GGUF/resolve/main/moss-audio-4b-instruct-q4_k.gguf", "~3.8 GB",
      nullptr, nullptr},
@@ -698,6 +717,42 @@ constexpr Entry k_registry[] = {
     {"parakeet-v2", "parakeet-tdt-0.6b-v2-q4_k.gguf",
      "https://huggingface.co/cstr/parakeet-tdt-0.6b-v2-GGUF/resolve/main/parakeet-tdt-0.6b-v2-q4_k.gguf",
      "~468 MB", nullptr, nullptr},
+    // parakeet-ultra (#454) — moondream/parakeet-ultra: parakeet-tdt-0.6b-v3
+    // architecture in transformers' ParakeetForTDT format (converter --hf).
+    // Transcripts equal transformers and moondream Photon at F16/Q8_0/Q4_K.
+    {"parakeet-ultra", "parakeet-ultra-q4_k.gguf",
+     "https://huggingface.co/cstr/parakeet-ultra-GGUF/resolve/main/parakeet-ultra-q4_k.gguf", "~402 MB", nullptr,
+     nullptr, nullptr, "CC-BY-4.0 (see https://huggingface.co/moondream/parakeet-ultra)"},
+    // parakeet-redux (#454) — moondream/parakeet-redux: parakeet-tdt-0.6b-v3
+    // architecture shipped in transformers' ParakeetForTDT format with a
+    // base-3 packed ternary encoder; the converter dequantises it exactly
+    // (--hf). Transcripts equal transformers and moondream Photon at F16,
+    // Q8_0 and Q4_K on en + de.
+    {"parakeet-redux", "parakeet-redux-q4_k.gguf",
+     "https://huggingface.co/cstr/parakeet-redux-GGUF/resolve/main/parakeet-redux-q4_k.gguf", "~402 MB", nullptr,
+     nullptr, nullptr, "CC-BY-4.0 (see https://huggingface.co/moondream/parakeet-redux)"},
+    // orukeet (#445) — oruk/orukeet r3, a fine-tune of parakeet-tdt-0.6b-v3
+    // with the architecture unchanged (half of the encoder's depthwise conv
+    // kernels replaced by fitted Gabor functions, then re-adapted). Same 25
+    // languages, same runtime; the backend is detected from the GGUF. Its
+    // final adaptation trained on LibriSpeech test-other, so its scores on
+    // that split are not a held-out measurement.
+    {"orukeet", "orukeet-q4_k.gguf", "https://huggingface.co/cstr/orukeet-GGUF/resolve/main/orukeet-q4_k.gguf",
+     "~402 MB", nullptr, nullptr, nullptr, "CC-BY-SA-4.0 (see https://huggingface.co/oruk/orukeet)"},
+    // Dolphin CN-Dialect small streaming (#436) — DataoceanAI, E-Branchformer +
+    // Transformer decoder + CTC, Mandarin plus 20+ Chinese dialects. Q4_K is the
+    // default: on 15 in-domain clips it matched F16 exactly on 13 and differed by
+    // one trailing particle on the other two, as Q8_0 did (tools/kaggle/dolphin-quant-text).
+    {"dolphin", "dolphin-cn-dialect-small-streaming-q4_k.gguf",
+     "https://huggingface.co/cstr/dolphin-cn-dialect-small-streaming-GGUF/resolve/main/"
+     "dolphin-cn-dialect-small-streaming-q4_k.gguf",
+     "~258 MB", nullptr, nullptr},
+    // X-ASR zh-en (#436) — GilgameshWind, icefall streaming Zipformer2
+    // transducer (zh + en, punctuation + casing). One GGUF serves all four
+    // upstream chunk sizes (CRISPASR_XASR_CHUNK_MS). Q8_0 by default: zh
+    // transcripts match F16 at Q8_0 and Q4_K; Q4_K drops English punctuation.
+    {"xasr", "x-asr-zh-en-q8_0.gguf", "https://huggingface.co/cstr/x-asr-zh-en-GGUF/resolve/main/x-asr-zh-en-q8_0.gguf",
+     "~168 MB", nullptr, nullptr},
     // parakeet-tdt-1.1b — larger TDT, English-only, 42-layer encoder
     // (vs 24 for 0.6b). Lowercase + no punctuation output. Slower but
     // wins on very long-tail vocabulary.
@@ -768,6 +823,48 @@ constexpr Entry k_registry[] = {
     {"miotts", "miotts-0.6b-q8_0.gguf",
      "https://huggingface.co/cstr/miotts-0.6b-GGUF/resolve/main/miotts-0.6b-q8_0.gguf",
      "~723 MB"},
+    // Onsets & Frames (Hawthorne et al. 2018, MIT): piano note events, from
+    // the ddPn08/onsets-and-frames checkpoint's ONNX export. q8_0 rather than
+    // f16 or q4_0 deliberately — measured on all ten MusicNet test pieces it
+    // is F1-identical to fp32 (49.6% overall, 69.0% solo piano) at a third of
+    // the size, while q4_0 costs 0.5 points of F1-with-offsets because it
+    // perturbs the frame head, which sets note durations, five times as hard
+    // as the onset head. q4_0 and f32 are in the same repo for callers that
+    // want them.
+    // hFT-Transformer (Toyama et al., ISMIR 2023, sony/hFT-Transformer, MIT):
+    // piano note events from a hierarchical frequency-time transformer.
+    // q4_0 deliberately, and unusually: measured on all ten MusicNet test
+    // pieces it LOSES nothing against fp32 (52.55% vs 52.21% overall, 70.71%
+    // vs 70.52% solo piano). The head q4_0 perturbs most here is velocity,
+    // and velocity feeds the decoder's ignore_zero gate rather than a note
+    // duration -- so its errors change which notes survive, not how long
+    // they last. Contrast onsets-and-frames above, where q4_0 damages the
+    // frame head and costs 0.5 points of F1-with-offsets.
+    // Read docs/music-transcription/HFT_TRANSFORMER.md before choosing this
+    // over onsets-and-frames: it is 1.4 points better on solo piano and
+    // roughly 5x the compute.
+    {"hft-transformer", "hft-transformer-q4_0.gguf",
+     "https://huggingface.co/cstr/hft-transformer-GGUF/resolve/main/hft-transformer-q4_0.gguf",
+     "~4.5 MB"},
+    {"onsets-and-frames", "onsets-and-frames-q8_0.gguf",
+     "https://huggingface.co/cstr/onsets-and-frames-GGUF/resolve/main/onsets-and-frames-q8_0.gguf",
+     "~31 MB"},
+    // hFT-Transformer (Toyama et al., ISMIR 2023, MIT): piano note events from
+    // a hierarchical frequency-time transformer, 5.5 M parameters. The
+    // smallest strong piano transcriber measured here — 70.5% note F1 on
+    // MusicNet's solo-piano pieces against Onsets & Frames' 69.0% — at 7 MiB
+    // of q8_0 weights, and quantisation is free on accuracy: 52.23% overall
+    // and 70.51% solo piano at q8_0 against fp32's 52.21% / 70.52%. It is also
+    // by far the most EXPENSIVE to run: 249 GFLOP of matrix multiply per 2 s
+    // of audio, and q8_0 costs 29% MORE cpu than f32 rather than less, on a
+    // CPU without int8 dot-product instructions. Read
+    // docs/music-transcription/HFT_TRANSFORMER.md before choosing it over
+    // onsets-and-frames. NOTE: the HF repo is not uploaded yet, so
+    // auto-download will 404; build the GGUF locally with
+    // models/convert-hft-transformer-to-gguf.py.
+    {"hft-transformer", "hft-transformer-q8_0.gguf",
+     "https://huggingface.co/cstr/hft-transformer-GGUF/resolve/main/hft-transformer-q8_0.gguf",
+     "~7 MB"},
     {"piano-transcription", "piano-transcription-f16.gguf",
      "https://huggingface.co/cstr/piano-transcription-GGUF/resolve/main/piano-transcription-f16.gguf",
      "~77 MB"},

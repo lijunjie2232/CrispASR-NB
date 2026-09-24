@@ -42,6 +42,7 @@
 #include "btc_chords.h"
 #include "tabcnn.h"
 #include "basic_pitch.h"
+#include "onsets_and_frames.h"
 #include "mt3.h"
 #include "piano_transcription.h"
 #include "beatrice_phone.h"
@@ -59,6 +60,8 @@
 #include "parakeet.h"
 #include "wespeaker.h"
 #include "gigaam.h"
+#include "xasr.h"
+#include "dolphin.h"
 #include "canary.h"
 #include "canary_qwen.h"
 #include "cohere.h"
@@ -86,6 +89,7 @@
 #include "parler_tts.h"
 #include "melotts.h"
 #include "moss_audio.h"
+#include "hojo_asr.h"
 #include "moss_transcribe.h"
 #include "lfm2_audio.h"
 #include "mini_omni2.h"
@@ -959,6 +963,12 @@ static void print_row(const char* name, const crispasr_diff::Report& r, float co
     }
     printf("%s %-22s shape=%-16s cos_min=%.6f  cos_mean=%.6f  max_abs=%.2e  rms=%.2e%s%s\n", tag, name,
            shape_str.c_str(), r.cos_min, r.cos_mean, r.max_abs, r.rms, *extra ? "  " : "", extra);
+    // Where the worst row is, and whether it is a near-silent (tiny-norm) row
+    // whose cosine is ill-conditioned or a real divergence. FAIL rows only, so
+    // passing output keeps its format.
+    if (!r.is_pass(cos_threshold) && r.cos_min_row >= 0)
+        printf("       worst row %lld of %lld: |cpp|=%.4g |ref|=%.4g\n", (long long)r.cos_min_row, (long long)r.n_rows,
+               r.cos_min_norm_cpp, r.cos_min_norm_ref);
 }
 
 static void print_row_exact(const char* name, const crispasr_diff::Report& r, float cos_threshold,
@@ -1611,7 +1621,8 @@ int main(int argc, char** argv) {
         fprintf(stderr,
                 "usage: %s <backend> <model.gguf> <reference.gguf> <audio.wav>\n"
                 "\n"
-                "  backend       one of: voxtral, voxtral4b, qwen3, qwen3-tts, qwen3-tts-codec, omnivoice, tada-tts, "
+                "  backend       one of: voxtral, voxtral4b, qwen3, raon-speech, qwen3-tts, qwen3-tts-codec, "
+                "omnivoice, tada-tts, "
                 "tada-encoder, kokoro, granite, "
                 "granite-4.1, "
                 "granite-nle, parakeet, gigaam, wespeaker, chatterbox, voxcpm2-tts, "
@@ -1784,6 +1795,25 @@ int main(int argc, char** argv) {
             return 2;
         }
         return basic_pitch_diff(model_path.c_str(), ref_path.c_str(), pcm.data(), (int)pcm.size(), /*verbosity=*/2);
+    }
+    if (backend_name == "onsets-and-frames" || backend_name == "oaf") {
+        // model_path = onsets-and-frames GGUF, ref_path = ref.gguf from
+        // tools/reference_backends/onsets_and_frames.py.
+        //
+        // O&F had NO per-layer parity path at all before this arm — what it had
+        // (tests/oaf_parity_dump.cpp + tools/oaf_parity.py) is a mel and five
+        // heads, so a regression inside a ConvStack or a BiLSTM read as "the
+        // onset head moved". The reference carries the mel it was run on, which
+        // the runtime replays, so downstream stages isolate the model from the
+        // front end; the `mel` stage is compared first regardless.
+        std::vector<float> pcm;
+        std::vector<std::vector<float>> stereo_unused;
+        if (!read_audio_data(audio_path, pcm, stereo_unused, /*stereo=*/false, /*target_rate=*/16000)) {
+            fprintf(stderr, "crispasr-diff: failed to read audio '%s'\n", audio_path.c_str());
+            return 2;
+        }
+        return onsets_and_frames_diff(model_path.c_str(), ref_path.c_str(), pcm.data(), (int)pcm.size(),
+                                      /*verbosity=*/2);
     }
     if (backend_name == "mt3") {
         // model_path = mt3 GGUF, ref_path = ref.gguf from
@@ -2618,6 +2648,121 @@ int main(int argc, char** argv) {
             }
         }
         chatterbox_free(ctx);
+    } else if (backend_name == "raon-speech") {
+        // #455 Raon-Speech-9B: the reference is tools/reference_backends/
+        // raon_speech.py (fp32, RaonModel.get_audio_input_embeds). Stages:
+        //   raon_mel_chunk{c}     (n_mels, T_c) each 8 s chunk's log-mel
+        //   raon_encoder_output   (N, 2048)     kept 12.5 Hz encoder frames
+        //   raon_adaptor_output   (N, 4096)     LLM-ready audio embeddings
+        // Frames below the threshold are listed with their chunk, so a
+        // divergence confined to one chunk (e.g. the padded last one) shows.
+        auto cp = qwen3_asr_context_default_params();
+        cp.n_threads = 4;
+        cp.verbosity = 0;
+        cp.use_gpu = std::getenv("CRISPASR_DIFF_NO_GPU") == nullptr;
+        qwen3_asr_context* ctx = qwen3_asr_init_from_file(model_path.c_str(), cp);
+        if (!ctx || !qwen3_asr_is_raon_speech(ctx)) {
+            fprintf(stderr, "raon-speech: failed to load a raon-speech qwen3asr GGUF\n");
+            if (ctx)
+                qwen3_asr_free(ctx);
+            return 4;
+        }
+        const int n_chunks = (int)((samples.size() * 3 / 2 + 191999) / 192000); // 8 s chunks at 24 kHz
+        for (int mc = 0; mc < n_chunks; mc++) {
+            char name[32];
+            snprintf(name, sizeof(name), "raon_mel_chunk%d", mc);
+            if (!ref.has(name))
+                continue;
+            float *mel = nullptr, *enc = nullptr;
+            int T = 0, enc_dim = 0, N = 0, dim = 0;
+            float* emb = qwen3_asr_raon_encode_stages(ctx, samples.data(), (int)samples.size(), mc, &mel, &T, &enc,
+                                                      &enc_dim, &N, &dim);
+            if (!emb) {
+                printf("[ERR ] raon_encode_stages returned null\n");
+                n_fail++;
+                break;
+            }
+            auto rep = ref.compare(name, mel, (size_t)128 * T);
+            print_row(name, rep, COS_THRESHOLD);
+            record(rep);
+            if (mc == 0) {
+                const struct {
+                    const char* name;
+                    const float* data;
+                    int dim;
+                } st[] = {{"raon_encoder_output", enc, enc_dim}, {"raon_adaptor_output", emb, dim}};
+                for (const auto& x : st) {
+                    if (!ref.has(x.name))
+                        continue;
+                    auto r2 = ref.compare(x.name, x.data, (size_t)N * x.dim);
+                    print_row(x.name, r2, COS_THRESHOLD);
+                    record(r2);
+                    auto rf = ref.get_f32(x.name);
+                    if (!rf.first || rf.second != (size_t)N * x.dim)
+                        continue;
+                    int shown = 0;
+                    for (int i = 0; i < N && shown < 24; i++) {
+                        const float* a = x.data + (size_t)i * x.dim;
+                        const float* b = rf.first + (size_t)i * x.dim;
+                        double ab = 0, aa = 0, bb = 0;
+                        for (int k = 0; k < x.dim; k++) {
+                            ab += (double)a[k] * b[k];
+                            aa += (double)a[k] * a[k];
+                            bb += (double)b[k] * b[k];
+                        }
+                        const double c = ab / (std::sqrt(aa * bb) + 1e-30);
+                        if (c < COS_THRESHOLD) {
+                            printf("       %s frame %d (chunk %d) cos=%.6f |cpp|=%.3f |ref|=%.3f\n", x.name, i, i / 100,
+                                   c, std::sqrt(aa), std::sqrt(bb));
+                            shown++;
+                        }
+                    }
+                }
+                printf("       raon frames: C++ N=%d (enc %d -> %d), chunks=%d\n", N, enc_dim, dim, n_chunks);
+                // Isolation: the C++ encoder on the REFERENCE mel of each chunk,
+                // against the reference frames of that chunk (100 per full chunk).
+                auto renc = ref.get_f32("raon_encoder_output");
+                for (int c2 = 0; c2 < n_chunks && renc.first; c2++) {
+                    char mn[32];
+                    snprintf(mn, sizeof(mn), "raon_mel_chunk%d", c2);
+                    auto rm = ref.get_f32(mn);
+                    auto rs = ref.shape(mn);
+                    if (!rm.first || rs.size() < 2)
+                        continue;
+                    const int Tm = (int)rs[0]; // numpy (128, T): ne = [T, 128]
+                    int Nc = 0, dc = 0;
+                    float* e2 = qwen3_asr_run_encoder(ctx, rm.first, 128, Tm, &Nc, &dc);
+                    if (!e2)
+                        continue;
+                    const int base = c2 * 100;
+                    double worst = 1.0;
+                    int worst_i = -1, n_cmp = 0;
+                    for (int i = 0; i < Nc && base + i < N && i < 100; i++) {
+                        const float* a = e2 + (size_t)i * dc;
+                        const float* b = renc.first + (size_t)(base + i) * dc;
+                        double ab = 0, aa = 0, bb = 0;
+                        for (int k = 0; k < dc; k++) {
+                            ab += (double)a[k] * b[k];
+                            aa += (double)a[k] * a[k];
+                            bb += (double)b[k] * b[k];
+                        }
+                        const double cs = ab / (std::sqrt(aa * bb) + 1e-30);
+                        n_cmp++;
+                        if (cs < worst) {
+                            worst = cs;
+                            worst_i = i;
+                        }
+                    }
+                    printf("       encoder(ref %s): T=%d -> %d frames, vs ref frames [%d..%d): worst cos=%.6f at %d\n",
+                           mn, Tm, Nc, base, base + n_cmp, worst, worst_i);
+                    free(e2);
+                }
+            }
+            free(mel);
+            free(enc);
+            free(emb);
+        }
+        qwen3_asr_free(ctx);
     } else if (backend_name == "qwen3") {
         auto cp = qwen3_asr_context_default_params();
         cp.n_threads = 4;
@@ -2696,7 +2841,8 @@ int main(int argc, char** argv) {
                 if (enc)
                     free(enc);
                 std::vector<std::string> names = {"ln_post_out", "proj1_out"};
-                for (int il = 0; il < 18; il++) {
+                // Every block the reference carries (0.6B has 18, 1.7B 24).
+                for (int il = 0; il < 64; il++) {
                     char nm[32];
                     snprintf(nm, sizeof(nm), "enc_blk%02d_out", il);
                     names.push_back(nm);
@@ -4365,6 +4511,230 @@ int main(int argc, char** argv) {
             n_fail++;
         }
         granite_nle_free(ctx);
+    } else if (backend_name == "dolphin") {
+        // Dolphin (#436): E-Branchformer + Transformer decoder + CTC.
+        // Reference: tools/reference_backends/dolphin.py (upstream package, dither 0).
+        auto cp = dolphin_context_default_params();
+        cp.n_threads = 4;
+        cp.verbosity = 0;
+        cp.use_gpu = false;
+        dolphin_context* ctx = dolphin_init_from_file(model_path.c_str(), cp);
+        if (!ctx) {
+            fprintf(stderr, "failed to load dolphin model\n");
+            return 4;
+        }
+        const int n_mels = dolphin_n_mels(ctx);
+        // ---- fbank (ours) ----
+        {
+            int T = 0;
+            float* fb = dolphin_compute_fbank(ctx, samples.data(), (int)samples.size(), &T);
+            if (fb) {
+                auto rep = ref.compare("fbank", fb, (size_t)T * n_mels);
+                print_row("fbank", rep, COS_THRESHOLD);
+                record(rep);
+                free(fb);
+            }
+        }
+        // ---- encoder on the REFERENCE fbank: subsampling + every block ----
+        std::vector<float> ref_enc;
+        int ref_T_enc = 0;
+        {
+            auto fb = ref.get_f32("fbank");
+            auto shp = ref.shape("fbank");
+            if (fb.first && shp.size() >= 2) {
+                const int T = (int)shp[1];
+                const int L = dolphin_n_layers(ctx);
+                const int d_max = 1024, T_max = T / 4 + 8;
+                std::vector<std::vector<float>> bufs((size_t)L + 1, std::vector<float>((size_t)d_max * T_max));
+                std::vector<float*> ptrs((size_t)L + 1);
+                for (int i = 0; i <= L; i++)
+                    ptrs[(size_t)i] = bufs[(size_t)i].data();
+                int T_enc = 0, d = 0;
+                float* enc = dolphin_run_encoder(ctx, fb.first, T, &T_enc, &d, ptrs.data(), (int)ptrs.size());
+                if (enc) {
+                    auto r0 = ref.compare("subsample_out", ptrs[0], (size_t)T_enc * d);
+                    print_row("subsample_out", r0, COS_THRESHOLD);
+                    record(r0);
+                    for (int il = 0; il < L; il++) {
+                        char nm[32];
+                        snprintf(nm, sizeof(nm), "enc_blk_%02d", il);
+                        auto r = ref.compare(nm, ptrs[(size_t)il + 1], (size_t)T_enc * d);
+                        print_row(nm, r, COS_THRESHOLD);
+                        record(r);
+                    }
+                    auto re = ref.compare("encoder_output", enc, (size_t)T_enc * d);
+                    print_row("encoder_output(ref_fbank)", re, COS_THRESHOLD);
+                    record(re);
+                    free(enc);
+                }
+            }
+            auto e = ref.get_f32("encoder_output");
+            auto es = ref.shape("encoder_output");
+            if (e.first && es.size() >= 2) {
+                ref_T_enc = (int)es[1];
+                ref_enc.assign(e.first, e.first + e.second);
+            }
+        }
+        // ---- CTC head on the REFERENCE encoder output ----
+        if (!ref_enc.empty()) {
+            int V = 0;
+            float* lp = dolphin_ctc_logprobs(ctx, ref_enc.data(), ref_T_enc, &V);
+            if (lp) {
+                auto r = ref.compare("ctc_logprobs", lp, (size_t)ref_T_enc * V);
+                print_row("ctc_logprobs", r, COS_THRESHOLD);
+                record(r);
+                auto r2 = ref.compare_argmax("ctc_logprobs", lp, (size_t)ref_T_enc * V);
+                print_row("ctc_logprobs_top1", r2, COS_THRESHOLD);
+                free(lp);
+            }
+        }
+        // ---- end to end: our fbank, encoder, beam + rescoring ----
+        {
+            dolphin_result* r = dolphin_transcribe_ex(ctx, samples.data(), (int)samples.size(), nullptr, nullptr);
+            const std::string want = ref.meta("text");
+            const std::string got = r ? r->raw_text : "";
+            const bool same = !want.empty() && got == want;
+            printf("%s text                   %s\n", same ? "[PASS]" : "[FAIL]", same ? "identical to reference" : "");
+            if (!same) {
+                printf("       ref: %s\n       cpp: %s\n", want.c_str(), got.c_str());
+                n_fail++;
+            }
+            dolphin_result_free(r);
+        }
+        dolphin_free(ctx);
+    } else if (backend_name == "xasr") {
+        // X-ASR (#436): streaming Zipformer2 transducer. Reference:
+        // tools/reference_backends/xasr.py (icefall modules on the ONNX export's
+        // weights, driven chunk by chunk like sherpa-onnx). The chunk size and tail
+        // padding come from the reference, so both sides decode the same windows.
+        auto cp = xasr_context_default_params();
+        cp.n_threads = 4;
+        cp.verbosity = 0;
+        cp.use_gpu = false;
+        if (!ref.meta("chunk_ms").empty())
+            cp.chunk_ms = std::atoi(ref.meta("chunk_ms").c_str());
+        if (!ref.meta("tail_pad_ms").empty())
+            cp.tail_pad_ms = std::atoi(ref.meta("tail_pad_ms").c_str());
+        xasr_context* ctx = xasr_init_from_file(model_path.c_str(), cp);
+        if (!ctx) {
+            fprintf(stderr, "failed to load xasr model\n");
+            return 4;
+        }
+        // ---- fbank (ours, same tail padding) ----
+        {
+            int T = 0;
+            float* fb = xasr_compute_fbank(ctx, samples.data(), (int)samples.size(), &T);
+            if (fb) {
+                auto rep = ref.compare("fbank", fb, (size_t)T * 80);
+                print_row("fbank", rep, COS_THRESHOLD);
+                record(rep);
+                free(fb);
+            }
+        }
+        // ---- chunk loop on the REFERENCE fbank ----
+        std::vector<float> ref_enc;
+        int ref_n_enc = 0;
+        {
+            auto fb = ref.get_f32("fbank");
+            auto shp = ref.shape("fbank");
+            if (fb.first && shp.size() >= 2) {
+                const int T = (int)shp[1];
+                const int S = xasr_n_stacks(ctx), chunk = xasr_chunk_frames(ctx);
+                // windows start every 2*chunk frames: at most T / (2*chunk) + 1 of them
+                const int n_chunks_max = T / (2 * chunk) + 1;
+                int dmax = 0;
+                for (int s = 0; s < S; s++)
+                    dmax = std::max(dmax, xasr_stack_dim(ctx, s));
+                std::vector<std::vector<float>> bufs((size_t)S + 2,
+                                                     std::vector<float>((size_t)n_chunks_max * chunk * dmax));
+                std::vector<float*> ptrs((size_t)S + 2);
+                for (size_t i = 0; i < ptrs.size(); i++)
+                    ptrs[i] = bufs[i].data();
+                int n_enc = 0, dim = 0;
+                float* enc = xasr_run_encoder(ctx, fb.first, T, &n_enc, &dim, ptrs.data(), (int)ptrs.size());
+                if (enc) {
+                    const int n50 = 2 * n_enc;
+                    auto r0 = ref.compare("embed_out", ptrs[0], (size_t)n50 * xasr_stack_dim(ctx, 0));
+                    print_row("embed_out", r0, COS_THRESHOLD);
+                    record(r0);
+                    for (int s = 0; s < S; s++) {
+                        char nm[32];
+                        snprintf(nm, sizeof(nm), "stack_%d", s);
+                        auto r = ref.compare(nm, ptrs[(size_t)s + 1], (size_t)n50 * xasr_stack_dim(ctx, s));
+                        print_row(nm, r, COS_THRESHOLD);
+                        record(r);
+                    }
+                    auto rf = ref.compare("enc_full", ptrs[(size_t)S + 1], (size_t)n_enc * dmax);
+                    print_row("enc_full", rf, COS_THRESHOLD);
+                    record(rf);
+                    auto re = ref.compare("encoder_out", enc, (size_t)n_enc * dim);
+                    print_row("encoder_out(ref_fbank)", re, COS_THRESHOLD);
+                    record(re);
+                    free(enc);
+                }
+            }
+            auto e = ref.get_f32("encoder_out");
+            auto es = ref.shape("encoder_out");
+            if (e.first && es.size() >= 2) {
+                ref_n_enc = (int)es[1];
+                ref_enc.assign(e.first, e.first + e.second);
+            }
+        }
+        // ---- greedy search on the REFERENCE encoder_out ----
+        if (!ref_enc.empty()) {
+            std::vector<float> first((size_t)xasr_vocab(ctx));
+            int n_tok = 0;
+            int32_t* toks = xasr_greedy(ctx, ref_enc.data(), ref_n_enc, &n_tok, first.data());
+            auto rl = ref.compare("first_logits", first.data(), first.size());
+            print_row("first_logits", rl, COS_THRESHOLD);
+            record(rl);
+            auto rt = ref.get_f32("tokens");
+            bool same = rt.first && rt.second == (size_t)n_tok;
+            for (int i = 0; same && i < n_tok; i++)
+                same = (int)rt.first[i] == toks[i];
+            printf("%s tokens(ref_enc)         %d vs %zu\n", same ? "[PASS]" : "[FAIL]", n_tok,
+                   rt.first ? rt.second : 0);
+            if (!same)
+                n_fail++;
+            free(toks);
+        }
+        // ---- end to end: our fbank, chunk loop, greedy ----
+        {
+            int T = 0;
+            float* fb = xasr_compute_fbank(ctx, samples.data(), (int)samples.size(), &T);
+            int n_enc = 0, dim = 0, n_tok = 0;
+            float* enc = fb ? xasr_run_encoder(ctx, fb, T, &n_enc, &dim, nullptr, 0) : nullptr;
+            int32_t* toks = enc ? xasr_greedy(ctx, enc, n_enc, &n_tok, nullptr) : nullptr;
+            char* txt = toks ? xasr_tokens_to_text(ctx, toks, n_tok) : nullptr;
+            const std::string want = ref.meta("text"), got = txt ? txt : "";
+            const bool same = !want.empty() && got == want;
+            printf("%s text                   %s\n", same ? "[PASS]" : "[FAIL]", same ? "identical to reference" : "");
+            if (!same) {
+                printf("       ref: %s\n       cpp: %s\n", want.c_str(), got.c_str());
+                n_fail++;
+            }
+            // streaming: the same audio in uneven 370 ms pieces must give the same text
+            xasr_stream* st = xasr_stream_init(ctx);
+            char* part = nullptr;
+            const int piece = 5920;
+            for (size_t off = 0; off < samples.size(); off += piece) {
+                const int n = (int)std::min<size_t>(piece, samples.size() - off);
+                free(part);
+                part = xasr_stream_accept(st, samples.data() + off, n, off + n >= samples.size());
+            }
+            const bool st_same = part && got == part;
+            printf("%s stream(370ms pieces)   %s\n", st_same ? "[PASS]" : "[FAIL]",
+                   st_same ? "identical to one-shot" : (part ? part : "(null)"));
+            if (!st_same)
+                n_fail++;
+            free(part);
+            xasr_stream_free(st);
+            free(fb);
+            free(enc);
+            free(toks);
+            free(txt);
+        }
+        xasr_free(ctx);
     } else if (backend_name == "gigaam") {
         // GigaAM-v3: rotary Conformer + CTC or RNN-T head.
         // Reference: tools/reference_backends/gigaam.py (the HF blueprint).
@@ -7341,6 +7711,108 @@ int main(int argc, char** argv) {
         }
 
         moss_audio_free(ctx);
+    } else if (backend_name == "hojo-asr") {
+        auto cp = hojo_asr_context_default_params();
+        cp.n_threads = 4;
+        cp.verbosity = 1;
+        if (const char* g = std::getenv("CRISPASR_DIFF_USE_GPU"); g && g[0] == '1') {
+            cp.use_gpu = true;
+            fprintf(stderr, "[crispasr-diff] CRISPASR_DIFF_USE_GPU=1 -> hojo_asr use_gpu=true\n");
+        }
+        hojo_asr_context* ctx = hojo_asr_init_from_file(model_path.c_str(), cp);
+        if (!ctx) {
+            fprintf(stderr, "failed to load hojo-asr model\n");
+            return 4;
+        }
+
+        // ---- mel_spectrogram ----
+        int n_mels = 0, T_mel = 0;
+        float* mel = hojo_asr_compute_mel(ctx, samples.data(), (int)samples.size(), &n_mels, &T_mel);
+        if (mel) {
+            auto rep = ref.compare("mel_spectrogram", mel, (size_t)n_mels * T_mel);
+            print_row("mel_spectrogram", rep, COS_THRESHOLD);
+            record(rep);
+        } else {
+            printf("[ERR ] mel_spectrogram         (compute failed)\n");
+            n_fail++;
+        }
+
+        if (mel) {
+            int T_enc = 0, d_enc = 0;
+            float* enc = hojo_asr_run_encoder(ctx, mel, n_mels, T_mel, &T_enc, &d_enc);
+            free(mel);
+            if (enc) {
+                auto rep = ref.compare("encoder_output", enc, (size_t)T_enc * d_enc);
+                print_row("encoder_output", rep, COS_THRESHOLD);
+                record(rep);
+
+                int adapt_T = 0, adapt_d = 0;
+                float* pre_ln = nullptr;
+                float* speech = hojo_asr_run_adapter(ctx, enc, T_enc, d_enc, &adapt_T, &adapt_d, &pre_ln);
+                free(enc);
+                if (speech) {
+                    if (pre_ln && ref.has("adapter_output")) {
+                        auto rp = ref.compare("adapter_output", pre_ln, (size_t)adapt_T * adapt_d);
+                        print_row("adapter_output", rp, COS_THRESHOLD);
+                        record(rp);
+                    }
+                    auto ra = ref.compare("speech_embeds", speech, (size_t)adapt_T * adapt_d);
+                    print_row("speech_embeds", ra, COS_THRESHOLD);
+                    record(ra);
+
+                    // ---- LM prefill: [embed(<|im_start|>)] ++ speech ----
+                    const int d_llm = adapt_d;
+                    const int n_prompt = adapt_T + 1;
+                    std::vector<float> embeds((size_t)d_llm * n_prompt, 0.0f);
+                    int32_t bos = (int32_t)hojo_asr_bos_token_id(ctx);
+                    float* bos_emb = hojo_asr_embed_tokens(ctx, &bos, 1);
+                    if (bos_emb) {
+                        memcpy(embeds.data(), bos_emb, (size_t)d_llm * sizeof(float));
+                        free(bos_emb);
+                        memcpy(embeds.data() + (size_t)d_llm, speech, (size_t)d_llm * adapt_T * sizeof(float));
+                        if (ref.has("prefill_inputs_embeds")) {
+                            auto re = ref.compare("prefill_inputs_embeds", embeds.data(), embeds.size());
+                            print_row("prefill_inputs_embeds", re, COS_THRESHOLD);
+                            record(re);
+                        }
+                        hojo_asr_kv_init(ctx, n_prompt + 16);
+                        int vocab = 0;
+                        float* logits = hojo_asr_run_llm_kv(ctx, embeds.data(), n_prompt, 0, nullptr, &vocab);
+                        if (logits) {
+                            auto rl = ref.compare("prefill_logits_step0", logits, (size_t)vocab);
+                            print_row("prefill_logits_step0", rl, COS_THRESHOLD);
+                            record(rl);
+                            // Top-1 agreement is the instrument that actually
+                            // decides the LM stage. The reference decoder runs
+                            // f32 while the C++ carries F16 weights, so the
+                            // logits cosine is precision-bound by construction;
+                            // whether the same token wins is not.
+                            auto ra1 = ref.compare_argmax("prefill_logits_step0", logits, (size_t)vocab);
+                            print_row("prefill_argmax_step0", ra1, COS_THRESHOLD);
+                            record(ra1);
+                            int am = 0;
+                            for (int i = 1; i < vocab; i++)
+                                if (logits[i] > logits[am])
+                                    am = i;
+                            printf("  C++ first-token argmax = %d  ('%s')   ref top-1 agreement %d/%d\n", am,
+                                   hojo_asr_token_text(ctx, am) ? hojo_asr_token_text(ctx, am) : "?", ra1.top1_match,
+                                   ra1.top1_total);
+                            free(logits);
+                        }
+                    }
+                    free(pre_ln);
+                    free(speech);
+                } else {
+                    printf("[ERR ] speech_embeds           (adapter failed)\n");
+                    n_fail++;
+                }
+            } else {
+                printf("[ERR ] encoder_output         (encoder failed)\n");
+                n_fail++;
+            }
+        }
+
+        hojo_asr_free(ctx);
     } else if (backend_name == "moss-transcribe") {
         auto cp = moss_transcribe_context_default_params();
         cp.n_threads = 4;

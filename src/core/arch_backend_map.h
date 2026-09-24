@@ -148,6 +148,8 @@ inline const entry* table(size_t* n_out) {
         {"ark_asr",                   "ark-asr"},
         {"moss_audio",                "moss-audio"},
         {"moss-audio",                "moss-audio"},
+        {"hojo_asr",                  "hojo-asr"},
+        {"hojo-asr",                  "hojo-asr"},
         {"moss_transcribe",           "moss-transcribe"},
         {"moss-transcribe",           "moss-transcribe"},
         {"moss_transcribe_diarize",   "moss-diarize"},
@@ -301,6 +303,10 @@ inline const entry* table(size_t* n_out) {
         {"basic-pitch",               "basic-pitch"},
         {"basic_pitch",               "basic-pitch"},
         {"mt3",                       "mt3"},
+        {"onsets-and-frames",         "onsets-and-frames"},
+        {"onsets_and_frames",         "onsets-and-frames"},
+        {"hft-transformer",           "hft-transformer"},
+        {"hft_transformer",           "hft-transformer"},
     };
     if (n_out)
         *n_out = sizeof(k) / sizeof(k[0]);

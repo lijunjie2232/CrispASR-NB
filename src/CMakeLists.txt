@@ -672,6 +672,43 @@ endif()
 # to find_package(BLAS) for OpenBLAS/MKL/Accelerate, which bundle the cblas
 # symbols. Sets BLAS_FOUND / BLAS_LIBRARIES for the caller. Pass QUIET to
 # suppress the "found" message. Header (cblas.h) discovery stays at call sites.
+#
+# #453: when that fallback lands on THREADED MKL (`libmkl_intel_thread`, what
+# find_package(BLAS) returns on a host that merely has Debian's MKL installed),
+# swap it for `libmkl_sequential` and drop `libiomp5`. The Intel threading
+# layer brings its own OpenMP runtime into a process that already carries
+# libgomp, and cblas_sgemm then returns its upper output columns multiplied by
+# the thread count (tests/test-mel-blas-parity.cpp). Every caller of this macro
+# uses sgemm for a small projection, so the sequential layer costs nothing
+# measurable. COHERE_MKL=ON is exempt: ggml's own BLAS backend then links the
+# threaded layer into the same process, and two MKL threading layers cannot
+# be mixed in one link.
+function(crispasr_mkl_sequential out_var)
+    set(_libs ${${out_var}})
+    set(_swapped OFF)
+    set(_result "")
+    foreach(_lib IN LISTS _libs)
+        if(_lib MATCHES "mkl_intel_thread")
+            string(REPLACE "mkl_intel_thread" "mkl_sequential" _seq "${_lib}")
+            if(NOT EXISTS "${_seq}")
+                message(WARNING "BLAS resolved to threaded MKL (${_lib}) but ${_seq} is missing; "
+                                "the mel projection may be wrong (#453) — run ctest -R mel-blas-parity")
+                return()
+            endif()
+            list(APPEND _result "${_seq}")
+            set(_swapped ON)
+        elseif(_lib MATCHES "iomp5")
+            # The Intel OpenMP runtime is only needed by the threaded layer.
+        else()
+            list(APPEND _result "${_lib}")
+        endif()
+    endforeach()
+    if(_swapped)
+        message(STATUS "BLAS: threaded MKL replaced by mkl_sequential (#453: two OpenMP runtimes corrupt sgemm)")
+        set(${out_var} "${_result}" PARENT_SCOPE)
+    endif()
+endfunction()
+
 macro(crispasr_prefer_cblas)
     find_package(CBLAS ${ARGN})
     if(CBLAS_FOUND)
@@ -679,6 +716,9 @@ macro(crispasr_prefer_cblas)
         set(BLAS_LIBRARIES ${CBLAS_LIBRARIES})
     else()
         find_package(BLAS ${ARGN})
+    endif()
+    if(BLAS_FOUND AND NOT COHERE_MKL)
+        crispasr_mkl_sequential(BLAS_LIBRARIES)
     endif()
 endmacro()
 
@@ -703,7 +743,21 @@ else()
     # so this find_package(BLAS) call is steered toward MKL automatically.
     # cohere.cpp also does a bare `#include <cblas.h>` under HAVE_BLAS — gate on
     # the header being reachable (see crispasr-core note above re: MSYS2).
-    crispasr_prefer_cblas()
+    #
+    # Without that explicit opt-in, prefer OpenBLAS for the same reason
+    # crispasr-core does (see the comment there): find_package(BLAS) on a host
+    # that merely HAS Debian's MKL installed returns the threaded MKL, whose
+    # sgemm is silently wrong once libgomp is also in the process. COHERE_MKL=ON
+    # is a deliberate choice and still wins.
+    if(NOT COHERE_MKL)
+        find_library(COHERE_OPENBLAS NAMES openblas openblasp openblaso QUIET)
+    endif()
+    if(COHERE_OPENBLAS)
+        set(BLAS_FOUND ON)
+        set(BLAS_LIBRARIES ${COHERE_OPENBLAS})
+    else()
+        crispasr_prefer_cblas()
+    endif()
     find_path(CBLAS_INCLUDE_DIR cblas.h PATH_SUFFIXES openblas)
     if(BLAS_FOUND AND CBLAS_INCLUDE_DIR)
         target_link_libraries(cohere PUBLIC ${BLAS_LIBRARIES})
@@ -960,18 +1014,33 @@ if(CRISPASR_MEL_BLAS AND NOT MSVC)
         # OpenBLAS) cblas.h lives under an `openblas/` subdir not on the default
         # include path — so only enable HAVE_BLAS when cblas.h is actually
         # reachable, otherwise fall back to the scalar mel projection.
-        crispasr_prefer_cblas(QUIET)
+        #
+        # PREFER OPENBLAS EXPLICITLY, exactly as mel-band-roformer does below,
+        # and for a second reason on top of that one's "the Netlib reference
+        # cblas is a scalar loop": on a host carrying Debian's MKL,
+        # find_package(BLAS) returns `libmkl_intel_thread`, which lands in a
+        # process that already has libgomp. Two OpenMP runtimes in one process,
+        # and the resulting cblas_sgemm returns its upper output columns
+        # MULTIPLIED BY THE THREAD COUNT — ln(4) of log-domain error at four
+        # threads, ln(3) at three, lower columns correct, nothing raised. Every
+        # core_mel backend reads a mis-shaped spectrum and simply scores worse.
+        # tests/test-mel-blas-parity.cpp is the guard; this is the preference
+        # that keeps it green on hosts where OpenBLAS is also installed.
+        find_library(CRISPASR_CORE_OPENBLAS NAMES openblas openblasp openblaso QUIET)
         find_path(CBLAS_INCLUDE_DIR cblas.h PATH_SUFFIXES openblas)
-        if(BLAS_FOUND AND CBLAS_INCLUDE_DIR)
-            target_link_libraries     (crispasr-core PRIVATE ${BLAS_LIBRARIES})
+        if(CRISPASR_CORE_OPENBLAS AND CBLAS_INCLUDE_DIR)
+            target_link_libraries     (crispasr-core PRIVATE ${CRISPASR_CORE_OPENBLAS})
             target_include_directories(crispasr-core PRIVATE ${CBLAS_INCLUDE_DIR})
             target_compile_definitions(crispasr-core PRIVATE HAVE_BLAS)
+            message(STATUS "crispasr-core: linking OpenBLAS ${CRISPASR_CORE_OPENBLAS} for the mel projection")
         else()
-            find_library(OPENBLAS_LIB openblas QUIET)
-            if(OPENBLAS_LIB AND CBLAS_INCLUDE_DIR)
-                target_link_libraries     (crispasr-core PRIVATE ${OPENBLAS_LIB})
+            crispasr_prefer_cblas(QUIET)
+            if(BLAS_FOUND AND CBLAS_INCLUDE_DIR)
+                target_link_libraries     (crispasr-core PRIVATE ${BLAS_LIBRARIES})
                 target_include_directories(crispasr-core PRIVATE ${CBLAS_INCLUDE_DIR})
                 target_compile_definitions(crispasr-core PRIVATE HAVE_BLAS)
+                message(STATUS "crispasr-core: OpenBLAS not found; mel projection uses ${BLAS_LIBRARIES} "
+                               "— run ctest -R mel-blas-parity to confirm it is correct")
             else()
                 message(STATUS "crispasr-core: cblas.h not found — using scalar mel projection")
             endif()
@@ -1134,6 +1203,36 @@ if(APPLE)
     endif()
     target_link_libraries(gigaam PUBLIC ${ACCELERATE_LIB})
     target_compile_definitions(gigaam PRIVATE HAVE_ACCELERATE ACCELERATE_NEW_LAPACK)
+endif()
+
+# ---------------------------------------------------------------------------
+# Dolphin (DataoceanAI) — E-Branchformer + Transformer decoder + CTC (#436)
+# ---------------------------------------------------------------------------
+add_library(dolphin STATIC
+            dolphin.h
+            dolphin.cpp
+            )
+target_include_directories(dolphin PUBLIC . ../include)
+target_compile_features   (dolphin PUBLIC cxx_std_17)
+set_target_properties(dolphin PROPERTIES POSITION_INDEPENDENT_CODE ON)
+target_link_libraries     (dolphin PUBLIC ggml ggml-base Threads::Threads crispasr-core)
+if(NOT MSVC)
+    target_compile_options(dolphin PRIVATE -O3)
+endif()
+
+# ---------------------------------------------------------------------------
+# X-ASR — icefall streaming Zipformer2 transducer (#436)
+# ---------------------------------------------------------------------------
+add_library(xasr STATIC
+            xasr.h
+            xasr.cpp
+            )
+target_include_directories(xasr PUBLIC . ../include)
+target_compile_features   (xasr PUBLIC cxx_std_17)
+set_target_properties(xasr PROPERTIES POSITION_INDEPENDENT_CODE ON)
+target_link_libraries     (xasr PUBLIC ggml ggml-base Threads::Threads crispasr-core)
+if(NOT MSVC)
+    target_compile_options(xasr PRIVATE -O3)
 endif()
 
 # ---------------------------------------------------------------------------
@@ -1624,6 +1723,19 @@ if(GGML_CUDA)
 endif()
 
 # ---------------------------------------------------------------------------
+# hojo_asr — HojoAI/Hojo-ASR-Multi-V1 (Qwen3-Omni audio tower + WeNet Conformer
+# adapter + Qwen3-4B LLM). Shares the audio tower with moss_transcribe.
+# ---------------------------------------------------------------------------
+add_library(hojo_asr STATIC hojo_asr.h hojo_asr.cpp)
+set_target_properties(hojo_asr PROPERTIES POSITION_INDEPENDENT_CODE ON)
+target_include_directories(hojo_asr PUBLIC .)
+target_compile_features   (hojo_asr PUBLIC cxx_std_17)
+target_link_libraries     (hojo_asr PUBLIC crispasr-core ggml ggml-base crispasr_link_ggml_cpu)
+if (NOT MSVC)
+    target_compile_options(hojo_asr PRIVATE -O3)
+endif()
+
+# ---------------------------------------------------------------------------
 # moss_transcribe — OpenMOSS-Team/MOSS-Transcribe-preview-2B (Qwen3-Omni audio encoder + Qwen3-1.7B LLM)
 # ---------------------------------------------------------------------------
 add_library(moss_transcribe STATIC moss_transcribe.h moss_transcribe.cpp)
@@ -1732,6 +1844,32 @@ target_compile_features   (piano-transcription PUBLIC cxx_std_17)
 target_link_libraries     (piano-transcription PUBLIC crispasr-core ggml ggml-base crispasr_link_ggml_cpu)
 if(NOT MSVC)
     target_compile_options(piano-transcription PRIVATE -O3)
+endif()
+
+# ---------------------------------------------------------------------------
+# onsets-and-frames — Onsets & Frames piano transcription (MIT, 26.5M params:
+# 107 MB F32 / 32 MB Q8_0 / 20 MB Q4_0)
+# ---------------------------------------------------------------------------
+add_library(onsets-and-frames STATIC onsets_and_frames.h onsets_and_frames.cpp)
+set_target_properties(onsets-and-frames PROPERTIES POSITION_INDEPENDENT_CODE ON)
+target_include_directories(onsets-and-frames PUBLIC .)
+target_compile_features   (onsets-and-frames PUBLIC cxx_std_17)
+target_link_libraries     (onsets-and-frames PUBLIC crispasr-core ggml ggml-base crispasr_link_ggml_cpu)
+if(NOT MSVC)
+    target_compile_options(onsets-and-frames PRIVATE -O3)
+endif()
+
+# ---------------------------------------------------------------------------
+# hft-transformer — hFT-Transformer piano transcription (MIT, 5.5M params:
+# 22 MB F32 / 7 MB Q8_0 / 5 MB Q4_0)
+# ---------------------------------------------------------------------------
+add_library(hft-transformer STATIC hft_transformer.h hft_transformer.cpp)
+set_target_properties(hft-transformer PROPERTIES POSITION_INDEPENDENT_CODE ON)
+target_include_directories(hft-transformer PUBLIC .)
+target_compile_features   (hft-transformer PUBLIC cxx_std_17)
+target_link_libraries     (hft-transformer PUBLIC crispasr-core ggml ggml-base crispasr_link_ggml_cpu)
+if(NOT MSVC)
+    target_compile_options(hft-transformer PRIVATE -O3)
 endif()
 
 # ---------------------------------------------------------------------------
@@ -2778,6 +2916,12 @@ endif()
 if (TARGET gigaam)
     target_link_libraries(crispasr-lib PUBLIC gigaam)
 endif()
+if (TARGET xasr)
+    target_link_libraries(crispasr-lib PUBLIC xasr)
+endif()
+if (TARGET dolphin)
+    target_link_libraries(crispasr-lib PUBLIC dolphin)
+endif()
 if (TARGET wespeaker)
     target_link_libraries(crispasr-lib PUBLIC wespeaker)
 endif()
@@ -2888,6 +3032,12 @@ endif()
 if (TARGET basic-pitch)
     target_link_libraries(crispasr-lib PUBLIC basic-pitch)
 endif()
+if (TARGET onsets-and-frames)
+    target_link_libraries(crispasr-lib PUBLIC onsets-and-frames)
+endif()
+if (TARGET hft-transformer)
+    target_link_libraries(crispasr-lib PUBLIC hft-transformer)
+endif()
 if (TARGET mt3)
     target_link_libraries(crispasr-lib PUBLIC mt3)
 endif()
@@ -2926,6 +3076,9 @@ if (TARGET moss_tts)
 endif()
 if (TARGET moss_tts_local)
     target_link_libraries(crispasr-lib PUBLIC moss_tts_local)
+endif()
+if (TARGET hojo_asr)
+    target_link_libraries(crispasr-lib PUBLIC hojo_asr)
 endif()
 if (TARGET moss_transcribe)
     target_link_libraries(crispasr-lib PUBLIC moss_transcribe)

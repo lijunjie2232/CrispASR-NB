@@ -28,6 +28,8 @@ add_executable(${TARGET}
     crispasr_backend_crispasr.cpp
     crispasr_backend_nemotron.cpp
     crispasr_backend_gigaam.cpp
+    crispasr_backend_dolphin.cpp
+    crispasr_backend_xasr.cpp
     crispasr_backend_parakeet.cpp
     crispasr_backend_canary.cpp
     crispasr_backend_canary_qwen.cpp
@@ -92,10 +94,13 @@ add_executable(${TARGET}
     crispasr_backend_bt2_tts.cpp
     crispasr_backend_piano_transcription.cpp
     crispasr_backend_basic_pitch.cpp
+    crispasr_backend_onsets_and_frames.cpp
+    crispasr_backend_hft_transformer.cpp
     crispasr_backend_mt3.cpp
     crispasr_backend_moss_audio.cpp
     crispasr_backend_moss_tts.cpp
     crispasr_backend_moss_tts_local.cpp
+    crispasr_backend_hojo_asr.cpp
     crispasr_backend_moss_transcribe.cpp
     crispasr_backend_moss_transcribe_diarize.cpp
     crispasr_backend_funasr.cpp
@@ -239,6 +244,8 @@ target_link_libraries(crispasr-diff PRIVATE
     parakeet
     wespeaker
     gigaam
+    dolphin
+    xasr
     canary
     cohere
     granite_speech
@@ -264,6 +271,7 @@ target_link_libraries(crispasr-diff PRIVATE
     moss_audio
     moss_tts
     moss_tts_local
+    hojo_asr
     moss_transcribe
     moss_transcribe_diarize
     voxcpm2_tts
@@ -364,6 +372,8 @@ target_link_libraries(${TARGET} PRIVATE
     parakeet
     wespeaker
     gigaam
+    dolphin
+    xasr
     canary
     cohere
     granite_speech
@@ -410,6 +420,7 @@ target_link_libraries(${TARGET} PRIVATE
     moss_audio
     moss_tts
     moss_tts_local
+    hojo_asr
     moss_transcribe
     moss_transcribe_diarize
     miotts
@@ -501,3 +512,15 @@ install(TARGETS crispasr-chat RUNTIME BUNDLE DESTINATION bin)
 add_executable(crispasr-f0-eval crispasr_f0_eval.cpp)
 target_link_libraries(crispasr-f0-eval PRIVATE crispasr-lib crepe beatrice-pitch)
 target_include_directories(crispasr-f0-eval PRIVATE ${CMAKE_SOURCE_DIR}/src)
+
+# crispasr-repack-probe — does ggml's CPU repack extra buffer type make
+# quantised MUL_MAT faster on this host? See docs/ggml-optimisation-playbook.md
+# §4. Links ggml directly (no crispasr-lib) so it stays cheap to build and
+# runnable anywhere ggml builds, including a Kaggle worker.
+# Under GGML_BACKEND_DL ggml-cpu is a loadable MODULE, which CMake refuses to
+# link, and the probe calls the CPU backend directly — so it is not built there.
+if (NOT GGML_BACKEND_DL)
+    add_executable(crispasr-repack-probe crispasr_repack_probe.cpp)
+    target_link_libraries(crispasr-repack-probe PRIVATE ggml ggml-base ggml-cpu)
+endif()
+include(DefaultTargetOptions)

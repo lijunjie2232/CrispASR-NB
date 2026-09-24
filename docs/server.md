@@ -730,12 +730,15 @@ key when keys are configured (only `/health` is public).
 
 ## Request limits & error handling
 
-- **Upload cap: 512 MB.** A larger `Content-Length` is rejected with `413`
-  before the body is buffered (so an oversized multipart cannot OOM the
-  process ahead of auth/routing).
-- **Chunked uploads are refused.** cpp-httplib's chunked reader does not honour
-  the payload cap, so a `POST`/`PUT` carrying `Transfer-Encoding` gets `411
-  Length Required` — resend with a `Content-Length`.
+- **Upload cap: 512 MB.** An upload whose body crosses the cap — by
+  `Content-Length` or while streaming — is rejected with `413`, and the server
+  buffers at most the cap (so an oversized multipart cannot OOM the process
+  ahead of auth/routing).
+- **Chunked uploads work.** `Transfer-Encoding: chunked` request bodies are
+  read and bounded by the same 512 MB cap as `Content-Length` ones (the
+  vendored cpp-httplib 0.57 chunked reader enforces the payload limit), so
+  OpenAI SDK calls that stream a file handle (`fs.createReadStream(...)`,
+  `fs.openSync` + `Readable`) upload directly.
 - An unmatched route returns `{"error": "not found. Use POST /v1/audio/transcriptions"}`;
   an exception inside a handler returns a structured `500` naming the reason
   rather than being mislabelled as a 404.
@@ -787,6 +790,14 @@ only newly stable encoder frames, and emits genuine pre-commit
 final short chunk and resets all per-turn state. Other backends use a safe
 commit-only fallback; `session.created.partial_transcription` tells the client
 which contract is active.
+
+Qwen3-ASR models converted with `--streaming-recipe r2t2` (Confucius4-R2T2, `-m
+confucius4-r2t2`) also get a realtime session: every append re-decodes the audio
+so far with the previous transcript, minus its last token, as the assistant
+prefix. That's R2T2's prefix-rollback algorithm, on its `example.py` schedule
+(160 ms steps). Deltas are append-only. `CRISPASR_QWEN3_STREAM=1` enables the
+session for other Qwen3-ASR models, and `CRISPASR_QWEN3_STREAM_STEP_MS`,
+`_LOOKAHEAD_MS` and `_UNFIXED_TOKENS` tune it.
 
 `--vad --vad-model MODEL` enables server-side turn detection on this endpoint.
 PCM is held outside ASR until speech is detected, a bounded onset buffer protects

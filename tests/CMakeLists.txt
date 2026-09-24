@@ -35,6 +35,22 @@ if (EMSCRIPTEN)
     return()
 endif()
 
+# ─── basic-pitch-conv-ab — hermetic conv A/B (no GGUF, no audio) ──────────────
+# Unlike the other *-ab harnesses this one needs no models, so CI can run it.
+# That matters: the VPS this was developed on gives a single-threaded process
+# 36-54%% of one core, so the threaded arm is unmeasurable there.
+# See docs/music-transcription/BASIC_PITCH_CONV_PERF.md.
+add_executable(basic-pitch-conv-ab basic-pitch-conv-ab.cpp)
+target_include_directories(basic-pitch-conv-ab PRIVATE ${PROJECT_SOURCE_DIR}/src)
+target_link_libraries(basic-pitch-conv-ab PRIVATE Threads::Threads)
+
+# ─── test-basic-pitch-conv — SIMD/threaded conv must match the scalar loop
+# byte for byte (hermetic: no GGUF, no audio).
+add_executable(test-basic-pitch-conv test-basic-pitch-conv.cpp)
+target_include_directories(test-basic-pitch-conv PRIVATE ${PROJECT_SOURCE_DIR}/src)
+target_link_libraries(test-basic-pitch-conv PRIVATE Catch2::Catch2WithMain Threads::Threads)
+catch_discover_tests(test-basic-pitch-conv PROPERTIES LABELS "unit;basic-pitch")
+
 add_executable(test-chatterbox-f0-simd test-chatterbox-f0-simd.cpp)
 target_include_directories(test-chatterbox-f0-simd PRIVATE ${PROJECT_SOURCE_DIR}/src)
 target_link_libraries(test-chatterbox-f0-simd PRIVATE Catch2::Catch2WithMain Threads::Threads)
@@ -3314,6 +3330,21 @@ catch_discover_tests(test-session-setter-parity
     PROPERTIES LABELS "unit;setter-parity"
 )
 
+# ─── test-session-output-rate-parity — every synthesize arm in the session ABI
+# must have a crispasr_session_output_sample_rate arm (bt2-tts shipped without
+# one and reported 0 Hz). Structural: reads src/crispasr_c_api.cpp, no weights.
+add_executable(test-session-output-rate-parity
+    test-session-output-rate-parity.cpp
+)
+target_compile_definitions(test-session-output-rate-parity PRIVATE
+    CRISPASR_SOURCE_DIR="${PROJECT_SOURCE_DIR}"
+)
+target_link_libraries(test-session-output-rate-parity PRIVATE Catch2::Catch2WithMain)
+catch_discover_tests(test-session-output-rate-parity
+    TEST_SPEC "[output-rate-parity]"
+    PROPERTIES LABELS "unit;output-rate-parity"
+)
+
 # ─── test-segment-hygiene — §W2 length cap, §W5 repeat merge, §W6 filters.
 # All three live downstream of the logits, where crispasr-diff reads
 # cos 1.000000 whether they work or not. This is the only check they get.
@@ -3420,6 +3451,25 @@ target_link_libraries(test-mel-band-gates PRIVATE
 catch_discover_tests(test-mel-band-gates
     TEST_SPEC "[mel-band]"
     PROPERTIES LABELS "unit;mel-band"
+)
+
+# ─── test-mel-blas-parity — guards core_mel's cblas_sgemm projection against a
+# BLAS that returns the wrong answer (found on a host where find_package(BLAS)
+# picked threaded MKL alongside libgomp). Links crispasr-core so it exercises
+# whatever BLAS this build actually chose.
+add_executable(test-mel-blas-parity
+    test-mel-blas-parity.cpp
+)
+target_include_directories(test-mel-blas-parity PRIVATE
+    ${PROJECT_SOURCE_DIR}/src
+)
+target_link_libraries(test-mel-blas-parity PRIVATE
+    Catch2::Catch2WithMain
+    crispasr-core
+)
+catch_discover_tests(test-mel-blas-parity
+    TEST_SPEC "[mel]"
+    PROPERTIES LABELS "unit;mel"
 )
 
 # ─── test-uroman — Catch2 unit tests for core/uroman.h romanization.
@@ -5253,6 +5303,16 @@ set_tests_properties(test-quds-fa-live PROPERTIES
     LABELS "live;quds"
     TIMEOUT 300)
 
+# ─── test-f5-session-voice-rate-live — the session ABI must load an f5-tts
+# reference at the model's rate (Raon is 16 kHz): session and CLI output
+# lengths must agree. SKIPs without a Raon model (CRISPASR_RAON_MODEL).
+add_test(NAME test-f5-session-voice-rate-live
+    COMMAND bash ${CMAKE_CURRENT_SOURCE_DIR}/test-f5-session-voice-rate-live.sh
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
+set_tests_properties(test-f5-session-voice-rate-live PROPERTIES
+    LABELS "live;f5-tts"
+    TIMEOUT 900)
+
 # ─── test-separate-live — §248 source separation smoke test. SKIPs cleanly
 # without a mel-band-roformer model (CRISPASR_MBR_MODEL / CRISPASR_MODELS_DIR).
 add_test(NAME test-separate-live
@@ -5373,6 +5433,17 @@ target_include_directories(test-btc-vocab PRIVATE ${PROJECT_SOURCE_DIR}/src)
 target_link_libraries(test-btc-vocab PRIVATE Catch2::Catch2WithMain)
 catch_discover_tests(test-btc-vocab
     TEST_SPEC "[btc]"
+    PROPERTIES
+        LABELS unit
+        WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
+)
+
+# ─── test-hojo-asr-frames — #438 Hojo-ASR frame schedule (hermetic, unit)
+add_executable(test-hojo-asr-frames test-hojo-asr-frames.cpp)
+target_include_directories(test-hojo-asr-frames PRIVATE ${PROJECT_SOURCE_DIR}/src)
+target_link_libraries(test-hojo-asr-frames PRIVATE Catch2::Catch2WithMain)
+catch_discover_tests(test-hojo-asr-frames
+    TEST_SPEC "[hojo]"
     PROPERTIES
         LABELS unit
         WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
@@ -5623,6 +5694,60 @@ catch_discover_tests(test-piano-transcription
         WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
 )
 
+# ─── test - onsets-and-frames — live integration tests
+add_executable(test-onsets-and-frames
+    test_onsets_and_frames_live.cpp
+)
+target_include_directories(test-onsets-and-frames PRIVATE
+    ${PROJECT_SOURCE_DIR}/src
+    ${PROJECT_SOURCE_DIR}/examples
+)
+target_link_libraries(test-onsets-and-frames PRIVATE
+    Catch2::Catch2WithMain
+    onsets-and-frames
+)
+catch_discover_tests(test-onsets-and-frames
+    TEST_SPEC "[onsets-and-frames]"
+    PROPERTIES
+        LABELS live
+        SKIP_RETURN_CODE 4
+        WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
+)
+
+# ─── oaf-parity-dump — the C++ half of tools/oaf_parity.py.
+# Not registered with CTest: it needs a model, a WAV and onnxruntime on the
+# other side of it. Built so the parity script cannot drift from the runtime.
+add_executable(oaf-parity-dump oaf_parity_dump.cpp)
+target_include_directories(oaf-parity-dump PRIVATE ${PROJECT_SOURCE_DIR}/src)
+target_link_libraries(oaf-parity-dump PRIVATE onsets-and-frames)
+
+# ─── test - hft-transformer — live integration tests
+add_executable(test-hft-transformer
+    test_hft_transformer_live.cpp
+)
+target_include_directories(test-hft-transformer PRIVATE
+    ${PROJECT_SOURCE_DIR}/src
+    ${PROJECT_SOURCE_DIR}/examples
+)
+target_link_libraries(test-hft-transformer PRIVATE
+    Catch2::Catch2WithMain
+    hft-transformer
+)
+catch_discover_tests(test-hft-transformer
+    TEST_SPEC "[hft-transformer]"
+    PROPERTIES
+        LABELS live
+        SKIP_RETURN_CODE 4
+        WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
+)
+
+# ─── hft-parity-dump — the C++ half of tools/hft_parity.py.
+# Not registered with CTest, for the same reason oaf-parity-dump is not: it
+# needs a model, a WAV and onnxruntime on the other side of it.
+add_executable(hft-parity-dump hft_parity_dump.cpp)
+target_include_directories(hft-parity-dump PRIVATE ${PROJECT_SOURCE_DIR}/src)
+target_link_libraries(hft-parity-dump PRIVATE hft-transformer)
+
 # ─── test - mt3 — live integration tests (#250, multi-instrument)
 # Stage parity is the crispasr-diff mt3 harness's job; this covers the C ABI
 # contract, the decode-budget knob and the drum/instrument invariants.
@@ -5692,3 +5817,91 @@ foreach(_stub fastconformer-ctc wav2vec2 bananamind-tts)
     target_link_libraries(${_tgt} PRIVATE Catch2::Catch2WithMain)
     catch_discover_tests(${_tgt} TEST_SPEC "[unit]" PROPERTIES LABELS "unit")
 endforeach()
+
+# ─── test-subprocess — core/subprocess.h must hand argv to the child verbatim,
+# never through a shell (server uploads and TTS request fields reach it).
+add_executable(test-subprocess
+    test-subprocess.cpp
+)
+target_include_directories(test-subprocess PRIVATE
+    ${PROJECT_SOURCE_DIR}/src
+)
+target_link_libraries(test-subprocess PRIVATE
+    Catch2::Catch2WithMain
+)
+catch_discover_tests(test-subprocess
+    TEST_SPEC "[subprocess]"
+    PROPERTIES LABELS "unit;subprocess"
+)
+
+# ─── test-crispasr-diff-compare — Ref::compare must fail a candidate buffer
+# the runtime never wrote (all-zero rows), not score it cos=1 PASS (#445).
+# crispasr-diff-lib is defined later (examples/cli); link names resolve at
+# generate time, so guard on the option that creates it rather than TARGET.
+if (CRISPASR_BUILD_EXAMPLES)
+    add_executable(test-crispasr-diff-compare
+        test-crispasr-diff-compare.cpp
+    )
+    target_link_libraries(test-crispasr-diff-compare PRIVATE
+        Catch2::Catch2WithMain
+        crispasr-diff-lib
+    )
+    catch_discover_tests(test-crispasr-diff-compare
+        TEST_SPEC "[diff]"
+        PROPERTIES LABELS "unit;diff"
+    )
+endif()
+
+# ─── test-qwen3-stream — core/qwen3_stream.h (Qwen3-ASR / Confucius4-R2T2
+# prefix-rollback streaming, #445) against outputs of the upstream Python
+# helpers (tests/fixtures/qwen3_stream_cases.json).
+add_executable(test-qwen3-stream
+    test-qwen3-stream.cpp
+)
+target_include_directories(test-qwen3-stream PRIVATE
+    ${PROJECT_SOURCE_DIR}/src
+    ${PROJECT_SOURCE_DIR}/examples
+)
+target_compile_definitions(test-qwen3-stream PRIVATE
+    CRISPASR_TEST_FIXTURES_DIR="${CMAKE_CURRENT_SOURCE_DIR}/fixtures"
+)
+target_link_libraries(test-qwen3-stream PRIVATE
+    Catch2::Catch2WithMain
+)
+catch_discover_tests(test-qwen3-stream
+    TEST_SPEC "[qwen3-stream]"
+    PROPERTIES LABELS "unit;qwen3-stream"
+)
+
+# ─── test-kaldi-fbank — core_kaldi::compute_fbank vs kaldi-native-fbank ────
+# snip_edges=false + mel-domain triangles (X-ASR / sherpa-onnx, #436) pinned to
+# golden knf frames; frame-count rules; the per-thread filter cache key.
+add_executable(test-kaldi-fbank
+    test-kaldi-fbank.cpp
+    ${PROJECT_SOURCE_DIR}/src/core/kaldi_fbank.cpp
+)
+target_include_directories(test-kaldi-fbank PRIVATE
+    ${PROJECT_SOURCE_DIR}/src
+)
+target_link_libraries(test-kaldi-fbank PRIVATE
+    Catch2::Catch2WithMain
+)
+catch_discover_tests(test-kaldi-fbank
+    TEST_SPEC "[kaldi_fbank]"
+    PROPERTIES LABELS "unit"
+)
+
+# ─── test-torchaudio-resample — header-only torchaudio sinc resampler (#455) ───
+add_executable(test-torchaudio-resample
+    test-torchaudio-resample.cpp
+)
+target_include_directories(test-torchaudio-resample PRIVATE
+    ${PROJECT_SOURCE_DIR}/src
+)
+target_link_libraries(test-torchaudio-resample PRIVATE
+    Catch2::Catch2WithMain
+)
+catch_discover_tests(test-torchaudio-resample
+    TEST_SPEC "[unit]"
+    PROPERTIES LABELS "unit;resample"
+)

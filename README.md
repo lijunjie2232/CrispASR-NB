@@ -157,7 +157,12 @@ from the GGUF metadata. Jump to the [TTS table](#text-to-speech-models) for the 
 |---|---|---|---|---|
 | **whisper** | [`ggml-base.en.bin`](https://huggingface.co/ggerganov/whisper.cpp/) and all OpenAI Whisper variants | Encoder-decoder transformer | 99 | MIT |
 | **whisper** | [`distil-whisper/distil-large-v3`](https://huggingface.co/cstr/distil-large-v3-GGUF) | Distilled Whisper: 32L encoder + 2L decoder (6.3x faster) | English | MIT |
+| **dolphin** | [`DataoceanAI1/dolphin-cn-dialect-small-streaming`](https://huggingface.co/cstr/dolphin-cn-dialect-small-streaming-GGUF) (`-m dolphin`) | E-Branchformer + Transformer decoder + CTC; CTC prefix beam + attention rescoring | Mandarin + Chinese dialects (lang/region predicted) | Apache-2.0 |
+| **xasr** | [`GilgameshWind/X-ASR-zh-en`](https://huggingface.co/cstr/x-asr-zh-en-GGUF) (`-m xasr`) | Streaming Zipformer2 transducer (icefall); 160 / 480 / 960 / 1920 ms chunks, realtime WebSocket session | zh, en (punct + case) | Apache-2.0 |
 | **parakeet** | [`nvidia/parakeet-tdt-0.6b-v3`](https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3) | FastConformer + TDT | 25 EU (auto-detect) | CC-BY-4.0 |
+| **parakeet** | [`oruk/orukeet`](https://huggingface.co/cstr/orukeet-GGUF) (`-m orukeet`) | parakeet-tdt-0.6b-v3 fine-tune, half the encoder's depthwise kernels replaced by fitted Gabor functions | 25 EU (auto-detect) | CC-BY-SA-4.0 |
+| **parakeet** | [`moondream/parakeet-ultra`](https://huggingface.co/cstr/parakeet-ultra-GGUF) (`-m parakeet-ultra`) | parakeet-tdt-0.6b-v3 architecture shipped in transformers format; converted with `--hf` | 25 EU (auto-detect) | CC-BY-4.0 |
+| **parakeet** | [`moondream/parakeet-redux`](https://huggingface.co/cstr/parakeet-redux-GGUF) (`-m parakeet-redux`) | parakeet-tdt-0.6b-v3 with a ternary (base-3 packed) encoder, dequantised exactly by the converter | 25 EU (auto-detect) | CC-BY-4.0 |
 | **parakeet** | [`nvidia/parakeet-tdt-0.6b-v2`](https://huggingface.co/cstr/parakeet-tdt-0.6b-v2-GGUF) | FastConformer + TDT, original Open ASR Leaderboard topper | en (mixed-case + punct) | CC-BY-4.0 |
 | **parakeet** | [`nvidia/parakeet-tdt-1.1b`](https://huggingface.co/cstr/parakeet-tdt-1.1b-GGUF) | 42L FastConformer + TDT, larger English variant | en (lowercase) | CC-BY-4.0 |
 | **parakeet** | [`nvidia/parakeet-tdt_ctc-110m`](https://huggingface.co/cstr/parakeet-tdt_ctc-110m-GGUF) | 17L FastConformer + TDT+CTC hybrid; smallest variant, auto-CTC decode | en | CC-BY-4.0 |
@@ -183,6 +188,8 @@ from the GGUF metadata. Jump to the [TTS table](#text-to-speech-models) for the 
 | **voxtral4b** | [`mistralai/Voxtral-Mini-4B-Realtime-2602`](https://huggingface.co/mistralai/Voxtral-Mini-4B-Realtime-2602) | Causal encoder + 3.4B LLM, sliding window | 13, realtime streaming | Apache-2.0 |
 | **qwen3** | [`Qwen/Qwen3-ASR-0.6B`](https://huggingface.co/Qwen/Qwen3-ASR-0.6B) | Whisper-style audio encoder + Qwen3 0.6B LLM | 30 + 22 Chinese dialects | Apache-2.0 |
 | **qwen3-1.7b** | [`Qwen/Qwen3-ASR-1.7B`](https://huggingface.co/Qwen/Qwen3-ASR-1.7B) | Whisper-style audio encoder + Qwen3 1.7B LLM | 30 + 22 Chinese dialects | Apache-2.0 |
+| **confucius4-r2t2** | [`netease-youdao/Confucius4-R2T2`](https://huggingface.co/cstr/confucius4-r2t2-GGUF) | Qwen3-ASR-1.7B streaming fine-tune; append-only realtime session (prefix rollback) | 30 langs | NetEase Youdao Model Use License |
+| **raon-speech** | [`KRAFTON/Raon-Speech-9B`](https://huggingface.co/cstr/raon-speech-9b-GGUF) | Qwen3-Omni audio tower + adaptor + Qwen3 36L LLM (speech-to-text subset; 8 s chunks at 24 kHz) | en, ko | CC-BY-NC-4.0 (non-commercial) |
 | **qwen3-ja-anime** | [`jaykwok/Qwen3-ASR-1.7B-JA-Anime-Galgame-hf`](https://huggingface.co/jaykwok/Qwen3-ASR-1.7B-JA-Anime-Galgame-hf) | Qwen3-ASR-1.7B fine-tuned for Japanese anime/galgame speech | ja + 30 langs | Apache-2.0 |
 | **mega-asr** | [`zhifeixie/Mega-ASR`](https://huggingface.co/zhifeixie/Mega-ASR) | Qwen3-ASR-1.7B + merged robustness LoRA; always-on robust path | noisy / degraded speech | Apache-2.0 |
 | **higgs-stt** | [`bosonai/higgs-audio-v3-stt`](https://huggingface.co/bosonai/higgs-audio-v3-stt) | Whisper-large-v3 encoder (4 s chunked) + Qwen3-1.7B LLM ([more](docs/architecture.md#higgs-stt)) | en | Apache-2.0 |
@@ -209,6 +216,7 @@ from the GGUF metadata. Jump to the [TTS table](#text-to-speech-models) for the 
 | **mimo-asr** | [`XiaomiMiMo/MiMo-V2.5-ASR`](https://huggingface.co/cstr/mimo-asr-GGUF) | 6L transformer + 36L Qwen2 LM + RVQ codec ([more](docs/architecture.md#mimo-asr)) | Mandarin + dialects + English | MIT |
 | **ark-asr** ⚠️*experimental/WIP* | [`cstr/ark-asr-3b-GGUF`](https://huggingface.co/cstr/ark-asr-3b-GGUF) (base [`AutoArk-AI/ARK-ASR-3B`](https://huggingface.co/AutoArk-AI/ARK-ASR-3B)) | Whisper-large-v3 enc (partial RoPE) + Qwen2.5-3B LM ([more](docs/architecture.md#ark-asr)) | 19 (zh, en, de, ja, fr, ko, es, pl, it, ro, hu, cs, nl, fi, hr, sk, sl, et, lt) | see base |
 | **moss-audio** | [`OpenMOSS-Team/MOSS-Audio-4B-Instruct`](https://huggingface.co/cstr/MOSS-Audio-4B-Instruct-GGUF) | 32L Whisper encoder + DeepStack 3-tap + 36L Qwen3 LM; audio understanding + ASR ([more](docs/architecture.md#moss-audio)) | zh, en | Apache-2.0 |
+| **hojo-asr** | [`HojoAI/Hojo-ASR-Multi-V1`](https://huggingface.co/cstr/Hojo-ASR-Multi-V1-GGUF) | Qwen3-Omni audio tower (32L) + 2-block WeNet Conformer adapter + Qwen3-4B LM; multilingual ASR ([more](docs/architecture.md#hojo-asr)) | de, fr, it, pt, es, ja, ar, ko, ru | Apache-2.0 |
 | **moss-transcribe** | [`OpenMOSS-Team/MOSS-Transcribe-preview-2B`](https://huggingface.co/cstr/MOSS-Transcribe-preview-2B-GGUF) | Qwen3-Omni audio encoder (32L, windowed attn) + GatedMLP adapter + Qwen3-1.7B LM; ASR ([more](docs/architecture.md#moss-transcribe)) | zh, en | Apache-2.0 |
 | **moss-diarize** | [`OpenMOSS-Team/MOSS-Transcribe-Diarize-0.9B`](https://huggingface.co/cstr/MOSS-Transcribe-Diarize-0.9B-GGUF) | Stock Whisper encoder (24L, 80 mel) + 4x merge + VQAdaptor + Qwen3-0.6B LM; joint ASR + speaker diarization + timestamps | multi | Apache-2.0 |
 | **whisper** *(tiron)* ⚠️*experimental* | [`Trelis/tiron`](https://huggingface.co/cstr/tiron-GGML) (base [`Trelis/tiron`](https://huggingface.co/Trelis/tiron)) | Whisper large-v3 with an extended vocab: emits inline `<|speakerN|>` markers + 20 ms timestamps for joint transcription + per-window speaker attribution, via a constrained-decoding grammar; cross-window linking to stable speakers (#295) | multi (en focus) | Apache-2.0 |
@@ -405,7 +413,22 @@ for the per-task flags and output formats.
 - **Multi-instrument transcription** (`--backend mt3`, alias
   `music-transcription`) — MT3's T5 encoder/decoder emits note events with
   per-instrument programs (F16 GGUF ≈ 96 MB).
-- All three take `--piano-format text|json|midi`; `midi` writes a Standard
+- **Onsets & Frames** (`--backend onsets-and-frames`) — Hawthorne et al.'s
+  piano transcriber (MIT), the best solo-piano model here per megabyte:
+  **69.0% note F1 on MusicNet's piano pieces against Basic Pitch's 57.5%**,
+  and F1-identical to its ONNX export at f32 and Q8_0. Q4_0 GGUF 18.6 MiB,
+  Q8_0 30.8 MiB, F32 101.9 MiB. See
+  [docs/music-transcription/ONSETS_AND_FRAMES.md](docs/music-transcription/ONSETS_AND_FRAMES.md).
+- **hFT-Transformer** (`--backend hft-transformer`) — Toyama et al.'s
+  hierarchical frequency-time transformer (MIT), the most accurate solo-piano
+  model here and by far the smallest: **70.5% note F1 on MusicNet's piano
+  pieces** from 5.5 M parameters, Q8_0 GGUF 7.0 MiB, Q4_0 4.5 MiB, F32
+  21.8 MiB. It is also much the most expensive to run — 249 GFLOP of matrix
+  multiply per 2 s of audio, and quantisation makes it *slower*, not faster, on
+  a CPU without int8 dot-product instructions. Read
+  [docs/music-transcription/HFT_TRANSFORMER.md](docs/music-transcription/HFT_TRANSFORMER.md)
+  before choosing it over `onsets-and-frames`.
+- All five take `--piano-format text|json|midi`; `midi` writes a Standard
   MIDI File.
 - **Guitar tablature** (`--tab`) — per-frame fret-per-string grid via **TabCNN**
   (Wiggins & Kim, ISMIR 2019; CC BY 4.0 weights). The backend emits per-string
@@ -450,7 +473,7 @@ The static table below is a curated subset focusing on the ASR backends and the 
 | mmap weights (`CRISPASR_GGUF_MMAP`) | | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
 | TTS | | | | | | | | | | | | | | | | | | | ✔ | | | | | |
 
-The matrix above covers 24 ASR backends. **Additional ASR backends** not shown: `nemotron` (39-lang streaming ASR with cache-aware FastConformer + RNN-T), `lfm2-audio` (ASR + TTS + S2S in one model), `moss-audio` (audio understanding + ASR), `moss-transcribe` (Qwen3-Omni encoder + Qwen3-1.7B ASR), `mini-omni2` (ASR + TTS + S2S), `kugelaudio` (7B audio understanding). See [`docs/feature-matrix.md`](docs/feature-matrix.md) for the full 109-backend matrix. **TTS-only backends** (`kokoro`, `qwen3-tts` + variants, `vibevoice-tts`, `orpheus` + DE variants, `chatterbox` / `chatterbox-turbo` / `chatterbox-nano` / `kartoffelbox-turbo` / `lahgtna-chatterbox`, `dia`, `bark`, `outetts`, `zonos`, `csm`, `f5-tts`, `irodori-tts`, `supertonic`, `parler-tts`, `speecht5`, `piper`, `fastpitch`, `pocket-tts`, `melotts`, `cosyvoice3`, `voxcpm2`, `tada-tts`) all carry the TTS, AUTO_DOWNLOAD, TEMPERATURE, and FLASH_ATTN caps; per-backend cloning + voice-pack support is documented in the [Text-to-Speech models](#text-to-speech-models) table above and [`docs/tts.md`](docs/tts.md). The vibevoice and lfm2-audio columns mark dual-mode (ASR + TTS) backends.
+The matrix above covers 24 ASR backends. **Additional ASR backends** not shown: `nemotron` (39-lang streaming ASR with cache-aware FastConformer + RNN-T), `lfm2-audio` (ASR + TTS + S2S in one model), `moss-audio` (audio understanding + ASR), `moss-transcribe` (Qwen3-Omni encoder + Qwen3-1.7B ASR), `hojo-asr` (Qwen3-Omni encoder + Conformer adapter + Qwen3-4B multilingual ASR), `mini-omni2` (ASR + TTS + S2S), `kugelaudio` (7B audio understanding). See [`docs/feature-matrix.md`](docs/feature-matrix.md) for the full 109-backend matrix. **TTS-only backends** (`kokoro`, `qwen3-tts` + variants, `vibevoice-tts`, `orpheus` + DE variants, `chatterbox` / `chatterbox-turbo` / `chatterbox-nano` / `kartoffelbox-turbo` / `lahgtna-chatterbox`, `dia`, `bark`, `outetts`, `zonos`, `csm`, `f5-tts`, `irodori-tts`, `supertonic`, `parler-tts`, `speecht5`, `piper`, `fastpitch`, `pocket-tts`, `melotts`, `cosyvoice3`, `voxcpm2`, `tada-tts`) all carry the TTS, AUTO_DOWNLOAD, TEMPERATURE, and FLASH_ATTN caps; per-backend cloning + voice-pack support is documented in the [Text-to-Speech models](#text-to-speech-models) table above and [`docs/tts.md`](docs/tts.md). The vibevoice and lfm2-audio columns mark dual-mode (ASR + TTS) backends.
 
 **Key:** ✔ = native/built-in, `-am` = via CTC forced aligner (`-am canary-ctc-aligner.gguf` or `-am qwen3-forced-aligner.gguf`), **LID** = via external language identification pre-step (`-l auto`), **pp** = via `--punc-model` post-processor (FireRedPunc or fullstop-punc), * = experimental or partial support, † = PLUS variant only (native `[T:N]` word timestamps with `-owts`; base uses `-am`). granite-4.1 covers both the regular and `-plus` variants; granite-4.1-nar is a non-autoregressive variant with encoder+projector only (no LLM decode features). The **KV quant** row marks backends that honor `CRISPASR_KV_QUANT={f16,q8_0,q4_0}` — CTC-style backends without a KV cache (parakeet, fc-ctc, wav2vec2, kyutai-stt, firered, moonshine variants, omniasr-CTC) don't apply. The same backends also honor the per-half `CRISPASR_KV_QUANT_K` / `CRISPASR_KV_QUANT_V` overrides (llama.cpp `--cache-type-k` / `--cache-type-v` parity) for asymmetric K-vs-V precision; common recipe `K=q8_0 V=q4_0` saves ~40 % more KV memory than symmetric Q8_0. The **mmap weights** row marks backends consuming `core_gguf::load_weights()` and therefore honoring `CRISPASR_GGUF_MMAP=1`; whisper itself uses upstream's loader and is unaffected. See [`docs/cli.md`](docs/cli.md) Memory footprint for usage + recommended combos.
 

@@ -84,6 +84,14 @@
 #include "gigaam.h"
 #define CA_HAVE_GIGAAM 1
 #endif
+#if __has_include("xasr.h")
+#include "xasr.h"
+#define CA_HAVE_XASR 1
+#endif
+#if __has_include("dolphin.h")
+#include "dolphin.h"
+#define CA_HAVE_DOLPHIN 1
+#endif
 #if __has_include("canary.h")
 #include "canary.h"
 #define CA_HAVE_CANARY 1
@@ -195,6 +203,14 @@
 #if __has_include("mt3.h")
 #include "mt3.h"
 #define CA_HAVE_MT3 1
+#endif
+#if __has_include("onsets_and_frames.h")
+#include "onsets_and_frames.h"
+#define CA_HAVE_ONSETS_AND_FRAMES 1
+#endif
+#if __has_include("hft_transformer.h")
+#include "hft_transformer.h"
+#define CA_HAVE_HFT_TRANSFORMER 1
 #endif
 #if __has_include("moss_tts.h")
 #include "moss_tts.h"
@@ -327,6 +343,10 @@
 #if __has_include("moss_audio.h")
 #include "moss_audio.h"
 #define CA_HAVE_MOSS_AUDIO 1
+#endif
+#if __has_include("hojo_asr.h")
+#include "hojo_asr.h"
+#define CA_HAVE_HOJO_ASR 1
 #endif
 #if __has_include("moss_transcribe.h")
 #include "moss_transcribe.h"
@@ -1946,6 +1966,12 @@ struct crispasr_session {
 #ifdef CA_HAVE_GIGAAM
     gigaam_context* gigaam_ctx = nullptr;
 #endif
+#ifdef CA_HAVE_XASR
+    xasr_context* xasr_ctx = nullptr;
+#endif
+#ifdef CA_HAVE_DOLPHIN
+    dolphin_context* dolphin_ctx = nullptr;
+#endif
 #ifdef CA_HAVE_CANARY
     canary_context* canary_ctx = nullptr;
 #endif
@@ -2045,6 +2071,18 @@ struct crispasr_session {
     // (JSON form) or mt3.h directly.
     mt3_context* mt3_ctx = nullptr;
 #endif
+#ifdef CA_HAVE_ONSETS_AND_FRAMES
+    // Fourth model behind the same note-event surface. Piano-specific like
+    // piano-transcription, and like it 16 kHz in and note events out, so it
+    // reuses crispasr_session_piano* rather than growing a parallel API.
+    onsets_and_frames_ctx* oaf_ctx = nullptr;
+#endif
+#ifdef CA_HAVE_HFT_TRANSFORMER
+    // Fifth model behind the same note-event surface, and the smallest: 5.5 M
+    // parameters against Onsets & Frames' 26.5 M. Same contract — 16 kHz in,
+    // note events out — so it reuses crispasr_session_piano* too.
+    hft_transformer_ctx* hft_ctx = nullptr;
+#endif
 #ifdef CA_HAVE_MOSS_TTS
     moss_tts_context* moss_tts_ctx = nullptr;
 #endif
@@ -2095,12 +2133,30 @@ struct crispasr_session {
 #ifdef CA_HAVE_CREPE
     crepe_context* crepe_ctx = nullptr;
     std::vector<crepe_frame> crepe_last_frames;
-#ifdef CA_HAVE_PIANO_TRANSCRIPTION
+#endif
+#if defined(CA_HAVE_PIANO_TRANSCRIPTION) || defined(CA_HAVE_BASIC_PITCH) || defined(CA_HAVE_MT3) ||                    \
+    defined(CA_HAVE_ONSETS_AND_FRAMES) || defined(CA_HAVE_HFT_TRANSFORMER)
     // Flattened {onset_ms, offset_ms, midi, velocity} per note. Flattened
     // rather than kept as piano_note_event[] so the C ABI can hand out one
     // contiguous float view (see crispasr_session_piano_notes).
+    //
+    // Guarded by all three note-event backends, not by PIANO_TRANSCRIPTION
+    // alone and not nested inside CA_HAVE_CREPE. It used to be both: a build
+    // with basic-pitch or MT3 but without CREPE would not have compiled the
+    // very branches that push into it, and one without piano-transcription
+    // had crispasr_session_piano_n_notes reporting a count while
+    // crispasr_session_piano_notes returned nullptr.
     std::vector<float> piano_last_notes;
-#endif
+
+    // GM program per note, parallel to piano_last_notes, -1 where the model
+    // does not identify an instrument.
+    //
+    // MT3's whole point is that it is multi-instrument — mt3_note_event
+    // carries program, instrument and is_drum — and the flat float record
+    // above has nowhere to put that. Rather than widen a layout every
+    // existing reader depends on, this is a parallel array reached through
+    // its own accessor: callers that do not ask are unaffected.
+    std::vector<int> piano_last_programs;
 #endif
 #ifdef CA_HAVE_KYUTAI
     void* kyutai_ctx = nullptr;
@@ -2240,6 +2296,9 @@ struct crispasr_session {
 #endif
 #ifdef CA_HAVE_MOSS_AUDIO
     moss_audio_context* moss_audio_ctx = nullptr;
+#endif
+#ifdef CA_HAVE_HOJO_ASR
+    hojo_asr_context* hojo_asr_ctx = nullptr;
 #endif
 #ifdef CA_HAVE_MOSS_TRANSCRIBE
     moss_transcribe_context* moss_transcribe_ctx = nullptr;
@@ -2612,6 +2671,38 @@ CA_EXPORT crispasr_session* crispasr_session_open_explicit(const char* model_pat
         return s;
     }
 #endif
+#ifdef CA_HAVE_XASR
+    if (s->backend == "xasr") {
+        xasr_context_params xp = xasr_context_default_params();
+        xp.n_threads = s->n_threads;
+        xp.verbosity = g_open_verbosity_tls;
+        xp.use_gpu = g_open_use_gpu_tls;
+        if (const char* v = std::getenv("CRISPASR_XASR_CHUNK_MS"))
+            xp.chunk_ms = std::atoi(v);
+        if (const char* v = std::getenv("CRISPASR_XASR_TAIL_PAD_MS"))
+            xp.tail_pad_ms = std::atoi(v);
+        s->xasr_ctx = xasr_init_from_file(model_path, xp);
+        if (!s->xasr_ctx) {
+            delete s;
+            return nullptr;
+        }
+        return s;
+    }
+#endif
+#ifdef CA_HAVE_DOLPHIN
+    if (s->backend == "dolphin") {
+        dolphin_context_params dp = dolphin_context_default_params();
+        dp.n_threads = s->n_threads;
+        dp.verbosity = g_open_verbosity_tls;
+        dp.use_gpu = g_open_use_gpu_tls;
+        s->dolphin_ctx = dolphin_init_from_file(model_path, dp);
+        if (!s->dolphin_ctx) {
+            delete s;
+            return nullptr;
+        }
+        return s;
+    }
+#endif
 #ifdef CA_HAVE_NEMOTRON
     if (s->backend == "nemotron") {
         nemotron_context_params np = nemotron_context_default_params();
@@ -2706,7 +2797,8 @@ CA_EXPORT crispasr_session* crispasr_session_open_explicit(const char* model_pat
     // architecturally identical to qwen3, so it loads through the same
     // dispatch. Same alias set the CLI accepts in
     // examples/cli/crispasr_backend.cpp::resolve_make_fn().
-    if (s->backend == "qwen3" || s->backend == "mega-asr" || s->backend == "mega_asr" || s->backend == "megaasr") {
+    if (s->backend == "qwen3" || s->backend == "mega-asr" || s->backend == "mega_asr" || s->backend == "megaasr" ||
+        s->backend == "raon-speech") {
         qwen3_asr_context_params p = qwen3_asr_context_default_params();
         p.n_threads = s->n_threads;
         p.verbosity = g_open_verbosity_tls;
@@ -3009,6 +3101,34 @@ CA_EXPORT crispasr_session* crispasr_session_open_explicit(const char* model_pat
         p.use_gpu = s->use_gpu;
         s->mt3_ctx = mt3_init_from_file(model_path, p);
         if (!s->mt3_ctx) {
+            delete s;
+            return nullptr;
+        }
+        return s;
+    }
+#endif
+#ifdef CA_HAVE_ONSETS_AND_FRAMES
+    if (s->backend == "onsets-and-frames" || s->backend == "onsets_and_frames") {
+        onsets_and_frames_params p = onsets_and_frames_default_params();
+        p.n_threads = s->n_threads;
+        p.verbosity = g_open_verbosity_tls;
+        p.use_gpu = s->use_gpu;
+        s->oaf_ctx = onsets_and_frames_init_from_file(model_path, p);
+        if (!s->oaf_ctx) {
+            delete s;
+            return nullptr;
+        }
+        return s;
+    }
+#endif
+#ifdef CA_HAVE_HFT_TRANSFORMER
+    if (s->backend == "hft-transformer" || s->backend == "hft_transformer") {
+        hft_transformer_params p = hft_transformer_default_params();
+        p.n_threads = s->n_threads;
+        p.verbosity = g_open_verbosity_tls;
+        p.use_gpu = s->use_gpu;
+        s->hft_ctx = hft_transformer_init_from_file(model_path, p);
+        if (!s->hft_ctx) {
             delete s;
             return nullptr;
         }
@@ -3868,7 +3988,11 @@ CA_EXPORT crispasr_session* crispasr_session_open_explicit(const char* model_pat
     }
 #endif
 #ifdef CA_HAVE_F5TTS
-    if (s->backend == "f5-tts" || s->backend == "f5tts" || s->backend == "f5") {
+    // raon / raon-1b: Raon-OpenTTS rides the f5-tts runtime (#387). The CLI
+    // factory accepts both names; the session did not, so an explicit
+    // open(..., "raon") from a binding returned null.
+    if (s->backend == "f5-tts" || s->backend == "f5tts" || s->backend == "f5" || s->backend == "raon" ||
+        s->backend == "raon-1b") {
         s->backend = "f5-tts";
         f5_tts_params p = f5_tts_default_params();
         p.n_threads = s->n_threads;
@@ -4053,6 +4177,21 @@ CA_EXPORT crispasr_session* crispasr_session_open_explicit(const char* model_pat
         p.use_gpu = g_open_use_gpu_tls;
         s->moss_audio_ctx = moss_audio_init_from_file(model_path, p);
         if (!s->moss_audio_ctx) {
+            delete s;
+            return nullptr;
+        }
+        return s;
+    }
+#endif
+#ifdef CA_HAVE_HOJO_ASR
+    if (s->backend == "hojo-asr" || s->backend == "hojo_asr" || s->backend == "hojo") {
+        s->backend = "hojo-asr";
+        hojo_asr_context_params p = hojo_asr_context_default_params();
+        p.n_threads = s->n_threads;
+        p.verbosity = g_open_verbosity_tls;
+        p.use_gpu = g_open_use_gpu_tls;
+        s->hojo_asr_ctx = hojo_asr_init_from_file(model_path, p);
+        if (!s->hojo_asr_ctx) {
             delete s;
             return nullptr;
         }
@@ -4400,6 +4539,13 @@ CA_EXPORT int crispasr_session_output_sample_rate(crispasr_session* s) {
         return 16000;
 #endif
         // Every remaining audio-producing ctx uses the 24 kHz adapter default.
+#ifdef CA_HAVE_BT2_TTS
+    // Breeze-TTS-2 renders through the qwen3-tts-tokenizer-12hz codec (24 kHz),
+    // as its CLI adapter's tts_sample_rate() says. It had no arm here and
+    // reported 0 Hz (tests/test-session-output-rate-parity.cpp).
+    if (s->bt2_ctx)
+        return 24000;
+#endif
 #ifdef CA_HAVE_BARK
     if (s->bark_ctx)
         return 24000;
@@ -4556,6 +4702,12 @@ CA_EXPORT int crispasr_session_available_backends(char* out_csv, int out_cap) {
 #ifdef CA_HAVE_GIGAAM
     list += ",gigaam";
 #endif
+#ifdef CA_HAVE_XASR
+    list += ",xasr";
+#endif
+#ifdef CA_HAVE_DOLPHIN
+    list += ",dolphin";
+#endif
 #ifdef CA_HAVE_CANARY
     list += ",canary";
 #endif
@@ -4573,6 +4725,7 @@ CA_EXPORT int crispasr_session_available_backends(char* out_csv, int out_cap) {
 #endif
 #ifdef CA_HAVE_QWEN3
     list += ",qwen3";
+    list += ",raon-speech"; // #455: a qwen3asr GGUF with qwen3asr.variant = raon-speech
 #endif
 #ifdef CA_HAVE_HIGGS_STT
     list += ",higgs-stt";
@@ -4624,6 +4777,12 @@ CA_EXPORT int crispasr_session_available_backends(char* out_csv, int out_cap) {
 #endif
 #ifdef CA_HAVE_BASIC_PITCH
     list += ",basic-pitch";
+#endif
+#ifdef CA_HAVE_ONSETS_AND_FRAMES
+    list += ",onsets-and-frames";
+#endif
+#ifdef CA_HAVE_HFT_TRANSFORMER
+    list += ",hft-transformer";
 #endif
 #ifdef CA_HAVE_MT3
     list += ",mt3";
@@ -4778,6 +4937,9 @@ CA_EXPORT int crispasr_session_available_backends(char* out_csv, int out_cap) {
 #endif
 #ifdef CA_HAVE_MOSS_AUDIO
     list += ",moss-audio";
+#endif
+#ifdef CA_HAVE_HOJO_ASR
+    list += ",hojo-asr";
 #endif
 #ifdef CA_HAVE_MOSS_TRANSCRIBE
     list += ",moss-transcribe";
@@ -6185,6 +6347,50 @@ static crispasr_session_result* transcribe_single(crispasr_session* s, const flo
         return r;
     }
 #endif
+#ifdef CA_HAVE_XASR
+    if (s->backend == "xasr" && s->xasr_ctx) {
+        // X-ASR hears zh + en itself; source_language is not a steering knob here.
+        char* text = xasr_transcribe(s->xasr_ctx, pcm, n_samples);
+        if (!text) {
+            delete r;
+            return nullptr;
+        }
+        crispasr_session_seg seg;
+        seg.text = text;
+        seg.t0 = 0;
+        seg.t1 = (int64_t)n_samples * 100 / 16000;
+        free(text);
+        r->segments.push_back(std::move(seg));
+        return r;
+    }
+#endif
+#ifdef CA_HAVE_DOLPHIN
+    if (s->backend == "dolphin" && s->dolphin_ctx) {
+        // Dolphin's language is two-level: "zh" (region predicted) or "zh-SICHUAN"
+        // (both forced); empty lets the decoder predict both, as upstream does.
+        std::string lang, region;
+        if (!s->source_language.empty() && s->source_language != "auto") {
+            const size_t dash = s->source_language.find('-');
+            lang = s->source_language.substr(0, dash);
+            if (dash != std::string::npos)
+                region = s->source_language.substr(dash + 1);
+        }
+        dolphin_result* dr =
+            dolphin_transcribe_ex(s->dolphin_ctx, pcm, n_samples, lang.empty() ? nullptr : lang.c_str(),
+                                  region.empty() ? nullptr : region.c_str());
+        if (!dr) {
+            delete r;
+            return nullptr;
+        }
+        crispasr_session_seg seg;
+        seg.text = dr->text ? dr->text : "";
+        seg.t0 = 0;
+        seg.t1 = (int64_t)n_samples * 100 / 16000;
+        r->segments.push_back(std::move(seg));
+        dolphin_result_free(dr);
+        return r;
+    }
+#endif
 #ifdef CA_HAVE_NEMOTRON
     if (s->backend == "nemotron" && s->nemotron_ctx) {
         if (lang_set)
@@ -6391,21 +6597,28 @@ static crispasr_session_result* transcribe_single(crispasr_session* s, const flo
     // mega-asr is handled here too via the qwen3_ctx — it's just
     // qwen3 weights with a merged robustness LoRA. See the matching
     // alias set in crispasr_session_open_explicit.
-    if ((s->backend == "qwen3" || s->backend == "mega-asr" || s->backend == "mega_asr" || s->backend == "megaasr") &&
+    if ((s->backend == "qwen3" || s->backend == "mega-asr" || s->backend == "mega_asr" || s->backend == "megaasr" ||
+         s->backend == "raon-speech") &&
         s->qwen3_ctx) {
         // qwen3-asr's runtime _transcribe() is a stub. Drive the building
         // blocks the CLI adapter uses (compute_mel → run_encoder → tokenize
         // → embed+splice → kv_init → run_llm_kv prefill → greedy decode).
         // Capture per-step softmax probability via core_greedy_decode.
-        int n_mels = 0, T_mel = 0;
-        float* mel = qwen3_asr_compute_mel(s->qwen3_ctx, pcm, n_samples, &n_mels, &T_mel);
-        if (!mel) {
-            delete r;
-            return nullptr;
-        }
+        // #455 Raon-Speech-9B has its own front end (8 s chunks at 24 kHz,
+        // per-chunk mel, EmbeddingAdaptor) and prompt (no system turn).
+        const bool raon = qwen3_asr_is_raon_speech(s->qwen3_ctx);
         int N_enc = 0, pdim = 0;
-        float* audio_embeds = qwen3_asr_run_encoder(s->qwen3_ctx, mel, n_mels, T_mel, &N_enc, &pdim);
-        std::free(mel);
+        float* audio_embeds = nullptr;
+        if (raon) {
+            audio_embeds = qwen3_asr_raon_encode(s->qwen3_ctx, pcm, n_samples, &N_enc, &pdim);
+        } else {
+            int n_mels = 0, T_mel = 0;
+            float* mel = qwen3_asr_compute_mel(s->qwen3_ctx, pcm, n_samples, &n_mels, &T_mel);
+            if (mel) {
+                audio_embeds = qwen3_asr_run_encoder(s->qwen3_ctx, mel, n_mels, T_mel, &N_enc, &pdim);
+                std::free(mel);
+            }
+        }
         if (!audio_embeds) {
             delete r;
             return nullptr;
@@ -6448,6 +6661,23 @@ static crispasr_session_result* transcribe_single(crispasr_session* s, const flo
         }
         text += "<|im_end|>\n<|im_start|>assistant\n";
         text += assistant_prefill;
+        if (raon) { // RaonPipeline.stt; --ask replaces the instruction
+            const std::string eff_lang = lang_set ? lang : s->source_language;
+            static bool warned = false;
+            if (!warned && !eff_lang.empty() && eff_lang != "auto") {
+                warned = true;
+                fprintf(stderr,
+                        "crispasr[raon-speech]: no language conditioning (en + ko are automatic); "
+                        "language '%s' ignored\n",
+                        eff_lang.c_str());
+            }
+            text = "<|im_start|>user\n<|audio_start|>";
+            for (int i = 0; i < N_enc; i++)
+                text += "<|audio_pad|>";
+            text += "<|audio_end|>";
+            text += s->ask.empty() ? std::string("Transcribe the audio into text") : s->ask;
+            text += "<|im_end|>\n<|im_start|>assistant\n";
+        }
 
         int n_prompt = 0;
         int32_t* raw_ids = qwen3_asr_tokenize(s->qwen3_ctx, text.c_str(), &n_prompt);
@@ -6512,6 +6742,8 @@ static crispasr_session_result* transcribe_single(crispasr_session* s, const flo
 
         const int last_off = (n_t - 1) * vocab;
         const int prompt_len_q3 = (int)ids.size();
+        if (raon && eos_id >= 0 && eos_id < vocab)
+            logits[last_off + eos_id] = -INFINITY; // Raon disable_eos_on_first_output
 
         core_greedy_decode::Result dec;
         if (s->beam_size > 1) {
@@ -6580,7 +6812,7 @@ static crispasr_session_result* transcribe_single(crispasr_session* s, const flo
             if (raw.size() >= 5 && raw[0] == '[' && raw[1] == 'P' && raw[2] == 'A' && raw[3] == 'D')
                 continue;
             std::string piece = gpt2_byte_decode(raw);
-            if (piece == "language") {
+            if (!raon && piece == "language") {
                 capture_language = true;
                 continue;
             }
@@ -7637,6 +7869,15 @@ static crispasr_session_result* transcribe_single(crispasr_session* s, const flo
                 }
             }
             text = moss_audio_process(s->moss_audio_ctx, pcm, n_samples, prompt);
+            need_free = true;
+        }
+#endif
+#ifdef CA_HAVE_HOJO_ASR
+        if (!text && s->hojo_asr_ctx) {
+            // Promptless: inputs are BOS + speech embeddings only, so there is
+            // nowhere to inject an ask/language hint. Both are ignored.
+            hojo_asr_set_max_new_tokens(s->hojo_asr_ctx, s->max_new_tokens); // #292
+            text = hojo_asr_transcribe(s->hojo_asr_ctx, pcm, n_samples);
             need_free = true;
         }
 #endif
@@ -9062,13 +9303,17 @@ CA_EXPORT int crispasr_session_set_voice(crispasr_session* s, const char* path, 
 #endif
 #ifdef CA_HAVE_F5TTS
     if (s->f5tts_ctx) {
-        // F5-TTS clones from a reference WAV + its transcript. Load
-        // directly at 24 kHz — avoids the lossy 16k→24k resample path.
+        // F5-TTS clones from a reference WAV + its transcript. Load it
+        // directly at the MODEL's mel rate — 24 kHz for F5-TTS (Vocos), 16 kHz
+        // for Raon-OpenTTS (#387, sbhifigan16k) — as the CLI adapter does. A
+        // hard-coded 24 kHz fed Raon a reference its mel front-end read as
+        // 1.5x longer and lower (tests/test-f5-session-voice-rate-live.sh).
         if (!ends_with_wav(path))
             return -2;
         float* pcm = nullptr;
         int n = 0, sr = 0;
-        if (crispasr_audio_load_at_rate(path, 24000, &pcm, &n, &sr) != 0 || !pcm || n <= 0) {
+        const int model_sr = f5_tts_sample_rate(s->f5tts_ctx);
+        if (crispasr_audio_load_at_rate(path, model_sr > 0 ? model_sr : 24000, &pcm, &n, &sr) != 0 || !pcm || n <= 0) {
             if (pcm)
                 free(pcm);
             return -1;
@@ -11041,6 +11286,7 @@ CA_EXPORT int crispasr_session_piano(crispasr_session* s, const float* pcm_16k, 
 #ifdef CA_HAVE_PIANO_TRANSCRIPTION
     if (s->piano_ctx) {
         s->piano_last_notes.clear();
+        s->piano_last_programs.clear();
         piano_transcription_result res{};
         if (piano_transcription_transcribe(s->piano_ctx, pcm_16k, n_samples, &res) != 0)
             return -1;
@@ -11054,6 +11300,10 @@ CA_EXPORT int crispasr_session_piano(crispasr_session* s, const float* pcm_16k, 
             s->piano_last_notes.push_back(e.offset_time * 1000.0f);
             s->piano_last_notes.push_back((float)e.midi_note);
             s->piano_last_notes.push_back((float)e.velocity);
+            // A piano model identifies no instrument; 0 would read as
+            // "Acoustic Grand Piano" and be indistinguishable from a real
+            // answer, so the absence is explicit.
+            s->piano_last_programs.push_back(-1);
         }
         const int n = res.n_notes;
         piano_transcription_result_free(&res);
@@ -11066,6 +11316,7 @@ CA_EXPORT int crispasr_session_piano(crispasr_session* s, const float* pcm_16k, 
         // Basic Pitch wants 22050 Hz — callers must ask
         // crispasr_session_piano_sample_rate() rather than assume 16 kHz.
         s->piano_last_notes.clear();
+        s->piano_last_programs.clear();
         basic_pitch_result res{};
         if (basic_pitch_transcribe(s->basic_pitch_ctx_, pcm_16k, n_samples, &res) != 0)
             return -1;
@@ -11076,6 +11327,7 @@ CA_EXPORT int crispasr_session_piano(crispasr_session* s, const float* pcm_16k, 
             s->piano_last_notes.push_back(e.end_time * 1000.0f);
             s->piano_last_notes.push_back((float)e.midi_note);
             s->piano_last_notes.push_back((float)e.velocity);
+            s->piano_last_programs.push_back(-1); // instrument-agnostic
         }
         const int n = res.n_notes;
         basic_pitch_result_free(&res);
@@ -11084,10 +11336,12 @@ CA_EXPORT int crispasr_session_piano(crispasr_session* s, const float* pcm_16k, 
 #endif
 #ifdef CA_HAVE_MT3
     if (s->mt3_ctx) {
-        // `pcm_16k` really is 16 kHz here. The program per note is dropped:
-        // the flat layout is [start_ms, end_ms, midi, velocity] and widening it
-        // would break every existing reader of this ABI.
+        // `pcm_16k` really is 16 kHz here. The flat layout stays
+        // [start_ms, end_ms, midi, velocity] because widening it would break
+        // every existing reader; the GM program goes into the parallel array
+        // that crispasr_session_piano_note_programs hands out.
         s->piano_last_notes.clear();
+        s->piano_last_programs.clear();
         mt3_result res{};
         if (mt3_transcribe(s->mt3_ctx, pcm_16k, n_samples, &res) != 0)
             return -1;
@@ -11098,9 +11352,61 @@ CA_EXPORT int crispasr_session_piano(crispasr_session* s, const float* pcm_16k, 
             s->piano_last_notes.push_back(e.end_time * 1000.0f);
             s->piano_last_notes.push_back((float)e.pitch);
             s->piano_last_notes.push_back((float)e.velocity);
+            // Drums are channel 10 in GM and carry no meaningful program, so
+            // they are reported as the dedicated sentinel rather than as
+            // whatever program field the model happened to emit.
+            s->piano_last_programs.push_back(e.is_drum ? 128 : e.program);
         }
         const int n = res.n_notes;
         mt3_result_free(&res);
+        return n;
+    }
+#endif
+#ifdef CA_HAVE_ONSETS_AND_FRAMES
+    if (s->oaf_ctx) {
+        // `pcm_16k` really is 16 kHz here.
+        s->piano_last_notes.clear();
+        s->piano_last_programs.clear();
+        onsets_and_frames_result res{};
+        if (onsets_and_frames_transcribe(s->oaf_ctx, pcm_16k, n_samples, &res) != 0)
+            return -1;
+        s->piano_last_notes.reserve((size_t)res.n_notes * 4);
+        for (int i = 0; i < res.n_notes; i++) {
+            const onsets_and_frames_note_event& e = res.note_events[i];
+            s->piano_last_notes.push_back(e.onset_time * 1000.0f);
+            s->piano_last_notes.push_back(e.offset_time * 1000.0f);
+            s->piano_last_notes.push_back((float)e.midi_note);
+            s->piano_last_notes.push_back((float)e.velocity);
+            // A piano model identifies no instrument; -1, not 0 (= grand
+            // piano), so a caller can tell "unknown" from "acoustic piano".
+            s->piano_last_programs.push_back(-1);
+        }
+        const int n = res.n_notes;
+        onsets_and_frames_result_free(&res);
+        return n;
+    }
+#endif
+#ifdef CA_HAVE_HFT_TRANSFORMER
+    if (s->hft_ctx) {
+        // `pcm_16k` really is 16 kHz here.
+        s->piano_last_notes.clear();
+        s->piano_last_programs.clear();
+        hft_transformer_result res{};
+        if (hft_transformer_transcribe(s->hft_ctx, pcm_16k, n_samples, &res) != 0)
+            return -1;
+        s->piano_last_notes.reserve((size_t)res.n_notes * 4);
+        for (int i = 0; i < res.n_notes; i++) {
+            const hft_transformer_note_event& e = res.note_events[i];
+            s->piano_last_notes.push_back(e.onset_time * 1000.0f);
+            s->piano_last_notes.push_back(e.offset_time * 1000.0f);
+            s->piano_last_notes.push_back((float)e.midi_note);
+            s->piano_last_notes.push_back((float)e.velocity);
+            // A piano model identifies no instrument; -1, not 0 (= grand
+            // piano), so a caller can tell "unknown" from "acoustic piano".
+            s->piano_last_programs.push_back(-1);
+        }
+        const int n = res.n_notes;
+        hft_transformer_result_free(&res);
         return n;
     }
 #endif
@@ -11110,7 +11416,8 @@ CA_EXPORT int crispasr_session_piano(crispasr_session* s, const float* pcm_16k, 
 CA_EXPORT int crispasr_session_piano_n_notes(crispasr_session* s) {
     if (!s)
         return 0;
-#if defined(CA_HAVE_PIANO_TRANSCRIPTION) || defined(CA_HAVE_BASIC_PITCH) || defined(CA_HAVE_MT3)
+#if defined(CA_HAVE_PIANO_TRANSCRIPTION) || defined(CA_HAVE_BASIC_PITCH) || defined(CA_HAVE_MT3) ||                    \
+    defined(CA_HAVE_ONSETS_AND_FRAMES) || defined(CA_HAVE_HFT_TRANSFORMER)
     return (int)(s->piano_last_notes.size() / 4);
 #else
     return 0;
@@ -11122,12 +11429,34 @@ CA_EXPORT const float* crispasr_session_piano_notes(crispasr_session* s, int* ou
         *out_n_notes = 0;
     if (!s)
         return nullptr;
-#ifdef CA_HAVE_PIANO_TRANSCRIPTION
+#if defined(CA_HAVE_PIANO_TRANSCRIPTION) || defined(CA_HAVE_BASIC_PITCH) || defined(CA_HAVE_MT3) ||                    \
+    defined(CA_HAVE_ONSETS_AND_FRAMES) || defined(CA_HAVE_HFT_TRANSFORMER)
+    // The guard matches crispasr_session_piano_n_notes. It used to be
+    // CA_HAVE_PIANO_TRANSCRIPTION alone, so a build with basic-pitch or MT3
+    // but without piano-transcription reported a note count and then handed
+    // back nullptr.
     if (s->piano_last_notes.empty())
         return nullptr;
     if (out_n_notes)
         *out_n_notes = (int)(s->piano_last_notes.size() / 4);
     return s->piano_last_notes.data();
+#else
+    return nullptr;
+#endif
+}
+
+CA_EXPORT const int* crispasr_session_piano_note_programs(crispasr_session* s, int* out_n_notes) {
+    if (out_n_notes)
+        *out_n_notes = 0;
+    if (!s)
+        return nullptr;
+#if defined(CA_HAVE_PIANO_TRANSCRIPTION) || defined(CA_HAVE_BASIC_PITCH) || defined(CA_HAVE_MT3) ||                    \
+    defined(CA_HAVE_ONSETS_AND_FRAMES) || defined(CA_HAVE_HFT_TRANSFORMER)
+    if (s->piano_last_programs.empty())
+        return nullptr;
+    if (out_n_notes)
+        *out_n_notes = (int)s->piano_last_programs.size();
+    return s->piano_last_programs.data();
 #else
     return nullptr;
 #endif
@@ -11147,6 +11476,14 @@ CA_EXPORT int crispasr_session_piano_sample_rate(crispasr_session* s) {
 #ifdef CA_HAVE_MT3
     if (s->mt3_ctx)
         return (int)mt3_sample_rate(s->mt3_ctx);
+#endif
+#ifdef CA_HAVE_ONSETS_AND_FRAMES
+    if (s->oaf_ctx)
+        return (int)onsets_and_frames_sample_rate(s->oaf_ctx);
+#endif
+#ifdef CA_HAVE_HFT_TRANSFORMER
+    if (s->hft_ctx)
+        return (int)hft_transformer_sample_rate(s->hft_ctx);
 #endif
     return 0;
 }
@@ -11183,6 +11520,14 @@ CA_EXPORT void crispasr_session_close(crispasr_session* s) {
 #ifdef CA_HAVE_GIGAAM
     if (s->gigaam_ctx)
         gigaam_free(s->gigaam_ctx);
+#endif
+#ifdef CA_HAVE_XASR
+    if (s->xasr_ctx)
+        xasr_free(s->xasr_ctx);
+#endif
+#ifdef CA_HAVE_DOLPHIN
+    if (s->dolphin_ctx)
+        dolphin_free(s->dolphin_ctx);
 #endif
 #ifdef CA_HAVE_CANARY
     if (s->canary_ctx)
@@ -11292,6 +11637,14 @@ CA_EXPORT void crispasr_session_close(crispasr_session* s) {
 #ifdef CA_HAVE_MT3
     if (s->mt3_ctx)
         mt3_free(s->mt3_ctx);
+#endif
+#ifdef CA_HAVE_ONSETS_AND_FRAMES
+    if (s->oaf_ctx)
+        onsets_and_frames_free(s->oaf_ctx);
+#endif
+#ifdef CA_HAVE_HFT_TRANSFORMER
+    if (s->hft_ctx)
+        hft_transformer_free(s->hft_ctx);
 #endif
 #ifdef CA_HAVE_MOSS_TTS
     if (s->moss_tts_ctx)
@@ -11491,6 +11844,10 @@ CA_EXPORT void crispasr_session_close(crispasr_session* s) {
     if (s->moss_audio_ctx)
         moss_audio_free(s->moss_audio_ctx);
 #endif
+#ifdef CA_HAVE_HOJO_ASR
+    if (s->hojo_asr_ctx)
+        hojo_asr_free(s->hojo_asr_ctx);
+#endif
 #ifdef CA_HAVE_MOSS_TRANSCRIBE
     if (s->moss_transcribe_ctx)
         moss_transcribe_free(s->moss_transcribe_ctx);
@@ -11503,37 +11860,103 @@ CA_EXPORT void crispasr_session_close(crispasr_session* s) {
 }
 
 // =========================================================================
-// FireRedPunc — punctuation restoration post-processor
+// Standalone punctuation restoration
 // =========================================================================
-// These are standalone entry points (not part of the session API) so any
-// consumer can load a punc model once and call it on arbitrary text.
+// Entry points outside the session API, so any consumer (the Rust PuncModel,
+// Python, Go ...) can load a punc model once and call it on arbitrary text.
+//
+// `model` takes what `--punc-model` takes: an alias (auto | firered |
+// fullstop | punctuate-all | pcs; auto-downloaded on first use) or a .gguf
+// path. The loader is picked from the GGUF's general.architecture - "pcs"
+// -> PCS (punctuation + capitalisation + segmentation), "fireredpunc" ->
+// FireRedPunc / fullstop-punc / punctuate-all - so a path of either family
+// works, and anything else fails here with nullptr instead of loading as
+// FireRedPunc and crashing on the first process() call (#460).
 
+namespace {
+struct ca_punc_handle {
+    int kind = 0; // 1 = fireredpunc family, 2 = pcs
+    void* ctx = nullptr;
+};
+} // namespace
+
+CA_EXPORT void* crispasr_punc_init(const char* model) {
+    if (!model || !*model)
+        return nullptr;
+    const crispasr_punc_spec spec = crispasr_resolve_punc_model(model);
+    if (spec.kind == crispasr_punc_kind::none)
+        return nullptr;
+    std::string path = spec.direct_path;
+    if (path.empty() && !spec.cache_filename.empty())
+        path = crispasr_cache::ensure_cached_file(spec.cache_filename, spec.url, /*quiet=*/true, "crispasr[punc]", "");
+    if (path.empty())
+        return nullptr;
+
+    std::string arch;
+    if (gguf_context* meta = core_gguf::open_metadata(path.c_str())) {
+        arch = core_gguf::kv_str(meta, "general.architecture", "");
+        core_gguf::free_metadata(meta);
+    } else {
+        fprintf(stderr, "crispasr_punc_init: cannot read '%s' as GGUF\n", path.c_str());
+        return nullptr;
+    }
+    auto* h = new ca_punc_handle();
+    if (arch == "pcs") {
+#ifdef CA_HAVE_PCS
+        h->kind = 2;
+        h->ctx = (void*)pcs_init(path.c_str());
+#endif
+    } else if (arch == "fireredpunc") {
 #ifdef CA_HAVE_FIREREDPUNC
-CA_EXPORT void* crispasr_punc_init(const char* model_path) {
-    return (void*)fireredpunc_init(model_path);
+        h->kind = 1;
+        h->ctx = (void*)fireredpunc_init(path.c_str());
+#endif
+    } else {
+        fprintf(stderr,
+                "crispasr_punc_init: '%s' has architecture '%s' - not a punctuation model "
+                "(expected fireredpunc or pcs)\n",
+                path.c_str(), arch.c_str());
+    }
+    if (!h->ctx) {
+        delete h;
+        return nullptr;
+    }
+    return h;
 }
 
-CA_EXPORT const char* crispasr_punc_process(void* ctx, const char* text) {
-    return fireredpunc_process((fireredpunc_context*)ctx, text);
+CA_EXPORT const char* crispasr_punc_process(void* handle, const char* text) {
+    auto* h = (ca_punc_handle*)handle;
+    if (!h || !h->ctx || !text)
+        return nullptr;
+#ifdef CA_HAVE_PCS
+    if (h->kind == 2)
+        return pcs_process((pcs_context*)h->ctx, text);
+#endif
+#ifdef CA_HAVE_FIREREDPUNC
+    if (h->kind == 1)
+        return fireredpunc_process((fireredpunc_context*)h->ctx, text);
+#endif
+    return nullptr;
 }
 
 CA_EXPORT void crispasr_punc_free_text(const char* text) {
     free(const_cast<char*>(text));
 }
 
-CA_EXPORT void crispasr_punc_free(void* ctx) {
-    fireredpunc_free((fireredpunc_context*)ctx);
-}
-#else
-CA_EXPORT void* crispasr_punc_init(const char*) {
-    return nullptr;
-}
-CA_EXPORT const char* crispasr_punc_process(void*, const char*) {
-    return nullptr;
-}
-CA_EXPORT void crispasr_punc_free_text(const char*) {}
-CA_EXPORT void crispasr_punc_free(void*) {}
+CA_EXPORT void crispasr_punc_free(void* handle) {
+    auto* h = (ca_punc_handle*)handle;
+    if (!h)
+        return;
+#ifdef CA_HAVE_PCS
+    if (h->kind == 2)
+        pcs_free((pcs_context*)h->ctx);
 #endif
+#ifdef CA_HAVE_FIREREDPUNC
+    if (h->kind == 1)
+        fireredpunc_free((fireredpunc_context*)h->ctx);
+#endif
+    delete h;
+}
 
 // =========================================================================
 // Truecaser — standalone text post-processing (init → process → free).

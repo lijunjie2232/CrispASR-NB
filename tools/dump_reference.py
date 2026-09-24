@@ -92,6 +92,10 @@ import numpy as np
 #   1. tools/reference_backends/<name>.py  with dump() + DEFAULT_STAGES
 #   2. one line here.
 REGISTERED_BACKENDS: Dict[str, str] = {
+    # Dolphin (DataoceanAI) E-Branchformer + Transformer decoder + CTC (#436).
+    # model_dir holds <name>.pt + train.yaml + units.txt + global_cmvn;
+    # DOLPHIN_MODEL_NAME picks the registry name (default small.cn.streaming).
+    "dolphin":    "reference_backends.dolphin",
     # dots.tts (rednote-hilab/dots.tts-soar) TTS: Qwen2.5-1.5B LLM +
     # 18L DiT flow-matching head + 24L VAESemanticEncoder (PatchEncoder)
     # + BigVGAN vocoder. The C++ diff branch ("dots-tts") validates the
@@ -112,6 +116,10 @@ REGISTERED_BACKENDS: Dict[str, str] = {
     "bt2-tts":    "reference_backends.breeze_tts_2",
     "moss-tts":   "reference_backends.moss_tts",
     "qwen3":      "reference_backends.qwen3",
+    "raon-speech": "reference_backends.raon_speech",  # #455 Raon-Speech-9B STT
+    # X-ASR (#436): icefall streaming Zipformer2 transducer, driven chunk by chunk
+    # like sherpa-onnx. Needs XASR_ICEFALL_DIR (icefall zipformer/ sources).
+    "xasr":       "reference_backends.xasr",
     "higgs-stt":  "reference_backends.higgs_stt",
     "voxtral":    "reference_backends.voxtral",
     "voxtral4b":  "reference_backends.voxtral4b",
@@ -132,6 +140,9 @@ REGISTERED_BACKENDS: Dict[str, str] = {
     # audio arg is a real multi-speaker clip.
     "tiron":      "reference_backends.tiron",
     "parakeet":   "reference_backends.parakeet",
+    # transformers-format ParakeetForTDT (#454: moondream parakeet-ultra / -redux);
+    # same stage names as the NeMo "parakeet" dumper.
+    "parakeet-hf": "reference_backends.parakeet_hf",
     # Supertonic-3 (#434): ONNX-only distribution — the reference IS the
     # onnxruntime pipeline (standalone script; run it directly, not via this
     # dispatcher). Kept here for discoverability.
@@ -303,6 +314,11 @@ REGISTERED_BACKENDS: Dict[str, str] = {
     # Qwen3-1.7B LM. Ships modeling+processing code (no GitHub clone needed).
     # model_dir = OpenMOSS-Team/MOSS-Transcribe-preview-2B HF id or local dir.
     "moss-transcribe": "reference_backends.moss_transcribe",
+    # Hojo-ASR-Multi-V1: Qwen3-Omni audio tower + 2-block WeNet Conformer
+    # adapter + Qwen3-4B LM. Drives the upstream `hojo-asr` PyPI package
+    # (pip install hojo-asr) rather than re-implementing the forward pass.
+    # model_dir = HojoAI/Hojo-ASR-Multi-V1 HF id or local snapshot.
+    "hojo-asr": "reference_backends.hojo_asr",
     # TADA-3B-ML TTS: Llama-3.2-3B + per-token flow matching + TADA codec.
     # model_dir = HumeAI/tada-3b-ml HF id or local snapshot.
     # Audio arg is unused (text-driven). Text from TADA_SYN_TEXT env var.
@@ -570,6 +586,14 @@ def main() -> None:
         max_new_tokens=args.max_new_tokens,
     )
 
+    # Captures are owned copies (reference_backends/_safe_capture.py); list any
+    # whose source tensor changed after capture — each would have been a
+    # corrupted reference under the old view-returning .numpy() — and record
+    # the verdict in the archive's metadata.
+    from reference_backends import _safe_capture
+    alias_hits = _safe_capture.report()
+    alias_note = "none" if not alias_hits else "; ".join(f"{w} x{n}" for w, (n, _) in alias_hits)
+
     # Always include raw audio so C++ tests can feed it in without
     # re-reading the WAV.
     if "raw_audio" in stages:
@@ -588,6 +612,7 @@ def main() -> None:
 
     # Serialize
     meta = {
+        "aliasing_after_capture": alias_note,
         "backend":  args.backend,
         "model_dir": str(args.model_dir.resolve()),
         "audio":    str(args.audio.resolve()),
