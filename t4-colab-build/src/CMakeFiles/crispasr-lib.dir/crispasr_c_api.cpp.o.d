@@ -219,7 +219,7 @@ src/CMakeFiles/crispasr-lib.dir/crispasr_c_api.cpp.o: \
  ../../src/parakeet_memory_policy.h /usr/include/c++/13/functional \
  /usr/include/c++/13/bits/std_function.h /usr/include/c++/13/typeinfo \
  /usr/include/c++/13/array ../../src/core/gpu_backend_pref.h \
- ../../ggml/include/ggml-backend.h ../../ggml/include/ggml.h \
+ ../../ggml/include/ggml.h ../../ggml/include/ggml-backend.h \
  ../../ggml/include/ggml-alloc.h ../../ggml/include/ggml-cpu.h \
  ../../src/core/metal_pipeline_cache_policy.h /usr/include/c++/13/mutex \
  /usr/include/c++/13/exception /usr/include/c++/13/bits/exception_ptr.h \
@@ -323,29 +323,31 @@ src/CMakeFiles/crispasr-lib.dir/crispasr_c_api.cpp.o: \
  ../../src/core/crispasr_c2pa_native.h \
  ../../third_party/c2pa-audio/src/c2pa_native.h \
  ../../src/core/crispasr_wav_writer.h ../../src/grammar-parser.h \
- ../../src/nemotron.h ../../src/gigaam.h ../../src/canary.h \
- ../../src/canary_qwen.h ../../src/lfm2_audio.h ../../src/mini_omni2.h \
- ../../src/sidon.h ../../src/qwen3_asr.h ../../src/higgs_stt.h \
- ../../src/cohere.h ../../src/granite_speech.h ../../src/granite_nle.h \
- ../../src/funasr.h ../../src/paraformer.h ../../src/sensevoice.h \
- ../../src/canary_ctc.h ../../src/voxtral.h ../../src/voxtral4b.h \
- ../../src/voxtral_tts.h ../../src/wav2vec2-ggml.h \
- ../../src/core/gguf_loader.h ../../ggml/include/gguf.h \
- ../../src/vibevoice.h ../../src/kugelaudio.h ../../src/zonos_tts.h \
- ../../src/qwen3_tts.h ../../src/miotts.h ../../src/confucius4_tts.h \
- ../../src/breeze_tts_2.h ../../src/piano_transcription.h \
- ../../src/basic_pitch.h ../../src/mt3.h ../../src/moss_tts.h \
- ../../src/moss_tts_local.h ../../src/omnivoice.h ../../src/kokoro.h \
- ../../src/piper_tts.h ../../src/melotts.h ../../src/chatterbox.h \
- ../../src/bananamind_tts.h ../../src/outetts.h ../../src/csm_tts.h \
- ../../src/dia_tts.h ../../src/dots_tts.h ../../src/fireredtts3_tts.h \
- ../../src/pocket_tts.h ../../src/fastpitch_tts.h ../../src/parler_tts.h \
+ ../../src/nemotron.h ../../src/gigaam.h ../../src/xasr.h \
+ ../../src/dolphin.h ../../src/canary.h ../../src/canary_qwen.h \
+ ../../src/lfm2_audio.h ../../src/mini_omni2.h ../../src/sidon.h \
+ ../../src/qwen3_asr.h ../../src/higgs_stt.h ../../src/cohere.h \
+ ../../src/granite_speech.h ../../src/granite_nle.h ../../src/funasr.h \
+ ../../src/paraformer.h ../../src/sensevoice.h ../../src/canary_ctc.h \
+ ../../src/voxtral.h ../../src/voxtral4b.h ../../src/voxtral_tts.h \
+ ../../src/wav2vec2-ggml.h ../../src/core/gguf_loader.h \
+ ../../ggml/include/gguf.h ../../src/vibevoice.h ../../src/kugelaudio.h \
+ ../../src/zonos_tts.h ../../src/qwen3_tts.h ../../src/miotts.h \
+ ../../src/confucius4_tts.h ../../src/breeze_tts_2.h \
+ ../../src/piano_transcription.h ../../src/basic_pitch.h ../../src/mt3.h \
+ ../../src/onsets_and_frames.h ../../src/hft_transformer.h \
+ ../../src/moss_tts.h ../../src/moss_tts_local.h ../../src/omnivoice.h \
+ ../../src/kokoro.h ../../src/piper_tts.h ../../src/melotts.h \
+ ../../src/chatterbox.h ../../src/bananamind_tts.h ../../src/outetts.h \
+ ../../src/csm_tts.h ../../src/dia_tts.h ../../src/dots_tts.h \
+ ../../src/fireredtts3_tts.h ../../src/pocket_tts.h \
+ ../../src/fastpitch_tts.h ../../src/parler_tts.h \
  ../../src/speecht5_tts.h ../../src/bark_tts.h ../../src/voxcpm2_tts.h \
  ../../src/voxcpm2_vae.h ../../src/cosyvoice3_tts.h ../../src/indextts.h \
  ../../src/f5_tts.h ../../src/irodori_tts.h ../../src/supertonic_tts.h \
  ../../src/m2m100.h ../../src/t5_translate.h ../../src/orpheus.h \
  ../../src/tada_tts.h ../../src/mimo_asr.h ../../src/ark_asr.h \
- ../../src/moss_audio.h ../../src/moss_transcribe.h \
+ ../../src/moss_audio.h ../../src/hojo_asr.h ../../src/moss_transcribe.h \
  ../../src/moss_transcribe_diarize.h ../../src/glm_asr.h \
  ../../src/mel_band_roformer.h ../../src/htdemucs.h ../../src/rvc_svc.h \
  ../../src/btc_chords.h ../../src/tabcnn.h ../../src/beat_this.h \

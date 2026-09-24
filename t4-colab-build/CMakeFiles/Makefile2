@@ -288,6 +288,7 @@ examples/cli/all: examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/all
 examples/cli/all: examples/cli/CMakeFiles/moss-tts-local-smoke.dir/all
 examples/cli/all: examples/cli/CMakeFiles/crispasr-chat.dir/all
 examples/cli/all: examples/cli/CMakeFiles/crispasr-f0-eval.dir/all
+examples/cli/all: examples/cli/CMakeFiles/crispasr-repack-probe.dir/all
 .PHONY : examples/cli/all
 
 # Recursive "codegen" directory target.
@@ -299,6 +300,7 @@ examples/cli/codegen: examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/codegen
 examples/cli/codegen: examples/cli/CMakeFiles/moss-tts-local-smoke.dir/codegen
 examples/cli/codegen: examples/cli/CMakeFiles/crispasr-chat.dir/codegen
 examples/cli/codegen: examples/cli/CMakeFiles/crispasr-f0-eval.dir/codegen
+examples/cli/codegen: examples/cli/CMakeFiles/crispasr-repack-probe.dir/codegen
 .PHONY : examples/cli/codegen
 
 # Recursive "preinstall" directory target.
@@ -314,6 +316,7 @@ examples/cli/clean: examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/clean
 examples/cli/clean: examples/cli/CMakeFiles/moss-tts-local-smoke.dir/clean
 examples/cli/clean: examples/cli/CMakeFiles/crispasr-chat.dir/clean
 examples/cli/clean: examples/cli/CMakeFiles/crispasr-f0-eval.dir/clean
+examples/cli/clean: examples/cli/CMakeFiles/crispasr-repack-probe.dir/clean
 .PHONY : examples/cli/clean
 
 #=============================================================================
@@ -747,6 +750,8 @@ src/all: src/CMakeFiles/snac.dir/all
 src/all: src/CMakeFiles/crispasr-llama-core.dir/all
 src/all: src/CMakeFiles/nemotron.dir/all
 src/all: src/CMakeFiles/gigaam.dir/all
+src/all: src/CMakeFiles/dolphin.dir/all
+src/all: src/CMakeFiles/xasr.dir/all
 src/all: src/CMakeFiles/wespeaker.dir/all
 src/all: src/CMakeFiles/parakeet.dir/all
 src/all: src/CMakeFiles/qwen3_asr.dir/all
@@ -773,6 +778,7 @@ src/all: src/CMakeFiles/ark_asr.dir/all
 src/all: src/CMakeFiles/moss_audio.dir/all
 src/all: src/CMakeFiles/moss_tts.dir/all
 src/all: src/CMakeFiles/moss_tts_local.dir/all
+src/all: src/CMakeFiles/hojo_asr.dir/all
 src/all: src/CMakeFiles/moss_transcribe.dir/all
 src/all: src/CMakeFiles/moss_transcribe_diarize.dir/all
 src/all: src/CMakeFiles/qwen3_tts.dir/all
@@ -782,6 +788,8 @@ src/all: src/CMakeFiles/miocodec.dir/all
 src/all: src/CMakeFiles/omnivoice.dir/all
 src/all: src/CMakeFiles/orpheus.dir/all
 src/all: src/CMakeFiles/piano-transcription.dir/all
+src/all: src/CMakeFiles/onsets-and-frames.dir/all
+src/all: src/CMakeFiles/hft-transformer.dir/all
 src/all: src/CMakeFiles/basic-pitch.dir/all
 src/all: src/CMakeFiles/mt3.dir/all
 src/all: src/CMakeFiles/audioseal.dir/all
@@ -856,6 +864,8 @@ src/codegen: src/CMakeFiles/snac.dir/codegen
 src/codegen: src/CMakeFiles/crispasr-llama-core.dir/codegen
 src/codegen: src/CMakeFiles/nemotron.dir/codegen
 src/codegen: src/CMakeFiles/gigaam.dir/codegen
+src/codegen: src/CMakeFiles/dolphin.dir/codegen
+src/codegen: src/CMakeFiles/xasr.dir/codegen
 src/codegen: src/CMakeFiles/wespeaker.dir/codegen
 src/codegen: src/CMakeFiles/parakeet.dir/codegen
 src/codegen: src/CMakeFiles/qwen3_asr.dir/codegen
@@ -882,6 +892,7 @@ src/codegen: src/CMakeFiles/ark_asr.dir/codegen
 src/codegen: src/CMakeFiles/moss_audio.dir/codegen
 src/codegen: src/CMakeFiles/moss_tts.dir/codegen
 src/codegen: src/CMakeFiles/moss_tts_local.dir/codegen
+src/codegen: src/CMakeFiles/hojo_asr.dir/codegen
 src/codegen: src/CMakeFiles/moss_transcribe.dir/codegen
 src/codegen: src/CMakeFiles/moss_transcribe_diarize.dir/codegen
 src/codegen: src/CMakeFiles/qwen3_tts.dir/codegen
@@ -891,6 +902,8 @@ src/codegen: src/CMakeFiles/miocodec.dir/codegen
 src/codegen: src/CMakeFiles/omnivoice.dir/codegen
 src/codegen: src/CMakeFiles/orpheus.dir/codegen
 src/codegen: src/CMakeFiles/piano-transcription.dir/codegen
+src/codegen: src/CMakeFiles/onsets-and-frames.dir/codegen
+src/codegen: src/CMakeFiles/hft-transformer.dir/codegen
 src/codegen: src/CMakeFiles/basic-pitch.dir/codegen
 src/codegen: src/CMakeFiles/mt3.dir/codegen
 src/codegen: src/CMakeFiles/audioseal.dir/codegen
@@ -971,6 +984,8 @@ src/clean: src/CMakeFiles/snac.dir/clean
 src/clean: src/CMakeFiles/crispasr-llama-core.dir/clean
 src/clean: src/CMakeFiles/nemotron.dir/clean
 src/clean: src/CMakeFiles/gigaam.dir/clean
+src/clean: src/CMakeFiles/dolphin.dir/clean
+src/clean: src/CMakeFiles/xasr.dir/clean
 src/clean: src/CMakeFiles/wespeaker.dir/clean
 src/clean: src/CMakeFiles/parakeet.dir/clean
 src/clean: src/CMakeFiles/qwen3_asr.dir/clean
@@ -997,6 +1012,7 @@ src/clean: src/CMakeFiles/ark_asr.dir/clean
 src/clean: src/CMakeFiles/moss_audio.dir/clean
 src/clean: src/CMakeFiles/moss_tts.dir/clean
 src/clean: src/CMakeFiles/moss_tts_local.dir/clean
+src/clean: src/CMakeFiles/hojo_asr.dir/clean
 src/clean: src/CMakeFiles/moss_transcribe.dir/clean
 src/clean: src/CMakeFiles/moss_transcribe_diarize.dir/clean
 src/clean: src/CMakeFiles/qwen3_tts.dir/clean
@@ -1006,6 +1022,8 @@ src/clean: src/CMakeFiles/miocodec.dir/clean
 src/clean: src/CMakeFiles/omnivoice.dir/clean
 src/clean: src/CMakeFiles/orpheus.dir/clean
 src/clean: src/CMakeFiles/piano-transcription.dir/clean
+src/clean: src/CMakeFiles/onsets-and-frames.dir/clean
+src/clean: src/CMakeFiles/hft-transformer.dir/clean
 src/clean: src/CMakeFiles/basic-pitch.dir/clean
 src/clean: src/CMakeFiles/mt3.dir/clean
 src/clean: src/CMakeFiles/audioseal.dir/clean
@@ -1216,6 +1234,8 @@ src/CMakeFiles/crispasr-lib.dir/all: src/CMakeFiles/snac.dir/all
 src/CMakeFiles/crispasr-lib.dir/all: src/CMakeFiles/crispasr-llama-core.dir/all
 src/CMakeFiles/crispasr-lib.dir/all: src/CMakeFiles/nemotron.dir/all
 src/CMakeFiles/crispasr-lib.dir/all: src/CMakeFiles/gigaam.dir/all
+src/CMakeFiles/crispasr-lib.dir/all: src/CMakeFiles/dolphin.dir/all
+src/CMakeFiles/crispasr-lib.dir/all: src/CMakeFiles/xasr.dir/all
 src/CMakeFiles/crispasr-lib.dir/all: src/CMakeFiles/wespeaker.dir/all
 src/CMakeFiles/crispasr-lib.dir/all: src/CMakeFiles/parakeet.dir/all
 src/CMakeFiles/crispasr-lib.dir/all: src/CMakeFiles/qwen3_asr.dir/all
@@ -1242,6 +1262,7 @@ src/CMakeFiles/crispasr-lib.dir/all: src/CMakeFiles/ark_asr.dir/all
 src/CMakeFiles/crispasr-lib.dir/all: src/CMakeFiles/moss_audio.dir/all
 src/CMakeFiles/crispasr-lib.dir/all: src/CMakeFiles/moss_tts.dir/all
 src/CMakeFiles/crispasr-lib.dir/all: src/CMakeFiles/moss_tts_local.dir/all
+src/CMakeFiles/crispasr-lib.dir/all: src/CMakeFiles/hojo_asr.dir/all
 src/CMakeFiles/crispasr-lib.dir/all: src/CMakeFiles/moss_transcribe.dir/all
 src/CMakeFiles/crispasr-lib.dir/all: src/CMakeFiles/moss_transcribe_diarize.dir/all
 src/CMakeFiles/crispasr-lib.dir/all: src/CMakeFiles/qwen3_tts.dir/all
@@ -1250,6 +1271,8 @@ src/CMakeFiles/crispasr-lib.dir/all: src/CMakeFiles/miotts.dir/all
 src/CMakeFiles/crispasr-lib.dir/all: src/CMakeFiles/omnivoice.dir/all
 src/CMakeFiles/crispasr-lib.dir/all: src/CMakeFiles/orpheus.dir/all
 src/CMakeFiles/crispasr-lib.dir/all: src/CMakeFiles/piano-transcription.dir/all
+src/CMakeFiles/crispasr-lib.dir/all: src/CMakeFiles/onsets-and-frames.dir/all
+src/CMakeFiles/crispasr-lib.dir/all: src/CMakeFiles/hft-transformer.dir/all
 src/CMakeFiles/crispasr-lib.dir/all: src/CMakeFiles/basic-pitch.dir/all
 src/CMakeFiles/crispasr-lib.dir/all: src/CMakeFiles/mt3.dir/all
 src/CMakeFiles/crispasr-lib.dir/all: src/CMakeFiles/audioseal.dir/all
@@ -1318,7 +1341,7 @@ src/CMakeFiles/crispasr-lib.dir/all: crisp_audio/CMakeFiles/crisp_audio.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/crispasr-lib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 82
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 79
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/crispasr-lib.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/crispasr-lib.dir/rule
@@ -1386,7 +1409,7 @@ src/CMakeFiles/cohere.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/cohere.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/cohere.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/cohere.dir/rule
@@ -1422,7 +1445,7 @@ src/CMakeFiles/canary.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/canary.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/canary.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/canary.dir/rule
@@ -1458,7 +1481,7 @@ src/CMakeFiles/canary_qwen.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/canary_qwen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/canary_qwen.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/canary_qwen.dir/rule
@@ -1494,7 +1517,7 @@ src/CMakeFiles/canary_ctc.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/canary_ctc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/canary_ctc.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/canary_ctc.dir/rule
@@ -1530,7 +1553,7 @@ src/CMakeFiles/lfm2_audio.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/lfm2_audio.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/lfm2_audio.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/lfm2_audio.dir/rule
@@ -1560,12 +1583,12 @@ src/CMakeFiles/crispasr-core.dir/all: ggml/src/CMakeFiles/ggml-cpu.dir/all
 src/CMakeFiles/crispasr-core.dir/all: ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/crispasr-core.dir/build.make src/CMakeFiles/crispasr-core.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/crispasr-core.dir/build.make src/CMakeFiles/crispasr-core.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=21,22 "Built target crispasr-core"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=22 "Built target crispasr-core"
 .PHONY : src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/crispasr-core.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/crispasr-core.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/crispasr-core.dir/rule
@@ -1577,7 +1600,7 @@ crispasr-core: src/CMakeFiles/crispasr-core.dir/rule
 # codegen rule for target.
 src/CMakeFiles/crispasr-core.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/crispasr-core.dir/build.make src/CMakeFiles/crispasr-core.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=21,22 "Finished codegen for target crispasr-core"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=22 "Finished codegen for target crispasr-core"
 .PHONY : src/CMakeFiles/crispasr-core.dir/codegen
 
 # clean rule for target.
@@ -1596,12 +1619,12 @@ src/CMakeFiles/snac.dir/all: ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/all
 src/CMakeFiles/snac.dir/all: src/CMakeFiles/crispasr-core.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/snac.dir/build.make src/CMakeFiles/snac.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/snac.dir/build.make src/CMakeFiles/snac.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=92 "Built target snac"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target snac"
 .PHONY : src/CMakeFiles/snac.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/snac.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/snac.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/snac.dir/rule
@@ -1613,7 +1636,7 @@ snac: src/CMakeFiles/snac.dir/rule
 # codegen rule for target.
 src/CMakeFiles/snac.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/snac.dir/build.make src/CMakeFiles/snac.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=92 "Finished codegen for target snac"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target snac"
 .PHONY : src/CMakeFiles/snac.dir/codegen
 
 # clean rule for target.
@@ -1631,12 +1654,12 @@ src/CMakeFiles/crispasr-llama-core.dir/all: ggml/src/CMakeFiles/ggml-cpu.dir/all
 src/CMakeFiles/crispasr-llama-core.dir/all: ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/crispasr-llama-core.dir/build.make src/CMakeFiles/crispasr-llama-core.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/crispasr-llama-core.dir/build.make src/CMakeFiles/crispasr-llama-core.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44 "Built target crispasr-llama-core"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43 "Built target crispasr-llama-core"
 .PHONY : src/CMakeFiles/crispasr-llama-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/crispasr-llama-core.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 40
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 39
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/crispasr-llama-core.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/crispasr-llama-core.dir/rule
@@ -1648,7 +1671,7 @@ crispasr-llama-core: src/CMakeFiles/crispasr-llama-core.dir/rule
 # codegen rule for target.
 src/CMakeFiles/crispasr-llama-core.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/crispasr-llama-core.dir/build.make src/CMakeFiles/crispasr-llama-core.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44 "Finished codegen for target crispasr-llama-core"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43 "Finished codegen for target crispasr-llama-core"
 .PHONY : src/CMakeFiles/crispasr-llama-core.dir/codegen
 
 # clean rule for target.
@@ -1672,7 +1695,7 @@ src/CMakeFiles/nemotron.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/nemotron.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/nemotron.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/nemotron.dir/rule
@@ -1708,7 +1731,7 @@ src/CMakeFiles/gigaam.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/gigaam.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/gigaam.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/gigaam.dir/rule
@@ -1729,6 +1752,78 @@ src/CMakeFiles/gigaam.dir/clean:
 .PHONY : src/CMakeFiles/gigaam.dir/clean
 
 #=============================================================================
+# Target rules for target src/CMakeFiles/dolphin.dir
+
+# All Build rule for target.
+src/CMakeFiles/dolphin.dir/all: ggml/src/CMakeFiles/ggml-base.dir/all
+src/CMakeFiles/dolphin.dir/all: ggml/src/CMakeFiles/ggml.dir/all
+src/CMakeFiles/dolphin.dir/all: ggml/src/CMakeFiles/ggml-cpu.dir/all
+src/CMakeFiles/dolphin.dir/all: ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/all
+src/CMakeFiles/dolphin.dir/all: src/CMakeFiles/crispasr-core.dir/all
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/dolphin.dir/build.make src/CMakeFiles/dolphin.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/dolphin.dir/build.make src/CMakeFiles/dolphin.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target dolphin"
+.PHONY : src/CMakeFiles/dolphin.dir/all
+
+# Build rule for subdir invocation for target.
+src/CMakeFiles/dolphin.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/dolphin.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
+.PHONY : src/CMakeFiles/dolphin.dir/rule
+
+# Convenience name for target.
+dolphin: src/CMakeFiles/dolphin.dir/rule
+.PHONY : dolphin
+
+# codegen rule for target.
+src/CMakeFiles/dolphin.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/dolphin.dir/build.make src/CMakeFiles/dolphin.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target dolphin"
+.PHONY : src/CMakeFiles/dolphin.dir/codegen
+
+# clean rule for target.
+src/CMakeFiles/dolphin.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/dolphin.dir/build.make src/CMakeFiles/dolphin.dir/clean
+.PHONY : src/CMakeFiles/dolphin.dir/clean
+
+#=============================================================================
+# Target rules for target src/CMakeFiles/xasr.dir
+
+# All Build rule for target.
+src/CMakeFiles/xasr.dir/all: ggml/src/CMakeFiles/ggml-base.dir/all
+src/CMakeFiles/xasr.dir/all: ggml/src/CMakeFiles/ggml.dir/all
+src/CMakeFiles/xasr.dir/all: ggml/src/CMakeFiles/ggml-cpu.dir/all
+src/CMakeFiles/xasr.dir/all: ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/all
+src/CMakeFiles/xasr.dir/all: src/CMakeFiles/crispasr-core.dir/all
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/xasr.dir/build.make src/CMakeFiles/xasr.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/xasr.dir/build.make src/CMakeFiles/xasr.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target xasr"
+.PHONY : src/CMakeFiles/xasr.dir/all
+
+# Build rule for subdir invocation for target.
+src/CMakeFiles/xasr.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/xasr.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
+.PHONY : src/CMakeFiles/xasr.dir/rule
+
+# Convenience name for target.
+xasr: src/CMakeFiles/xasr.dir/rule
+.PHONY : xasr
+
+# codegen rule for target.
+src/CMakeFiles/xasr.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/xasr.dir/build.make src/CMakeFiles/xasr.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target xasr"
+.PHONY : src/CMakeFiles/xasr.dir/codegen
+
+# clean rule for target.
+src/CMakeFiles/xasr.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/xasr.dir/build.make src/CMakeFiles/xasr.dir/clean
+.PHONY : src/CMakeFiles/xasr.dir/clean
+
+#=============================================================================
 # Target rules for target src/CMakeFiles/wespeaker.dir
 
 # All Build rule for target.
@@ -1744,7 +1839,7 @@ src/CMakeFiles/wespeaker.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/wespeaker.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/wespeaker.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/wespeaker.dir/rule
@@ -1780,7 +1875,7 @@ src/CMakeFiles/parakeet.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/parakeet.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/parakeet.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/parakeet.dir/rule
@@ -1853,7 +1948,7 @@ src/CMakeFiles/funasr.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/funasr.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/funasr.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/funasr.dir/rule
@@ -1889,7 +1984,7 @@ src/CMakeFiles/paraformer.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/paraformer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/paraformer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/paraformer.dir/rule
@@ -1920,7 +2015,7 @@ src/CMakeFiles/sensevoice.dir/all: ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/a
 src/CMakeFiles/sensevoice.dir/all: src/CMakeFiles/crispasr-core.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/sensevoice.dir/build.make src/CMakeFiles/sensevoice.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/sensevoice.dir/build.make src/CMakeFiles/sensevoice.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target sensevoice"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=91 "Built target sensevoice"
 .PHONY : src/CMakeFiles/sensevoice.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1937,7 +2032,7 @@ sensevoice: src/CMakeFiles/sensevoice.dir/rule
 # codegen rule for target.
 src/CMakeFiles/sensevoice.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/sensevoice.dir/build.make src/CMakeFiles/sensevoice.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target sensevoice"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=91 "Finished codegen for target sensevoice"
 .PHONY : src/CMakeFiles/sensevoice.dir/codegen
 
 # clean rule for target.
@@ -1961,7 +2056,7 @@ src/CMakeFiles/sidon.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/sidon.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/sidon.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/sidon.dir/rule
@@ -1997,7 +2092,7 @@ src/CMakeFiles/voxtral.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/voxtral.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/voxtral.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/voxtral.dir/rule
@@ -2028,12 +2123,12 @@ src/CMakeFiles/voxtral4b.dir/all: ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/al
 src/CMakeFiles/voxtral4b.dir/all: src/CMakeFiles/crispasr-core.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/voxtral4b.dir/build.make src/CMakeFiles/voxtral4b.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/voxtral4b.dir/build.make src/CMakeFiles/voxtral4b.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=96 "Built target voxtral4b"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target voxtral4b"
 .PHONY : src/CMakeFiles/voxtral4b.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/voxtral4b.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/voxtral4b.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/voxtral4b.dir/rule
@@ -2045,7 +2140,7 @@ voxtral4b: src/CMakeFiles/voxtral4b.dir/rule
 # codegen rule for target.
 src/CMakeFiles/voxtral4b.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/voxtral4b.dir/build.make src/CMakeFiles/voxtral4b.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=96 "Finished codegen for target voxtral4b"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target voxtral4b"
 .PHONY : src/CMakeFiles/voxtral4b.dir/codegen
 
 # clean rule for target.
@@ -2064,7 +2159,7 @@ src/CMakeFiles/voxtral_tts.dir/all: ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/
 src/CMakeFiles/voxtral_tts.dir/all: src/CMakeFiles/crispasr-core.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/voxtral_tts.dir/build.make src/CMakeFiles/voxtral_tts.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/voxtral_tts.dir/build.make src/CMakeFiles/voxtral_tts.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target voxtral_tts"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=96 "Built target voxtral_tts"
 .PHONY : src/CMakeFiles/voxtral_tts.dir/all
 
 # Build rule for subdir invocation for target.
@@ -2081,7 +2176,7 @@ voxtral_tts: src/CMakeFiles/voxtral_tts.dir/rule
 # codegen rule for target.
 src/CMakeFiles/voxtral_tts.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/voxtral_tts.dir/build.make src/CMakeFiles/voxtral_tts.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target voxtral_tts"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=96 "Finished codegen for target voxtral_tts"
 .PHONY : src/CMakeFiles/voxtral_tts.dir/codegen
 
 # clean rule for target.
@@ -2101,12 +2196,12 @@ src/CMakeFiles/higgs_stt.dir/all: src/CMakeFiles/crispasr-core.dir/all
 src/CMakeFiles/higgs_stt.dir/all: crisp_audio/CMakeFiles/crisp_audio.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/higgs_stt.dir/build.make src/CMakeFiles/higgs_stt.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/higgs_stt.dir/build.make src/CMakeFiles/higgs_stt.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=78 "Built target higgs_stt"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target higgs_stt"
 .PHONY : src/CMakeFiles/higgs_stt.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/higgs_stt.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/higgs_stt.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/higgs_stt.dir/rule
@@ -2118,7 +2213,7 @@ higgs_stt: src/CMakeFiles/higgs_stt.dir/rule
 # codegen rule for target.
 src/CMakeFiles/higgs_stt.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/higgs_stt.dir/build.make src/CMakeFiles/higgs_stt.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=78 "Finished codegen for target higgs_stt"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target higgs_stt"
 .PHONY : src/CMakeFiles/higgs_stt.dir/codegen
 
 # clean rule for target.
@@ -2142,7 +2237,7 @@ src/CMakeFiles/granite_speech.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/granite_speech.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/granite_speech.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/granite_speech.dir/rule
@@ -2173,7 +2268,7 @@ src/CMakeFiles/granite_nle.dir/all: ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/
 src/CMakeFiles/granite_nle.dir/all: src/CMakeFiles/crispasr-core.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/granite_nle.dir/build.make src/CMakeFiles/granite_nle.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/granite_nle.dir/build.make src/CMakeFiles/granite_nle.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target granite_nle"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=77 "Built target granite_nle"
 .PHONY : src/CMakeFiles/granite_nle.dir/all
 
 # Build rule for subdir invocation for target.
@@ -2190,7 +2285,7 @@ granite_nle: src/CMakeFiles/granite_nle.dir/rule
 # codegen rule for target.
 src/CMakeFiles/granite_nle.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/granite_nle.dir/build.make src/CMakeFiles/granite_nle.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target granite_nle"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=77 "Finished codegen for target granite_nle"
 .PHONY : src/CMakeFiles/granite_nle.dir/codegen
 
 # clean rule for target.
@@ -2214,7 +2309,7 @@ src/CMakeFiles/glm-asr.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/glm-asr.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/glm-asr.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/glm-asr.dir/rule
@@ -2246,12 +2341,12 @@ src/CMakeFiles/mini-omni2.dir/all: src/CMakeFiles/crispasr-core.dir/all
 src/CMakeFiles/mini-omni2.dir/all: src/CMakeFiles/snac.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/mini-omni2.dir/build.make src/CMakeFiles/mini-omni2.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/mini-omni2.dir/build.make src/CMakeFiles/mini-omni2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=82 "Built target mini-omni2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target mini-omni2"
 .PHONY : src/CMakeFiles/mini-omni2.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/mini-omni2.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 26
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/mini-omni2.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/mini-omni2.dir/rule
@@ -2263,7 +2358,7 @@ mini-omni2: src/CMakeFiles/mini-omni2.dir/rule
 # codegen rule for target.
 src/CMakeFiles/mini-omni2.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/mini-omni2.dir/build.make src/CMakeFiles/mini-omni2.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=82 "Finished codegen for target mini-omni2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target mini-omni2"
 .PHONY : src/CMakeFiles/mini-omni2.dir/codegen
 
 # clean rule for target.
@@ -2287,7 +2382,7 @@ src/CMakeFiles/kyutai-stt.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/kyutai-stt.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/kyutai-stt.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/kyutai-stt.dir/rule
@@ -2317,12 +2412,12 @@ src/CMakeFiles/moonshine_tokenizer.dir/all: ggml/src/CMakeFiles/ggml-cpu.dir/all
 src/CMakeFiles/moonshine_tokenizer.dir/all: ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/moonshine_tokenizer.dir/build.make src/CMakeFiles/moonshine_tokenizer.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/moonshine_tokenizer.dir/build.make src/CMakeFiles/moonshine_tokenizer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target moonshine_tokenizer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=83 "Built target moonshine_tokenizer"
 .PHONY : src/CMakeFiles/moonshine_tokenizer.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/moonshine_tokenizer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 22
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/moonshine_tokenizer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/moonshine_tokenizer.dir/rule
@@ -2334,7 +2429,7 @@ moonshine_tokenizer: src/CMakeFiles/moonshine_tokenizer.dir/rule
 # codegen rule for target.
 src/CMakeFiles/moonshine_tokenizer.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/moonshine_tokenizer.dir/build.make src/CMakeFiles/moonshine_tokenizer.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target moonshine_tokenizer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=83 "Finished codegen for target moonshine_tokenizer"
 .PHONY : src/CMakeFiles/moonshine_tokenizer.dir/codegen
 
 # clean rule for target.
@@ -2358,7 +2453,7 @@ src/CMakeFiles/moonshine.dir/all: src/CMakeFiles/moonshine_tokenizer.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/moonshine.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 22
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/moonshine.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/moonshine.dir/rule
@@ -2389,7 +2484,7 @@ src/CMakeFiles/moonshine_streaming.dir/all: ggml/src/ggml-cuda/CMakeFiles/ggml-c
 src/CMakeFiles/moonshine_streaming.dir/all: src/CMakeFiles/moonshine_tokenizer.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/moonshine_streaming.dir/build.make src/CMakeFiles/moonshine_streaming.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/moonshine_streaming.dir/build.make src/CMakeFiles/moonshine_streaming.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=83 "Built target moonshine_streaming"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target moonshine_streaming"
 .PHONY : src/CMakeFiles/moonshine_streaming.dir/all
 
 # Build rule for subdir invocation for target.
@@ -2406,7 +2501,7 @@ moonshine_streaming: src/CMakeFiles/moonshine_streaming.dir/rule
 # codegen rule for target.
 src/CMakeFiles/moonshine_streaming.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/moonshine_streaming.dir/build.make src/CMakeFiles/moonshine_streaming.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=83 "Finished codegen for target moonshine_streaming"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target moonshine_streaming"
 .PHONY : src/CMakeFiles/moonshine_streaming.dir/codegen
 
 # clean rule for target.
@@ -2465,7 +2560,7 @@ src/CMakeFiles/mimo_tokenizer.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/mimo_tokenizer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/mimo_tokenizer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/mimo_tokenizer.dir/rule
@@ -2502,7 +2597,7 @@ src/CMakeFiles/mimo_asr.dir/all: src/CMakeFiles/mimo_tokenizer.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/mimo_asr.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/mimo_asr.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/mimo_asr.dir/rule
@@ -2538,7 +2633,7 @@ src/CMakeFiles/ark_asr.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/ark_asr.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/ark_asr.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/ark_asr.dir/rule
@@ -2574,7 +2669,7 @@ src/CMakeFiles/moss_audio.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/moss_audio.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/moss_audio.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/moss_audio.dir/rule
@@ -2610,7 +2705,7 @@ src/CMakeFiles/moss_tts.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/moss_tts.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/moss_tts.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/moss_tts.dir/rule
@@ -2641,12 +2736,12 @@ src/CMakeFiles/moss_tts_local.dir/all: ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.d
 src/CMakeFiles/moss_tts_local.dir/all: src/CMakeFiles/crispasr-core.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/moss_tts_local.dir/build.make src/CMakeFiles/moss_tts_local.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/moss_tts_local.dir/build.make src/CMakeFiles/moss_tts_local.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=85 "Built target moss_tts_local"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target moss_tts_local"
 .PHONY : src/CMakeFiles/moss_tts_local.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/moss_tts_local.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/moss_tts_local.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/moss_tts_local.dir/rule
@@ -2658,13 +2753,49 @@ moss_tts_local: src/CMakeFiles/moss_tts_local.dir/rule
 # codegen rule for target.
 src/CMakeFiles/moss_tts_local.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/moss_tts_local.dir/build.make src/CMakeFiles/moss_tts_local.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=85 "Finished codegen for target moss_tts_local"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target moss_tts_local"
 .PHONY : src/CMakeFiles/moss_tts_local.dir/codegen
 
 # clean rule for target.
 src/CMakeFiles/moss_tts_local.dir/clean:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/moss_tts_local.dir/build.make src/CMakeFiles/moss_tts_local.dir/clean
 .PHONY : src/CMakeFiles/moss_tts_local.dir/clean
+
+#=============================================================================
+# Target rules for target src/CMakeFiles/hojo_asr.dir
+
+# All Build rule for target.
+src/CMakeFiles/hojo_asr.dir/all: ggml/src/CMakeFiles/ggml-base.dir/all
+src/CMakeFiles/hojo_asr.dir/all: ggml/src/CMakeFiles/ggml.dir/all
+src/CMakeFiles/hojo_asr.dir/all: ggml/src/CMakeFiles/ggml-cpu.dir/all
+src/CMakeFiles/hojo_asr.dir/all: ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/all
+src/CMakeFiles/hojo_asr.dir/all: src/CMakeFiles/crispasr-core.dir/all
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/hojo_asr.dir/build.make src/CMakeFiles/hojo_asr.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/hojo_asr.dir/build.make src/CMakeFiles/hojo_asr.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target hojo_asr"
+.PHONY : src/CMakeFiles/hojo_asr.dir/all
+
+# Build rule for subdir invocation for target.
+src/CMakeFiles/hojo_asr.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/hojo_asr.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
+.PHONY : src/CMakeFiles/hojo_asr.dir/rule
+
+# Convenience name for target.
+hojo_asr: src/CMakeFiles/hojo_asr.dir/rule
+.PHONY : hojo_asr
+
+# codegen rule for target.
+src/CMakeFiles/hojo_asr.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/hojo_asr.dir/build.make src/CMakeFiles/hojo_asr.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target hojo_asr"
+.PHONY : src/CMakeFiles/hojo_asr.dir/codegen
+
+# clean rule for target.
+src/CMakeFiles/hojo_asr.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/hojo_asr.dir/build.make src/CMakeFiles/hojo_asr.dir/clean
+.PHONY : src/CMakeFiles/hojo_asr.dir/clean
 
 #=============================================================================
 # Target rules for target src/CMakeFiles/moss_transcribe.dir
@@ -2677,12 +2808,12 @@ src/CMakeFiles/moss_transcribe.dir/all: ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.
 src/CMakeFiles/moss_transcribe.dir/all: src/CMakeFiles/crispasr-core.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/moss_transcribe.dir/build.make src/CMakeFiles/moss_transcribe.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/moss_transcribe.dir/build.make src/CMakeFiles/moss_transcribe.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=84 "Built target moss_transcribe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target moss_transcribe"
 .PHONY : src/CMakeFiles/moss_transcribe.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/moss_transcribe.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/moss_transcribe.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/moss_transcribe.dir/rule
@@ -2694,7 +2825,7 @@ moss_transcribe: src/CMakeFiles/moss_transcribe.dir/rule
 # codegen rule for target.
 src/CMakeFiles/moss_transcribe.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/moss_transcribe.dir/build.make src/CMakeFiles/moss_transcribe.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=84 "Finished codegen for target moss_transcribe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target moss_transcribe"
 .PHONY : src/CMakeFiles/moss_transcribe.dir/codegen
 
 # clean rule for target.
@@ -2713,7 +2844,7 @@ src/CMakeFiles/moss_transcribe_diarize.dir/all: ggml/src/ggml-cuda/CMakeFiles/gg
 src/CMakeFiles/moss_transcribe_diarize.dir/all: src/CMakeFiles/crispasr-core.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/moss_transcribe_diarize.dir/build.make src/CMakeFiles/moss_transcribe_diarize.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/moss_transcribe_diarize.dir/build.make src/CMakeFiles/moss_transcribe_diarize.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target moss_transcribe_diarize"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=84 "Built target moss_transcribe_diarize"
 .PHONY : src/CMakeFiles/moss_transcribe_diarize.dir/all
 
 # Build rule for subdir invocation for target.
@@ -2730,7 +2861,7 @@ moss_transcribe_diarize: src/CMakeFiles/moss_transcribe_diarize.dir/rule
 # codegen rule for target.
 src/CMakeFiles/moss_transcribe_diarize.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/moss_transcribe_diarize.dir/build.make src/CMakeFiles/moss_transcribe_diarize.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target moss_transcribe_diarize"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=84 "Finished codegen for target moss_transcribe_diarize"
 .PHONY : src/CMakeFiles/moss_transcribe_diarize.dir/codegen
 
 # clean rule for target.
@@ -2754,7 +2885,7 @@ src/CMakeFiles/qwen3_tts.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/qwen3_tts.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/qwen3_tts.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/qwen3_tts.dir/rule
@@ -2791,7 +2922,7 @@ src/CMakeFiles/breeze_tts_2.dir/all: src/CMakeFiles/qwen3_tts.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/breeze_tts_2.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/breeze_tts_2.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/breeze_tts_2.dir/rule
@@ -2827,7 +2958,7 @@ src/CMakeFiles/miotts.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/miotts.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/miotts.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/miotts.dir/rule
@@ -2858,7 +2989,7 @@ src/CMakeFiles/miocodec.dir/all: ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/all
 src/CMakeFiles/miocodec.dir/all: src/CMakeFiles/crispasr-core.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/miocodec.dir/build.make src/CMakeFiles/miocodec.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/miocodec.dir/build.make src/CMakeFiles/miocodec.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target miocodec"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=82 "Built target miocodec"
 .PHONY : src/CMakeFiles/miocodec.dir/all
 
 # Build rule for subdir invocation for target.
@@ -2875,7 +3006,7 @@ miocodec: src/CMakeFiles/miocodec.dir/rule
 # codegen rule for target.
 src/CMakeFiles/miocodec.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/miocodec.dir/build.make src/CMakeFiles/miocodec.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target miocodec"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=82 "Finished codegen for target miocodec"
 .PHONY : src/CMakeFiles/miocodec.dir/codegen
 
 # clean rule for target.
@@ -2894,7 +3025,7 @@ src/CMakeFiles/omnivoice.dir/all: ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/al
 src/CMakeFiles/omnivoice.dir/all: src/CMakeFiles/crispasr-core.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/omnivoice.dir/build.make src/CMakeFiles/omnivoice.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/omnivoice.dir/build.make src/CMakeFiles/omnivoice.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target omnivoice"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=86 "Built target omnivoice"
 .PHONY : src/CMakeFiles/omnivoice.dir/all
 
 # Build rule for subdir invocation for target.
@@ -2911,7 +3042,7 @@ omnivoice: src/CMakeFiles/omnivoice.dir/rule
 # codegen rule for target.
 src/CMakeFiles/omnivoice.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/omnivoice.dir/build.make src/CMakeFiles/omnivoice.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target omnivoice"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=86 "Finished codegen for target omnivoice"
 .PHONY : src/CMakeFiles/omnivoice.dir/codegen
 
 # clean rule for target.
@@ -2936,7 +3067,7 @@ src/CMakeFiles/orpheus.dir/all: src/CMakeFiles/snac.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/orpheus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/orpheus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/orpheus.dir/rule
@@ -2972,7 +3103,7 @@ src/CMakeFiles/piano-transcription.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/piano-transcription.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/piano-transcription.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/piano-transcription.dir/rule
@@ -2993,6 +3124,78 @@ src/CMakeFiles/piano-transcription.dir/clean:
 .PHONY : src/CMakeFiles/piano-transcription.dir/clean
 
 #=============================================================================
+# Target rules for target src/CMakeFiles/onsets-and-frames.dir
+
+# All Build rule for target.
+src/CMakeFiles/onsets-and-frames.dir/all: ggml/src/CMakeFiles/ggml-base.dir/all
+src/CMakeFiles/onsets-and-frames.dir/all: ggml/src/CMakeFiles/ggml.dir/all
+src/CMakeFiles/onsets-and-frames.dir/all: ggml/src/CMakeFiles/ggml-cpu.dir/all
+src/CMakeFiles/onsets-and-frames.dir/all: ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/all
+src/CMakeFiles/onsets-and-frames.dir/all: src/CMakeFiles/crispasr-core.dir/all
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/onsets-and-frames.dir/build.make src/CMakeFiles/onsets-and-frames.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/onsets-and-frames.dir/build.make src/CMakeFiles/onsets-and-frames.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target onsets-and-frames"
+.PHONY : src/CMakeFiles/onsets-and-frames.dir/all
+
+# Build rule for subdir invocation for target.
+src/CMakeFiles/onsets-and-frames.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/onsets-and-frames.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
+.PHONY : src/CMakeFiles/onsets-and-frames.dir/rule
+
+# Convenience name for target.
+onsets-and-frames: src/CMakeFiles/onsets-and-frames.dir/rule
+.PHONY : onsets-and-frames
+
+# codegen rule for target.
+src/CMakeFiles/onsets-and-frames.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/onsets-and-frames.dir/build.make src/CMakeFiles/onsets-and-frames.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target onsets-and-frames"
+.PHONY : src/CMakeFiles/onsets-and-frames.dir/codegen
+
+# clean rule for target.
+src/CMakeFiles/onsets-and-frames.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/onsets-and-frames.dir/build.make src/CMakeFiles/onsets-and-frames.dir/clean
+.PHONY : src/CMakeFiles/onsets-and-frames.dir/clean
+
+#=============================================================================
+# Target rules for target src/CMakeFiles/hft-transformer.dir
+
+# All Build rule for target.
+src/CMakeFiles/hft-transformer.dir/all: ggml/src/CMakeFiles/ggml-base.dir/all
+src/CMakeFiles/hft-transformer.dir/all: ggml/src/CMakeFiles/ggml.dir/all
+src/CMakeFiles/hft-transformer.dir/all: ggml/src/CMakeFiles/ggml-cpu.dir/all
+src/CMakeFiles/hft-transformer.dir/all: ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/all
+src/CMakeFiles/hft-transformer.dir/all: src/CMakeFiles/crispasr-core.dir/all
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/hft-transformer.dir/build.make src/CMakeFiles/hft-transformer.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/hft-transformer.dir/build.make src/CMakeFiles/hft-transformer.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target hft-transformer"
+.PHONY : src/CMakeFiles/hft-transformer.dir/all
+
+# Build rule for subdir invocation for target.
+src/CMakeFiles/hft-transformer.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/hft-transformer.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
+.PHONY : src/CMakeFiles/hft-transformer.dir/rule
+
+# Convenience name for target.
+hft-transformer: src/CMakeFiles/hft-transformer.dir/rule
+.PHONY : hft-transformer
+
+# codegen rule for target.
+src/CMakeFiles/hft-transformer.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/hft-transformer.dir/build.make src/CMakeFiles/hft-transformer.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target hft-transformer"
+.PHONY : src/CMakeFiles/hft-transformer.dir/codegen
+
+# clean rule for target.
+src/CMakeFiles/hft-transformer.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/hft-transformer.dir/build.make src/CMakeFiles/hft-transformer.dir/clean
+.PHONY : src/CMakeFiles/hft-transformer.dir/clean
+
+#=============================================================================
 # Target rules for target src/CMakeFiles/basic-pitch.dir
 
 # All Build rule for target.
@@ -3008,7 +3211,7 @@ src/CMakeFiles/basic-pitch.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/basic-pitch.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/basic-pitch.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/basic-pitch.dir/rule
@@ -3039,7 +3242,7 @@ src/CMakeFiles/mt3.dir/all: ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/all
 src/CMakeFiles/mt3.dir/all: src/CMakeFiles/crispasr-core.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/mt3.dir/build.make src/CMakeFiles/mt3.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/mt3.dir/build.make src/CMakeFiles/mt3.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target mt3"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=85 "Built target mt3"
 .PHONY : src/CMakeFiles/mt3.dir/all
 
 # Build rule for subdir invocation for target.
@@ -3056,7 +3259,7 @@ mt3: src/CMakeFiles/mt3.dir/rule
 # codegen rule for target.
 src/CMakeFiles/mt3.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/mt3.dir/build.make src/CMakeFiles/mt3.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target mt3"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=85 "Finished codegen for target mt3"
 .PHONY : src/CMakeFiles/mt3.dir/codegen
 
 # clean rule for target.
@@ -3080,7 +3283,7 @@ src/CMakeFiles/audioseal.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/audioseal.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/audioseal.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/audioseal.dir/rule
@@ -3116,7 +3319,7 @@ src/CMakeFiles/chatterbox.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/chatterbox.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/chatterbox.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/chatterbox.dir/rule
@@ -3192,7 +3395,7 @@ src/CMakeFiles/tada-encoder.dir/all: src/CMakeFiles/wav2vec2-ggml.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/tada-encoder.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/tada-encoder.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/tada-encoder.dir/rule
@@ -3223,7 +3426,7 @@ src/CMakeFiles/tada-codec.dir/all: ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/a
 src/CMakeFiles/tada-codec.dir/all: src/CMakeFiles/crispasr-core.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/tada-codec.dir/build.make src/CMakeFiles/tada-codec.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/tada-codec.dir/build.make src/CMakeFiles/tada-codec.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target tada-codec"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=93 "Built target tada-codec"
 .PHONY : src/CMakeFiles/tada-codec.dir/all
 
 # Build rule for subdir invocation for target.
@@ -3240,7 +3443,7 @@ tada-codec: src/CMakeFiles/tada-codec.dir/rule
 # codegen rule for target.
 src/CMakeFiles/tada-codec.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/tada-codec.dir/build.make src/CMakeFiles/tada-codec.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target tada-codec"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=93 "Finished codegen for target tada-codec"
 .PHONY : src/CMakeFiles/tada-codec.dir/codegen
 
 # clean rule for target.
@@ -3264,7 +3467,7 @@ src/CMakeFiles/indextts.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/indextts.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/indextts.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/indextts.dir/rule
@@ -3300,7 +3503,7 @@ src/CMakeFiles/m2m100.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/m2m100.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/m2m100.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/m2m100.dir/rule
@@ -3336,7 +3539,7 @@ src/CMakeFiles/t5_translate.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/t5_translate.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/t5_translate.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/t5_translate.dir/rule
@@ -3367,12 +3570,12 @@ src/CMakeFiles/omniasr.dir/all: ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/all
 src/CMakeFiles/omniasr.dir/all: src/CMakeFiles/crispasr-core.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/omniasr.dir/build.make src/CMakeFiles/omniasr.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/omniasr.dir/build.make src/CMakeFiles/omniasr.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=86 "Built target omniasr"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target omniasr"
 .PHONY : src/CMakeFiles/omniasr.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/omniasr.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/omniasr.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/omniasr.dir/rule
@@ -3384,7 +3587,7 @@ omniasr: src/CMakeFiles/omniasr.dir/rule
 # codegen rule for target.
 src/CMakeFiles/omniasr.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/omniasr.dir/build.make src/CMakeFiles/omniasr.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=86 "Finished codegen for target omniasr"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target omniasr"
 .PHONY : src/CMakeFiles/omniasr.dir/codegen
 
 # clean rule for target.
@@ -3408,7 +3611,7 @@ src/CMakeFiles/ecapa-lid.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/ecapa-lid.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/ecapa-lid.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/ecapa-lid.dir/rule
@@ -3444,7 +3647,7 @@ src/CMakeFiles/titanet.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/titanet.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/titanet.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/titanet.dir/rule
@@ -3480,7 +3683,7 @@ src/CMakeFiles/vibevoice.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/vibevoice.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/vibevoice.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/vibevoice.dir/rule
@@ -3516,7 +3719,7 @@ src/CMakeFiles/kugelaudio.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/kugelaudio.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/kugelaudio.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/kugelaudio.dir/rule
@@ -3552,7 +3755,7 @@ src/CMakeFiles/voxcpm2_tts.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/voxcpm2_tts.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/voxcpm2_tts.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/voxcpm2_tts.dir/rule
@@ -3588,7 +3791,7 @@ src/CMakeFiles/cosyvoice3_tts.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/cosyvoice3_tts.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/cosyvoice3_tts.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/cosyvoice3_tts.dir/rule
@@ -3624,7 +3827,7 @@ src/CMakeFiles/kokoro.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/kokoro.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/kokoro.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/kokoro.dir/rule
@@ -3660,7 +3863,7 @@ src/CMakeFiles/outetts.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/outetts.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/outetts.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/outetts.dir/rule
@@ -3696,7 +3899,7 @@ src/CMakeFiles/supertonic-tts.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/supertonic-tts.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/supertonic-tts.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/supertonic-tts.dir/rule
@@ -3732,7 +3935,7 @@ src/CMakeFiles/irodori-tts.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/irodori-tts.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/irodori-tts.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/irodori-tts.dir/rule
@@ -3768,7 +3971,7 @@ src/CMakeFiles/f5-tts.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/f5-tts.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/f5-tts.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/f5-tts.dir/rule
@@ -3804,7 +4007,7 @@ src/CMakeFiles/csm-tts.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/csm-tts.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/csm-tts.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/csm-tts.dir/rule
@@ -3840,7 +4043,7 @@ src/CMakeFiles/pocket-tts.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/pocket-tts.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/pocket-tts.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/pocket-tts.dir/rule
@@ -3876,7 +4079,7 @@ src/CMakeFiles/parler-tts.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/parler-tts.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/parler-tts.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/parler-tts.dir/rule
@@ -3912,7 +4115,7 @@ src/CMakeFiles/zonos-tts.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/zonos-tts.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/zonos-tts.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/zonos-tts.dir/rule
@@ -3948,7 +4151,7 @@ src/CMakeFiles/bark-tts.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/bark-tts.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/bark-tts.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/bark-tts.dir/rule
@@ -3979,7 +4182,7 @@ src/CMakeFiles/dia-tts.dir/all: ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/all
 src/CMakeFiles/dia-tts.dir/all: src/CMakeFiles/crispasr-core.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/dia-tts.dir/build.make src/CMakeFiles/dia-tts.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/dia-tts.dir/build.make src/CMakeFiles/dia-tts.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target dia-tts"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=46 "Built target dia-tts"
 .PHONY : src/CMakeFiles/dia-tts.dir/all
 
 # Build rule for subdir invocation for target.
@@ -3996,7 +4199,7 @@ dia-tts: src/CMakeFiles/dia-tts.dir/rule
 # codegen rule for target.
 src/CMakeFiles/dia-tts.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/dia-tts.dir/build.make src/CMakeFiles/dia-tts.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target dia-tts"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=46 "Finished codegen for target dia-tts"
 .PHONY : src/CMakeFiles/dia-tts.dir/codegen
 
 # clean rule for target.
@@ -4020,7 +4223,7 @@ src/CMakeFiles/dots-tts.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/dots-tts.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/dots-tts.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/dots-tts.dir/rule
@@ -4057,7 +4260,7 @@ src/CMakeFiles/fireredtts3.dir/all: src/CMakeFiles/chatterbox.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/fireredtts3.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/fireredtts3.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/fireredtts3.dir/rule
@@ -4095,7 +4298,7 @@ src/CMakeFiles/confucius4-tts.dir/all: src/CMakeFiles/chatterbox.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/confucius4-tts.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/confucius4-tts.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/confucius4-tts.dir/rule
@@ -4131,7 +4334,7 @@ src/CMakeFiles/bananamind-tts.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/bananamind-tts.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/bananamind-tts.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/bananamind-tts.dir/rule
@@ -4167,7 +4370,7 @@ src/CMakeFiles/fastpitch-tts.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/fastpitch-tts.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/fastpitch-tts.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/fastpitch-tts.dir/rule
@@ -4203,7 +4406,7 @@ src/CMakeFiles/bert-encoder.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/bert-encoder.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/bert-encoder.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/bert-encoder.dir/rule
@@ -4240,7 +4443,7 @@ src/CMakeFiles/melotts.dir/all: src/CMakeFiles/bert-encoder.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/melotts.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/melotts.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/melotts.dir/rule
@@ -4276,7 +4479,7 @@ src/CMakeFiles/openvoice2.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/openvoice2.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/openvoice2.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/openvoice2.dir/rule
@@ -4312,7 +4515,7 @@ src/CMakeFiles/piper-tts.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/piper-tts.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/piper-tts.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/piper-tts.dir/rule
@@ -4343,7 +4546,7 @@ src/CMakeFiles/speecht5-tts.dir/all: ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir
 src/CMakeFiles/speecht5-tts.dir/all: src/CMakeFiles/crispasr-core.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/speecht5-tts.dir/build.make src/CMakeFiles/speecht5-tts.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/speecht5-tts.dir/build.make src/CMakeFiles/speecht5-tts.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target speecht5-tts"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=92 "Built target speecht5-tts"
 .PHONY : src/CMakeFiles/speecht5-tts.dir/all
 
 # Build rule for subdir invocation for target.
@@ -4360,7 +4563,7 @@ speecht5-tts: src/CMakeFiles/speecht5-tts.dir/rule
 # codegen rule for target.
 src/CMakeFiles/speecht5-tts.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/speecht5-tts.dir/build.make src/CMakeFiles/speecht5-tts.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target speecht5-tts"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=92 "Finished codegen for target speecht5-tts"
 .PHONY : src/CMakeFiles/speecht5-tts.dir/codegen
 
 # clean rule for target.
@@ -4384,7 +4587,7 @@ src/CMakeFiles/firered-vad.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/firered-vad.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/firered-vad.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/firered-vad.dir/rule
@@ -4523,7 +4726,7 @@ src/CMakeFiles/firered-lid.dir/all: src/CMakeFiles/firered-asr.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/firered-lid.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/firered-lid.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/firered-lid.dir/rule
@@ -4559,7 +4762,7 @@ src/CMakeFiles/firered-asr.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/firered-asr.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/firered-asr.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/firered-asr.dir/rule
@@ -4630,7 +4833,7 @@ src/CMakeFiles/pyannote-seg.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/pyannote-seg.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/pyannote-seg.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/pyannote-seg.dir/rule
@@ -4666,7 +4869,7 @@ src/CMakeFiles/silero-lid.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/silero-lid.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/silero-lid.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/silero-lid.dir/rule
@@ -4693,12 +4896,12 @@ src/CMakeFiles/silero-lid.dir/clean:
 src/CMakeFiles/ctc-align.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/ctc-align.dir/build.make src/CMakeFiles/ctc-align.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/ctc-align.dir/build.make src/CMakeFiles/ctc-align.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=46 "Built target ctc-align"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target ctc-align"
 .PHONY : src/CMakeFiles/ctc-align.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/ctc-align.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/ctc-align.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/ctc-align.dir/rule
@@ -4710,7 +4913,7 @@ ctc-align: src/CMakeFiles/ctc-align.dir/rule
 # codegen rule for target.
 src/CMakeFiles/ctc-align.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/ctc-align.dir/build.make src/CMakeFiles/ctc-align.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=46 "Finished codegen for target ctc-align"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target ctc-align"
 .PHONY : src/CMakeFiles/ctc-align.dir/codegen
 
 # clean rule for target.
@@ -4729,7 +4932,7 @@ src/CMakeFiles/htdemucs.dir/all: ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/all
 src/CMakeFiles/htdemucs.dir/all: src/CMakeFiles/crispasr-core.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/htdemucs.dir/build.make src/CMakeFiles/htdemucs.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/htdemucs.dir/build.make src/CMakeFiles/htdemucs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target htdemucs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=78 "Built target htdemucs"
 .PHONY : src/CMakeFiles/htdemucs.dir/all
 
 # Build rule for subdir invocation for target.
@@ -4746,7 +4949,7 @@ htdemucs: src/CMakeFiles/htdemucs.dir/rule
 # codegen rule for target.
 src/CMakeFiles/htdemucs.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/htdemucs.dir/build.make src/CMakeFiles/htdemucs.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target htdemucs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=78 "Finished codegen for target htdemucs"
 .PHONY : src/CMakeFiles/htdemucs.dir/codegen
 
 # clean rule for target.
@@ -4770,7 +4973,7 @@ src/CMakeFiles/beat-this.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/beat-this.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/beat-this.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/beat-this.dir/rule
@@ -4801,12 +5004,12 @@ src/CMakeFiles/rvc-svc.dir/all: ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/all
 src/CMakeFiles/rvc-svc.dir/all: src/CMakeFiles/crispasr-core.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/rvc-svc.dir/build.make src/CMakeFiles/rvc-svc.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/rvc-svc.dir/build.make src/CMakeFiles/rvc-svc.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=91 "Built target rvc-svc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target rvc-svc"
 .PHONY : src/CMakeFiles/rvc-svc.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/rvc-svc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/rvc-svc.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/rvc-svc.dir/rule
@@ -4818,7 +5021,7 @@ rvc-svc: src/CMakeFiles/rvc-svc.dir/rule
 # codegen rule for target.
 src/CMakeFiles/rvc-svc.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/rvc-svc.dir/build.make src/CMakeFiles/rvc-svc.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=91 "Finished codegen for target rvc-svc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target rvc-svc"
 .PHONY : src/CMakeFiles/rvc-svc.dir/codegen
 
 # clean rule for target.
@@ -4842,7 +5045,7 @@ src/CMakeFiles/beatrice-pitch.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/beatrice-pitch.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/beatrice-pitch.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/beatrice-pitch.dir/rule
@@ -4878,7 +5081,7 @@ src/CMakeFiles/btc-chords.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/btc-chords.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/btc-chords.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/btc-chords.dir/rule
@@ -4909,12 +5112,12 @@ src/CMakeFiles/tabcnn.dir/all: ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/all
 src/CMakeFiles/tabcnn.dir/all: src/CMakeFiles/crispasr-core.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/tabcnn.dir/build.make src/CMakeFiles/tabcnn.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/tabcnn.dir/build.make src/CMakeFiles/tabcnn.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=93 "Built target tabcnn"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target tabcnn"
 .PHONY : src/CMakeFiles/tabcnn.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/tabcnn.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/tabcnn.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/tabcnn.dir/rule
@@ -4926,7 +5129,7 @@ tabcnn: src/CMakeFiles/tabcnn.dir/rule
 # codegen rule for target.
 src/CMakeFiles/tabcnn.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/tabcnn.dir/build.make src/CMakeFiles/tabcnn.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=93 "Finished codegen for target tabcnn"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target tabcnn"
 .PHONY : src/CMakeFiles/tabcnn.dir/codegen
 
 # clean rule for target.
@@ -4945,12 +5148,12 @@ src/CMakeFiles/crepe.dir/all: ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/all
 src/CMakeFiles/crepe.dir/all: src/CMakeFiles/crispasr-core.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/crepe.dir/build.make src/CMakeFiles/crepe.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/crepe.dir/build.make src/CMakeFiles/crepe.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=6 "Built target crepe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target crepe"
 .PHONY : src/CMakeFiles/crepe.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/crepe.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/crepe.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/crepe.dir/rule
@@ -4962,7 +5165,7 @@ crepe: src/CMakeFiles/crepe.dir/rule
 # codegen rule for target.
 src/CMakeFiles/crepe.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/crepe.dir/build.make src/CMakeFiles/crepe.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=6 "Finished codegen for target crepe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target crepe"
 .PHONY : src/CMakeFiles/crepe.dir/codegen
 
 # clean rule for target.
@@ -4986,7 +5189,7 @@ src/CMakeFiles/mel-band-roformer.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/mel-band-roformer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/mel-band-roformer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : src/CMakeFiles/mel-band-roformer.dir/rule
@@ -5022,7 +5225,7 @@ crisp_lid/CMakeFiles/crisp_lid.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 crisp_lid/CMakeFiles/crisp_lid.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 crisp_lid/CMakeFiles/crisp_lid.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : crisp_lid/CMakeFiles/crisp_lid.dir/rule
@@ -5058,7 +5261,7 @@ crisp_punc/CMakeFiles/crisp_punc.dir/all: src/CMakeFiles/crispasr-core.dir/all
 
 # Build rule for subdir invocation for target.
 crisp_punc/CMakeFiles/crisp_punc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 crisp_punc/CMakeFiles/crisp_punc.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : crisp_punc/CMakeFiles/crisp_punc.dir/rule
@@ -5094,7 +5297,7 @@ crisp_truecase/CMakeFiles/crisp_truecase.dir/all: src/CMakeFiles/crispasr-core.d
 
 # Build rule for subdir invocation for target.
 crisp_truecase/CMakeFiles/crisp_truecase.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 crisp_truecase/CMakeFiles/crisp_truecase.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : crisp_truecase/CMakeFiles/crisp_truecase.dir/rule
@@ -5121,12 +5324,12 @@ crisp_truecase/CMakeFiles/crisp_truecase.dir/clean:
 glint/CMakeFiles/glint.dir/all:
 	$(MAKE) $(MAKESILENT) -f glint/CMakeFiles/glint.dir/build.make glint/CMakeFiles/glint.dir/depend
 	$(MAKE) $(MAKESILENT) -f glint/CMakeFiles/glint.dir/build.make glint/CMakeFiles/glint.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=71,72,73,74,75,76,77 "Built target glint"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=71,72,73,74,75,76 "Built target glint"
 .PHONY : glint/CMakeFiles/glint.dir/all
 
 # Build rule for subdir invocation for target.
 glint/CMakeFiles/glint.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 glint/CMakeFiles/glint.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : glint/CMakeFiles/glint.dir/rule
@@ -5138,7 +5341,7 @@ glint: glint/CMakeFiles/glint.dir/rule
 # codegen rule for target.
 glint/CMakeFiles/glint.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f glint/CMakeFiles/glint.dir/build.make glint/CMakeFiles/glint.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=71,72,73,74,75,76,77 "Finished codegen for target glint"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=71,72,73,74,75,76 "Finished codegen for target glint"
 .PHONY : glint/CMakeFiles/glint.dir/codegen
 
 # clean rule for target.
@@ -5157,7 +5360,7 @@ crisp_audio/CMakeFiles/crisp_audio.dir/all: ggml/src/ggml-cuda/CMakeFiles/ggml-c
 crisp_audio/CMakeFiles/crisp_audio.dir/all: src/CMakeFiles/crispasr-core.dir/all
 	$(MAKE) $(MAKESILENT) -f crisp_audio/CMakeFiles/crisp_audio.dir/build.make crisp_audio/CMakeFiles/crisp_audio.dir/depend
 	$(MAKE) $(MAKESILENT) -f crisp_audio/CMakeFiles/crisp_audio.dir/build.make crisp_audio/CMakeFiles/crisp_audio.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target crisp_audio"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=6 "Built target crisp_audio"
 .PHONY : crisp_audio/CMakeFiles/crisp_audio.dir/all
 
 # Build rule for subdir invocation for target.
@@ -5174,7 +5377,7 @@ crisp_audio: crisp_audio/CMakeFiles/crisp_audio.dir/rule
 # codegen rule for target.
 crisp_audio/CMakeFiles/crisp_audio.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f crisp_audio/CMakeFiles/crisp_audio.dir/build.make crisp_audio/CMakeFiles/crisp_audio.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target crisp_audio"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=6 "Finished codegen for target crisp_audio"
 .PHONY : crisp_audio/CMakeFiles/crisp_audio.dir/codegen
 
 # clean rule for target.
@@ -5201,6 +5404,8 @@ examples/CMakeFiles/common.dir/all: src/CMakeFiles/crispasr-core.dir/all
 examples/CMakeFiles/common.dir/all: src/CMakeFiles/snac.dir/all
 examples/CMakeFiles/common.dir/all: src/CMakeFiles/nemotron.dir/all
 examples/CMakeFiles/common.dir/all: src/CMakeFiles/gigaam.dir/all
+examples/CMakeFiles/common.dir/all: src/CMakeFiles/dolphin.dir/all
+examples/CMakeFiles/common.dir/all: src/CMakeFiles/xasr.dir/all
 examples/CMakeFiles/common.dir/all: src/CMakeFiles/wespeaker.dir/all
 examples/CMakeFiles/common.dir/all: src/CMakeFiles/parakeet.dir/all
 examples/CMakeFiles/common.dir/all: src/CMakeFiles/qwen3_asr.dir/all
@@ -5227,6 +5432,7 @@ examples/CMakeFiles/common.dir/all: src/CMakeFiles/ark_asr.dir/all
 examples/CMakeFiles/common.dir/all: src/CMakeFiles/moss_audio.dir/all
 examples/CMakeFiles/common.dir/all: src/CMakeFiles/moss_tts.dir/all
 examples/CMakeFiles/common.dir/all: src/CMakeFiles/moss_tts_local.dir/all
+examples/CMakeFiles/common.dir/all: src/CMakeFiles/hojo_asr.dir/all
 examples/CMakeFiles/common.dir/all: src/CMakeFiles/moss_transcribe.dir/all
 examples/CMakeFiles/common.dir/all: src/CMakeFiles/moss_transcribe_diarize.dir/all
 examples/CMakeFiles/common.dir/all: src/CMakeFiles/qwen3_tts.dir/all
@@ -5235,6 +5441,8 @@ examples/CMakeFiles/common.dir/all: src/CMakeFiles/miotts.dir/all
 examples/CMakeFiles/common.dir/all: src/CMakeFiles/omnivoice.dir/all
 examples/CMakeFiles/common.dir/all: src/CMakeFiles/orpheus.dir/all
 examples/CMakeFiles/common.dir/all: src/CMakeFiles/piano-transcription.dir/all
+examples/CMakeFiles/common.dir/all: src/CMakeFiles/onsets-and-frames.dir/all
+examples/CMakeFiles/common.dir/all: src/CMakeFiles/hft-transformer.dir/all
 examples/CMakeFiles/common.dir/all: src/CMakeFiles/basic-pitch.dir/all
 examples/CMakeFiles/common.dir/all: src/CMakeFiles/mt3.dir/all
 examples/CMakeFiles/common.dir/all: src/CMakeFiles/audioseal.dir/all
@@ -5303,7 +5511,7 @@ examples/CMakeFiles/common.dir/all: crisp_audio/CMakeFiles/crisp_audio.dir/all
 
 # Build rule for subdir invocation for target.
 examples/CMakeFiles/common.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 83
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 80
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/CMakeFiles/common.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : examples/CMakeFiles/common.dir/rule
@@ -5342,6 +5550,8 @@ examples/cli/CMakeFiles/crispasr-cli.dir/all: src/CMakeFiles/crispasr-core.dir/a
 examples/cli/CMakeFiles/crispasr-cli.dir/all: src/CMakeFiles/snac.dir/all
 examples/cli/CMakeFiles/crispasr-cli.dir/all: src/CMakeFiles/nemotron.dir/all
 examples/cli/CMakeFiles/crispasr-cli.dir/all: src/CMakeFiles/gigaam.dir/all
+examples/cli/CMakeFiles/crispasr-cli.dir/all: src/CMakeFiles/dolphin.dir/all
+examples/cli/CMakeFiles/crispasr-cli.dir/all: src/CMakeFiles/xasr.dir/all
 examples/cli/CMakeFiles/crispasr-cli.dir/all: src/CMakeFiles/wespeaker.dir/all
 examples/cli/CMakeFiles/crispasr-cli.dir/all: src/CMakeFiles/parakeet.dir/all
 examples/cli/CMakeFiles/crispasr-cli.dir/all: src/CMakeFiles/qwen3_asr.dir/all
@@ -5368,6 +5578,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/all: src/CMakeFiles/ark_asr.dir/all
 examples/cli/CMakeFiles/crispasr-cli.dir/all: src/CMakeFiles/moss_audio.dir/all
 examples/cli/CMakeFiles/crispasr-cli.dir/all: src/CMakeFiles/moss_tts.dir/all
 examples/cli/CMakeFiles/crispasr-cli.dir/all: src/CMakeFiles/moss_tts_local.dir/all
+examples/cli/CMakeFiles/crispasr-cli.dir/all: src/CMakeFiles/hojo_asr.dir/all
 examples/cli/CMakeFiles/crispasr-cli.dir/all: src/CMakeFiles/moss_transcribe.dir/all
 examples/cli/CMakeFiles/crispasr-cli.dir/all: src/CMakeFiles/moss_transcribe_diarize.dir/all
 examples/cli/CMakeFiles/crispasr-cli.dir/all: src/CMakeFiles/qwen3_tts.dir/all
@@ -5376,6 +5587,8 @@ examples/cli/CMakeFiles/crispasr-cli.dir/all: src/CMakeFiles/miotts.dir/all
 examples/cli/CMakeFiles/crispasr-cli.dir/all: src/CMakeFiles/omnivoice.dir/all
 examples/cli/CMakeFiles/crispasr-cli.dir/all: src/CMakeFiles/orpheus.dir/all
 examples/cli/CMakeFiles/crispasr-cli.dir/all: src/CMakeFiles/piano-transcription.dir/all
+examples/cli/CMakeFiles/crispasr-cli.dir/all: src/CMakeFiles/onsets-and-frames.dir/all
+examples/cli/CMakeFiles/crispasr-cli.dir/all: src/CMakeFiles/hft-transformer.dir/all
 examples/cli/CMakeFiles/crispasr-cli.dir/all: src/CMakeFiles/basic-pitch.dir/all
 examples/cli/CMakeFiles/crispasr-cli.dir/all: src/CMakeFiles/mt3.dir/all
 examples/cli/CMakeFiles/crispasr-cli.dir/all: src/CMakeFiles/audioseal.dir/all
@@ -5440,12 +5653,12 @@ examples/cli/CMakeFiles/crispasr-cli.dir/all: crisp_audio/CMakeFiles/crisp_audio
 examples/cli/CMakeFiles/crispasr-cli.dir/all: examples/CMakeFiles/common.dir/all
 	$(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-cli.dir/build.make examples/cli/CMakeFiles/crispasr-cli.dir/depend
 	$(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-cli.dir/build.make examples/cli/CMakeFiles/crispasr-cli.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=9,10,11,12,13,14,15,16,17,18,19,20 "Built target crispasr-cli"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=9,10,11,12,13,14,15,16,17,18,19,20,21 "Built target crispasr-cli"
 .PHONY : examples/cli/CMakeFiles/crispasr-cli.dir/all
 
 # Build rule for subdir invocation for target.
 examples/cli/CMakeFiles/crispasr-cli.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 95
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 93
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/cli/CMakeFiles/crispasr-cli.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : examples/cli/CMakeFiles/crispasr-cli.dir/rule
@@ -5457,7 +5670,7 @@ crispasr-cli: examples/cli/CMakeFiles/crispasr-cli.dir/rule
 # codegen rule for target.
 examples/cli/CMakeFiles/crispasr-cli.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-cli.dir/build.make examples/cli/CMakeFiles/crispasr-cli.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=9,10,11,12,13,14,15,16,17,18,19,20 "Finished codegen for target crispasr-cli"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=9,10,11,12,13,14,15,16,17,18,19,20,21 "Finished codegen for target crispasr-cli"
 .PHONY : examples/cli/CMakeFiles/crispasr-cli.dir/codegen
 
 # clean rule for target.
@@ -5480,12 +5693,12 @@ examples/cli/CMakeFiles/crispasr-diff-lib.dir/all: src/CMakeFiles/btc-chords.dir
 examples/cli/CMakeFiles/crispasr-diff-lib.dir/all: src/CMakeFiles/tabcnn.dir/all
 	$(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-diff-lib.dir/build.make examples/cli/CMakeFiles/crispasr-diff-lib.dir/depend
 	$(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-diff-lib.dir/build.make examples/cli/CMakeFiles/crispasr-diff-lib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target crispasr-diff-lib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=23 "Built target crispasr-diff-lib"
 .PHONY : examples/cli/CMakeFiles/crispasr-diff-lib.dir/all
 
 # Build rule for subdir invocation for target.
 examples/cli/CMakeFiles/crispasr-diff-lib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 26
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/cli/CMakeFiles/crispasr-diff-lib.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : examples/cli/CMakeFiles/crispasr-diff-lib.dir/rule
@@ -5497,7 +5710,7 @@ crispasr-diff-lib: examples/cli/CMakeFiles/crispasr-diff-lib.dir/rule
 # codegen rule for target.
 examples/cli/CMakeFiles/crispasr-diff-lib.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-diff-lib.dir/build.make examples/cli/CMakeFiles/crispasr-diff-lib.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target crispasr-diff-lib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=23 "Finished codegen for target crispasr-diff-lib"
 .PHONY : examples/cli/CMakeFiles/crispasr-diff-lib.dir/codegen
 
 # clean rule for target.
@@ -5524,6 +5737,8 @@ examples/cli/CMakeFiles/crispasr-diff.dir/all: src/CMakeFiles/crispasr-core.dir/
 examples/cli/CMakeFiles/crispasr-diff.dir/all: src/CMakeFiles/snac.dir/all
 examples/cli/CMakeFiles/crispasr-diff.dir/all: src/CMakeFiles/nemotron.dir/all
 examples/cli/CMakeFiles/crispasr-diff.dir/all: src/CMakeFiles/gigaam.dir/all
+examples/cli/CMakeFiles/crispasr-diff.dir/all: src/CMakeFiles/dolphin.dir/all
+examples/cli/CMakeFiles/crispasr-diff.dir/all: src/CMakeFiles/xasr.dir/all
 examples/cli/CMakeFiles/crispasr-diff.dir/all: src/CMakeFiles/wespeaker.dir/all
 examples/cli/CMakeFiles/crispasr-diff.dir/all: src/CMakeFiles/parakeet.dir/all
 examples/cli/CMakeFiles/crispasr-diff.dir/all: src/CMakeFiles/qwen3_asr.dir/all
@@ -5550,6 +5765,7 @@ examples/cli/CMakeFiles/crispasr-diff.dir/all: src/CMakeFiles/ark_asr.dir/all
 examples/cli/CMakeFiles/crispasr-diff.dir/all: src/CMakeFiles/moss_audio.dir/all
 examples/cli/CMakeFiles/crispasr-diff.dir/all: src/CMakeFiles/moss_tts.dir/all
 examples/cli/CMakeFiles/crispasr-diff.dir/all: src/CMakeFiles/moss_tts_local.dir/all
+examples/cli/CMakeFiles/crispasr-diff.dir/all: src/CMakeFiles/hojo_asr.dir/all
 examples/cli/CMakeFiles/crispasr-diff.dir/all: src/CMakeFiles/moss_transcribe.dir/all
 examples/cli/CMakeFiles/crispasr-diff.dir/all: src/CMakeFiles/moss_transcribe_diarize.dir/all
 examples/cli/CMakeFiles/crispasr-diff.dir/all: src/CMakeFiles/qwen3_tts.dir/all
@@ -5559,6 +5775,8 @@ examples/cli/CMakeFiles/crispasr-diff.dir/all: src/CMakeFiles/miocodec.dir/all
 examples/cli/CMakeFiles/crispasr-diff.dir/all: src/CMakeFiles/omnivoice.dir/all
 examples/cli/CMakeFiles/crispasr-diff.dir/all: src/CMakeFiles/orpheus.dir/all
 examples/cli/CMakeFiles/crispasr-diff.dir/all: src/CMakeFiles/piano-transcription.dir/all
+examples/cli/CMakeFiles/crispasr-diff.dir/all: src/CMakeFiles/onsets-and-frames.dir/all
+examples/cli/CMakeFiles/crispasr-diff.dir/all: src/CMakeFiles/hft-transformer.dir/all
 examples/cli/CMakeFiles/crispasr-diff.dir/all: src/CMakeFiles/basic-pitch.dir/all
 examples/cli/CMakeFiles/crispasr-diff.dir/all: src/CMakeFiles/mt3.dir/all
 examples/cli/CMakeFiles/crispasr-diff.dir/all: src/CMakeFiles/audioseal.dir/all
@@ -5629,7 +5847,7 @@ examples/cli/CMakeFiles/crispasr-diff.dir/all: examples/cli/CMakeFiles/crispasr-
 
 # Build rule for subdir invocation for target.
 examples/cli/CMakeFiles/crispasr-diff.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 83
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 82
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/cli/CMakeFiles/crispasr-diff.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : examples/cli/CMakeFiles/crispasr-diff.dir/rule
@@ -5668,6 +5886,8 @@ examples/cli/CMakeFiles/crispasr-lid.dir/all: src/CMakeFiles/crispasr-core.dir/a
 examples/cli/CMakeFiles/crispasr-lid.dir/all: src/CMakeFiles/snac.dir/all
 examples/cli/CMakeFiles/crispasr-lid.dir/all: src/CMakeFiles/nemotron.dir/all
 examples/cli/CMakeFiles/crispasr-lid.dir/all: src/CMakeFiles/gigaam.dir/all
+examples/cli/CMakeFiles/crispasr-lid.dir/all: src/CMakeFiles/dolphin.dir/all
+examples/cli/CMakeFiles/crispasr-lid.dir/all: src/CMakeFiles/xasr.dir/all
 examples/cli/CMakeFiles/crispasr-lid.dir/all: src/CMakeFiles/wespeaker.dir/all
 examples/cli/CMakeFiles/crispasr-lid.dir/all: src/CMakeFiles/parakeet.dir/all
 examples/cli/CMakeFiles/crispasr-lid.dir/all: src/CMakeFiles/qwen3_asr.dir/all
@@ -5694,6 +5914,7 @@ examples/cli/CMakeFiles/crispasr-lid.dir/all: src/CMakeFiles/ark_asr.dir/all
 examples/cli/CMakeFiles/crispasr-lid.dir/all: src/CMakeFiles/moss_audio.dir/all
 examples/cli/CMakeFiles/crispasr-lid.dir/all: src/CMakeFiles/moss_tts.dir/all
 examples/cli/CMakeFiles/crispasr-lid.dir/all: src/CMakeFiles/moss_tts_local.dir/all
+examples/cli/CMakeFiles/crispasr-lid.dir/all: src/CMakeFiles/hojo_asr.dir/all
 examples/cli/CMakeFiles/crispasr-lid.dir/all: src/CMakeFiles/moss_transcribe.dir/all
 examples/cli/CMakeFiles/crispasr-lid.dir/all: src/CMakeFiles/moss_transcribe_diarize.dir/all
 examples/cli/CMakeFiles/crispasr-lid.dir/all: src/CMakeFiles/qwen3_tts.dir/all
@@ -5702,6 +5923,8 @@ examples/cli/CMakeFiles/crispasr-lid.dir/all: src/CMakeFiles/miotts.dir/all
 examples/cli/CMakeFiles/crispasr-lid.dir/all: src/CMakeFiles/omnivoice.dir/all
 examples/cli/CMakeFiles/crispasr-lid.dir/all: src/CMakeFiles/orpheus.dir/all
 examples/cli/CMakeFiles/crispasr-lid.dir/all: src/CMakeFiles/piano-transcription.dir/all
+examples/cli/CMakeFiles/crispasr-lid.dir/all: src/CMakeFiles/onsets-and-frames.dir/all
+examples/cli/CMakeFiles/crispasr-lid.dir/all: src/CMakeFiles/hft-transformer.dir/all
 examples/cli/CMakeFiles/crispasr-lid.dir/all: src/CMakeFiles/basic-pitch.dir/all
 examples/cli/CMakeFiles/crispasr-lid.dir/all: src/CMakeFiles/mt3.dir/all
 examples/cli/CMakeFiles/crispasr-lid.dir/all: src/CMakeFiles/audioseal.dir/all
@@ -5770,7 +5993,7 @@ examples/cli/CMakeFiles/crispasr-lid.dir/all: crisp_audio/CMakeFiles/crisp_audio
 
 # Build rule for subdir invocation for target.
 examples/cli/CMakeFiles/crispasr-lid.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 82
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 79
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/cli/CMakeFiles/crispasr-lid.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : examples/cli/CMakeFiles/crispasr-lid.dir/rule
@@ -5809,6 +6032,8 @@ examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/all: src/CMakeFiles/crispasr-co
 examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/all: src/CMakeFiles/snac.dir/all
 examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/all: src/CMakeFiles/nemotron.dir/all
 examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/all: src/CMakeFiles/gigaam.dir/all
+examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/all: src/CMakeFiles/dolphin.dir/all
+examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/all: src/CMakeFiles/xasr.dir/all
 examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/all: src/CMakeFiles/wespeaker.dir/all
 examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/all: src/CMakeFiles/parakeet.dir/all
 examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/all: src/CMakeFiles/qwen3_asr.dir/all
@@ -5835,6 +6060,7 @@ examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/all: src/CMakeFiles/ark_asr.dir
 examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/all: src/CMakeFiles/moss_audio.dir/all
 examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/all: src/CMakeFiles/moss_tts.dir/all
 examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/all: src/CMakeFiles/moss_tts_local.dir/all
+examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/all: src/CMakeFiles/hojo_asr.dir/all
 examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/all: src/CMakeFiles/moss_transcribe.dir/all
 examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/all: src/CMakeFiles/moss_transcribe_diarize.dir/all
 examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/all: src/CMakeFiles/qwen3_tts.dir/all
@@ -5843,6 +6069,8 @@ examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/all: src/CMakeFiles/miotts.dir/
 examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/all: src/CMakeFiles/omnivoice.dir/all
 examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/all: src/CMakeFiles/orpheus.dir/all
 examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/all: src/CMakeFiles/piano-transcription.dir/all
+examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/all: src/CMakeFiles/onsets-and-frames.dir/all
+examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/all: src/CMakeFiles/hft-transformer.dir/all
 examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/all: src/CMakeFiles/basic-pitch.dir/all
 examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/all: src/CMakeFiles/mt3.dir/all
 examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/all: src/CMakeFiles/audioseal.dir/all
@@ -5912,7 +6140,7 @@ examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/all: examples/CMakeFiles/common
 
 # Build rule for subdir invocation for target.
 examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 83
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 80
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/rule
@@ -5949,7 +6177,7 @@ examples/cli/CMakeFiles/moss-tts-local-smoke.dir/all: src/CMakeFiles/moss_tts_lo
 
 # Build rule for subdir invocation for target.
 examples/cli/CMakeFiles/moss-tts-local-smoke.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/cli/CMakeFiles/moss-tts-local-smoke.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : examples/cli/CMakeFiles/moss-tts-local-smoke.dir/rule
@@ -5988,6 +6216,8 @@ examples/cli/CMakeFiles/crispasr-chat.dir/all: src/CMakeFiles/crispasr-core.dir/
 examples/cli/CMakeFiles/crispasr-chat.dir/all: src/CMakeFiles/snac.dir/all
 examples/cli/CMakeFiles/crispasr-chat.dir/all: src/CMakeFiles/nemotron.dir/all
 examples/cli/CMakeFiles/crispasr-chat.dir/all: src/CMakeFiles/gigaam.dir/all
+examples/cli/CMakeFiles/crispasr-chat.dir/all: src/CMakeFiles/dolphin.dir/all
+examples/cli/CMakeFiles/crispasr-chat.dir/all: src/CMakeFiles/xasr.dir/all
 examples/cli/CMakeFiles/crispasr-chat.dir/all: src/CMakeFiles/wespeaker.dir/all
 examples/cli/CMakeFiles/crispasr-chat.dir/all: src/CMakeFiles/parakeet.dir/all
 examples/cli/CMakeFiles/crispasr-chat.dir/all: src/CMakeFiles/qwen3_asr.dir/all
@@ -6014,6 +6244,7 @@ examples/cli/CMakeFiles/crispasr-chat.dir/all: src/CMakeFiles/ark_asr.dir/all
 examples/cli/CMakeFiles/crispasr-chat.dir/all: src/CMakeFiles/moss_audio.dir/all
 examples/cli/CMakeFiles/crispasr-chat.dir/all: src/CMakeFiles/moss_tts.dir/all
 examples/cli/CMakeFiles/crispasr-chat.dir/all: src/CMakeFiles/moss_tts_local.dir/all
+examples/cli/CMakeFiles/crispasr-chat.dir/all: src/CMakeFiles/hojo_asr.dir/all
 examples/cli/CMakeFiles/crispasr-chat.dir/all: src/CMakeFiles/moss_transcribe.dir/all
 examples/cli/CMakeFiles/crispasr-chat.dir/all: src/CMakeFiles/moss_transcribe_diarize.dir/all
 examples/cli/CMakeFiles/crispasr-chat.dir/all: src/CMakeFiles/qwen3_tts.dir/all
@@ -6022,6 +6253,8 @@ examples/cli/CMakeFiles/crispasr-chat.dir/all: src/CMakeFiles/miotts.dir/all
 examples/cli/CMakeFiles/crispasr-chat.dir/all: src/CMakeFiles/omnivoice.dir/all
 examples/cli/CMakeFiles/crispasr-chat.dir/all: src/CMakeFiles/orpheus.dir/all
 examples/cli/CMakeFiles/crispasr-chat.dir/all: src/CMakeFiles/piano-transcription.dir/all
+examples/cli/CMakeFiles/crispasr-chat.dir/all: src/CMakeFiles/onsets-and-frames.dir/all
+examples/cli/CMakeFiles/crispasr-chat.dir/all: src/CMakeFiles/hft-transformer.dir/all
 examples/cli/CMakeFiles/crispasr-chat.dir/all: src/CMakeFiles/basic-pitch.dir/all
 examples/cli/CMakeFiles/crispasr-chat.dir/all: src/CMakeFiles/mt3.dir/all
 examples/cli/CMakeFiles/crispasr-chat.dir/all: src/CMakeFiles/audioseal.dir/all
@@ -6090,7 +6323,7 @@ examples/cli/CMakeFiles/crispasr-chat.dir/all: crisp_audio/CMakeFiles/crisp_audi
 
 # Build rule for subdir invocation for target.
 examples/cli/CMakeFiles/crispasr-chat.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 83
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 80
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/cli/CMakeFiles/crispasr-chat.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : examples/cli/CMakeFiles/crispasr-chat.dir/rule
@@ -6129,6 +6362,8 @@ examples/cli/CMakeFiles/crispasr-f0-eval.dir/all: src/CMakeFiles/crispasr-core.d
 examples/cli/CMakeFiles/crispasr-f0-eval.dir/all: src/CMakeFiles/snac.dir/all
 examples/cli/CMakeFiles/crispasr-f0-eval.dir/all: src/CMakeFiles/nemotron.dir/all
 examples/cli/CMakeFiles/crispasr-f0-eval.dir/all: src/CMakeFiles/gigaam.dir/all
+examples/cli/CMakeFiles/crispasr-f0-eval.dir/all: src/CMakeFiles/dolphin.dir/all
+examples/cli/CMakeFiles/crispasr-f0-eval.dir/all: src/CMakeFiles/xasr.dir/all
 examples/cli/CMakeFiles/crispasr-f0-eval.dir/all: src/CMakeFiles/wespeaker.dir/all
 examples/cli/CMakeFiles/crispasr-f0-eval.dir/all: src/CMakeFiles/parakeet.dir/all
 examples/cli/CMakeFiles/crispasr-f0-eval.dir/all: src/CMakeFiles/qwen3_asr.dir/all
@@ -6155,6 +6390,7 @@ examples/cli/CMakeFiles/crispasr-f0-eval.dir/all: src/CMakeFiles/ark_asr.dir/all
 examples/cli/CMakeFiles/crispasr-f0-eval.dir/all: src/CMakeFiles/moss_audio.dir/all
 examples/cli/CMakeFiles/crispasr-f0-eval.dir/all: src/CMakeFiles/moss_tts.dir/all
 examples/cli/CMakeFiles/crispasr-f0-eval.dir/all: src/CMakeFiles/moss_tts_local.dir/all
+examples/cli/CMakeFiles/crispasr-f0-eval.dir/all: src/CMakeFiles/hojo_asr.dir/all
 examples/cli/CMakeFiles/crispasr-f0-eval.dir/all: src/CMakeFiles/moss_transcribe.dir/all
 examples/cli/CMakeFiles/crispasr-f0-eval.dir/all: src/CMakeFiles/moss_transcribe_diarize.dir/all
 examples/cli/CMakeFiles/crispasr-f0-eval.dir/all: src/CMakeFiles/qwen3_tts.dir/all
@@ -6163,6 +6399,8 @@ examples/cli/CMakeFiles/crispasr-f0-eval.dir/all: src/CMakeFiles/miotts.dir/all
 examples/cli/CMakeFiles/crispasr-f0-eval.dir/all: src/CMakeFiles/omnivoice.dir/all
 examples/cli/CMakeFiles/crispasr-f0-eval.dir/all: src/CMakeFiles/orpheus.dir/all
 examples/cli/CMakeFiles/crispasr-f0-eval.dir/all: src/CMakeFiles/piano-transcription.dir/all
+examples/cli/CMakeFiles/crispasr-f0-eval.dir/all: src/CMakeFiles/onsets-and-frames.dir/all
+examples/cli/CMakeFiles/crispasr-f0-eval.dir/all: src/CMakeFiles/hft-transformer.dir/all
 examples/cli/CMakeFiles/crispasr-f0-eval.dir/all: src/CMakeFiles/basic-pitch.dir/all
 examples/cli/CMakeFiles/crispasr-f0-eval.dir/all: src/CMakeFiles/mt3.dir/all
 examples/cli/CMakeFiles/crispasr-f0-eval.dir/all: src/CMakeFiles/audioseal.dir/all
@@ -6226,12 +6464,12 @@ examples/cli/CMakeFiles/crispasr-f0-eval.dir/all: glint/CMakeFiles/glint.dir/all
 examples/cli/CMakeFiles/crispasr-f0-eval.dir/all: crisp_audio/CMakeFiles/crisp_audio.dir/all
 	$(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-f0-eval.dir/build.make examples/cli/CMakeFiles/crispasr-f0-eval.dir/depend
 	$(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-f0-eval.dir/build.make examples/cli/CMakeFiles/crispasr-f0-eval.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=23 "Built target crispasr-f0-eval"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target crispasr-f0-eval"
 .PHONY : examples/cli/CMakeFiles/crispasr-f0-eval.dir/all
 
 # Build rule for subdir invocation for target.
 examples/cli/CMakeFiles/crispasr-f0-eval.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 83
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 79
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/cli/CMakeFiles/crispasr-f0-eval.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : examples/cli/CMakeFiles/crispasr-f0-eval.dir/rule
@@ -6243,13 +6481,48 @@ crispasr-f0-eval: examples/cli/CMakeFiles/crispasr-f0-eval.dir/rule
 # codegen rule for target.
 examples/cli/CMakeFiles/crispasr-f0-eval.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-f0-eval.dir/build.make examples/cli/CMakeFiles/crispasr-f0-eval.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=23 "Finished codegen for target crispasr-f0-eval"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target crispasr-f0-eval"
 .PHONY : examples/cli/CMakeFiles/crispasr-f0-eval.dir/codegen
 
 # clean rule for target.
 examples/cli/CMakeFiles/crispasr-f0-eval.dir/clean:
 	$(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-f0-eval.dir/build.make examples/cli/CMakeFiles/crispasr-f0-eval.dir/clean
 .PHONY : examples/cli/CMakeFiles/crispasr-f0-eval.dir/clean
+
+#=============================================================================
+# Target rules for target examples/cli/CMakeFiles/crispasr-repack-probe.dir
+
+# All Build rule for target.
+examples/cli/CMakeFiles/crispasr-repack-probe.dir/all: ggml/src/CMakeFiles/ggml-base.dir/all
+examples/cli/CMakeFiles/crispasr-repack-probe.dir/all: ggml/src/CMakeFiles/ggml.dir/all
+examples/cli/CMakeFiles/crispasr-repack-probe.dir/all: ggml/src/CMakeFiles/ggml-cpu.dir/all
+examples/cli/CMakeFiles/crispasr-repack-probe.dir/all: ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/all
+	$(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-repack-probe.dir/build.make examples/cli/CMakeFiles/crispasr-repack-probe.dir/depend
+	$(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-repack-probe.dir/build.make examples/cli/CMakeFiles/crispasr-repack-probe.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target crispasr-repack-probe"
+.PHONY : examples/cli/CMakeFiles/crispasr-repack-probe.dir/all
+
+# Build rule for subdir invocation for target.
+examples/cli/CMakeFiles/crispasr-repack-probe.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 22
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/cli/CMakeFiles/crispasr-repack-probe.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
+.PHONY : examples/cli/CMakeFiles/crispasr-repack-probe.dir/rule
+
+# Convenience name for target.
+crispasr-repack-probe: examples/cli/CMakeFiles/crispasr-repack-probe.dir/rule
+.PHONY : crispasr-repack-probe
+
+# codegen rule for target.
+examples/cli/CMakeFiles/crispasr-repack-probe.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-repack-probe.dir/build.make examples/cli/CMakeFiles/crispasr-repack-probe.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target crispasr-repack-probe"
+.PHONY : examples/cli/CMakeFiles/crispasr-repack-probe.dir/codegen
+
+# clean rule for target.
+examples/cli/CMakeFiles/crispasr-repack-probe.dir/clean:
+	$(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-repack-probe.dir/build.make examples/cli/CMakeFiles/crispasr-repack-probe.dir/clean
+.PHONY : examples/cli/CMakeFiles/crispasr-repack-probe.dir/clean
 
 #=============================================================================
 # Target rules for target examples/bench/CMakeFiles/crispasr-bench.dir
@@ -6270,6 +6543,8 @@ examples/bench/CMakeFiles/crispasr-bench.dir/all: src/CMakeFiles/crispasr-core.d
 examples/bench/CMakeFiles/crispasr-bench.dir/all: src/CMakeFiles/snac.dir/all
 examples/bench/CMakeFiles/crispasr-bench.dir/all: src/CMakeFiles/nemotron.dir/all
 examples/bench/CMakeFiles/crispasr-bench.dir/all: src/CMakeFiles/gigaam.dir/all
+examples/bench/CMakeFiles/crispasr-bench.dir/all: src/CMakeFiles/dolphin.dir/all
+examples/bench/CMakeFiles/crispasr-bench.dir/all: src/CMakeFiles/xasr.dir/all
 examples/bench/CMakeFiles/crispasr-bench.dir/all: src/CMakeFiles/wespeaker.dir/all
 examples/bench/CMakeFiles/crispasr-bench.dir/all: src/CMakeFiles/parakeet.dir/all
 examples/bench/CMakeFiles/crispasr-bench.dir/all: src/CMakeFiles/qwen3_asr.dir/all
@@ -6296,6 +6571,7 @@ examples/bench/CMakeFiles/crispasr-bench.dir/all: src/CMakeFiles/ark_asr.dir/all
 examples/bench/CMakeFiles/crispasr-bench.dir/all: src/CMakeFiles/moss_audio.dir/all
 examples/bench/CMakeFiles/crispasr-bench.dir/all: src/CMakeFiles/moss_tts.dir/all
 examples/bench/CMakeFiles/crispasr-bench.dir/all: src/CMakeFiles/moss_tts_local.dir/all
+examples/bench/CMakeFiles/crispasr-bench.dir/all: src/CMakeFiles/hojo_asr.dir/all
 examples/bench/CMakeFiles/crispasr-bench.dir/all: src/CMakeFiles/moss_transcribe.dir/all
 examples/bench/CMakeFiles/crispasr-bench.dir/all: src/CMakeFiles/moss_transcribe_diarize.dir/all
 examples/bench/CMakeFiles/crispasr-bench.dir/all: src/CMakeFiles/qwen3_tts.dir/all
@@ -6304,6 +6580,8 @@ examples/bench/CMakeFiles/crispasr-bench.dir/all: src/CMakeFiles/miotts.dir/all
 examples/bench/CMakeFiles/crispasr-bench.dir/all: src/CMakeFiles/omnivoice.dir/all
 examples/bench/CMakeFiles/crispasr-bench.dir/all: src/CMakeFiles/orpheus.dir/all
 examples/bench/CMakeFiles/crispasr-bench.dir/all: src/CMakeFiles/piano-transcription.dir/all
+examples/bench/CMakeFiles/crispasr-bench.dir/all: src/CMakeFiles/onsets-and-frames.dir/all
+examples/bench/CMakeFiles/crispasr-bench.dir/all: src/CMakeFiles/hft-transformer.dir/all
 examples/bench/CMakeFiles/crispasr-bench.dir/all: src/CMakeFiles/basic-pitch.dir/all
 examples/bench/CMakeFiles/crispasr-bench.dir/all: src/CMakeFiles/mt3.dir/all
 examples/bench/CMakeFiles/crispasr-bench.dir/all: src/CMakeFiles/audioseal.dir/all
@@ -6372,7 +6650,7 @@ examples/bench/CMakeFiles/crispasr-bench.dir/all: crisp_audio/CMakeFiles/crisp_a
 
 # Build rule for subdir invocation for target.
 examples/bench/CMakeFiles/crispasr-bench.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 82
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 79
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/bench/CMakeFiles/crispasr-bench.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : examples/bench/CMakeFiles/crispasr-bench.dir/rule
@@ -6411,6 +6689,8 @@ examples/server/CMakeFiles/crispasr-server.dir/all: src/CMakeFiles/crispasr-core
 examples/server/CMakeFiles/crispasr-server.dir/all: src/CMakeFiles/snac.dir/all
 examples/server/CMakeFiles/crispasr-server.dir/all: src/CMakeFiles/nemotron.dir/all
 examples/server/CMakeFiles/crispasr-server.dir/all: src/CMakeFiles/gigaam.dir/all
+examples/server/CMakeFiles/crispasr-server.dir/all: src/CMakeFiles/dolphin.dir/all
+examples/server/CMakeFiles/crispasr-server.dir/all: src/CMakeFiles/xasr.dir/all
 examples/server/CMakeFiles/crispasr-server.dir/all: src/CMakeFiles/wespeaker.dir/all
 examples/server/CMakeFiles/crispasr-server.dir/all: src/CMakeFiles/parakeet.dir/all
 examples/server/CMakeFiles/crispasr-server.dir/all: src/CMakeFiles/qwen3_asr.dir/all
@@ -6437,6 +6717,7 @@ examples/server/CMakeFiles/crispasr-server.dir/all: src/CMakeFiles/ark_asr.dir/a
 examples/server/CMakeFiles/crispasr-server.dir/all: src/CMakeFiles/moss_audio.dir/all
 examples/server/CMakeFiles/crispasr-server.dir/all: src/CMakeFiles/moss_tts.dir/all
 examples/server/CMakeFiles/crispasr-server.dir/all: src/CMakeFiles/moss_tts_local.dir/all
+examples/server/CMakeFiles/crispasr-server.dir/all: src/CMakeFiles/hojo_asr.dir/all
 examples/server/CMakeFiles/crispasr-server.dir/all: src/CMakeFiles/moss_transcribe.dir/all
 examples/server/CMakeFiles/crispasr-server.dir/all: src/CMakeFiles/moss_transcribe_diarize.dir/all
 examples/server/CMakeFiles/crispasr-server.dir/all: src/CMakeFiles/qwen3_tts.dir/all
@@ -6445,6 +6726,8 @@ examples/server/CMakeFiles/crispasr-server.dir/all: src/CMakeFiles/miotts.dir/al
 examples/server/CMakeFiles/crispasr-server.dir/all: src/CMakeFiles/omnivoice.dir/all
 examples/server/CMakeFiles/crispasr-server.dir/all: src/CMakeFiles/orpheus.dir/all
 examples/server/CMakeFiles/crispasr-server.dir/all: src/CMakeFiles/piano-transcription.dir/all
+examples/server/CMakeFiles/crispasr-server.dir/all: src/CMakeFiles/onsets-and-frames.dir/all
+examples/server/CMakeFiles/crispasr-server.dir/all: src/CMakeFiles/hft-transformer.dir/all
 examples/server/CMakeFiles/crispasr-server.dir/all: src/CMakeFiles/basic-pitch.dir/all
 examples/server/CMakeFiles/crispasr-server.dir/all: src/CMakeFiles/mt3.dir/all
 examples/server/CMakeFiles/crispasr-server.dir/all: src/CMakeFiles/audioseal.dir/all
@@ -6514,7 +6797,7 @@ examples/server/CMakeFiles/crispasr-server.dir/all: examples/CMakeFiles/common.d
 
 # Build rule for subdir invocation for target.
 examples/server/CMakeFiles/crispasr-server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 83
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 80
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/server/CMakeFiles/crispasr-server.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : examples/server/CMakeFiles/crispasr-server.dir/rule
@@ -6553,6 +6836,8 @@ examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/all: src/CMakeFiles/cr
 examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/all: src/CMakeFiles/snac.dir/all
 examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/all: src/CMakeFiles/nemotron.dir/all
 examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/all: src/CMakeFiles/gigaam.dir/all
+examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/all: src/CMakeFiles/dolphin.dir/all
+examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/all: src/CMakeFiles/xasr.dir/all
 examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/all: src/CMakeFiles/wespeaker.dir/all
 examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/all: src/CMakeFiles/parakeet.dir/all
 examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/all: src/CMakeFiles/qwen3_asr.dir/all
@@ -6579,6 +6864,7 @@ examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/all: src/CMakeFiles/ar
 examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/all: src/CMakeFiles/moss_audio.dir/all
 examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/all: src/CMakeFiles/moss_tts.dir/all
 examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/all: src/CMakeFiles/moss_tts_local.dir/all
+examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/all: src/CMakeFiles/hojo_asr.dir/all
 examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/all: src/CMakeFiles/moss_transcribe.dir/all
 examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/all: src/CMakeFiles/moss_transcribe_diarize.dir/all
 examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/all: src/CMakeFiles/qwen3_tts.dir/all
@@ -6587,6 +6873,8 @@ examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/all: src/CMakeFiles/mi
 examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/all: src/CMakeFiles/omnivoice.dir/all
 examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/all: src/CMakeFiles/orpheus.dir/all
 examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/all: src/CMakeFiles/piano-transcription.dir/all
+examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/all: src/CMakeFiles/onsets-and-frames.dir/all
+examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/all: src/CMakeFiles/hft-transformer.dir/all
 examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/all: src/CMakeFiles/basic-pitch.dir/all
 examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/all: src/CMakeFiles/mt3.dir/all
 examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/all: src/CMakeFiles/audioseal.dir/all
@@ -6656,7 +6944,7 @@ examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/all: examples/CMakeFil
 
 # Build rule for subdir invocation for target.
 examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 83
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 80
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/rule
@@ -6695,6 +6983,8 @@ examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/all: sr
 examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/all: src/CMakeFiles/snac.dir/all
 examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/all: src/CMakeFiles/nemotron.dir/all
 examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/all: src/CMakeFiles/gigaam.dir/all
+examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/all: src/CMakeFiles/dolphin.dir/all
+examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/all: src/CMakeFiles/xasr.dir/all
 examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/all: src/CMakeFiles/wespeaker.dir/all
 examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/all: src/CMakeFiles/parakeet.dir/all
 examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/all: src/CMakeFiles/qwen3_asr.dir/all
@@ -6721,6 +7011,7 @@ examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/all: sr
 examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/all: src/CMakeFiles/moss_audio.dir/all
 examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/all: src/CMakeFiles/moss_tts.dir/all
 examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/all: src/CMakeFiles/moss_tts_local.dir/all
+examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/all: src/CMakeFiles/hojo_asr.dir/all
 examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/all: src/CMakeFiles/moss_transcribe.dir/all
 examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/all: src/CMakeFiles/moss_transcribe_diarize.dir/all
 examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/all: src/CMakeFiles/qwen3_tts.dir/all
@@ -6729,6 +7020,8 @@ examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/all: sr
 examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/all: src/CMakeFiles/omnivoice.dir/all
 examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/all: src/CMakeFiles/orpheus.dir/all
 examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/all: src/CMakeFiles/piano-transcription.dir/all
+examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/all: src/CMakeFiles/onsets-and-frames.dir/all
+examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/all: src/CMakeFiles/hft-transformer.dir/all
 examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/all: src/CMakeFiles/basic-pitch.dir/all
 examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/all: src/CMakeFiles/mt3.dir/all
 examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/all: src/CMakeFiles/audioseal.dir/all
@@ -6798,7 +7091,7 @@ examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/all: ex
 
 # Build rule for subdir invocation for target.
 examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 84
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 81
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/rule
@@ -6837,6 +7130,8 @@ examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all: src/CMakeFiles/
 examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all: src/CMakeFiles/snac.dir/all
 examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all: src/CMakeFiles/nemotron.dir/all
 examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all: src/CMakeFiles/gigaam.dir/all
+examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all: src/CMakeFiles/dolphin.dir/all
+examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all: src/CMakeFiles/xasr.dir/all
 examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all: src/CMakeFiles/wespeaker.dir/all
 examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all: src/CMakeFiles/parakeet.dir/all
 examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all: src/CMakeFiles/qwen3_asr.dir/all
@@ -6863,6 +7158,7 @@ examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all: src/CMakeFiles/
 examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all: src/CMakeFiles/moss_audio.dir/all
 examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all: src/CMakeFiles/moss_tts.dir/all
 examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all: src/CMakeFiles/moss_tts_local.dir/all
+examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all: src/CMakeFiles/hojo_asr.dir/all
 examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all: src/CMakeFiles/moss_transcribe.dir/all
 examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all: src/CMakeFiles/moss_transcribe_diarize.dir/all
 examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all: src/CMakeFiles/qwen3_tts.dir/all
@@ -6871,6 +7167,8 @@ examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all: src/CMakeFiles/
 examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all: src/CMakeFiles/omnivoice.dir/all
 examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all: src/CMakeFiles/orpheus.dir/all
 examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all: src/CMakeFiles/piano-transcription.dir/all
+examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all: src/CMakeFiles/onsets-and-frames.dir/all
+examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all: src/CMakeFiles/hft-transformer.dir/all
 examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all: src/CMakeFiles/basic-pitch.dir/all
 examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all: src/CMakeFiles/mt3.dir/all
 examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all: src/CMakeFiles/audioseal.dir/all
@@ -6935,12 +7233,12 @@ examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all: crisp_audio/CMa
 examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all: examples/CMakeFiles/common.dir/all
 	$(MAKE) $(MAKESILENT) -f examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/build.make examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/depend
 	$(MAKE) $(MAKESILENT) -f examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/build.make examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Built target crispasr-quantize"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=44 "Built target crispasr-quantize"
 .PHONY : examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all
 
 # Build rule for subdir invocation for target.
 examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 83
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 81
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/rule
@@ -6952,7 +7250,7 @@ crispasr-quantize: examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/r
 # codegen rule for target.
 examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/build.make examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num= "Finished codegen for target crispasr-quantize"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=44 "Finished codegen for target crispasr-quantize"
 .PHONY : examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/codegen
 
 # clean rule for target.
@@ -6979,6 +7277,8 @@ examples/cohere-align/CMakeFiles/cohere-align.dir/all: src/CMakeFiles/crispasr-c
 examples/cohere-align/CMakeFiles/cohere-align.dir/all: src/CMakeFiles/snac.dir/all
 examples/cohere-align/CMakeFiles/cohere-align.dir/all: src/CMakeFiles/nemotron.dir/all
 examples/cohere-align/CMakeFiles/cohere-align.dir/all: src/CMakeFiles/gigaam.dir/all
+examples/cohere-align/CMakeFiles/cohere-align.dir/all: src/CMakeFiles/dolphin.dir/all
+examples/cohere-align/CMakeFiles/cohere-align.dir/all: src/CMakeFiles/xasr.dir/all
 examples/cohere-align/CMakeFiles/cohere-align.dir/all: src/CMakeFiles/wespeaker.dir/all
 examples/cohere-align/CMakeFiles/cohere-align.dir/all: src/CMakeFiles/parakeet.dir/all
 examples/cohere-align/CMakeFiles/cohere-align.dir/all: src/CMakeFiles/qwen3_asr.dir/all
@@ -7005,6 +7305,7 @@ examples/cohere-align/CMakeFiles/cohere-align.dir/all: src/CMakeFiles/ark_asr.di
 examples/cohere-align/CMakeFiles/cohere-align.dir/all: src/CMakeFiles/moss_audio.dir/all
 examples/cohere-align/CMakeFiles/cohere-align.dir/all: src/CMakeFiles/moss_tts.dir/all
 examples/cohere-align/CMakeFiles/cohere-align.dir/all: src/CMakeFiles/moss_tts_local.dir/all
+examples/cohere-align/CMakeFiles/cohere-align.dir/all: src/CMakeFiles/hojo_asr.dir/all
 examples/cohere-align/CMakeFiles/cohere-align.dir/all: src/CMakeFiles/moss_transcribe.dir/all
 examples/cohere-align/CMakeFiles/cohere-align.dir/all: src/CMakeFiles/moss_transcribe_diarize.dir/all
 examples/cohere-align/CMakeFiles/cohere-align.dir/all: src/CMakeFiles/qwen3_tts.dir/all
@@ -7013,6 +7314,8 @@ examples/cohere-align/CMakeFiles/cohere-align.dir/all: src/CMakeFiles/miotts.dir
 examples/cohere-align/CMakeFiles/cohere-align.dir/all: src/CMakeFiles/omnivoice.dir/all
 examples/cohere-align/CMakeFiles/cohere-align.dir/all: src/CMakeFiles/orpheus.dir/all
 examples/cohere-align/CMakeFiles/cohere-align.dir/all: src/CMakeFiles/piano-transcription.dir/all
+examples/cohere-align/CMakeFiles/cohere-align.dir/all: src/CMakeFiles/onsets-and-frames.dir/all
+examples/cohere-align/CMakeFiles/cohere-align.dir/all: src/CMakeFiles/hft-transformer.dir/all
 examples/cohere-align/CMakeFiles/cohere-align.dir/all: src/CMakeFiles/basic-pitch.dir/all
 examples/cohere-align/CMakeFiles/cohere-align.dir/all: src/CMakeFiles/mt3.dir/all
 examples/cohere-align/CMakeFiles/cohere-align.dir/all: src/CMakeFiles/audioseal.dir/all
@@ -7082,7 +7385,7 @@ examples/cohere-align/CMakeFiles/cohere-align.dir/all: examples/CMakeFiles/commo
 
 # Build rule for subdir invocation for target.
 examples/cohere-align/CMakeFiles/cohere-align.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 83
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 80
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/cohere-align/CMakeFiles/cohere-align.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : examples/cohere-align/CMakeFiles/cohere-align.dir/rule
@@ -7121,6 +7424,8 @@ examples/nfa-align/CMakeFiles/nfa-align.dir/all: src/CMakeFiles/crispasr-core.di
 examples/nfa-align/CMakeFiles/nfa-align.dir/all: src/CMakeFiles/snac.dir/all
 examples/nfa-align/CMakeFiles/nfa-align.dir/all: src/CMakeFiles/nemotron.dir/all
 examples/nfa-align/CMakeFiles/nfa-align.dir/all: src/CMakeFiles/gigaam.dir/all
+examples/nfa-align/CMakeFiles/nfa-align.dir/all: src/CMakeFiles/dolphin.dir/all
+examples/nfa-align/CMakeFiles/nfa-align.dir/all: src/CMakeFiles/xasr.dir/all
 examples/nfa-align/CMakeFiles/nfa-align.dir/all: src/CMakeFiles/wespeaker.dir/all
 examples/nfa-align/CMakeFiles/nfa-align.dir/all: src/CMakeFiles/parakeet.dir/all
 examples/nfa-align/CMakeFiles/nfa-align.dir/all: src/CMakeFiles/qwen3_asr.dir/all
@@ -7147,6 +7452,7 @@ examples/nfa-align/CMakeFiles/nfa-align.dir/all: src/CMakeFiles/ark_asr.dir/all
 examples/nfa-align/CMakeFiles/nfa-align.dir/all: src/CMakeFiles/moss_audio.dir/all
 examples/nfa-align/CMakeFiles/nfa-align.dir/all: src/CMakeFiles/moss_tts.dir/all
 examples/nfa-align/CMakeFiles/nfa-align.dir/all: src/CMakeFiles/moss_tts_local.dir/all
+examples/nfa-align/CMakeFiles/nfa-align.dir/all: src/CMakeFiles/hojo_asr.dir/all
 examples/nfa-align/CMakeFiles/nfa-align.dir/all: src/CMakeFiles/moss_transcribe.dir/all
 examples/nfa-align/CMakeFiles/nfa-align.dir/all: src/CMakeFiles/moss_transcribe_diarize.dir/all
 examples/nfa-align/CMakeFiles/nfa-align.dir/all: src/CMakeFiles/qwen3_tts.dir/all
@@ -7155,6 +7461,8 @@ examples/nfa-align/CMakeFiles/nfa-align.dir/all: src/CMakeFiles/miotts.dir/all
 examples/nfa-align/CMakeFiles/nfa-align.dir/all: src/CMakeFiles/omnivoice.dir/all
 examples/nfa-align/CMakeFiles/nfa-align.dir/all: src/CMakeFiles/orpheus.dir/all
 examples/nfa-align/CMakeFiles/nfa-align.dir/all: src/CMakeFiles/piano-transcription.dir/all
+examples/nfa-align/CMakeFiles/nfa-align.dir/all: src/CMakeFiles/onsets-and-frames.dir/all
+examples/nfa-align/CMakeFiles/nfa-align.dir/all: src/CMakeFiles/hft-transformer.dir/all
 examples/nfa-align/CMakeFiles/nfa-align.dir/all: src/CMakeFiles/basic-pitch.dir/all
 examples/nfa-align/CMakeFiles/nfa-align.dir/all: src/CMakeFiles/mt3.dir/all
 examples/nfa-align/CMakeFiles/nfa-align.dir/all: src/CMakeFiles/audioseal.dir/all
@@ -7224,7 +7532,7 @@ examples/nfa-align/CMakeFiles/nfa-align.dir/all: examples/CMakeFiles/common.dir/
 
 # Build rule for subdir invocation for target.
 examples/nfa-align/CMakeFiles/nfa-align.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 83
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 80
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/nfa-align/CMakeFiles/nfa-align.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : examples/nfa-align/CMakeFiles/nfa-align.dir/rule
@@ -7267,7 +7575,7 @@ examples/qwen3-asr-test-conv/CMakeFiles/qwen3-asr-test-conv.dir/all: examples/cl
 
 # Build rule for subdir invocation for target.
 examples/qwen3-asr-test-conv/CMakeFiles/qwen3-asr-test-conv.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 26
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/qwen3-asr-test-conv/CMakeFiles/qwen3-asr-test-conv.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : examples/qwen3-asr-test-conv/CMakeFiles/qwen3-asr-test-conv.dir/rule
@@ -7310,7 +7618,7 @@ examples/qwen3-asr-test-llm/CMakeFiles/qwen3-asr-test-llm.dir/all: examples/cli/
 
 # Build rule for subdir invocation for target.
 examples/qwen3-asr-test-llm/CMakeFiles/qwen3-asr-test-llm.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 27
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 26
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/qwen3-asr-test-llm/CMakeFiles/qwen3-asr-test-llm.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : examples/qwen3-asr-test-llm/CMakeFiles/qwen3-asr-test-llm.dir/rule
@@ -7353,7 +7661,7 @@ examples/qwen3-asr-test-trace/CMakeFiles/qwen3-asr-test-trace.dir/all: examples/
 
 # Build rule for subdir invocation for target.
 examples/qwen3-asr-test-trace/CMakeFiles/qwen3-asr-test-trace.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 26
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/qwen3-asr-test-trace/CMakeFiles/qwen3-asr-test-trace.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : examples/qwen3-asr-test-trace/CMakeFiles/qwen3-asr-test-trace.dir/rule
@@ -7471,7 +7779,7 @@ examples/voxtral-test-llm/CMakeFiles/voxtral-test-llm.dir/all: examples/cli/CMak
 
 # Build rule for subdir invocation for target.
 examples/voxtral-test-llm/CMakeFiles/voxtral-test-llm.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 27
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/voxtral-test-llm/CMakeFiles/voxtral-test-llm.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : examples/voxtral-test-llm/CMakeFiles/voxtral-test-llm.dir/rule
@@ -7513,7 +7821,7 @@ examples/voxtral-test-encoder/CMakeFiles/voxtral-test-encoder.dir/all: examples/
 
 # Build rule for subdir invocation for target.
 examples/voxtral-test-encoder/CMakeFiles/voxtral-test-encoder.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 27
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/voxtral-test-encoder/CMakeFiles/voxtral-test-encoder.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : examples/voxtral-test-encoder/CMakeFiles/voxtral-test-encoder.dir/rule
@@ -7555,7 +7863,7 @@ examples/voxtral-test-e2e/CMakeFiles/voxtral-test-e2e.dir/all: examples/cli/CMak
 
 # Build rule for subdir invocation for target.
 examples/voxtral-test-e2e/CMakeFiles/voxtral-test-e2e.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 27
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 25
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/voxtral-test-e2e/CMakeFiles/voxtral-test-e2e.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : examples/voxtral-test-e2e/CMakeFiles/voxtral-test-e2e.dir/rule
@@ -7597,7 +7905,7 @@ examples/vibevoice-test-stages/CMakeFiles/vibevoice-test-stages.dir/all: example
 
 # Build rule for subdir invocation for target.
 examples/vibevoice-test-stages/CMakeFiles/vibevoice-test-stages.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 26
+	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 24
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/vibevoice-test-stages/CMakeFiles/vibevoice-test-stages.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /content/CrispASR/t4-colab-build/CMakeFiles 0
 .PHONY : examples/vibevoice-test-stages/CMakeFiles/vibevoice-test-stages.dir/rule

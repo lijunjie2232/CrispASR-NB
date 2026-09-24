@@ -1,0 +1,2 @@
+/usr/bin/ar qc libxasr.a CMakeFiles/xasr.dir/xasr.cpp.o
+/usr/bin/ranlib libxasr.a

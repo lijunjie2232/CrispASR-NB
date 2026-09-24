@@ -12,7 +12,7 @@
   /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libdl.a \
   /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so \
   /usr/lib/x86_64-linux-gnu/libpthread.a \
-  /usr/lib/x86_64-linux-gnu/libcblas.so \
+  /usr/lib/x86_64-linux-gnu/libopenblas.so \
   ../../ggml/src/ggml-cuda/libggml-cuda.so.0.23.0 \
   ../../ggml/src/libggml-base.so.0.23.0 \
   /usr/lib/gcc/x86_64-linux-gnu/13/libstdc++.so \
@@ -42,7 +42,7 @@
   /usr/lib/gcc/x86_64-linux-gnu/13/crtendS.o \
   /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crtn.o \
   ../../ggml/src/ggml-cuda/libggml-cuda.so.0.23.0 \
-  /lib/x86_64-linux-gnu/libatlas.so.3 \
+  /lib/x86_64-linux-gnu/libgfortran.so.5 \
   /usr/local/cuda-12.8/lib64/libcudart.so.12 \
   /usr/local/cuda-12.8/lib64/libcublas.so.12 \
   /usr/local/cuda-12.8/lib64/stubs/libcuda.so \
@@ -77,7 +77,7 @@ CMakeFiles/qwen3-asr-enc-dump.dir/main.cpp.o:
 
 /usr/lib/x86_64-linux-gnu/libpthread.a:
 
-/usr/lib/x86_64-linux-gnu/libcblas.so:
+/usr/lib/x86_64-linux-gnu/libopenblas.so:
 
 ../../ggml/src/ggml-cuda/libggml-cuda.so.0.23.0:
 
@@ -137,7 +137,7 @@ CMakeFiles/qwen3-asr-enc-dump.dir/main.cpp.o:
 
 ../../ggml/src/ggml-cuda/libggml-cuda.so.0.23.0:
 
-/lib/x86_64-linux-gnu/libatlas.so.3:
+/lib/x86_64-linux-gnu/libgfortran.so.5:
 
 /usr/local/cuda-12.8/lib64/libcudart.so.12:
 

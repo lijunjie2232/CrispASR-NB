@@ -105,7 +105,7 @@ bin/vibevoice-test-stages: src/libbeatrice-pitch.a
 bin/vibevoice-test-stages: src/libcrispasr-core.a
 bin/vibevoice-test-stages: /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so
 bin/vibevoice-test-stages: /usr/lib/x86_64-linux-gnu/libpthread.a
-bin/vibevoice-test-stages: /usr/lib/x86_64-linux-gnu/libcblas.so
+bin/vibevoice-test-stages: /usr/lib/x86_64-linux-gnu/libopenblas.so
 bin/vibevoice-test-stages: ggml/src/libggml.so.0.23.0
 bin/vibevoice-test-stages: ggml/src/ggml-cuda/libggml-cuda.so.0.23.0
 bin/vibevoice-test-stages: ggml/src/libggml-cpu.so.0.23.0

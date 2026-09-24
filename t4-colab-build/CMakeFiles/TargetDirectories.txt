@@ -44,6 +44,8 @@
 /content/CrispASR/t4-colab-build/src/CMakeFiles/crispasr-llama-core.dir
 /content/CrispASR/t4-colab-build/src/CMakeFiles/nemotron.dir
 /content/CrispASR/t4-colab-build/src/CMakeFiles/gigaam.dir
+/content/CrispASR/t4-colab-build/src/CMakeFiles/dolphin.dir
+/content/CrispASR/t4-colab-build/src/CMakeFiles/xasr.dir
 /content/CrispASR/t4-colab-build/src/CMakeFiles/wespeaker.dir
 /content/CrispASR/t4-colab-build/src/CMakeFiles/parakeet.dir
 /content/CrispASR/t4-colab-build/src/CMakeFiles/qwen3_asr.dir
@@ -70,6 +72,7 @@
 /content/CrispASR/t4-colab-build/src/CMakeFiles/moss_audio.dir
 /content/CrispASR/t4-colab-build/src/CMakeFiles/moss_tts.dir
 /content/CrispASR/t4-colab-build/src/CMakeFiles/moss_tts_local.dir
+/content/CrispASR/t4-colab-build/src/CMakeFiles/hojo_asr.dir
 /content/CrispASR/t4-colab-build/src/CMakeFiles/moss_transcribe.dir
 /content/CrispASR/t4-colab-build/src/CMakeFiles/moss_transcribe_diarize.dir
 /content/CrispASR/t4-colab-build/src/CMakeFiles/qwen3_tts.dir
@@ -79,6 +82,8 @@
 /content/CrispASR/t4-colab-build/src/CMakeFiles/omnivoice.dir
 /content/CrispASR/t4-colab-build/src/CMakeFiles/orpheus.dir
 /content/CrispASR/t4-colab-build/src/CMakeFiles/piano-transcription.dir
+/content/CrispASR/t4-colab-build/src/CMakeFiles/onsets-and-frames.dir
+/content/CrispASR/t4-colab-build/src/CMakeFiles/hft-transformer.dir
 /content/CrispASR/t4-colab-build/src/CMakeFiles/basic-pitch.dir
 /content/CrispASR/t4-colab-build/src/CMakeFiles/mt3.dir
 /content/CrispASR/t4-colab-build/src/CMakeFiles/audioseal.dir
@@ -191,6 +196,7 @@
 /content/CrispASR/t4-colab-build/examples/cli/CMakeFiles/moss-tts-local-smoke.dir
 /content/CrispASR/t4-colab-build/examples/cli/CMakeFiles/crispasr-chat.dir
 /content/CrispASR/t4-colab-build/examples/cli/CMakeFiles/crispasr-f0-eval.dir
+/content/CrispASR/t4-colab-build/examples/cli/CMakeFiles/crispasr-repack-probe.dir
 /content/CrispASR/t4-colab-build/examples/cli/CMakeFiles/edit_cache.dir
 /content/CrispASR/t4-colab-build/examples/cli/CMakeFiles/rebuild_cache.dir
 /content/CrispASR/t4-colab-build/examples/cli/CMakeFiles/list_install_components.dir

@@ -97,10 +97,12 @@ bin/crispasr-diff: examples/cli/CMakeFiles/crispasr-diff.dir/crispasr_diff_main.
 bin/crispasr-diff: examples/cli/CMakeFiles/crispasr-diff.dir/build.make
 bin/crispasr-diff: examples/cli/CMakeFiles/crispasr-diff.dir/compiler_depend.ts
 bin/crispasr-diff: examples/libcommon.a
-bin/crispasr-diff: src/libcrispasr.so.0.8.34
+bin/crispasr-diff: src/libcrispasr.so.0.8.36
 bin/crispasr-diff: src/libparakeet.a
 bin/crispasr-diff: src/libwespeaker.a
 bin/crispasr-diff: src/libgigaam.a
+bin/crispasr-diff: src/libdolphin.a
+bin/crispasr-diff: src/libxasr.a
 bin/crispasr-diff: src/libcanary.a
 bin/crispasr-diff: src/libcohere.a
 bin/crispasr-diff: src/libgranite_speech.a
@@ -126,6 +128,7 @@ bin/crispasr-diff: src/libark_asr.a
 bin/crispasr-diff: src/libmoss_audio.a
 bin/crispasr-diff: src/libmoss_tts.a
 bin/crispasr-diff: src/libmoss_tts_local.a
+bin/crispasr-diff: src/libhojo_asr.a
 bin/crispasr-diff: src/libmoss_transcribe.a
 bin/crispasr-diff: src/libmoss_transcribe_diarize.a
 bin/crispasr-diff: src/libvoxcpm2_tts.a
@@ -176,6 +179,8 @@ bin/crispasr-diff: src/libomniasr.a
 bin/crispasr-diff: src/libvibevoice.a
 bin/crispasr-diff: src/libpiano-transcription.a
 bin/crispasr-diff: src/libbasic-pitch.a
+bin/crispasr-diff: src/libonsets-and-frames.a
+bin/crispasr-diff: src/libhft-transformer.a
 bin/crispasr-diff: src/libmt3.a
 bin/crispasr-diff: src/libkugelaudio.a
 bin/crispasr-diff: src/libecapa-lid.a
@@ -204,7 +209,6 @@ bin/crispasr-diff: crisp_truecase/libcrisp_truecase.a
 bin/crispasr-diff: src/libpyannote-seg.a
 bin/crispasr-diff: src/libsilero-lid.a
 bin/crispasr-diff: src/libmel-band-roformer.a
-bin/crispasr-diff: /usr/lib/x86_64-linux-gnu/libopenblas.so
 bin/crispasr-diff: src/libbeat-this.a
 bin/crispasr-diff: src/libbtc-chords.a
 bin/crispasr-diff: src/libtabcnn.a
@@ -213,7 +217,7 @@ bin/crispasr-diff: src/librvc-svc.a
 bin/crispasr-diff: src/libcrispasr-core.a
 bin/crispasr-diff: ggml/src/libggml.so.0.23.0
 bin/crispasr-diff: ggml/src/ggml-cuda/libggml-cuda.so.0.23.0
-bin/crispasr-diff: /usr/lib/x86_64-linux-gnu/libcblas.so
+bin/crispasr-diff: /usr/lib/x86_64-linux-gnu/libopenblas.so
 bin/crispasr-diff: /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so
 bin/crispasr-diff: /usr/lib/x86_64-linux-gnu/libpthread.a
 bin/crispasr-diff: ggml/src/libggml-cpu.so.0.23.0

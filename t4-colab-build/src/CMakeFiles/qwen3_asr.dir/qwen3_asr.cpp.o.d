@@ -215,7 +215,10 @@ src/CMakeFiles/qwen3_asr.dir/qwen3_asr.cpp.o: ../../src/qwen3_asr.cpp \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
  /usr/include/c++/13/bits/vector.tcc ../../src/core/gguf_loader.h \
- ../../src/core/mel.h ../../src/core/ffn.h ../../src/core/attention.h \
- ../../src/core/bpe.h ../../src/core/gpu_backend_pref.h \
+ ../../src/core/mel.h ../../src/core/torchaudio_resample.h \
+ /usr/include/c++/13/numeric /usr/include/c++/13/bits/stl_numeric.h \
+ /usr/include/c++/13/pstl/glue_numeric_defs.h ../../src/core/ffn.h \
+ ../../src/core/attention.h ../../src/core/bpe.h \
+ ../../src/core/gpu_backend_pref.h \
  ../../src/core/metal_pipeline_cache_policy.h \
  ../../src/core/ggml_cpu_backend.h ../../src/core/qwen3_forced_aligner.h

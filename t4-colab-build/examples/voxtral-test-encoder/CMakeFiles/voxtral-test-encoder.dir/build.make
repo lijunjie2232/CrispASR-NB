@@ -107,7 +107,7 @@ bin/voxtral-test-encoder: ggml/src/libggml.so.0.23.0
 bin/voxtral-test-encoder: ggml/src/ggml-cuda/libggml-cuda.so.0.23.0
 bin/voxtral-test-encoder: /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so
 bin/voxtral-test-encoder: /usr/lib/x86_64-linux-gnu/libpthread.a
-bin/voxtral-test-encoder: /usr/lib/x86_64-linux-gnu/libcblas.so
+bin/voxtral-test-encoder: /usr/lib/x86_64-linux-gnu/libopenblas.so
 bin/voxtral-test-encoder: ggml/src/libggml-cpu.so.0.23.0
 bin/voxtral-test-encoder: ggml/src/libggml-base.so.0.23.0
 bin/voxtral-test-encoder: examples/voxtral-test-encoder/CMakeFiles/voxtral-test-encoder.dir/link.txt

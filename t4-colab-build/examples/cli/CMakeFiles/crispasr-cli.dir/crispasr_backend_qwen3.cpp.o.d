@@ -284,4 +284,5 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_qwen3.cpp.o: \
  /usr/include/c++/13/pstl/glue_numeric_defs.h \
  ../../../src/core/beam_decode.h /usr/include/c++/13/utility \
  /usr/include/c++/13/bits/stl_relops.h ../../../src/core/ngram_loop_fix.h \
- ../../../src/qwen3_asr.h
+ ../../../src/core/gguf_loader.h ../../../ggml/include/gguf.h \
+ ../../../src/core/qwen3_stream.h ../../../src/qwen3_asr.h

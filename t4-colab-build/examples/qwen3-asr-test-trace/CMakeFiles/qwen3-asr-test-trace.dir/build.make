@@ -108,7 +108,7 @@ bin/qwen3-asr-test-trace: ggml/src/libggml.so.0.23.0
 bin/qwen3-asr-test-trace: ggml/src/ggml-cuda/libggml-cuda.so.0.23.0
 bin/qwen3-asr-test-trace: /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so
 bin/qwen3-asr-test-trace: /usr/lib/x86_64-linux-gnu/libpthread.a
-bin/qwen3-asr-test-trace: /usr/lib/x86_64-linux-gnu/libcblas.so
+bin/qwen3-asr-test-trace: /usr/lib/x86_64-linux-gnu/libopenblas.so
 bin/qwen3-asr-test-trace: ggml/src/libggml-cpu.so.0.23.0
 bin/qwen3-asr-test-trace: ggml/src/libggml-base.so.0.23.0
 bin/qwen3-asr-test-trace: examples/qwen3-asr-test-trace/CMakeFiles/qwen3-asr-test-trace.dir/link.txt

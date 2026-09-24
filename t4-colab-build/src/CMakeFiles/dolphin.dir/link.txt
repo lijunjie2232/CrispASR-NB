@@ -1,0 +1,2 @@
+/usr/bin/ar qc libdolphin.a CMakeFiles/dolphin.dir/dolphin.cpp.o
+/usr/bin/ranlib libdolphin.a

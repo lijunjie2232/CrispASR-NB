@@ -59,7 +59,7 @@ endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   foreach(file
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libcrispasr.so.0.8.34"
+      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libcrispasr.so.0.8.36"
       "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libcrispasr.so.1"
       )
     if(EXISTS "${file}" AND
@@ -70,11 +70,11 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     endif()
   endforeach()
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES
-    "/content/CrispASR/t4-colab-build/src/libcrispasr.so.0.8.34"
+    "/content/CrispASR/t4-colab-build/src/libcrispasr.so.0.8.36"
     "/content/CrispASR/t4-colab-build/src/libcrispasr.so.1"
     )
   foreach(file
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libcrispasr.so.0.8.34"
+      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libcrispasr.so.0.8.36"
       "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libcrispasr.so.1"
       )
     if(EXISTS "${file}" AND

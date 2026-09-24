@@ -98,12 +98,14 @@ bin/nfa-align: examples/nfa-align/CMakeFiles/nfa-align.dir/build.make
 bin/nfa-align: examples/nfa-align/CMakeFiles/nfa-align.dir/compiler_depend.ts
 bin/nfa-align: src/libcanary_ctc.a
 bin/nfa-align: examples/libcommon.a
-bin/nfa-align: src/libcrispasr.so.0.8.34
+bin/nfa-align: src/libcrispasr.so.0.8.36
 bin/nfa-align: src/libcanary_ctc.a
 bin/nfa-align: src/libcrispasr_c2pa_native.a
 bin/nfa-align: src/libaudioseal.a
 bin/nfa-align: glint/libglint.a
 bin/nfa-align: src/libgigaam.a
+bin/nfa-align: src/libxasr.a
+bin/nfa-align: src/libdolphin.a
 bin/nfa-align: src/libwespeaker.a
 bin/nfa-align: src/libnemotron.a
 bin/nfa-align: src/libparakeet.a
@@ -136,6 +138,8 @@ bin/nfa-align: src/libomniasr.a
 bin/nfa-align: src/libvibevoice.a
 bin/nfa-align: src/libpiano-transcription.a
 bin/nfa-align: src/libbasic-pitch.a
+bin/nfa-align: src/libonsets-and-frames.a
+bin/nfa-align: src/libhft-transformer.a
 bin/nfa-align: src/libmt3.a
 bin/nfa-align: src/libkugelaudio.a
 bin/nfa-align: src/libecapa-lid.a
@@ -150,6 +154,7 @@ bin/nfa-align: src/libmimo_tokenizer.a
 bin/nfa-align: src/libmoss_audio.a
 bin/nfa-align: src/libmoss_tts.a
 bin/nfa-align: src/libmoss_tts_local.a
+bin/nfa-align: src/libhojo_asr.a
 bin/nfa-align: src/libmoss_transcribe.a
 bin/nfa-align: src/libmoss_transcribe_diarize.a
 bin/nfa-align: src/libbreeze_tts_2.a
@@ -198,7 +203,6 @@ bin/nfa-align: crisp_truecase/libcrisp_truecase.a
 bin/nfa-align: src/libpyannote-seg.a
 bin/nfa-align: src/libsilero-lid.a
 bin/nfa-align: src/libmel-band-roformer.a
-bin/nfa-align: /usr/lib/x86_64-linux-gnu/libopenblas.so
 bin/nfa-align: src/libcrepe.a
 bin/nfa-align: src/libbtc-chords.a
 bin/nfa-align: src/libtabcnn.a
@@ -210,7 +214,7 @@ bin/nfa-align: ggml/src/libggml.so.0.23.0
 bin/nfa-align: ggml/src/ggml-cuda/libggml-cuda.so.0.23.0
 bin/nfa-align: /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so
 bin/nfa-align: /usr/lib/x86_64-linux-gnu/libpthread.a
-bin/nfa-align: /usr/lib/x86_64-linux-gnu/libcblas.so
+bin/nfa-align: /usr/lib/x86_64-linux-gnu/libopenblas.so
 bin/nfa-align: ggml/src/libggml-cpu.so.0.23.0
 bin/nfa-align: ggml/src/libggml-base.so.0.23.0
 bin/nfa-align: examples/nfa-align/CMakeFiles/nfa-align.dir/link.txt

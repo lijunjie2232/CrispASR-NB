@@ -8,6 +8,8 @@
   CMakeFiles/crispasr-cli.dir/crispasr_backend_crispasr.cpp.o \
   CMakeFiles/crispasr-cli.dir/crispasr_backend_nemotron.cpp.o \
   CMakeFiles/crispasr-cli.dir/crispasr_backend_gigaam.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_dolphin.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_xasr.cpp.o \
   CMakeFiles/crispasr-cli.dir/crispasr_backend_parakeet.cpp.o \
   CMakeFiles/crispasr-cli.dir/crispasr_backend_canary.cpp.o \
   CMakeFiles/crispasr-cli.dir/crispasr_backend_canary_qwen.cpp.o \
@@ -72,10 +74,13 @@
   CMakeFiles/crispasr-cli.dir/crispasr_backend_bt2_tts.cpp.o \
   CMakeFiles/crispasr-cli.dir/crispasr_backend_piano_transcription.cpp.o \
   CMakeFiles/crispasr-cli.dir/crispasr_backend_basic_pitch.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_onsets_and_frames.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_hft_transformer.cpp.o \
   CMakeFiles/crispasr-cli.dir/crispasr_backend_mt3.cpp.o \
   CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_audio.cpp.o \
   CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts.cpp.o \
   CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts_local.cpp.o \
+  CMakeFiles/crispasr-cli.dir/crispasr_backend_hojo_asr.cpp.o \
   CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe.cpp.o \
   CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe_diarize.cpp.o \
   CMakeFiles/crispasr-cli.dir/crispasr_backend_funasr.cpp.o \
@@ -105,10 +110,12 @@
   CMakeFiles/crispasr-cli.dir/wyoming.cpp.o \
   CMakeFiles/crispasr-cli.dir/crispasr_backend_outetts.cpp.o \
   ../libcommon.a \
-  ../../src/libcrispasr.so.0.8.34 \
+  ../../src/libcrispasr.so.0.8.36 \
   ../../src/libparakeet.a \
   ../../src/libwespeaker.a \
   ../../src/libgigaam.a \
+  ../../src/libdolphin.a \
+  ../../src/libxasr.a \
   ../../src/libcanary.a \
   ../../src/libcohere.a \
   ../../src/libgranite_speech.a \
@@ -155,6 +162,7 @@
   ../../src/libmoss_audio.a \
   ../../src/libmoss_tts.a \
   ../../src/libmoss_tts_local.a \
+  ../../src/libhojo_asr.a \
   ../../src/libmoss_transcribe.a \
   ../../src/libmoss_transcribe_diarize.a \
   ../../src/libmiotts.a \
@@ -188,6 +196,8 @@
   ../../src/libomniasr.a \
   ../../src/libpiano-transcription.a \
   ../../src/libbasic-pitch.a \
+  ../../src/libonsets-and-frames.a \
+  ../../src/libhft-transformer.a \
   ../../src/libmt3.a \
   ../../src/libecapa-lid.a \
   ../../src/libtitanet.a \
@@ -208,7 +218,6 @@
   ../../crisp_punc/libcrisp_punc.a \
   ../../crisp_truecase/libcrisp_truecase.a \
   ../../src/libmel-band-roformer.a \
-  /usr/lib/x86_64-linux-gnu/libopenblas.so \
   ../../src/libcrepe.a \
   ../../src/libbtc-chords.a \
   ../../src/libtabcnn.a \
@@ -218,7 +227,7 @@
   ../../src/libcrispasr-core.a \
   ../../ggml/src/libggml.so.0.23.0 \
   ../../ggml/src/ggml-cuda/libggml-cuda.so.0.23.0 \
-  /usr/lib/x86_64-linux-gnu/libcblas.so \
+  /usr/lib/x86_64-linux-gnu/libopenblas.so \
   /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so \
   /usr/lib/x86_64-linux-gnu/libpthread.a \
   ../../ggml/src/libggml-cpu.so.0.23.0 \
@@ -250,10 +259,9 @@
   /usr/lib/gcc/x86_64-linux-gnu/13/libgcc.a \
   /usr/lib/gcc/x86_64-linux-gnu/13/crtendS.o \
   /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crtn.o \
-  /usr/lib/x86_64-linux-gnu/libopenblas.so \
   /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so \
+  /usr/lib/x86_64-linux-gnu/libopenblas.so \
   ../../ggml/src/ggml-cuda/libggml-cuda.so.0.23.0 \
-  /lib/x86_64-linux-gnu/libatlas.so.3 \
   /lib/x86_64-linux-gnu/libgfortran.so.5 \
   /usr/local/cuda-12.8/lib64/libcudart.so.12 \
   /usr/local/cuda-12.8/lib64/libcublas.so.12 \
@@ -280,6 +288,10 @@ CMakeFiles/crispasr-cli.dir/crispasr_backend_crispasr.cpp.o:
 CMakeFiles/crispasr-cli.dir/crispasr_backend_nemotron.cpp.o:
 
 CMakeFiles/crispasr-cli.dir/crispasr_backend_gigaam.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_dolphin.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_xasr.cpp.o:
 
 CMakeFiles/crispasr-cli.dir/crispasr_backend_parakeet.cpp.o:
 
@@ -409,6 +421,10 @@ CMakeFiles/crispasr-cli.dir/crispasr_backend_piano_transcription.cpp.o:
 
 CMakeFiles/crispasr-cli.dir/crispasr_backend_basic_pitch.cpp.o:
 
+CMakeFiles/crispasr-cli.dir/crispasr_backend_onsets_and_frames.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_hft_transformer.cpp.o:
+
 CMakeFiles/crispasr-cli.dir/crispasr_backend_mt3.cpp.o:
 
 CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_audio.cpp.o:
@@ -416,6 +432,8 @@ CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_audio.cpp.o:
 CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts.cpp.o:
 
 CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts_local.cpp.o:
+
+CMakeFiles/crispasr-cli.dir/crispasr_backend_hojo_asr.cpp.o:
 
 CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe.cpp.o:
 
@@ -475,13 +493,17 @@ CMakeFiles/crispasr-cli.dir/crispasr_backend_outetts.cpp.o:
 
 ../libcommon.a:
 
-../../src/libcrispasr.so.0.8.34:
+../../src/libcrispasr.so.0.8.36:
 
 ../../src/libparakeet.a:
 
 ../../src/libwespeaker.a:
 
 ../../src/libgigaam.a:
+
+../../src/libdolphin.a:
+
+../../src/libxasr.a:
 
 ../../src/libcanary.a:
 
@@ -575,6 +597,8 @@ CMakeFiles/crispasr-cli.dir/crispasr_backend_outetts.cpp.o:
 
 ../../src/libmoss_tts_local.a:
 
+../../src/libhojo_asr.a:
+
 ../../src/libmoss_transcribe.a:
 
 ../../src/libmoss_transcribe_diarize.a:
@@ -641,6 +665,10 @@ CMakeFiles/crispasr-cli.dir/crispasr_backend_outetts.cpp.o:
 
 ../../src/libbasic-pitch.a:
 
+../../src/libonsets-and-frames.a:
+
+../../src/libhft-transformer.a:
+
 ../../src/libmt3.a:
 
 ../../src/libecapa-lid.a:
@@ -681,8 +709,6 @@ CMakeFiles/crispasr-cli.dir/crispasr_backend_outetts.cpp.o:
 
 ../../src/libmel-band-roformer.a:
 
-/usr/lib/x86_64-linux-gnu/libopenblas.so:
-
 ../../src/libcrepe.a:
 
 ../../src/libbtc-chords.a:
@@ -701,7 +727,7 @@ CMakeFiles/crispasr-cli.dir/crispasr_backend_outetts.cpp.o:
 
 ../../ggml/src/ggml-cuda/libggml-cuda.so.0.23.0:
 
-/usr/lib/x86_64-linux-gnu/libcblas.so:
+/usr/lib/x86_64-linux-gnu/libopenblas.so:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so:
 
@@ -765,13 +791,11 @@ CMakeFiles/crispasr-cli.dir/crispasr_backend_outetts.cpp.o:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crtn.o:
 
-/usr/lib/x86_64-linux-gnu/libopenblas.so:
-
 /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so:
 
-../../ggml/src/ggml-cuda/libggml-cuda.so.0.23.0:
+/usr/lib/x86_64-linux-gnu/libopenblas.so:
 
-/lib/x86_64-linux-gnu/libatlas.so.3:
+../../ggml/src/ggml-cuda/libggml-cuda.so.0.23.0:
 
 /lib/x86_64-linux-gnu/libgfortran.so.5:
 

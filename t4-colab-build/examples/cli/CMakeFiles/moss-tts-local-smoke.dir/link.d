@@ -9,7 +9,7 @@
   /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libdl.a \
   /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so \
   /usr/lib/x86_64-linux-gnu/libpthread.a \
-  /usr/lib/x86_64-linux-gnu/libcblas.so \
+  /usr/lib/x86_64-linux-gnu/libopenblas.so \
   ../../ggml/src/libggml.so.0.23.0 \
   ../../ggml/src/libggml-cpu.so.0.23.0 \
   ../../ggml/src/ggml-cuda/libggml-cuda.so.0.23.0 \
@@ -71,7 +71,7 @@ CMakeFiles/moss-tts-local-smoke.dir/moss_tts_local_smoke.cpp.o:
 
 /usr/lib/x86_64-linux-gnu/libpthread.a:
 
-/usr/lib/x86_64-linux-gnu/libcblas.so:
+/usr/lib/x86_64-linux-gnu/libopenblas.so:
 
 ../../ggml/src/libggml.so.0.23.0:
 

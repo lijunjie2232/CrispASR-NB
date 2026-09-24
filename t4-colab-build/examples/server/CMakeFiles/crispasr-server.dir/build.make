@@ -113,11 +113,13 @@ bin/crispasr-server: examples/server/CMakeFiles/crispasr-server.dir/ws_stream.cp
 bin/crispasr-server: examples/server/CMakeFiles/crispasr-server.dir/build.make
 bin/crispasr-server: examples/server/CMakeFiles/crispasr-server.dir/compiler_depend.ts
 bin/crispasr-server: examples/libcommon.a
-bin/crispasr-server: src/libcrispasr.so.0.8.34
+bin/crispasr-server: src/libcrispasr.so.0.8.36
 bin/crispasr-server: src/libcrispasr_c2pa_native.a
 bin/crispasr-server: src/libaudioseal.a
 bin/crispasr-server: glint/libglint.a
 bin/crispasr-server: src/libgigaam.a
+bin/crispasr-server: src/libxasr.a
+bin/crispasr-server: src/libdolphin.a
 bin/crispasr-server: src/libwespeaker.a
 bin/crispasr-server: src/libnemotron.a
 bin/crispasr-server: src/libparakeet.a
@@ -151,6 +153,8 @@ bin/crispasr-server: src/libomniasr.a
 bin/crispasr-server: src/libvibevoice.a
 bin/crispasr-server: src/libpiano-transcription.a
 bin/crispasr-server: src/libbasic-pitch.a
+bin/crispasr-server: src/libonsets-and-frames.a
+bin/crispasr-server: src/libhft-transformer.a
 bin/crispasr-server: src/libmt3.a
 bin/crispasr-server: src/libkugelaudio.a
 bin/crispasr-server: src/libecapa-lid.a
@@ -165,6 +169,7 @@ bin/crispasr-server: src/libmimo_tokenizer.a
 bin/crispasr-server: src/libmoss_audio.a
 bin/crispasr-server: src/libmoss_tts.a
 bin/crispasr-server: src/libmoss_tts_local.a
+bin/crispasr-server: src/libhojo_asr.a
 bin/crispasr-server: src/libmoss_transcribe.a
 bin/crispasr-server: src/libmoss_transcribe_diarize.a
 bin/crispasr-server: src/libbreeze_tts_2.a
@@ -213,7 +218,6 @@ bin/crispasr-server: crisp_truecase/libcrisp_truecase.a
 bin/crispasr-server: src/libpyannote-seg.a
 bin/crispasr-server: src/libsilero-lid.a
 bin/crispasr-server: src/libmel-band-roformer.a
-bin/crispasr-server: /usr/lib/x86_64-linux-gnu/libopenblas.so
 bin/crispasr-server: src/libcrepe.a
 bin/crispasr-server: src/libbtc-chords.a
 bin/crispasr-server: src/libtabcnn.a
@@ -225,7 +229,7 @@ bin/crispasr-server: ggml/src/libggml.so.0.23.0
 bin/crispasr-server: ggml/src/ggml-cuda/libggml-cuda.so.0.23.0
 bin/crispasr-server: /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so
 bin/crispasr-server: /usr/lib/x86_64-linux-gnu/libpthread.a
-bin/crispasr-server: /usr/lib/x86_64-linux-gnu/libcblas.so
+bin/crispasr-server: /usr/lib/x86_64-linux-gnu/libopenblas.so
 bin/crispasr-server: ggml/src/libggml-cpu.so.0.23.0
 bin/crispasr-server: ggml/src/libggml-base.so.0.23.0
 bin/crispasr-server: examples/server/CMakeFiles/crispasr-server.dir/link.txt

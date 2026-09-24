@@ -97,11 +97,13 @@ bin/crispasr-vad-speech-segments: examples/vad-speech-segments/CMakeFiles/crispa
 bin/crispasr-vad-speech-segments: examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/build.make
 bin/crispasr-vad-speech-segments: examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/compiler_depend.ts
 bin/crispasr-vad-speech-segments: examples/libcommon.a
-bin/crispasr-vad-speech-segments: src/libcrispasr.so.0.8.34
+bin/crispasr-vad-speech-segments: src/libcrispasr.so.0.8.36
 bin/crispasr-vad-speech-segments: src/libcrispasr_c2pa_native.a
 bin/crispasr-vad-speech-segments: src/libaudioseal.a
 bin/crispasr-vad-speech-segments: glint/libglint.a
 bin/crispasr-vad-speech-segments: src/libgigaam.a
+bin/crispasr-vad-speech-segments: src/libxasr.a
+bin/crispasr-vad-speech-segments: src/libdolphin.a
 bin/crispasr-vad-speech-segments: src/libwespeaker.a
 bin/crispasr-vad-speech-segments: src/libnemotron.a
 bin/crispasr-vad-speech-segments: src/libparakeet.a
@@ -135,6 +137,8 @@ bin/crispasr-vad-speech-segments: src/libomniasr.a
 bin/crispasr-vad-speech-segments: src/libvibevoice.a
 bin/crispasr-vad-speech-segments: src/libpiano-transcription.a
 bin/crispasr-vad-speech-segments: src/libbasic-pitch.a
+bin/crispasr-vad-speech-segments: src/libonsets-and-frames.a
+bin/crispasr-vad-speech-segments: src/libhft-transformer.a
 bin/crispasr-vad-speech-segments: src/libmt3.a
 bin/crispasr-vad-speech-segments: src/libkugelaudio.a
 bin/crispasr-vad-speech-segments: src/libecapa-lid.a
@@ -149,6 +153,7 @@ bin/crispasr-vad-speech-segments: src/libmimo_tokenizer.a
 bin/crispasr-vad-speech-segments: src/libmoss_audio.a
 bin/crispasr-vad-speech-segments: src/libmoss_tts.a
 bin/crispasr-vad-speech-segments: src/libmoss_tts_local.a
+bin/crispasr-vad-speech-segments: src/libhojo_asr.a
 bin/crispasr-vad-speech-segments: src/libmoss_transcribe.a
 bin/crispasr-vad-speech-segments: src/libmoss_transcribe_diarize.a
 bin/crispasr-vad-speech-segments: src/libbreeze_tts_2.a
@@ -197,7 +202,6 @@ bin/crispasr-vad-speech-segments: crisp_truecase/libcrisp_truecase.a
 bin/crispasr-vad-speech-segments: src/libpyannote-seg.a
 bin/crispasr-vad-speech-segments: src/libsilero-lid.a
 bin/crispasr-vad-speech-segments: src/libmel-band-roformer.a
-bin/crispasr-vad-speech-segments: /usr/lib/x86_64-linux-gnu/libopenblas.so
 bin/crispasr-vad-speech-segments: src/libcrepe.a
 bin/crispasr-vad-speech-segments: src/libbtc-chords.a
 bin/crispasr-vad-speech-segments: src/libtabcnn.a
@@ -209,7 +213,7 @@ bin/crispasr-vad-speech-segments: ggml/src/libggml.so.0.23.0
 bin/crispasr-vad-speech-segments: ggml/src/ggml-cuda/libggml-cuda.so.0.23.0
 bin/crispasr-vad-speech-segments: /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so
 bin/crispasr-vad-speech-segments: /usr/lib/x86_64-linux-gnu/libpthread.a
-bin/crispasr-vad-speech-segments: /usr/lib/x86_64-linux-gnu/libcblas.so
+bin/crispasr-vad-speech-segments: /usr/lib/x86_64-linux-gnu/libopenblas.so
 bin/crispasr-vad-speech-segments: ggml/src/libggml-cpu.so.0.23.0
 bin/crispasr-vad-speech-segments: ggml/src/libggml-base.so.0.23.0
 bin/crispasr-vad-speech-segments: examples/vad-speech-segments/CMakeFiles/crispasr-vad-speech-segments.dir/link.txt

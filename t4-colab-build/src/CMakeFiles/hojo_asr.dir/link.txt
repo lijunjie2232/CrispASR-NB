@@ -1,0 +1,2 @@
+/usr/bin/ar qc libhojo_asr.a CMakeFiles/hojo_asr.dir/hojo_asr.cpp.o
+/usr/bin/ranlib libhojo_asr.a

@@ -232,6 +232,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_piano_cli.cpp.o: \
  /usr/include/x86_64-linux-gnu/sys/time.h /usr/include/semaphore.h \
  /usr/include/x86_64-linux-gnu/bits/semaphore.h \
  ../../../src/basic_pitch.h ../../../src/mt3.h \
+ ../../../src/hft_transformer.h ../../../src/onsets_and_frames.h \
  ../../../src/core/gguf_loader.h ../../../ggml/include/gguf.h \
  ../../../src/core/midi_writer.h /usr/include/c++/13/cmath \
  /usr/include/math.h /usr/include/x86_64-linux-gnu/bits/math-vector.h \

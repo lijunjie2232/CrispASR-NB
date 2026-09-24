@@ -274,6 +274,20 @@ crispasr-f0-eval/fast:
 	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-f0-eval.dir/build.make examples/cli/CMakeFiles/crispasr-f0-eval.dir/build
 .PHONY : crispasr-f0-eval/fast
 
+# Convenience name for target.
+examples/cli/CMakeFiles/crispasr-repack-probe.dir/rule:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/cli/CMakeFiles/crispasr-repack-probe.dir/rule
+.PHONY : examples/cli/CMakeFiles/crispasr-repack-probe.dir/rule
+
+# Convenience name for target.
+crispasr-repack-probe: examples/cli/CMakeFiles/crispasr-repack-probe.dir/rule
+.PHONY : crispasr-repack-probe
+
+# fast build rule for target.
+crispasr-repack-probe/fast:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-repack-probe.dir/build.make examples/cli/CMakeFiles/crispasr-repack-probe.dir/build
+.PHONY : crispasr-repack-probe/fast
+
 __/server/realtime_server.o: __/server/realtime_server.cpp.o
 .PHONY : __/server/realtime_server.o
 
@@ -802,6 +816,30 @@ crispasr_backend_dia.cpp.s:
 	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-cli.dir/build.make examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_dia.cpp.s
 .PHONY : crispasr_backend_dia.cpp.s
 
+crispasr_backend_dolphin.o: crispasr_backend_dolphin.cpp.o
+.PHONY : crispasr_backend_dolphin.o
+
+# target to build an object file
+crispasr_backend_dolphin.cpp.o:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-cli.dir/build.make examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_dolphin.cpp.o
+.PHONY : crispasr_backend_dolphin.cpp.o
+
+crispasr_backend_dolphin.i: crispasr_backend_dolphin.cpp.i
+.PHONY : crispasr_backend_dolphin.i
+
+# target to preprocess a source file
+crispasr_backend_dolphin.cpp.i:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-cli.dir/build.make examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_dolphin.cpp.i
+.PHONY : crispasr_backend_dolphin.cpp.i
+
+crispasr_backend_dolphin.s: crispasr_backend_dolphin.cpp.s
+.PHONY : crispasr_backend_dolphin.s
+
+# target to generate assembly for a file
+crispasr_backend_dolphin.cpp.s:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-cli.dir/build.make examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_dolphin.cpp.s
+.PHONY : crispasr_backend_dolphin.cpp.s
+
 crispasr_backend_dots_tts.o: crispasr_backend_dots_tts.cpp.o
 .PHONY : crispasr_backend_dots_tts.o
 
@@ -1090,6 +1128,30 @@ crispasr_backend_granite_nle.cpp.s:
 	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-cli.dir/build.make examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_granite_nle.cpp.s
 .PHONY : crispasr_backend_granite_nle.cpp.s
 
+crispasr_backend_hft_transformer.o: crispasr_backend_hft_transformer.cpp.o
+.PHONY : crispasr_backend_hft_transformer.o
+
+# target to build an object file
+crispasr_backend_hft_transformer.cpp.o:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-cli.dir/build.make examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_hft_transformer.cpp.o
+.PHONY : crispasr_backend_hft_transformer.cpp.o
+
+crispasr_backend_hft_transformer.i: crispasr_backend_hft_transformer.cpp.i
+.PHONY : crispasr_backend_hft_transformer.i
+
+# target to preprocess a source file
+crispasr_backend_hft_transformer.cpp.i:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-cli.dir/build.make examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_hft_transformer.cpp.i
+.PHONY : crispasr_backend_hft_transformer.cpp.i
+
+crispasr_backend_hft_transformer.s: crispasr_backend_hft_transformer.cpp.s
+.PHONY : crispasr_backend_hft_transformer.s
+
+# target to generate assembly for a file
+crispasr_backend_hft_transformer.cpp.s:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-cli.dir/build.make examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_hft_transformer.cpp.s
+.PHONY : crispasr_backend_hft_transformer.cpp.s
+
 crispasr_backend_higgs_stt.o: crispasr_backend_higgs_stt.cpp.o
 .PHONY : crispasr_backend_higgs_stt.o
 
@@ -1113,6 +1175,30 @@ crispasr_backend_higgs_stt.s: crispasr_backend_higgs_stt.cpp.s
 crispasr_backend_higgs_stt.cpp.s:
 	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-cli.dir/build.make examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_higgs_stt.cpp.s
 .PHONY : crispasr_backend_higgs_stt.cpp.s
+
+crispasr_backend_hojo_asr.o: crispasr_backend_hojo_asr.cpp.o
+.PHONY : crispasr_backend_hojo_asr.o
+
+# target to build an object file
+crispasr_backend_hojo_asr.cpp.o:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-cli.dir/build.make examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_hojo_asr.cpp.o
+.PHONY : crispasr_backend_hojo_asr.cpp.o
+
+crispasr_backend_hojo_asr.i: crispasr_backend_hojo_asr.cpp.i
+.PHONY : crispasr_backend_hojo_asr.i
+
+# target to preprocess a source file
+crispasr_backend_hojo_asr.cpp.i:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-cli.dir/build.make examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_hojo_asr.cpp.i
+.PHONY : crispasr_backend_hojo_asr.cpp.i
+
+crispasr_backend_hojo_asr.s: crispasr_backend_hojo_asr.cpp.s
+.PHONY : crispasr_backend_hojo_asr.s
+
+# target to generate assembly for a file
+crispasr_backend_hojo_asr.cpp.s:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-cli.dir/build.make examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_hojo_asr.cpp.s
+.PHONY : crispasr_backend_hojo_asr.cpp.s
 
 crispasr_backend_htdemucs.o: crispasr_backend_htdemucs.cpp.o
 .PHONY : crispasr_backend_htdemucs.o
@@ -1689,6 +1775,30 @@ crispasr_backend_omnivoice.s: crispasr_backend_omnivoice.cpp.s
 crispasr_backend_omnivoice.cpp.s:
 	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-cli.dir/build.make examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_omnivoice.cpp.s
 .PHONY : crispasr_backend_omnivoice.cpp.s
+
+crispasr_backend_onsets_and_frames.o: crispasr_backend_onsets_and_frames.cpp.o
+.PHONY : crispasr_backend_onsets_and_frames.o
+
+# target to build an object file
+crispasr_backend_onsets_and_frames.cpp.o:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-cli.dir/build.make examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_onsets_and_frames.cpp.o
+.PHONY : crispasr_backend_onsets_and_frames.cpp.o
+
+crispasr_backend_onsets_and_frames.i: crispasr_backend_onsets_and_frames.cpp.i
+.PHONY : crispasr_backend_onsets_and_frames.i
+
+# target to preprocess a source file
+crispasr_backend_onsets_and_frames.cpp.i:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-cli.dir/build.make examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_onsets_and_frames.cpp.i
+.PHONY : crispasr_backend_onsets_and_frames.cpp.i
+
+crispasr_backend_onsets_and_frames.s: crispasr_backend_onsets_and_frames.cpp.s
+.PHONY : crispasr_backend_onsets_and_frames.s
+
+# target to generate assembly for a file
+crispasr_backend_onsets_and_frames.cpp.s:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-cli.dir/build.make examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_onsets_and_frames.cpp.s
+.PHONY : crispasr_backend_onsets_and_frames.cpp.s
 
 crispasr_backend_orpheus.o: crispasr_backend_orpheus.cpp.o
 .PHONY : crispasr_backend_orpheus.o
@@ -2290,6 +2400,30 @@ crispasr_backend_wav2vec2.cpp.s:
 	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-cli.dir/build.make examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_wav2vec2.cpp.s
 .PHONY : crispasr_backend_wav2vec2.cpp.s
 
+crispasr_backend_xasr.o: crispasr_backend_xasr.cpp.o
+.PHONY : crispasr_backend_xasr.o
+
+# target to build an object file
+crispasr_backend_xasr.cpp.o:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-cli.dir/build.make examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_xasr.cpp.o
+.PHONY : crispasr_backend_xasr.cpp.o
+
+crispasr_backend_xasr.i: crispasr_backend_xasr.cpp.i
+.PHONY : crispasr_backend_xasr.i
+
+# target to preprocess a source file
+crispasr_backend_xasr.cpp.i:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-cli.dir/build.make examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_xasr.cpp.i
+.PHONY : crispasr_backend_xasr.cpp.i
+
+crispasr_backend_xasr.s: crispasr_backend_xasr.cpp.s
+.PHONY : crispasr_backend_xasr.s
+
+# target to generate assembly for a file
+crispasr_backend_xasr.cpp.s:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-cli.dir/build.make examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_xasr.cpp.s
+.PHONY : crispasr_backend_xasr.cpp.s
+
 crispasr_backend_zonos.o: crispasr_backend_zonos.cpp.o
 .PHONY : crispasr_backend_zonos.o
 
@@ -2650,6 +2784,30 @@ crispasr_pitch_cli.cpp.s:
 	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-cli.dir/build.make examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_pitch_cli.cpp.s
 .PHONY : crispasr_pitch_cli.cpp.s
 
+crispasr_repack_probe.o: crispasr_repack_probe.cpp.o
+.PHONY : crispasr_repack_probe.o
+
+# target to build an object file
+crispasr_repack_probe.cpp.o:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-repack-probe.dir/build.make examples/cli/CMakeFiles/crispasr-repack-probe.dir/crispasr_repack_probe.cpp.o
+.PHONY : crispasr_repack_probe.cpp.o
+
+crispasr_repack_probe.i: crispasr_repack_probe.cpp.i
+.PHONY : crispasr_repack_probe.i
+
+# target to preprocess a source file
+crispasr_repack_probe.cpp.i:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-repack-probe.dir/build.make examples/cli/CMakeFiles/crispasr-repack-probe.dir/crispasr_repack_probe.cpp.i
+.PHONY : crispasr_repack_probe.cpp.i
+
+crispasr_repack_probe.s: crispasr_repack_probe.cpp.s
+.PHONY : crispasr_repack_probe.s
+
+# target to generate assembly for a file
+crispasr_repack_probe.cpp.s:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-repack-probe.dir/build.make examples/cli/CMakeFiles/crispasr-repack-probe.dir/crispasr_repack_probe.cpp.s
+.PHONY : crispasr_repack_probe.cpp.s
+
 crispasr_run.o: crispasr_run.cpp.o
 .PHONY : crispasr_run.o
 
@@ -2884,6 +3042,7 @@ help:
 	@echo "... crispasr-diff-lib"
 	@echo "... crispasr-f0-eval"
 	@echo "... crispasr-lid"
+	@echo "... crispasr-repack-probe"
 	@echo "... mimo-tokenizer-smoke"
 	@echo "... moss-tts-local-smoke"
 	@echo "... __/server/realtime_server.o"
@@ -2952,6 +3111,9 @@ help:
 	@echo "... crispasr_backend_dia.o"
 	@echo "... crispasr_backend_dia.i"
 	@echo "... crispasr_backend_dia.s"
+	@echo "... crispasr_backend_dolphin.o"
+	@echo "... crispasr_backend_dolphin.i"
+	@echo "... crispasr_backend_dolphin.s"
 	@echo "... crispasr_backend_dots_tts.o"
 	@echo "... crispasr_backend_dots_tts.i"
 	@echo "... crispasr_backend_dots_tts.s"
@@ -2988,9 +3150,15 @@ help:
 	@echo "... crispasr_backend_granite_nle.o"
 	@echo "... crispasr_backend_granite_nle.i"
 	@echo "... crispasr_backend_granite_nle.s"
+	@echo "... crispasr_backend_hft_transformer.o"
+	@echo "... crispasr_backend_hft_transformer.i"
+	@echo "... crispasr_backend_hft_transformer.s"
 	@echo "... crispasr_backend_higgs_stt.o"
 	@echo "... crispasr_backend_higgs_stt.i"
 	@echo "... crispasr_backend_higgs_stt.s"
+	@echo "... crispasr_backend_hojo_asr.o"
+	@echo "... crispasr_backend_hojo_asr.i"
+	@echo "... crispasr_backend_hojo_asr.s"
 	@echo "... crispasr_backend_htdemucs.o"
 	@echo "... crispasr_backend_htdemucs.i"
 	@echo "... crispasr_backend_htdemucs.s"
@@ -3063,6 +3231,9 @@ help:
 	@echo "... crispasr_backend_omnivoice.o"
 	@echo "... crispasr_backend_omnivoice.i"
 	@echo "... crispasr_backend_omnivoice.s"
+	@echo "... crispasr_backend_onsets_and_frames.o"
+	@echo "... crispasr_backend_onsets_and_frames.i"
+	@echo "... crispasr_backend_onsets_and_frames.s"
 	@echo "... crispasr_backend_orpheus.o"
 	@echo "... crispasr_backend_orpheus.i"
 	@echo "... crispasr_backend_orpheus.s"
@@ -3138,6 +3309,9 @@ help:
 	@echo "... crispasr_backend_wav2vec2.o"
 	@echo "... crispasr_backend_wav2vec2.i"
 	@echo "... crispasr_backend_wav2vec2.s"
+	@echo "... crispasr_backend_xasr.o"
+	@echo "... crispasr_backend_xasr.i"
+	@echo "... crispasr_backend_xasr.s"
 	@echo "... crispasr_backend_zonos.o"
 	@echo "... crispasr_backend_zonos.i"
 	@echo "... crispasr_backend_zonos.s"
@@ -3183,6 +3357,9 @@ help:
 	@echo "... crispasr_pitch_cli.o"
 	@echo "... crispasr_pitch_cli.i"
 	@echo "... crispasr_pitch_cli.s"
+	@echo "... crispasr_repack_probe.o"
+	@echo "... crispasr_repack_probe.i"
+	@echo "... crispasr_repack_probe.s"
 	@echo "... crispasr_run.o"
 	@echo "... crispasr_run.i"
 	@echo "... crispasr_run.s"

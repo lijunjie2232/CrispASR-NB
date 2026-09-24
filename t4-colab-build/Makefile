@@ -371,6 +371,32 @@ gigaam/fast:
 .PHONY : gigaam/fast
 
 #=============================================================================
+# Target rules for targets named dolphin
+
+# Build rule for target.
+dolphin: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 dolphin
+.PHONY : dolphin
+
+# fast build rule for target.
+dolphin/fast:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/dolphin.dir/build.make src/CMakeFiles/dolphin.dir/build
+.PHONY : dolphin/fast
+
+#=============================================================================
+# Target rules for targets named xasr
+
+# Build rule for target.
+xasr: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 xasr
+.PHONY : xasr
+
+# fast build rule for target.
+xasr/fast:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/xasr.dir/build.make src/CMakeFiles/xasr.dir/build
+.PHONY : xasr/fast
+
+#=============================================================================
 # Target rules for targets named wespeaker
 
 # Build rule for target.
@@ -709,6 +735,19 @@ moss_tts_local/fast:
 .PHONY : moss_tts_local/fast
 
 #=============================================================================
+# Target rules for targets named hojo_asr
+
+# Build rule for target.
+hojo_asr: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hojo_asr
+.PHONY : hojo_asr
+
+# fast build rule for target.
+hojo_asr/fast:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/hojo_asr.dir/build.make src/CMakeFiles/hojo_asr.dir/build
+.PHONY : hojo_asr/fast
+
+#=============================================================================
 # Target rules for targets named moss_transcribe
 
 # Build rule for target.
@@ -824,6 +863,32 @@ piano-transcription: cmake_check_build_system
 piano-transcription/fast:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/piano-transcription.dir/build.make src/CMakeFiles/piano-transcription.dir/build
 .PHONY : piano-transcription/fast
+
+#=============================================================================
+# Target rules for targets named onsets-and-frames
+
+# Build rule for target.
+onsets-and-frames: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 onsets-and-frames
+.PHONY : onsets-and-frames
+
+# fast build rule for target.
+onsets-and-frames/fast:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/onsets-and-frames.dir/build.make src/CMakeFiles/onsets-and-frames.dir/build
+.PHONY : onsets-and-frames/fast
+
+#=============================================================================
+# Target rules for targets named hft-transformer
+
+# Build rule for target.
+hft-transformer: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hft-transformer
+.PHONY : hft-transformer
+
+# fast build rule for target.
+hft-transformer/fast:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/hft-transformer.dir/build.make src/CMakeFiles/hft-transformer.dir/build
+.PHONY : hft-transformer/fast
 
 #=============================================================================
 # Target rules for targets named basic-pitch
@@ -1736,6 +1801,19 @@ crispasr-f0-eval/fast:
 .PHONY : crispasr-f0-eval/fast
 
 #=============================================================================
+# Target rules for targets named crispasr-repack-probe
+
+# Build rule for target.
+crispasr-repack-probe: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 crispasr-repack-probe
+.PHONY : crispasr-repack-probe
+
+# fast build rule for target.
+crispasr-repack-probe/fast:
+	$(MAKE) $(MAKESILENT) -f examples/cli/CMakeFiles/crispasr-repack-probe.dir/build.make examples/cli/CMakeFiles/crispasr-repack-probe.dir/build
+.PHONY : crispasr-repack-probe/fast
+
+#=============================================================================
 # Target rules for targets named crispasr-bench
 
 # Build rule for target.
@@ -2018,6 +2096,7 @@ help:
 	@echo "... crispasr-lid"
 	@echo "... crispasr-llama-core"
 	@echo "... crispasr-quantize"
+	@echo "... crispasr-repack-probe"
 	@echo "... crispasr-server"
 	@echo "... crispasr-vad-encdec"
 	@echo "... crispasr-vad-speech-segments"
@@ -2025,6 +2104,7 @@ help:
 	@echo "... csm-tts"
 	@echo "... ctc-align"
 	@echo "... dia-tts"
+	@echo "... dolphin"
 	@echo "... dots-tts"
 	@echo "... ecapa-lid"
 	@echo "... f5-tts"
@@ -2044,7 +2124,9 @@ help:
 	@echo "... glm-asr"
 	@echo "... granite_nle"
 	@echo "... granite_speech"
+	@echo "... hft-transformer"
 	@echo "... higgs_stt"
+	@echo "... hojo_asr"
 	@echo "... htdemucs"
 	@echo "... indextts"
 	@echo "... irodori-tts"
@@ -2077,6 +2159,7 @@ help:
 	@echo "... nfa-align"
 	@echo "... omniasr"
 	@echo "... omnivoice"
+	@echo "... onsets-and-frames"
 	@echo "... openvoice2"
 	@echo "... orpheus"
 	@echo "... outetts"
@@ -2119,6 +2202,7 @@ help:
 	@echo "... wav2vec2-ggml"
 	@echo "... webrtc-vad"
 	@echo "... wespeaker"
+	@echo "... xasr"
 	@echo "... zonos-tts"
 .PHONY : help
 

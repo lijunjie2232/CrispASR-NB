@@ -96,11 +96,13 @@ crispasr__chat_EXTERNAL_OBJECTS =
 bin/crispasr-chat: examples/cli/CMakeFiles/crispasr-chat.dir/crispasr_chat_main.cpp.o
 bin/crispasr-chat: examples/cli/CMakeFiles/crispasr-chat.dir/build.make
 bin/crispasr-chat: examples/cli/CMakeFiles/crispasr-chat.dir/compiler_depend.ts
-bin/crispasr-chat: src/libcrispasr.so.0.8.34
+bin/crispasr-chat: src/libcrispasr.so.0.8.36
 bin/crispasr-chat: src/libcrispasr_c2pa_native.a
 bin/crispasr-chat: src/libaudioseal.a
 bin/crispasr-chat: glint/libglint.a
 bin/crispasr-chat: src/libgigaam.a
+bin/crispasr-chat: src/libxasr.a
+bin/crispasr-chat: src/libdolphin.a
 bin/crispasr-chat: src/libwespeaker.a
 bin/crispasr-chat: src/libnemotron.a
 bin/crispasr-chat: src/libparakeet.a
@@ -134,6 +136,8 @@ bin/crispasr-chat: src/libomniasr.a
 bin/crispasr-chat: src/libvibevoice.a
 bin/crispasr-chat: src/libpiano-transcription.a
 bin/crispasr-chat: src/libbasic-pitch.a
+bin/crispasr-chat: src/libonsets-and-frames.a
+bin/crispasr-chat: src/libhft-transformer.a
 bin/crispasr-chat: src/libmt3.a
 bin/crispasr-chat: src/libkugelaudio.a
 bin/crispasr-chat: src/libecapa-lid.a
@@ -148,6 +152,7 @@ bin/crispasr-chat: src/libmimo_tokenizer.a
 bin/crispasr-chat: src/libmoss_audio.a
 bin/crispasr-chat: src/libmoss_tts.a
 bin/crispasr-chat: src/libmoss_tts_local.a
+bin/crispasr-chat: src/libhojo_asr.a
 bin/crispasr-chat: src/libmoss_transcribe.a
 bin/crispasr-chat: src/libmoss_transcribe_diarize.a
 bin/crispasr-chat: src/libbreeze_tts_2.a
@@ -196,7 +201,6 @@ bin/crispasr-chat: crisp_truecase/libcrisp_truecase.a
 bin/crispasr-chat: src/libpyannote-seg.a
 bin/crispasr-chat: src/libsilero-lid.a
 bin/crispasr-chat: src/libmel-band-roformer.a
-bin/crispasr-chat: /usr/lib/x86_64-linux-gnu/libopenblas.so
 bin/crispasr-chat: src/libcrepe.a
 bin/crispasr-chat: src/libbtc-chords.a
 bin/crispasr-chat: src/libtabcnn.a
@@ -208,7 +212,7 @@ bin/crispasr-chat: ggml/src/libggml.so.0.23.0
 bin/crispasr-chat: ggml/src/ggml-cuda/libggml-cuda.so.0.23.0
 bin/crispasr-chat: /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so
 bin/crispasr-chat: /usr/lib/x86_64-linux-gnu/libpthread.a
-bin/crispasr-chat: /usr/lib/x86_64-linux-gnu/libcblas.so
+bin/crispasr-chat: /usr/lib/x86_64-linux-gnu/libopenblas.so
 bin/crispasr-chat: ggml/src/libggml-cpu.so.0.23.0
 bin/crispasr-chat: ggml/src/libggml-base.so.0.23.0
 bin/crispasr-chat: examples/cli/CMakeFiles/crispasr-chat.dir/link.txt

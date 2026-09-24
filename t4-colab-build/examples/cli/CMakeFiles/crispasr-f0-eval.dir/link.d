@@ -4,13 +4,15 @@
   /usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o \
   /usr/local/cuda-12.8/lib64/stubs/libcuda.so \
   CMakeFiles/crispasr-f0-eval.dir/crispasr_f0_eval.cpp.o \
-  ../../src/libcrispasr.so.0.8.34 \
+  ../../src/libcrispasr.so.0.8.36 \
   ../../src/libcrepe.a \
   ../../src/libbeatrice-pitch.a \
   ../../src/libcrispasr_c2pa_native.a \
   ../../src/libaudioseal.a \
   ../../glint/libglint.a \
   ../../src/libgigaam.a \
+  ../../src/libxasr.a \
+  ../../src/libdolphin.a \
   ../../src/libwespeaker.a \
   ../../src/libnemotron.a \
   ../../src/libparakeet.a \
@@ -44,6 +46,8 @@
   ../../src/libvibevoice.a \
   ../../src/libpiano-transcription.a \
   ../../src/libbasic-pitch.a \
+  ../../src/libonsets-and-frames.a \
+  ../../src/libhft-transformer.a \
   ../../src/libmt3.a \
   ../../src/libkugelaudio.a \
   ../../src/libecapa-lid.a \
@@ -58,6 +62,7 @@
   ../../src/libmoss_audio.a \
   ../../src/libmoss_tts.a \
   ../../src/libmoss_tts_local.a \
+  ../../src/libhojo_asr.a \
   ../../src/libmoss_transcribe.a \
   ../../src/libmoss_transcribe_diarize.a \
   ../../src/libbreeze_tts_2.a \
@@ -106,7 +111,6 @@
   ../../src/libpyannote-seg.a \
   ../../src/libsilero-lid.a \
   ../../src/libmel-band-roformer.a \
-  /usr/lib/x86_64-linux-gnu/libopenblas.so \
   ../../src/libbtc-chords.a \
   ../../src/libtabcnn.a \
   ../../src/librvc-svc.a \
@@ -117,7 +121,7 @@
   /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libdl.a \
   /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so \
   /usr/lib/x86_64-linux-gnu/libpthread.a \
-  /usr/lib/x86_64-linux-gnu/libcblas.so \
+  /usr/lib/x86_64-linux-gnu/libopenblas.so \
   ../../ggml/src/libggml-cpu.so.0.23.0 \
   ../../ggml/src/libggml-base.so.0.23.0 \
   /usr/lib/gcc/x86_64-linux-gnu/13/libstdc++.so \
@@ -146,10 +150,9 @@
   /usr/lib/gcc/x86_64-linux-gnu/13/libgcc.a \
   /usr/lib/gcc/x86_64-linux-gnu/13/crtendS.o \
   /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crtn.o \
-  /usr/lib/x86_64-linux-gnu/libopenblas.so \
   /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so \
+  /usr/lib/x86_64-linux-gnu/libopenblas.so \
   ../../ggml/src/ggml-cuda/libggml-cuda.so.0.23.0 \
-  /lib/x86_64-linux-gnu/libatlas.so.3 \
   /lib/x86_64-linux-gnu/libgfortran.so.5 \
   /usr/local/cuda-12.8/lib64/libcudart.so.12 \
   /usr/local/cuda-12.8/lib64/libcublas.so.12 \
@@ -169,7 +172,7 @@
 
 CMakeFiles/crispasr-f0-eval.dir/crispasr_f0_eval.cpp.o:
 
-../../src/libcrispasr.so.0.8.34:
+../../src/libcrispasr.so.0.8.36:
 
 ../../src/libcrepe.a:
 
@@ -182,6 +185,10 @@ CMakeFiles/crispasr-f0-eval.dir/crispasr_f0_eval.cpp.o:
 ../../glint/libglint.a:
 
 ../../src/libgigaam.a:
+
+../../src/libxasr.a:
+
+../../src/libdolphin.a:
 
 ../../src/libwespeaker.a:
 
@@ -249,6 +256,10 @@ CMakeFiles/crispasr-f0-eval.dir/crispasr_f0_eval.cpp.o:
 
 ../../src/libbasic-pitch.a:
 
+../../src/libonsets-and-frames.a:
+
+../../src/libhft-transformer.a:
+
 ../../src/libmt3.a:
 
 ../../src/libkugelaudio.a:
@@ -276,6 +287,8 @@ CMakeFiles/crispasr-f0-eval.dir/crispasr_f0_eval.cpp.o:
 ../../src/libmoss_tts.a:
 
 ../../src/libmoss_tts_local.a:
+
+../../src/libhojo_asr.a:
 
 ../../src/libmoss_transcribe.a:
 
@@ -373,8 +386,6 @@ CMakeFiles/crispasr-f0-eval.dir/crispasr_f0_eval.cpp.o:
 
 ../../src/libmel-band-roformer.a:
 
-/usr/lib/x86_64-linux-gnu/libopenblas.so:
-
 ../../src/libbtc-chords.a:
 
 ../../src/libtabcnn.a:
@@ -395,7 +406,7 @@ CMakeFiles/crispasr-f0-eval.dir/crispasr_f0_eval.cpp.o:
 
 /usr/lib/x86_64-linux-gnu/libpthread.a:
 
-/usr/lib/x86_64-linux-gnu/libcblas.so:
+/usr/lib/x86_64-linux-gnu/libopenblas.so:
 
 ../../ggml/src/libggml-cpu.so.0.23.0:
 
@@ -453,13 +464,11 @@ CMakeFiles/crispasr-f0-eval.dir/crispasr_f0_eval.cpp.o:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crtn.o:
 
-/usr/lib/x86_64-linux-gnu/libopenblas.so:
-
 /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so:
 
-../../ggml/src/ggml-cuda/libggml-cuda.so.0.23.0:
+/usr/lib/x86_64-linux-gnu/libopenblas.so:
 
-/lib/x86_64-linux-gnu/libatlas.so.3:
+../../ggml/src/ggml-cuda/libggml-cuda.so.0.23.0:
 
 /lib/x86_64-linux-gnu/libgfortran.so.5:
 

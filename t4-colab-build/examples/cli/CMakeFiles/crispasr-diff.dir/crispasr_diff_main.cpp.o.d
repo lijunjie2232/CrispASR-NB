@@ -260,7 +260,8 @@ examples/cli/CMakeFiles/crispasr-diff.dir/crispasr_diff_main.cpp.o: \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h \
  ../../../src/voxtral4b.h ../../../src/htdemucs.h \
  ../../../src/mel_band_roformer.h ../../../src/btc_chords.h \
- ../../../src/tabcnn.h ../../../src/basic_pitch.h ../../../src/mt3.h \
+ ../../../src/tabcnn.h ../../../src/basic_pitch.h \
+ ../../../src/onsets_and_frames.h ../../../src/mt3.h \
  ../../../src/piano_transcription.h ../../../src/beatrice_phone.h \
  ../../../src/beatrice_pitch.h ../../../src/rvc_svc.h \
  ../../../src/voxtral_tts.h ../../../src/higgs_stt.h \
@@ -268,7 +269,8 @@ examples/cli/CMakeFiles/crispasr-diff.dir/crispasr_diff_main.cpp.o: \
  ../../../src/qwen3_tts.h ../../../src/omnivoice.h ../../../src/kokoro.h \
  ../../../src/granite_speech.h ../../../src/granite_nle.h \
  ../../../src/parakeet.h ../../../src/wespeaker.h ../../../src/gigaam.h \
- ../../../src/canary.h ../../../src/canary_qwen.h ../../../src/cohere.h \
+ ../../../src/xasr.h ../../../src/dolphin.h ../../../src/canary.h \
+ ../../../src/canary_qwen.h ../../../src/cohere.h \
  ../../../src/gemma4_e2b.h ../../../src/mimo_asr.h \
  ../../../src/vibevoice.h ../../../src/ark_asr.h \
  ../../../src/mimo_tokenizer.h ../../../src/core/snac.h \
@@ -281,18 +283,18 @@ examples/cli/CMakeFiles/crispasr-diff.dir/crispasr_diff_main.cpp.o: \
  ../../../ggml/include/ggml-alloc.h ../../../src/sensevoice.h \
  ../../../src/cosyvoice3_tts.h ../../../src/orpheus.h \
  ../../../src/parler_tts.h ../../../src/melotts.h \
- ../../../src/moss_audio.h ../../../src/moss_transcribe.h \
- ../../../src/lfm2_audio.h ../../../src/mini_omni2.h \
- ../../../src/kyutai_stt.h ../../../src/nemotron.h \
- ../../../src/tada_codec.h ../../../src/tada_encoder.h \
- ../../../src/tada_tts.h ../../../src/dots_tts.h \
- ../../../src/supertonic_tts.h ../../../src/fireredtts3_tts.h \
- ../../../src/t5_translate.h ../../../src/miocodec.h \
- ../../../src/miotts.h ../../../src/breeze_tts_2.h \
- ../../../src/core/audio_resample.h ../../../src/crepe.h \
- ../../../src/kugelaudio.h ../../../src/core/gguf_loader.h \
- ../../../ggml/include/gguf.h /usr/include/c++/13/map \
- /usr/include/c++/13/bits/stl_map.h \
+ ../../../src/moss_audio.h ../../../src/hojo_asr.h \
+ ../../../src/moss_transcribe.h ../../../src/lfm2_audio.h \
+ ../../../src/mini_omni2.h ../../../src/kyutai_stt.h \
+ ../../../src/nemotron.h ../../../src/tada_codec.h \
+ ../../../src/tada_encoder.h ../../../src/tada_tts.h \
+ ../../../src/dots_tts.h ../../../src/supertonic_tts.h \
+ ../../../src/fireredtts3_tts.h ../../../src/t5_translate.h \
+ ../../../src/miocodec.h ../../../src/miotts.h \
+ ../../../src/breeze_tts_2.h ../../../src/core/audio_resample.h \
+ ../../../src/crepe.h ../../../src/kugelaudio.h \
+ ../../../src/core/gguf_loader.h ../../../ggml/include/gguf.h \
+ /usr/include/c++/13/map /usr/include/c++/13/bits/stl_map.h \
  /usr/include/c++/13/bits/stl_multimap.h ../../../src/core/crispasr_env.h \
  /usr/include/c++/13/cstring /usr/include/string.h /usr/include/strings.h \
  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \

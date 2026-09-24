@@ -49,7 +49,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/crispasr-lib.dir/tiron_link.cpp.o.d"
   "libcrispasr.pdb"
   "libcrispasr.so"
-  "libcrispasr.so.0.8.34"
+  "libcrispasr.so.0.8.36"
   "libcrispasr.so.1"
 )
 

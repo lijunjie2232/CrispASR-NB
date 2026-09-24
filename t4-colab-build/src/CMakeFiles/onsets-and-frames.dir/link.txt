@@ -1,0 +1,2 @@
+/usr/bin/ar qc libonsets-and-frames.a "CMakeFiles/onsets-and-frames.dir/onsets_and_frames.cpp.o"
+/usr/bin/ranlib libonsets-and-frames.a

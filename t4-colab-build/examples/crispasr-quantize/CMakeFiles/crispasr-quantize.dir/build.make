@@ -97,11 +97,13 @@ bin/crispasr-quantize: examples/crispasr-quantize/CMakeFiles/crispasr-quantize.d
 bin/crispasr-quantize: examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/build.make
 bin/crispasr-quantize: examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/compiler_depend.ts
 bin/crispasr-quantize: examples/libcommon.a
-bin/crispasr-quantize: src/libcrispasr.so.0.8.34
+bin/crispasr-quantize: src/libcrispasr.so.0.8.36
 bin/crispasr-quantize: src/libcrispasr_c2pa_native.a
 bin/crispasr-quantize: src/libaudioseal.a
 bin/crispasr-quantize: glint/libglint.a
 bin/crispasr-quantize: src/libgigaam.a
+bin/crispasr-quantize: src/libxasr.a
+bin/crispasr-quantize: src/libdolphin.a
 bin/crispasr-quantize: src/libwespeaker.a
 bin/crispasr-quantize: src/libnemotron.a
 bin/crispasr-quantize: src/libparakeet.a
@@ -135,6 +137,8 @@ bin/crispasr-quantize: src/libomniasr.a
 bin/crispasr-quantize: src/libvibevoice.a
 bin/crispasr-quantize: src/libpiano-transcription.a
 bin/crispasr-quantize: src/libbasic-pitch.a
+bin/crispasr-quantize: src/libonsets-and-frames.a
+bin/crispasr-quantize: src/libhft-transformer.a
 bin/crispasr-quantize: src/libmt3.a
 bin/crispasr-quantize: src/libkugelaudio.a
 bin/crispasr-quantize: src/libecapa-lid.a
@@ -149,6 +153,7 @@ bin/crispasr-quantize: src/libmimo_tokenizer.a
 bin/crispasr-quantize: src/libmoss_audio.a
 bin/crispasr-quantize: src/libmoss_tts.a
 bin/crispasr-quantize: src/libmoss_tts_local.a
+bin/crispasr-quantize: src/libhojo_asr.a
 bin/crispasr-quantize: src/libmoss_transcribe.a
 bin/crispasr-quantize: src/libmoss_transcribe_diarize.a
 bin/crispasr-quantize: src/libbreeze_tts_2.a
@@ -197,7 +202,6 @@ bin/crispasr-quantize: crisp_truecase/libcrisp_truecase.a
 bin/crispasr-quantize: src/libpyannote-seg.a
 bin/crispasr-quantize: src/libsilero-lid.a
 bin/crispasr-quantize: src/libmel-band-roformer.a
-bin/crispasr-quantize: /usr/lib/x86_64-linux-gnu/libopenblas.so
 bin/crispasr-quantize: src/libcrepe.a
 bin/crispasr-quantize: src/libbtc-chords.a
 bin/crispasr-quantize: src/libtabcnn.a
@@ -209,7 +213,7 @@ bin/crispasr-quantize: ggml/src/libggml.so.0.23.0
 bin/crispasr-quantize: ggml/src/ggml-cuda/libggml-cuda.so.0.23.0
 bin/crispasr-quantize: /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so
 bin/crispasr-quantize: /usr/lib/x86_64-linux-gnu/libpthread.a
-bin/crispasr-quantize: /usr/lib/x86_64-linux-gnu/libcblas.so
+bin/crispasr-quantize: /usr/lib/x86_64-linux-gnu/libopenblas.so
 bin/crispasr-quantize: ggml/src/libggml-cpu.so.0.23.0
 bin/crispasr-quantize: ggml/src/libggml-base.so.0.23.0
 bin/crispasr-quantize: examples/crispasr-quantize/CMakeFiles/crispasr-quantize.dir/link.txt

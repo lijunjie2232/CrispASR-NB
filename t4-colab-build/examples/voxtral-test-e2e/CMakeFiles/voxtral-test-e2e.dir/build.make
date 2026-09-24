@@ -107,7 +107,7 @@ bin/voxtral-test-e2e: ggml/src/libggml.so.0.23.0
 bin/voxtral-test-e2e: ggml/src/ggml-cuda/libggml-cuda.so.0.23.0
 bin/voxtral-test-e2e: /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so
 bin/voxtral-test-e2e: /usr/lib/x86_64-linux-gnu/libpthread.a
-bin/voxtral-test-e2e: /usr/lib/x86_64-linux-gnu/libcblas.so
+bin/voxtral-test-e2e: /usr/lib/x86_64-linux-gnu/libopenblas.so
 bin/voxtral-test-e2e: ggml/src/libggml-cpu.so.0.23.0
 bin/voxtral-test-e2e: ggml/src/libggml-base.so.0.23.0
 bin/voxtral-test-e2e: examples/voxtral-test-e2e/CMakeFiles/voxtral-test-e2e.dir/link.txt

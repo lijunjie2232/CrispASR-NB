@@ -3,13 +3,13 @@
 
 # compile C with /usr/bin/cc
 # compile CXX with /usr/bin/c++
-C_DEFINES = -DCRISPASR_BUILD -DCRISPASR_RNNOISE=1 -DCRISPASR_SHARED -DCRISPASR_VERSION=\"0.8.34\" -DGGML_BACKEND_SHARED -DGGML_MAX_NAME=128 -DGGML_SHARED -DGGML_USE_CPU -DGGML_USE_CUDA -Dcrispasr_lib_EXPORTS
+C_DEFINES = -DCRISPASR_BUILD -DCRISPASR_RNNOISE=1 -DCRISPASR_SHARED -DCRISPASR_VERSION=\"0.8.36\" -DGGML_BACKEND_SHARED -DGGML_MAX_NAME=128 -DGGML_SHARED -DGGML_USE_CPU -DGGML_USE_CUDA -Dcrispasr_lib_EXPORTS
 
 C_INCLUDES = -I/content/CrispASR/src/. -I/content/CrispASR/src/../include -I/content/CrispASR/third_party/c2pa-audio/src -I/content/CrispASR/ggml/src/../include -I/content/CrispASR/glint/include -I/content/CrispASR/crisp_audio/include -I/content/CrispASR/crisp_lid/include -I/content/CrispASR/crisp_lid/src -I/content/CrispASR/crisp_punc/include -I/content/CrispASR/crisp_truecase/include -I/content/CrispASR/crisp_truecase/src -I/content/CrispASR/examples/talk-llama
 
 C_FLAGS = -O3 -DNDEBUG -fPIC -Wno-deprecated-gpu-targets -Wshadow -Wstrict-prototypes -Wpointer-arith -Wmissing-prototypes -Werror=implicit-int -Werror=implicit-function-declaration -Wall -Wextra -Wpedantic -Wcast-qual -Wno-unused-function
 
-CXX_DEFINES = -DCRISPASR_BUILD -DCRISPASR_RNNOISE=1 -DCRISPASR_SHARED -DCRISPASR_VERSION=\"0.8.34\" -DGGML_BACKEND_SHARED -DGGML_MAX_NAME=128 -DGGML_SHARED -DGGML_USE_CPU -DGGML_USE_CUDA -Dcrispasr_lib_EXPORTS
+CXX_DEFINES = -DCRISPASR_BUILD -DCRISPASR_RNNOISE=1 -DCRISPASR_SHARED -DCRISPASR_VERSION=\"0.8.36\" -DGGML_BACKEND_SHARED -DGGML_MAX_NAME=128 -DGGML_SHARED -DGGML_USE_CPU -DGGML_USE_CUDA -Dcrispasr_lib_EXPORTS
 
 CXX_INCLUDES = -I/content/CrispASR/src/. -I/content/CrispASR/src/../include -I/content/CrispASR/third_party/c2pa-audio/src -I/content/CrispASR/ggml/src/../include -I/content/CrispASR/glint/include -I/content/CrispASR/crisp_audio/include -I/content/CrispASR/crisp_lid/include -I/content/CrispASR/crisp_lid/src -I/content/CrispASR/crisp_punc/include -I/content/CrispASR/crisp_truecase/include -I/content/CrispASR/crisp_truecase/src -I/content/CrispASR/examples/talk-llama
 

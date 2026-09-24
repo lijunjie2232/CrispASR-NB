@@ -100,7 +100,7 @@ bin/moss-tts-local-smoke: src/libmoss_tts_local.a
 bin/moss-tts-local-smoke: src/libcrispasr-core.a
 bin/moss-tts-local-smoke: /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so
 bin/moss-tts-local-smoke: /usr/lib/x86_64-linux-gnu/libpthread.a
-bin/moss-tts-local-smoke: /usr/lib/x86_64-linux-gnu/libcblas.so
+bin/moss-tts-local-smoke: /usr/lib/x86_64-linux-gnu/libopenblas.so
 bin/moss-tts-local-smoke: ggml/src/libggml.so.0.23.0
 bin/moss-tts-local-smoke: ggml/src/libggml-cpu.so.0.23.0
 bin/moss-tts-local-smoke: ggml/src/ggml-cuda/libggml-cuda.so.0.23.0

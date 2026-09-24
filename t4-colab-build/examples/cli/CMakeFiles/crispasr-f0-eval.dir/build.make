@@ -96,13 +96,15 @@ crispasr__f0__eval_EXTERNAL_OBJECTS =
 bin/crispasr-f0-eval: examples/cli/CMakeFiles/crispasr-f0-eval.dir/crispasr_f0_eval.cpp.o
 bin/crispasr-f0-eval: examples/cli/CMakeFiles/crispasr-f0-eval.dir/build.make
 bin/crispasr-f0-eval: examples/cli/CMakeFiles/crispasr-f0-eval.dir/compiler_depend.ts
-bin/crispasr-f0-eval: src/libcrispasr.so.0.8.34
+bin/crispasr-f0-eval: src/libcrispasr.so.0.8.36
 bin/crispasr-f0-eval: src/libcrepe.a
 bin/crispasr-f0-eval: src/libbeatrice-pitch.a
 bin/crispasr-f0-eval: src/libcrispasr_c2pa_native.a
 bin/crispasr-f0-eval: src/libaudioseal.a
 bin/crispasr-f0-eval: glint/libglint.a
 bin/crispasr-f0-eval: src/libgigaam.a
+bin/crispasr-f0-eval: src/libxasr.a
+bin/crispasr-f0-eval: src/libdolphin.a
 bin/crispasr-f0-eval: src/libwespeaker.a
 bin/crispasr-f0-eval: src/libnemotron.a
 bin/crispasr-f0-eval: src/libparakeet.a
@@ -136,6 +138,8 @@ bin/crispasr-f0-eval: src/libomniasr.a
 bin/crispasr-f0-eval: src/libvibevoice.a
 bin/crispasr-f0-eval: src/libpiano-transcription.a
 bin/crispasr-f0-eval: src/libbasic-pitch.a
+bin/crispasr-f0-eval: src/libonsets-and-frames.a
+bin/crispasr-f0-eval: src/libhft-transformer.a
 bin/crispasr-f0-eval: src/libmt3.a
 bin/crispasr-f0-eval: src/libkugelaudio.a
 bin/crispasr-f0-eval: src/libecapa-lid.a
@@ -150,6 +154,7 @@ bin/crispasr-f0-eval: src/libmimo_tokenizer.a
 bin/crispasr-f0-eval: src/libmoss_audio.a
 bin/crispasr-f0-eval: src/libmoss_tts.a
 bin/crispasr-f0-eval: src/libmoss_tts_local.a
+bin/crispasr-f0-eval: src/libhojo_asr.a
 bin/crispasr-f0-eval: src/libmoss_transcribe.a
 bin/crispasr-f0-eval: src/libmoss_transcribe_diarize.a
 bin/crispasr-f0-eval: src/libbreeze_tts_2.a
@@ -198,7 +203,6 @@ bin/crispasr-f0-eval: crisp_truecase/libcrisp_truecase.a
 bin/crispasr-f0-eval: src/libpyannote-seg.a
 bin/crispasr-f0-eval: src/libsilero-lid.a
 bin/crispasr-f0-eval: src/libmel-band-roformer.a
-bin/crispasr-f0-eval: /usr/lib/x86_64-linux-gnu/libopenblas.so
 bin/crispasr-f0-eval: src/libbtc-chords.a
 bin/crispasr-f0-eval: src/libtabcnn.a
 bin/crispasr-f0-eval: src/librvc-svc.a
@@ -208,7 +212,7 @@ bin/crispasr-f0-eval: ggml/src/libggml.so.0.23.0
 bin/crispasr-f0-eval: ggml/src/ggml-cuda/libggml-cuda.so.0.23.0
 bin/crispasr-f0-eval: /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so
 bin/crispasr-f0-eval: /usr/lib/x86_64-linux-gnu/libpthread.a
-bin/crispasr-f0-eval: /usr/lib/x86_64-linux-gnu/libcblas.so
+bin/crispasr-f0-eval: /usr/lib/x86_64-linux-gnu/libopenblas.so
 bin/crispasr-f0-eval: ggml/src/libggml-cpu.so.0.23.0
 bin/crispasr-f0-eval: ggml/src/libggml-base.so.0.23.0
 bin/crispasr-f0-eval: examples/cli/CMakeFiles/crispasr-f0-eval.dir/link.txt

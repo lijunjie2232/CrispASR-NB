@@ -200,4 +200,6 @@ src/CMakeFiles/marblenet-vad.dir/marblenet_vad.cpp.o: \
  /usr/include/c++/13/bits/erase_if.h ../../src/core/parallel_for.h \
  /usr/include/c++/13/atomic /usr/include/c++/13/bits/atomic_base.h \
  /usr/include/c++/13/bits/atomic_lockfree_defines.h \
- ../../src/core/ggml_cpu_backend.h
+ ../../src/core/ggml_cpu_backend.h ../../src/core/gpu_backend_pref.h \
+ ../../src/core/metal_pipeline_cache_policy.h \
+ ../../src/core/vad_progress.h ../../src/core/vad_frame_batching.h

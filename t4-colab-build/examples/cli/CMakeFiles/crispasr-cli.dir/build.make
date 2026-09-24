@@ -142,10 +142,38 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_gigaam.cpp.s: cmake_fo
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/crispasr-cli.dir/crispasr_backend_gigaam.cpp.s"
 	cd /content/CrispASR/t4-colab-build/examples/cli && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /content/CrispASR/examples/cli/crispasr_backend_gigaam.cpp -o CMakeFiles/crispasr-cli.dir/crispasr_backend_gigaam.cpp.s
 
+examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_dolphin.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
+examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_dolphin.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_dolphin.cpp
+examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_dolphin.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_dolphin.cpp.o"
+	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_dolphin.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_dolphin.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_dolphin.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_dolphin.cpp
+
+examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_dolphin.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/crispasr-cli.dir/crispasr_backend_dolphin.cpp.i"
+	cd /content/CrispASR/t4-colab-build/examples/cli && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /content/CrispASR/examples/cli/crispasr_backend_dolphin.cpp > CMakeFiles/crispasr-cli.dir/crispasr_backend_dolphin.cpp.i
+
+examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_dolphin.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/crispasr-cli.dir/crispasr_backend_dolphin.cpp.s"
+	cd /content/CrispASR/t4-colab-build/examples/cli && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /content/CrispASR/examples/cli/crispasr_backend_dolphin.cpp -o CMakeFiles/crispasr-cli.dir/crispasr_backend_dolphin.cpp.s
+
+examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_xasr.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
+examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_xasr.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_xasr.cpp
+examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_xasr.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_xasr.cpp.o"
+	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_xasr.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_xasr.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_xasr.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_xasr.cpp
+
+examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_xasr.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/crispasr-cli.dir/crispasr_backend_xasr.cpp.i"
+	cd /content/CrispASR/t4-colab-build/examples/cli && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /content/CrispASR/examples/cli/crispasr_backend_xasr.cpp > CMakeFiles/crispasr-cli.dir/crispasr_backend_xasr.cpp.i
+
+examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_xasr.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/crispasr-cli.dir/crispasr_backend_xasr.cpp.s"
+	cd /content/CrispASR/t4-colab-build/examples/cli && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /content/CrispASR/examples/cli/crispasr_backend_xasr.cpp -o CMakeFiles/crispasr-cli.dir/crispasr_backend_xasr.cpp.s
+
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_parakeet.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_parakeet.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_parakeet.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_parakeet.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_parakeet.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_parakeet.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_parakeet.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_parakeet.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_parakeet.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_parakeet.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_parakeet.cpp.i: cmake_force
@@ -159,7 +187,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_parakeet.cpp.s: cmake_
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_canary.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_canary.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_canary.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_canary.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_canary.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_canary.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_canary.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_canary.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_canary.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_canary.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_canary.cpp.i: cmake_force
@@ -173,7 +201,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_canary.cpp.s: cmake_fo
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_canary_qwen.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_canary_qwen.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_canary_qwen.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_canary_qwen.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_canary_qwen.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_canary_qwen.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_canary_qwen.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_canary_qwen.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_canary_qwen.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_canary_qwen.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_canary_qwen.cpp.i: cmake_force
@@ -187,7 +215,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_canary_qwen.cpp.s: cma
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_lfm2_audio.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_lfm2_audio.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_lfm2_audio.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_lfm2_audio.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_lfm2_audio.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_lfm2_audio.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_lfm2_audio.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_lfm2_audio.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_lfm2_audio.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_lfm2_audio.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_lfm2_audio.cpp.i: cmake_force
@@ -201,7 +229,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_lfm2_audio.cpp.s: cmak
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mini_omni2.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mini_omni2.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_mini_omni2.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mini_omni2.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mini_omni2.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mini_omni2.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mini_omni2.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_mini_omni2.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_mini_omni2.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_mini_omni2.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mini_omni2.cpp.i: cmake_force
@@ -215,7 +243,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mini_omni2.cpp.s: cmak
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_cohere.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_cohere.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_cohere.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_cohere.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_cohere.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_cohere.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_cohere.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_cohere.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_cohere.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_cohere.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_cohere.cpp.i: cmake_force
@@ -229,7 +257,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_cohere.cpp.s: cmake_fo
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_granite.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_granite.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_granite.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_granite.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_granite.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_granite.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_granite.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_granite.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_granite.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_granite.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_granite.cpp.i: cmake_force
@@ -243,7 +271,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_granite.cpp.s: cmake_f
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_granite_nle.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_granite_nle.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_granite_nle.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_granite_nle.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_granite_nle.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_granite_nle.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_granite_nle.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_granite_nle.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_granite_nle.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_granite_nle.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_granite_nle.cpp.i: cmake_force
@@ -257,7 +285,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_granite_nle.cpp.s: cma
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_voxtral.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_voxtral.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral.cpp.i: cmake_force
@@ -271,7 +299,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral.cpp.s: cmake_f
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral4b.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral4b.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_voxtral4b.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral4b.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral4b.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral4b.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral4b.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral4b.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral4b.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_voxtral4b.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral4b.cpp.i: cmake_force
@@ -285,7 +313,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral4b.cpp.s: cmake
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral_tts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral_tts.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_voxtral_tts.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral_tts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral_tts.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral_tts.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral_tts.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral_tts.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral_tts.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_voxtral_tts.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral_tts.cpp.i: cmake_force
@@ -299,7 +327,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxtral_tts.cpp.s: cma
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_higgs_stt.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_higgs_stt.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_higgs_stt.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_higgs_stt.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_higgs_stt.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_higgs_stt.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_higgs_stt.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_higgs_stt.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_higgs_stt.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_higgs_stt.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_higgs_stt.cpp.i: cmake_force
@@ -313,7 +341,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_higgs_stt.cpp.s: cmake
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_qwen3.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_qwen3.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_qwen3.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_qwen3.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_qwen3.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_qwen3.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_qwen3.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_qwen3.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_qwen3.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_qwen3.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_qwen3.cpp.i: cmake_force
@@ -327,7 +355,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_qwen3.cpp.s: cmake_for
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_fastconformer_ctc.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_fastconformer_ctc.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_fastconformer_ctc.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_fastconformer_ctc.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_fastconformer_ctc.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_fastconformer_ctc.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_fastconformer_ctc.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_fastconformer_ctc.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_fastconformer_ctc.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_fastconformer_ctc.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_fastconformer_ctc.cpp.i: cmake_force
@@ -341,7 +369,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_fastconformer_ctc.cpp.
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_wav2vec2.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_wav2vec2.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_wav2vec2.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_wav2vec2.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_wav2vec2.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_wav2vec2.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_wav2vec2.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_wav2vec2.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_wav2vec2.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_wav2vec2.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_wav2vec2.cpp.i: cmake_force
@@ -355,7 +383,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_wav2vec2.cpp.s: cmake_
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_vibevoice.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_vibevoice.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_vibevoice.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_vibevoice.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_vibevoice.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_vibevoice.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_vibevoice.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_vibevoice.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_vibevoice.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_vibevoice.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_vibevoice.cpp.i: cmake_force
@@ -369,7 +397,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_vibevoice.cpp.s: cmake
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_kugelaudio.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_kugelaudio.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_kugelaudio.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_kugelaudio.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_kugelaudio.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_kugelaudio.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_kugelaudio.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_kugelaudio.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_kugelaudio.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_kugelaudio.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_kugelaudio.cpp.i: cmake_force
@@ -383,7 +411,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_kugelaudio.cpp.s: cmak
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_qwen3_tts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_qwen3_tts.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_qwen3_tts.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_qwen3_tts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_qwen3_tts.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_qwen3_tts.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_qwen3_tts.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_qwen3_tts.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_qwen3_tts.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_qwen3_tts.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_qwen3_tts.cpp.i: cmake_force
@@ -397,7 +425,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_qwen3_tts.cpp.s: cmake
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_omnivoice.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_omnivoice.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_omnivoice.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_omnivoice.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_omnivoice.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_omnivoice.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_omnivoice.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_omnivoice.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_omnivoice.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_omnivoice.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_omnivoice.cpp.i: cmake_force
@@ -411,7 +439,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_omnivoice.cpp.s: cmake
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_orpheus.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_orpheus.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_orpheus.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_orpheus.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_orpheus.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_orpheus.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_orpheus.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_orpheus.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_orpheus.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_orpheus.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_orpheus.cpp.i: cmake_force
@@ -425,7 +453,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_orpheus.cpp.s: cmake_f
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_chatterbox.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_chatterbox.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_chatterbox.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_chatterbox.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_chatterbox.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_chatterbox.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_chatterbox.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_chatterbox.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_chatterbox.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_chatterbox.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_chatterbox.cpp.i: cmake_force
@@ -439,7 +467,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_chatterbox.cpp.s: cmak
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_tada.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_tada.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_tada.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_tada.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_tada.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_tada.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_tada.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_tada.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_tada.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_tada.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_tada.cpp.i: cmake_force
@@ -453,7 +481,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_tada.cpp.s: cmake_forc
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_indextts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_indextts.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_indextts.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_indextts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_indextts.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_indextts.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_indextts.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_indextts.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_indextts.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_indextts.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_indextts.cpp.i: cmake_force
@@ -467,7 +495,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_indextts.cpp.s: cmake_
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_f5_tts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_f5_tts.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_f5_tts.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_f5_tts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_f5_tts.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_f5_tts.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_f5_tts.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_f5_tts.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_f5_tts.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_f5_tts.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_f5_tts.cpp.i: cmake_force
@@ -481,7 +509,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_f5_tts.cpp.s: cmake_fo
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_irodori_tts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_irodori_tts.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_irodori_tts.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_irodori_tts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_irodori_tts.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_irodori_tts.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_irodori_tts.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_irodori_tts.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_irodori_tts.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_irodori_tts.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_irodori_tts.cpp.i: cmake_force
@@ -495,7 +523,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_irodori_tts.cpp.s: cma
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_supertonic.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_supertonic.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_supertonic.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_supertonic.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_supertonic.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_supertonic.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_supertonic.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_supertonic.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_supertonic.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_supertonic.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_supertonic.cpp.i: cmake_force
@@ -509,7 +537,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_supertonic.cpp.s: cmak
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_pocket_tts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_pocket_tts.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_pocket_tts.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_pocket_tts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_pocket_tts.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_pocket_tts.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_pocket_tts.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_pocket_tts.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_pocket_tts.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_pocket_tts.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_pocket_tts.cpp.i: cmake_force
@@ -523,7 +551,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_pocket_tts.cpp.s: cmak
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_csm.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_csm.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_csm.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_csm.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_csm.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_csm.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_csm.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_csm.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_csm.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_csm.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_csm.cpp.i: cmake_force
@@ -537,7 +565,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_csm.cpp.s: cmake_force
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_parler.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_parler.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_parler.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_parler.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_parler.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_parler.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_parler.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_parler.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_parler.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_parler.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_parler.cpp.i: cmake_force
@@ -551,7 +579,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_parler.cpp.s: cmake_fo
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_fastpitch.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_fastpitch.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_fastpitch.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_fastpitch.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_fastpitch.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_fastpitch.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_fastpitch.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_fastpitch.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_fastpitch.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_fastpitch.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_fastpitch.cpp.i: cmake_force
@@ -565,7 +593,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_fastpitch.cpp.s: cmake
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_bananamind_tts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_bananamind_tts.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_bananamind_tts.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_bananamind_tts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_bananamind_tts.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_bananamind_tts.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_bananamind_tts.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_bananamind_tts.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_bananamind_tts.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_bananamind_tts.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_bananamind_tts.cpp.i: cmake_force
@@ -579,7 +607,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_bananamind_tts.cpp.s: 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_bark.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_bark.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_bark.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_bark.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_bark.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_bark.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_bark.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_bark.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_bark.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_bark.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_bark.cpp.i: cmake_force
@@ -593,7 +621,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_bark.cpp.s: cmake_forc
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_dia.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_dia.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_dia.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_dia.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_dia.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_dia.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_dia.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_dia.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_dia.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_dia.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_dia.cpp.i: cmake_force
@@ -607,7 +635,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_dia.cpp.s: cmake_force
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_dots_tts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_dots_tts.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_dots_tts.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_dots_tts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_dots_tts.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_dots_tts.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_dots_tts.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_dots_tts.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_dots_tts.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_dots_tts.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_dots_tts.cpp.i: cmake_force
@@ -621,7 +649,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_dots_tts.cpp.s: cmake_
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_fireredtts3.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_fireredtts3.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_fireredtts3.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_fireredtts3.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_fireredtts3.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_fireredtts3.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_fireredtts3.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_fireredtts3.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_fireredtts3.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_fireredtts3.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_fireredtts3.cpp.i: cmake_force
@@ -635,7 +663,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_fireredtts3.cpp.s: cma
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_confucius4_tts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_confucius4_tts.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_confucius4_tts.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_confucius4_tts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_confucius4_tts.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_confucius4_tts.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_confucius4_tts.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_confucius4_tts.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_confucius4_tts.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_confucius4_tts.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_confucius4_tts.cpp.i: cmake_force
@@ -649,7 +677,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_confucius4_tts.cpp.s: 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxcpm2_tts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxcpm2_tts.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_voxcpm2_tts.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxcpm2_tts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxcpm2_tts.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxcpm2_tts.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxcpm2_tts.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_voxcpm2_tts.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_voxcpm2_tts.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_voxcpm2_tts.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxcpm2_tts.cpp.i: cmake_force
@@ -663,7 +691,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxcpm2_tts.cpp.s: cma
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxcpm2_vae.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxcpm2_vae.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_voxcpm2_vae.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxcpm2_vae.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxcpm2_vae.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxcpm2_vae.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxcpm2_vae.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_voxcpm2_vae.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_voxcpm2_vae.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_voxcpm2_vae.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxcpm2_vae.cpp.i: cmake_force
@@ -677,7 +705,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_voxcpm2_vae.cpp.s: cma
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_cosyvoice3.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_cosyvoice3.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_cosyvoice3.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_cosyvoice3.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_cosyvoice3.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_cosyvoice3.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_cosyvoice3.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_cosyvoice3.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_cosyvoice3.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_cosyvoice3.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_cosyvoice3.cpp.i: cmake_force
@@ -691,7 +719,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_cosyvoice3.cpp.s: cmak
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_kokoro.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_kokoro.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_kokoro.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_kokoro.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_kokoro.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_kokoro.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_kokoro.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_kokoro.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_kokoro.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_kokoro.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_kokoro.cpp.i: cmake_force
@@ -705,7 +733,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_kokoro.cpp.s: cmake_fo
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_piper.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_piper.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_piper.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_piper.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_piper.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_piper.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_piper.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_piper.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_piper.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_piper.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_piper.cpp.i: cmake_force
@@ -719,7 +747,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_piper.cpp.s: cmake_for
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_melotts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_melotts.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_melotts.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_melotts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_melotts.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_melotts.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_melotts.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_melotts.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_melotts.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_melotts.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_melotts.cpp.i: cmake_force
@@ -733,7 +761,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_melotts.cpp.s: cmake_f
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_m2m100.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_m2m100.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_m2m100.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_m2m100.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_m2m100.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_m2m100.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_m2m100.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_m2m100.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_m2m100.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_m2m100.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_m2m100.cpp.i: cmake_force
@@ -747,7 +775,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_m2m100.cpp.s: cmake_fo
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_t5.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_t5.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_t5.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_t5.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_t5.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_t5.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_t5.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_t5.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_t5.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_t5.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_t5.cpp.i: cmake_force
@@ -761,7 +789,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_t5.cpp.s: cmake_force
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_glm_asr.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_glm_asr.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_glm_asr.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_glm_asr.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_glm_asr.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_glm_asr.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_glm_asr.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_glm_asr.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_glm_asr.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_glm_asr.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_glm_asr.cpp.i: cmake_force
@@ -775,7 +803,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_glm_asr.cpp.s: cmake_f
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_htdemucs.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_htdemucs.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_htdemucs.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_htdemucs.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_htdemucs.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_htdemucs.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_htdemucs.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_htdemucs.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_htdemucs.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_htdemucs.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_htdemucs.cpp.i: cmake_force
@@ -789,7 +817,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_htdemucs.cpp.s: cmake_
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_crepe.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_crepe.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_crepe.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_crepe.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_crepe.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_crepe.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_crepe.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_crepe.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_crepe.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_crepe.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_crepe.cpp.i: cmake_force
@@ -803,7 +831,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_crepe.cpp.s: cmake_for
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_btc.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_btc.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_btc.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_btc.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_btc.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_btc.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_btc.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_btc.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_btc.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_btc.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_btc.cpp.i: cmake_force
@@ -817,7 +845,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_btc.cpp.s: cmake_force
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_rvc.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_rvc.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_rvc.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_rvc.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_rvc.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_rvc.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_rvc.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_rvc.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_rvc.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_rvc.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_rvc.cpp.i: cmake_force
@@ -831,7 +859,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_rvc.cpp.s: cmake_force
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_piano_cli.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_piano_cli.cpp.o: /content/CrispASR/examples/cli/crispasr_piano_cli.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_piano_cli.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_piano_cli.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_piano_cli.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_piano_cli.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_piano_cli.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_piano_cli.cpp.o -c /content/CrispASR/examples/cli/crispasr_piano_cli.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_piano_cli.cpp.i: cmake_force
@@ -845,7 +873,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_piano_cli.cpp.s: cmake_force
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_beat_this.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_beat_this.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_beat_this.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_beat_this.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_beat_this.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_beat_this.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_beat_this.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_beat_this.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_beat_this.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_beat_this.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_beat_this.cpp.i: cmake_force
@@ -859,7 +887,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_beat_this.cpp.s: cmake
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mel_band_roformer.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mel_band_roformer.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_mel_band_roformer.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mel_band_roformer.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mel_band_roformer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mel_band_roformer.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mel_band_roformer.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_mel_band_roformer.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_mel_band_roformer.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_mel_band_roformer.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mel_band_roformer.cpp.i: cmake_force
@@ -873,7 +901,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mel_band_roformer.cpp.
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_kyutai_stt.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_kyutai_stt.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_kyutai_stt.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_kyutai_stt.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_kyutai_stt.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_kyutai_stt.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_kyutai_stt.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_kyutai_stt.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_kyutai_stt.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_kyutai_stt.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_kyutai_stt.cpp.i: cmake_force
@@ -887,7 +915,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_kyutai_stt.cpp.s: cmak
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_firered_asr.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_firered_asr.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_firered_asr.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_firered_asr.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_firered_asr.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_firered_asr.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_firered_asr.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_firered_asr.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_firered_asr.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_firered_asr.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_firered_asr.cpp.i: cmake_force
@@ -901,7 +929,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_firered_asr.cpp.s: cma
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moonshine.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moonshine.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_moonshine.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moonshine.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moonshine.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moonshine.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moonshine.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_moonshine.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_moonshine.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_moonshine.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moonshine.cpp.i: cmake_force
@@ -915,7 +943,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moonshine.cpp.s: cmake
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moonshine_streaming.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moonshine_streaming.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_moonshine_streaming.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moonshine_streaming.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moonshine_streaming.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moonshine_streaming.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moonshine_streaming.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_moonshine_streaming.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_moonshine_streaming.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_moonshine_streaming.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moonshine_streaming.cpp.i: cmake_force
@@ -929,7 +957,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moonshine_streaming.cp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_gemma4_e2b.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_gemma4_e2b.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_gemma4_e2b.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_gemma4_e2b.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_gemma4_e2b.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_gemma4_e2b.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_gemma4_e2b.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_gemma4_e2b.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_gemma4_e2b.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_gemma4_e2b.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_gemma4_e2b.cpp.i: cmake_force
@@ -943,7 +971,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_gemma4_e2b.cpp.s: cmak
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_omniasr.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_omniasr.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_omniasr.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_omniasr.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_omniasr.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_omniasr.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_omniasr.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_omniasr.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_omniasr.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_omniasr.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_omniasr.cpp.i: cmake_force
@@ -957,7 +985,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_omniasr.cpp.s: cmake_f
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mimo_asr.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mimo_asr.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_mimo_asr.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mimo_asr.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mimo_asr.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mimo_asr.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mimo_asr.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_mimo_asr.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_mimo_asr.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_mimo_asr.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mimo_asr.cpp.i: cmake_force
@@ -971,7 +999,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mimo_asr.cpp.s: cmake_
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_ark_asr.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_ark_asr.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_ark_asr.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_ark_asr.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_ark_asr.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_ark_asr.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_ark_asr.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_ark_asr.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_ark_asr.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_ark_asr.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_ark_asr.cpp.i: cmake_force
@@ -985,7 +1013,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_ark_asr.cpp.s: cmake_f
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_miotts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_miotts.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_miotts.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_miotts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_miotts.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_miotts.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_miotts.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_miotts.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_miotts.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_miotts.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_miotts.cpp.i: cmake_force
@@ -999,7 +1027,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_miotts.cpp.s: cmake_fo
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_bt2_tts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_bt2_tts.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_bt2_tts.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_bt2_tts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_bt2_tts.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_bt2_tts.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_bt2_tts.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_bt2_tts.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_bt2_tts.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_bt2_tts.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_bt2_tts.cpp.i: cmake_force
@@ -1013,7 +1041,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_bt2_tts.cpp.s: cmake_f
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_piano_transcription.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_piano_transcription.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_piano_transcription.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_piano_transcription.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_piano_transcription.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_piano_transcription.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_piano_transcription.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_piano_transcription.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_piano_transcription.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_piano_transcription.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_piano_transcription.cpp.i: cmake_force
@@ -1027,7 +1055,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_piano_transcription.cp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_basic_pitch.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_basic_pitch.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_basic_pitch.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_basic_pitch.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_basic_pitch.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_basic_pitch.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_basic_pitch.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_basic_pitch.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_basic_pitch.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_basic_pitch.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_basic_pitch.cpp.i: cmake_force
@@ -1038,10 +1066,38 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_basic_pitch.cpp.s: cma
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/crispasr-cli.dir/crispasr_backend_basic_pitch.cpp.s"
 	cd /content/CrispASR/t4-colab-build/examples/cli && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /content/CrispASR/examples/cli/crispasr_backend_basic_pitch.cpp -o CMakeFiles/crispasr-cli.dir/crispasr_backend_basic_pitch.cpp.s
 
+examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_onsets_and_frames.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
+examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_onsets_and_frames.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_onsets_and_frames.cpp
+examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_onsets_and_frames.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_onsets_and_frames.cpp.o"
+	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_onsets_and_frames.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_onsets_and_frames.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_onsets_and_frames.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_onsets_and_frames.cpp
+
+examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_onsets_and_frames.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/crispasr-cli.dir/crispasr_backend_onsets_and_frames.cpp.i"
+	cd /content/CrispASR/t4-colab-build/examples/cli && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /content/CrispASR/examples/cli/crispasr_backend_onsets_and_frames.cpp > CMakeFiles/crispasr-cli.dir/crispasr_backend_onsets_and_frames.cpp.i
+
+examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_onsets_and_frames.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/crispasr-cli.dir/crispasr_backend_onsets_and_frames.cpp.s"
+	cd /content/CrispASR/t4-colab-build/examples/cli && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /content/CrispASR/examples/cli/crispasr_backend_onsets_and_frames.cpp -o CMakeFiles/crispasr-cli.dir/crispasr_backend_onsets_and_frames.cpp.s
+
+examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_hft_transformer.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
+examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_hft_transformer.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_hft_transformer.cpp
+examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_hft_transformer.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_hft_transformer.cpp.o"
+	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_hft_transformer.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_hft_transformer.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_hft_transformer.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_hft_transformer.cpp
+
+examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_hft_transformer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/crispasr-cli.dir/crispasr_backend_hft_transformer.cpp.i"
+	cd /content/CrispASR/t4-colab-build/examples/cli && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /content/CrispASR/examples/cli/crispasr_backend_hft_transformer.cpp > CMakeFiles/crispasr-cli.dir/crispasr_backend_hft_transformer.cpp.i
+
+examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_hft_transformer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/crispasr-cli.dir/crispasr_backend_hft_transformer.cpp.s"
+	cd /content/CrispASR/t4-colab-build/examples/cli && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /content/CrispASR/examples/cli/crispasr_backend_hft_transformer.cpp -o CMakeFiles/crispasr-cli.dir/crispasr_backend_hft_transformer.cpp.s
+
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mt3.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mt3.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_mt3.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mt3.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mt3.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mt3.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mt3.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_mt3.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_mt3.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_mt3.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mt3.cpp.i: cmake_force
@@ -1055,7 +1111,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mt3.cpp.s: cmake_force
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_audio.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_audio.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_moss_audio.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_audio.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_audio.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_audio.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_audio.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_audio.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_audio.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_moss_audio.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_audio.cpp.i: cmake_force
@@ -1069,7 +1125,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_audio.cpp.s: cmak
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_moss_tts.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_moss_tts.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts.cpp.i: cmake_force
@@ -1083,7 +1139,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts.cpp.s: cmake_
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts_local.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts_local.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_moss_tts_local.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts_local.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts_local.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts_local.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts_local.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts_local.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts_local.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_moss_tts_local.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts_local.cpp.i: cmake_force
@@ -1094,10 +1150,24 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts_local.cpp.s: 
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts_local.cpp.s"
 	cd /content/CrispASR/t4-colab-build/examples/cli && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /content/CrispASR/examples/cli/crispasr_backend_moss_tts_local.cpp -o CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts_local.cpp.s
 
+examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_hojo_asr.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
+examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_hojo_asr.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_hojo_asr.cpp
+examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_hojo_asr.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_hojo_asr.cpp.o"
+	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_hojo_asr.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_hojo_asr.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_hojo_asr.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_hojo_asr.cpp
+
+examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_hojo_asr.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/crispasr-cli.dir/crispasr_backend_hojo_asr.cpp.i"
+	cd /content/CrispASR/t4-colab-build/examples/cli && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /content/CrispASR/examples/cli/crispasr_backend_hojo_asr.cpp > CMakeFiles/crispasr-cli.dir/crispasr_backend_hojo_asr.cpp.i
+
+examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_hojo_asr.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/crispasr-cli.dir/crispasr_backend_hojo_asr.cpp.s"
+	cd /content/CrispASR/t4-colab-build/examples/cli && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /content/CrispASR/examples/cli/crispasr_backend_hojo_asr.cpp -o CMakeFiles/crispasr-cli.dir/crispasr_backend_hojo_asr.cpp.s
+
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_moss_transcribe.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_moss_transcribe.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe.cpp.i: cmake_force
@@ -1111,7 +1181,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe.cpp.s:
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe_diarize.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe_diarize.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_moss_transcribe_diarize.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe_diarize.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe_diarize.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe_diarize.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe_diarize.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe_diarize.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe_diarize.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_moss_transcribe_diarize.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe_diarize.cpp.i: cmake_force
@@ -1125,7 +1195,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe_diariz
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_funasr.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_funasr.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_funasr.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_funasr.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_funasr.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_funasr.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_funasr.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_funasr.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_funasr.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_funasr.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_funasr.cpp.i: cmake_force
@@ -1139,7 +1209,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_funasr.cpp.s: cmake_fo
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_paraformer.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_paraformer.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_paraformer.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_paraformer.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_paraformer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_paraformer.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_paraformer.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_paraformer.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_paraformer.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_paraformer.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_paraformer.cpp.i: cmake_force
@@ -1153,7 +1223,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_paraformer.cpp.s: cmak
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_sensevoice.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_sensevoice.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_sensevoice.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_sensevoice.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_sensevoice.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_sensevoice.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_sensevoice.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_sensevoice.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_sensevoice.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_sensevoice.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_sensevoice.cpp.i: cmake_force
@@ -1167,7 +1237,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_sensevoice.cpp.s: cmak
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_sidon.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_sidon.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_sidon.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_sidon.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_sidon.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_sidon.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_sidon.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_sidon.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_sidon.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_sidon.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_sidon.cpp.i: cmake_force
@@ -1181,7 +1251,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_sidon.cpp.s: cmake_for
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_speecht5.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_speecht5.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_speecht5.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_speecht5.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_speecht5.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_speecht5.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_speecht5.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_speecht5.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_speecht5.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_speecht5.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_speecht5.cpp.i: cmake_force
@@ -1195,7 +1265,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_speecht5.cpp.s: cmake_
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_zonos.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_zonos.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_zonos.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_zonos.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_zonos.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_zonos.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_zonos.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_zonos.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_zonos.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_zonos.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_zonos.cpp.i: cmake_force
@@ -1209,7 +1279,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_zonos.cpp.s: cmake_for
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_aligner_cli.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_aligner_cli.cpp.o: /content/CrispASR/examples/cli/crispasr_aligner_cli.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_aligner_cli.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_aligner_cli.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_aligner_cli.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_aligner_cli.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_aligner_cli.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_aligner_cli.cpp.o -c /content/CrispASR/examples/cli/crispasr_aligner_cli.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_aligner_cli.cpp.i: cmake_force
@@ -1223,7 +1293,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_aligner_cli.cpp.s: cmake_force
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_vad_cli.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_vad_cli.cpp.o: /content/CrispASR/examples/cli/crispasr_vad_cli.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_vad_cli.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_vad_cli.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_vad_cli.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_vad_cli.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_vad_cli.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_vad_cli.cpp.o -c /content/CrispASR/examples/cli/crispasr_vad_cli.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_vad_cli.cpp.i: cmake_force
@@ -1237,7 +1307,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_vad_cli.cpp.s: cmake_force
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_separate_cli.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_separate_cli.cpp.o: /content/CrispASR/examples/cli/crispasr_separate_cli.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_separate_cli.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_separate_cli.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_separate_cli.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_separate_cli.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_separate_cli.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_separate_cli.cpp.o -c /content/CrispASR/examples/cli/crispasr_separate_cli.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_separate_cli.cpp.i: cmake_force
@@ -1251,7 +1321,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_separate_cli.cpp.s: cmake_forc
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_beats_cli.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_beats_cli.cpp.o: /content/CrispASR/examples/cli/crispasr_beats_cli.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_beats_cli.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_beats_cli.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_beats_cli.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_beats_cli.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_beats_cli.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_beats_cli.cpp.o -c /content/CrispASR/examples/cli/crispasr_beats_cli.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_beats_cli.cpp.i: cmake_force
@@ -1265,7 +1335,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_beats_cli.cpp.s: cmake_force
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_chords_cli.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_chords_cli.cpp.o: /content/CrispASR/examples/cli/crispasr_chords_cli.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_chords_cli.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_chords_cli.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_chords_cli.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_chords_cli.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_chords_cli.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_chords_cli.cpp.o -c /content/CrispASR/examples/cli/crispasr_chords_cli.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_chords_cli.cpp.i: cmake_force
@@ -1279,7 +1349,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_chords_cli.cpp.s: cmake_force
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_tab_cli.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_tab_cli.cpp.o: /content/CrispASR/examples/cli/crispasr_tab_cli.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_tab_cli.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_tab_cli.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_tab_cli.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_tab_cli.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_tab_cli.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_tab_cli.cpp.o -c /content/CrispASR/examples/cli/crispasr_tab_cli.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_tab_cli.cpp.i: cmake_force
@@ -1293,7 +1363,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_tab_cli.cpp.s: cmake_force
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_tabcnn.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_tabcnn.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_tabcnn.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_tabcnn.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_tabcnn.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_tabcnn.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_tabcnn.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_tabcnn.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_tabcnn.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_tabcnn.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_tabcnn.cpp.i: cmake_force
@@ -1307,7 +1377,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_tabcnn.cpp.s: cmake_fo
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_pitch_cli.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_pitch_cli.cpp.o: /content/CrispASR/examples/cli/crispasr_pitch_cli.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_pitch_cli.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_pitch_cli.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_pitch_cli.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_pitch_cli.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_pitch_cli.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_pitch_cli.cpp.o -c /content/CrispASR/examples/cli/crispasr_pitch_cli.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_pitch_cli.cpp.i: cmake_force
@@ -1321,7 +1391,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_pitch_cli.cpp.s: cmake_force
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_lid_cli.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_lid_cli.cpp.o: /content/CrispASR/examples/cli/crispasr_lid_cli.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_lid_cli.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_lid_cli.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_lid_cli.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_lid_cli.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_lid_cli.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_lid_cli.cpp.o -c /content/CrispASR/examples/cli/crispasr_lid_cli.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_lid_cli.cpp.i: cmake_force
@@ -1335,7 +1405,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_lid_cli.cpp.s: cmake_force
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_diarize_cli.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_diarize_cli.cpp.o: /content/CrispASR/examples/cli/crispasr_diarize_cli.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_diarize_cli.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_diarize_cli.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_diarize_cli.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_diarize_cli.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_diarize_cli.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_diarize_cli.cpp.o -c /content/CrispASR/examples/cli/crispasr_diarize_cli.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_diarize_cli.cpp.i: cmake_force
@@ -1349,7 +1419,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_diarize_cli.cpp.s: cmake_force
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_output.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_output.cpp.o: /content/CrispASR/examples/cli/crispasr_output.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_output.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_output.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_output.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_output.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_output.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_output.cpp.o -c /content/CrispASR/examples/cli/crispasr_output.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_output.cpp.i: cmake_force
@@ -1363,7 +1433,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_output.cpp.s: cmake_force
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_model_mgr_cli.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_model_mgr_cli.cpp.o: /content/CrispASR/examples/cli/crispasr_model_mgr_cli.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_model_mgr_cli.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_model_mgr_cli.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_98) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_model_mgr_cli.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_model_mgr_cli.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_model_mgr_cli.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_model_mgr_cli.cpp.o -c /content/CrispASR/examples/cli/crispasr_model_mgr_cli.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_model_mgr_cli.cpp.i: cmake_force
@@ -1377,7 +1447,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_model_mgr_cli.cpp.s: cmake_for
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_diagnostics.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_diagnostics.cpp.o: /content/CrispASR/examples/cli/crispasr_diagnostics.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_diagnostics.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_diagnostics.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_99) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_diagnostics.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_diagnostics.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_diagnostics.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_diagnostics.cpp.o -c /content/CrispASR/examples/cli/crispasr_diagnostics.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_diagnostics.cpp.i: cmake_force
@@ -1391,7 +1461,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_diagnostics.cpp.s: cmake_force
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_run.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_run.cpp.o: /content/CrispASR/examples/cli/crispasr_run.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_run.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_run.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_100) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_run.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_run.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_run.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_run.cpp.o -c /content/CrispASR/examples/cli/crispasr_run.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_run.cpp.i: cmake_force
@@ -1405,7 +1475,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_run.cpp.s: cmake_force
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_server.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_server.cpp.o: /content/CrispASR/examples/cli/crispasr_server.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_server.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_server.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_101) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_server.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_server.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_server.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_server.cpp.o -c /content/CrispASR/examples/cli/crispasr_server.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_server.cpp.i: cmake_force
@@ -1419,7 +1489,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_server.cpp.s: cmake_force
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_tts_chunking.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_tts_chunking.cpp.o: /content/CrispASR/examples/cli/crispasr_tts_chunking.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_tts_chunking.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_tts_chunking.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_102) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_tts_chunking.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_tts_chunking.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_tts_chunking.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_tts_chunking.cpp.o -c /content/CrispASR/examples/cli/crispasr_tts_chunking.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_tts_chunking.cpp.i: cmake_force
@@ -1433,7 +1503,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_tts_chunking.cpp.s: cmake_forc
 examples/cli/CMakeFiles/crispasr-cli.dir/__/server/ws_stream.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/__/server/ws_stream.cpp.o: /content/CrispASR/examples/server/ws_stream.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/__/server/ws_stream.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_98) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/__/server/ws_stream.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_103) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/__/server/ws_stream.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/__/server/ws_stream.cpp.o -MF CMakeFiles/crispasr-cli.dir/__/server/ws_stream.cpp.o.d -o CMakeFiles/crispasr-cli.dir/__/server/ws_stream.cpp.o -c /content/CrispASR/examples/server/ws_stream.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/__/server/ws_stream.cpp.i: cmake_force
@@ -1447,7 +1517,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/__/server/ws_stream.cpp.s: cmake_force
 examples/cli/CMakeFiles/crispasr-cli.dir/__/server/realtime_server.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/__/server/realtime_server.cpp.o: /content/CrispASR/examples/server/realtime_server.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/__/server/realtime_server.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_99) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/__/server/realtime_server.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_104) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/__/server/realtime_server.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/__/server/realtime_server.cpp.o -MF CMakeFiles/crispasr-cli.dir/__/server/realtime_server.cpp.o.d -o CMakeFiles/crispasr-cli.dir/__/server/realtime_server.cpp.o -c /content/CrispASR/examples/server/realtime_server.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/__/server/realtime_server.cpp.i: cmake_force
@@ -1461,7 +1531,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/__/server/realtime_server.cpp.s: cmake_
 examples/cli/CMakeFiles/crispasr-cli.dir/wyoming.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/wyoming.cpp.o: /content/CrispASR/examples/cli/wyoming.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/wyoming.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_100) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/wyoming.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_105) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/wyoming.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/wyoming.cpp.o -MF CMakeFiles/crispasr-cli.dir/wyoming.cpp.o.d -o CMakeFiles/crispasr-cli.dir/wyoming.cpp.o -c /content/CrispASR/examples/cli/wyoming.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/wyoming.cpp.i: cmake_force
@@ -1475,7 +1545,7 @@ examples/cli/CMakeFiles/crispasr-cli.dir/wyoming.cpp.s: cmake_force
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_outetts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/flags.make
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_outetts.cpp.o: /content/CrispASR/examples/cli/crispasr_backend_outetts.cpp
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_outetts.cpp.o: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_101) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_outetts.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_106) "Building CXX object examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_outetts.cpp.o"
 	cd /content/CrispASR/t4-colab-build/examples/cli && ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_outetts.cpp.o -MF CMakeFiles/crispasr-cli.dir/crispasr_backend_outetts.cpp.o.d -o CMakeFiles/crispasr-cli.dir/crispasr_backend_outetts.cpp.o -c /content/CrispASR/examples/cli/crispasr_backend_outetts.cpp
 
 examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_outetts.cpp.i: cmake_force
@@ -1493,6 +1563,8 @@ crispasr__cli_OBJECTS = \
 "CMakeFiles/crispasr-cli.dir/crispasr_backend_crispasr.cpp.o" \
 "CMakeFiles/crispasr-cli.dir/crispasr_backend_nemotron.cpp.o" \
 "CMakeFiles/crispasr-cli.dir/crispasr_backend_gigaam.cpp.o" \
+"CMakeFiles/crispasr-cli.dir/crispasr_backend_dolphin.cpp.o" \
+"CMakeFiles/crispasr-cli.dir/crispasr_backend_xasr.cpp.o" \
 "CMakeFiles/crispasr-cli.dir/crispasr_backend_parakeet.cpp.o" \
 "CMakeFiles/crispasr-cli.dir/crispasr_backend_canary.cpp.o" \
 "CMakeFiles/crispasr-cli.dir/crispasr_backend_canary_qwen.cpp.o" \
@@ -1557,10 +1629,13 @@ crispasr__cli_OBJECTS = \
 "CMakeFiles/crispasr-cli.dir/crispasr_backend_bt2_tts.cpp.o" \
 "CMakeFiles/crispasr-cli.dir/crispasr_backend_piano_transcription.cpp.o" \
 "CMakeFiles/crispasr-cli.dir/crispasr_backend_basic_pitch.cpp.o" \
+"CMakeFiles/crispasr-cli.dir/crispasr_backend_onsets_and_frames.cpp.o" \
+"CMakeFiles/crispasr-cli.dir/crispasr_backend_hft_transformer.cpp.o" \
 "CMakeFiles/crispasr-cli.dir/crispasr_backend_mt3.cpp.o" \
 "CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_audio.cpp.o" \
 "CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts.cpp.o" \
 "CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts_local.cpp.o" \
+"CMakeFiles/crispasr-cli.dir/crispasr_backend_hojo_asr.cpp.o" \
 "CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe.cpp.o" \
 "CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe_diarize.cpp.o" \
 "CMakeFiles/crispasr-cli.dir/crispasr_backend_funasr.cpp.o" \
@@ -1598,6 +1673,8 @@ bin/crispasr: examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend.cpp.o
 bin/crispasr: examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_crispasr.cpp.o
 bin/crispasr: examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_nemotron.cpp.o
 bin/crispasr: examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_gigaam.cpp.o
+bin/crispasr: examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_dolphin.cpp.o
+bin/crispasr: examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_xasr.cpp.o
 bin/crispasr: examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_parakeet.cpp.o
 bin/crispasr: examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_canary.cpp.o
 bin/crispasr: examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_canary_qwen.cpp.o
@@ -1662,10 +1739,13 @@ bin/crispasr: examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_miotts.c
 bin/crispasr: examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_bt2_tts.cpp.o
 bin/crispasr: examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_piano_transcription.cpp.o
 bin/crispasr: examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_basic_pitch.cpp.o
+bin/crispasr: examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_onsets_and_frames.cpp.o
+bin/crispasr: examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_hft_transformer.cpp.o
 bin/crispasr: examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_mt3.cpp.o
 bin/crispasr: examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_audio.cpp.o
 bin/crispasr: examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts.cpp.o
 bin/crispasr: examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_tts_local.cpp.o
+bin/crispasr: examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_hojo_asr.cpp.o
 bin/crispasr: examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe.cpp.o
 bin/crispasr: examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_moss_transcribe_diarize.cpp.o
 bin/crispasr: examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_funasr.cpp.o
@@ -1697,10 +1777,12 @@ bin/crispasr: examples/cli/CMakeFiles/crispasr-cli.dir/crispasr_backend_outetts.
 bin/crispasr: examples/cli/CMakeFiles/crispasr-cli.dir/build.make
 bin/crispasr: examples/cli/CMakeFiles/crispasr-cli.dir/compiler_depend.ts
 bin/crispasr: examples/libcommon.a
-bin/crispasr: src/libcrispasr.so.0.8.34
+bin/crispasr: src/libcrispasr.so.0.8.36
 bin/crispasr: src/libparakeet.a
 bin/crispasr: src/libwespeaker.a
 bin/crispasr: src/libgigaam.a
+bin/crispasr: src/libdolphin.a
+bin/crispasr: src/libxasr.a
 bin/crispasr: src/libcanary.a
 bin/crispasr: src/libcohere.a
 bin/crispasr: src/libgranite_speech.a
@@ -1747,6 +1829,7 @@ bin/crispasr: src/libsidon.a
 bin/crispasr: src/libmoss_audio.a
 bin/crispasr: src/libmoss_tts.a
 bin/crispasr: src/libmoss_tts_local.a
+bin/crispasr: src/libhojo_asr.a
 bin/crispasr: src/libmoss_transcribe.a
 bin/crispasr: src/libmoss_transcribe_diarize.a
 bin/crispasr: src/libmiotts.a
@@ -1780,6 +1863,8 @@ bin/crispasr: crisp_lid/libcrisp_lid.a
 bin/crispasr: src/libomniasr.a
 bin/crispasr: src/libpiano-transcription.a
 bin/crispasr: src/libbasic-pitch.a
+bin/crispasr: src/libonsets-and-frames.a
+bin/crispasr: src/libhft-transformer.a
 bin/crispasr: src/libmt3.a
 bin/crispasr: src/libecapa-lid.a
 bin/crispasr: src/libtitanet.a
@@ -1800,7 +1885,6 @@ bin/crispasr: src/libopenvoice2.a
 bin/crispasr: crisp_punc/libcrisp_punc.a
 bin/crispasr: crisp_truecase/libcrisp_truecase.a
 bin/crispasr: src/libmel-band-roformer.a
-bin/crispasr: /usr/lib/x86_64-linux-gnu/libopenblas.so
 bin/crispasr: src/libcrepe.a
 bin/crispasr: src/libbtc-chords.a
 bin/crispasr: src/libtabcnn.a
@@ -1810,13 +1894,13 @@ bin/crispasr: src/libbeat-this.a
 bin/crispasr: src/libcrispasr-core.a
 bin/crispasr: ggml/src/libggml.so.0.23.0
 bin/crispasr: ggml/src/ggml-cuda/libggml-cuda.so.0.23.0
-bin/crispasr: /usr/lib/x86_64-linux-gnu/libcblas.so
+bin/crispasr: /usr/lib/x86_64-linux-gnu/libopenblas.so
 bin/crispasr: /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so
 bin/crispasr: /usr/lib/x86_64-linux-gnu/libpthread.a
 bin/crispasr: ggml/src/libggml-cpu.so.0.23.0
 bin/crispasr: ggml/src/libggml-base.so.0.23.0
 bin/crispasr: examples/cli/CMakeFiles/crispasr-cli.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_102) "Linking CXX executable ../../bin/crispasr"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/content/CrispASR/t4-colab-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_107) "Linking CXX executable ../../bin/crispasr"
 	cd /content/CrispASR/t4-colab-build/examples/cli && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/crispasr-cli.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

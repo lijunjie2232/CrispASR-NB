@@ -97,11 +97,13 @@ bin/crispasr-legacy-quantize: examples/quantize/CMakeFiles/crispasr-legacy-quant
 bin/crispasr-legacy-quantize: examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/build.make
 bin/crispasr-legacy-quantize: examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/compiler_depend.ts
 bin/crispasr-legacy-quantize: examples/libcommon.a
-bin/crispasr-legacy-quantize: src/libcrispasr.so.0.8.34
+bin/crispasr-legacy-quantize: src/libcrispasr.so.0.8.36
 bin/crispasr-legacy-quantize: src/libcrispasr_c2pa_native.a
 bin/crispasr-legacy-quantize: src/libaudioseal.a
 bin/crispasr-legacy-quantize: glint/libglint.a
 bin/crispasr-legacy-quantize: src/libgigaam.a
+bin/crispasr-legacy-quantize: src/libxasr.a
+bin/crispasr-legacy-quantize: src/libdolphin.a
 bin/crispasr-legacy-quantize: src/libwespeaker.a
 bin/crispasr-legacy-quantize: src/libnemotron.a
 bin/crispasr-legacy-quantize: src/libparakeet.a
@@ -135,6 +137,8 @@ bin/crispasr-legacy-quantize: src/libomniasr.a
 bin/crispasr-legacy-quantize: src/libvibevoice.a
 bin/crispasr-legacy-quantize: src/libpiano-transcription.a
 bin/crispasr-legacy-quantize: src/libbasic-pitch.a
+bin/crispasr-legacy-quantize: src/libonsets-and-frames.a
+bin/crispasr-legacy-quantize: src/libhft-transformer.a
 bin/crispasr-legacy-quantize: src/libmt3.a
 bin/crispasr-legacy-quantize: src/libkugelaudio.a
 bin/crispasr-legacy-quantize: src/libecapa-lid.a
@@ -149,6 +153,7 @@ bin/crispasr-legacy-quantize: src/libmimo_tokenizer.a
 bin/crispasr-legacy-quantize: src/libmoss_audio.a
 bin/crispasr-legacy-quantize: src/libmoss_tts.a
 bin/crispasr-legacy-quantize: src/libmoss_tts_local.a
+bin/crispasr-legacy-quantize: src/libhojo_asr.a
 bin/crispasr-legacy-quantize: src/libmoss_transcribe.a
 bin/crispasr-legacy-quantize: src/libmoss_transcribe_diarize.a
 bin/crispasr-legacy-quantize: src/libbreeze_tts_2.a
@@ -197,7 +202,6 @@ bin/crispasr-legacy-quantize: crisp_truecase/libcrisp_truecase.a
 bin/crispasr-legacy-quantize: src/libpyannote-seg.a
 bin/crispasr-legacy-quantize: src/libsilero-lid.a
 bin/crispasr-legacy-quantize: src/libmel-band-roformer.a
-bin/crispasr-legacy-quantize: /usr/lib/x86_64-linux-gnu/libopenblas.so
 bin/crispasr-legacy-quantize: src/libcrepe.a
 bin/crispasr-legacy-quantize: src/libbtc-chords.a
 bin/crispasr-legacy-quantize: src/libtabcnn.a
@@ -209,7 +213,7 @@ bin/crispasr-legacy-quantize: ggml/src/libggml.so.0.23.0
 bin/crispasr-legacy-quantize: ggml/src/ggml-cuda/libggml-cuda.so.0.23.0
 bin/crispasr-legacy-quantize: /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so
 bin/crispasr-legacy-quantize: /usr/lib/x86_64-linux-gnu/libpthread.a
-bin/crispasr-legacy-quantize: /usr/lib/x86_64-linux-gnu/libcblas.so
+bin/crispasr-legacy-quantize: /usr/lib/x86_64-linux-gnu/libopenblas.so
 bin/crispasr-legacy-quantize: ggml/src/libggml-cpu.so.0.23.0
 bin/crispasr-legacy-quantize: ggml/src/libggml-base.so.0.23.0
 bin/crispasr-legacy-quantize: examples/quantize/CMakeFiles/crispasr-legacy-quantize.dir/link.txt

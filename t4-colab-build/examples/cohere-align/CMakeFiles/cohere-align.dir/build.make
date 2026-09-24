@@ -100,13 +100,15 @@ bin/cohere-align: src/libcohere.a
 bin/cohere-align: src/libwav2vec2-ggml.a
 bin/cohere-align: src/libctc-align.a
 bin/cohere-align: examples/libcommon.a
-bin/cohere-align: src/libcrispasr.so.0.8.34
+bin/cohere-align: src/libcrispasr.so.0.8.36
 bin/cohere-align: src/libcohere.a
 bin/cohere-align: src/libctc-align.a
 bin/cohere-align: src/libcrispasr_c2pa_native.a
 bin/cohere-align: src/libaudioseal.a
 bin/cohere-align: glint/libglint.a
 bin/cohere-align: src/libgigaam.a
+bin/cohere-align: src/libxasr.a
+bin/cohere-align: src/libdolphin.a
 bin/cohere-align: src/libwespeaker.a
 bin/cohere-align: src/libnemotron.a
 bin/cohere-align: src/libparakeet.a
@@ -138,6 +140,8 @@ bin/cohere-align: src/libomniasr.a
 bin/cohere-align: src/libvibevoice.a
 bin/cohere-align: src/libpiano-transcription.a
 bin/cohere-align: src/libbasic-pitch.a
+bin/cohere-align: src/libonsets-and-frames.a
+bin/cohere-align: src/libhft-transformer.a
 bin/cohere-align: src/libmt3.a
 bin/cohere-align: src/libkugelaudio.a
 bin/cohere-align: src/libecapa-lid.a
@@ -152,6 +156,7 @@ bin/cohere-align: src/libmimo_tokenizer.a
 bin/cohere-align: src/libmoss_audio.a
 bin/cohere-align: src/libmoss_tts.a
 bin/cohere-align: src/libmoss_tts_local.a
+bin/cohere-align: src/libhojo_asr.a
 bin/cohere-align: src/libmoss_transcribe.a
 bin/cohere-align: src/libmoss_transcribe_diarize.a
 bin/cohere-align: src/libbreeze_tts_2.a
@@ -200,7 +205,6 @@ bin/cohere-align: crisp_truecase/libcrisp_truecase.a
 bin/cohere-align: src/libpyannote-seg.a
 bin/cohere-align: src/libsilero-lid.a
 bin/cohere-align: src/libmel-band-roformer.a
-bin/cohere-align: /usr/lib/x86_64-linux-gnu/libopenblas.so
 bin/cohere-align: src/libcrepe.a
 bin/cohere-align: src/libbtc-chords.a
 bin/cohere-align: src/libtabcnn.a
@@ -208,7 +212,7 @@ bin/cohere-align: src/libbeatrice-pitch.a
 bin/cohere-align: src/librvc-svc.a
 bin/cohere-align: src/libbeat-this.a
 bin/cohere-align: src/libcrispasr-core.a
-bin/cohere-align: /usr/lib/x86_64-linux-gnu/libcblas.so
+bin/cohere-align: /usr/lib/x86_64-linux-gnu/libopenblas.so
 bin/cohere-align: ggml/src/libggml.so.0.23.0
 bin/cohere-align: ggml/src/ggml-cuda/libggml-cuda.so.0.23.0
 bin/cohere-align: /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so

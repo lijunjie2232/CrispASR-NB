@@ -97,12 +97,14 @@ bin/mimo-tokenizer-smoke: examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/mimo_
 bin/mimo-tokenizer-smoke: examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/build.make
 bin/mimo-tokenizer-smoke: examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/compiler_depend.ts
 bin/mimo-tokenizer-smoke: examples/libcommon.a
-bin/mimo-tokenizer-smoke: src/libcrispasr.so.0.8.34
+bin/mimo-tokenizer-smoke: src/libcrispasr.so.0.8.36
 bin/mimo-tokenizer-smoke: src/libmimo_tokenizer.a
 bin/mimo-tokenizer-smoke: src/libcrispasr_c2pa_native.a
 bin/mimo-tokenizer-smoke: src/libaudioseal.a
 bin/mimo-tokenizer-smoke: glint/libglint.a
 bin/mimo-tokenizer-smoke: src/libgigaam.a
+bin/mimo-tokenizer-smoke: src/libxasr.a
+bin/mimo-tokenizer-smoke: src/libdolphin.a
 bin/mimo-tokenizer-smoke: src/libwespeaker.a
 bin/mimo-tokenizer-smoke: src/libnemotron.a
 bin/mimo-tokenizer-smoke: src/libparakeet.a
@@ -136,6 +138,8 @@ bin/mimo-tokenizer-smoke: src/libomniasr.a
 bin/mimo-tokenizer-smoke: src/libvibevoice.a
 bin/mimo-tokenizer-smoke: src/libpiano-transcription.a
 bin/mimo-tokenizer-smoke: src/libbasic-pitch.a
+bin/mimo-tokenizer-smoke: src/libonsets-and-frames.a
+bin/mimo-tokenizer-smoke: src/libhft-transformer.a
 bin/mimo-tokenizer-smoke: src/libmt3.a
 bin/mimo-tokenizer-smoke: src/libkugelaudio.a
 bin/mimo-tokenizer-smoke: src/libecapa-lid.a
@@ -150,6 +154,7 @@ bin/mimo-tokenizer-smoke: src/libmimo_tokenizer.a
 bin/mimo-tokenizer-smoke: src/libmoss_audio.a
 bin/mimo-tokenizer-smoke: src/libmoss_tts.a
 bin/mimo-tokenizer-smoke: src/libmoss_tts_local.a
+bin/mimo-tokenizer-smoke: src/libhojo_asr.a
 bin/mimo-tokenizer-smoke: src/libmoss_transcribe.a
 bin/mimo-tokenizer-smoke: src/libmoss_transcribe_diarize.a
 bin/mimo-tokenizer-smoke: src/libbreeze_tts_2.a
@@ -198,7 +203,6 @@ bin/mimo-tokenizer-smoke: crisp_truecase/libcrisp_truecase.a
 bin/mimo-tokenizer-smoke: src/libpyannote-seg.a
 bin/mimo-tokenizer-smoke: src/libsilero-lid.a
 bin/mimo-tokenizer-smoke: src/libmel-band-roformer.a
-bin/mimo-tokenizer-smoke: /usr/lib/x86_64-linux-gnu/libopenblas.so
 bin/mimo-tokenizer-smoke: src/libcrepe.a
 bin/mimo-tokenizer-smoke: src/libbtc-chords.a
 bin/mimo-tokenizer-smoke: src/libtabcnn.a
@@ -210,7 +214,7 @@ bin/mimo-tokenizer-smoke: ggml/src/libggml.so.0.23.0
 bin/mimo-tokenizer-smoke: ggml/src/ggml-cuda/libggml-cuda.so.0.23.0
 bin/mimo-tokenizer-smoke: /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so
 bin/mimo-tokenizer-smoke: /usr/lib/x86_64-linux-gnu/libpthread.a
-bin/mimo-tokenizer-smoke: /usr/lib/x86_64-linux-gnu/libcblas.so
+bin/mimo-tokenizer-smoke: /usr/lib/x86_64-linux-gnu/libopenblas.so
 bin/mimo-tokenizer-smoke: ggml/src/libggml-cpu.so.0.23.0
 bin/mimo-tokenizer-smoke: ggml/src/libggml-base.so.0.23.0
 bin/mimo-tokenizer-smoke: examples/cli/CMakeFiles/mimo-tokenizer-smoke.dir/link.txt

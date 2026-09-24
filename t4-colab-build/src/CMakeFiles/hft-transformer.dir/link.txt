@@ -1,0 +1,2 @@
+/usr/bin/ar qc libhft-transformer.a "CMakeFiles/hft-transformer.dir/hft_transformer.cpp.o"
+/usr/bin/ranlib libhft-transformer.a

@@ -26,9 +26,6 @@ C2PA_LIBRARY:FILEPATH=C2PA_LIBRARY-NOTFOUND
 //Path to a file.
 CBLAS_INCLUDE_DIR:PATH=/usr/include/x86_64-linux-gnu
 
-//Path to a library.
-CBLAS_LIBRARIES:FILEPATH=/usr/lib/x86_64-linux-gnu/libcblas.so
-
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=/usr/bin/addr2line
 
@@ -261,7 +258,7 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 CMAKE_PROJECT_NAME:STATIC=crispasr
 
 //Value Computed by CMake
-CMAKE_PROJECT_VERSION:STATIC=0.8.34
+CMAKE_PROJECT_VERSION:STATIC=0.8.36
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION_MAJOR:STATIC=0
@@ -270,7 +267,7 @@ CMAKE_PROJECT_VERSION_MAJOR:STATIC=0
 CMAKE_PROJECT_VERSION_MINOR:STATIC=8
 
 //Value Computed by CMake
-CMAKE_PROJECT_VERSION_PATCH:STATIC=34
+CMAKE_PROJECT_VERSION_PATCH:STATIC=36
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION_TWEAK:STATIC=
@@ -343,6 +340,9 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 //cohere: link Intel MKL for ggml GEMM + mel filterbank
 COHERE_MKL:BOOL=OFF
 
+//Path to a library.
+COHERE_OPENBLAS:FILEPATH=/usr/lib/x86_64-linux-gnu/libopenblas.so
+
 //crispasr: enable all compiler warnings
 CRISPASR_ALL_WARNINGS:BOOL=ON
 
@@ -381,6 +381,9 @@ CRISPASR_COREML:BOOL=OFF
 
 //crispasr: allow non-CoreML fallback
 CRISPASR_COREML_ALLOW_FALLBACK:BOOL=OFF
+
+//Path to a library.
+CRISPASR_CORE_OPENBLAS:FILEPATH=/usr/lib/x86_64-linux-gnu/libopenblas.so
 
 //crispasr: use libcurl to download model from an URL
 CRISPASR_CURL:BOOL=OFF
@@ -1112,8 +1115,6 @@ ggml_SOURCE_DIR:STATIC=/content/CrispASR/ggml
 # INTERNAL cache entries
 ########################
 
-//ADVANCED property for variable: CBLAS_LIBRARIES
-CBLAS_LIBRARIES-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_ADDR2LINE
 CMAKE_ADDR2LINE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
@@ -1480,8 +1481,6 @@ CUDA_nvrtc_builtins_static_LIBRARY-ADVANCED:INTERNAL=1
 CUDA_nvrtc_static_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CUDA_pcsamplingutil_LIBRARY
 CUDA_pcsamplingutil_LIBRARY-ADVANCED:INTERNAL=1
-//Details about finding CBLAS
-FIND_PACKAGE_MESSAGE_DETAILS_CBLAS:INTERNAL=[/usr/lib/x86_64-linux-gnu/libcblas.so][v()]
 //Details about finding CUDAToolkit
 FIND_PACKAGE_MESSAGE_DETAILS_CUDAToolkit:INTERNAL=[/usr/local/cuda-12.8/targets/x86_64-linux/include][/usr/local/cuda-12.8/lib64/libcudart.so][/usr/local/cuda-12.8/bin][v12.8.93()]
 //Details about finding Git

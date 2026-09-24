@@ -1,4 +1,4 @@
-libcrispasr.so.0.8.34: \
+libcrispasr.so.0.8.36: \
   /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crti.o \
   /usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o \
   CMakeFiles/crispasr-lib.dir/crispasr.cpp.o \
@@ -31,6 +31,8 @@ libcrispasr.so.0.8.34: \
   /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libdl.a \
   ../glint/libglint.a \
   libgigaam.a \
+  libxasr.a \
+  libdolphin.a \
   libwespeaker.a \
   libnemotron.a \
   libparakeet.a \
@@ -66,6 +68,8 @@ libcrispasr.so.0.8.34: \
   libvibevoice.a \
   libpiano-transcription.a \
   libbasic-pitch.a \
+  libonsets-and-frames.a \
+  libhft-transformer.a \
   libmt3.a \
   libkugelaudio.a \
   libecapa-lid.a \
@@ -79,6 +83,7 @@ libcrispasr.so.0.8.34: \
   libmoss_audio.a \
   libmoss_tts.a \
   libmoss_tts_local.a \
+  libhojo_asr.a \
   libmoss_transcribe.a \
   libmoss_transcribe_diarize.a \
   libqwen3_tts.a \
@@ -142,12 +147,11 @@ libcrispasr.so.0.8.34: \
   libsidon.a \
   libchatterbox.a \
   libbert-encoder.a \
-  /usr/lib/x86_64-linux-gnu/libopenblas.so \
   libcrispasr-core.a \
   /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libdl.a \
   /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so \
   /usr/lib/x86_64-linux-gnu/libpthread.a \
-  /usr/lib/x86_64-linux-gnu/libcblas.so \
+  /usr/lib/x86_64-linux-gnu/libopenblas.so \
   ../ggml/src/libggml.so.0.23.0 \
   ../ggml/src/libggml-cpu.so.0.23.0 \
   ../ggml/src/ggml-cuda/libggml-cuda.so.0.23.0 \
@@ -241,6 +245,10 @@ libsnac.a:
 
 libgigaam.a:
 
+libxasr.a:
+
+libdolphin.a:
+
 libwespeaker.a:
 
 libnemotron.a:
@@ -311,6 +319,10 @@ libpiano-transcription.a:
 
 libbasic-pitch.a:
 
+libonsets-and-frames.a:
+
+libhft-transformer.a:
+
 libmt3.a:
 
 libkugelaudio.a:
@@ -336,6 +348,8 @@ libmoss_audio.a:
 libmoss_tts.a:
 
 libmoss_tts_local.a:
+
+libhojo_asr.a:
 
 libmoss_transcribe.a:
 
@@ -463,8 +477,6 @@ libchatterbox.a:
 
 libbert-encoder.a:
 
-/usr/lib/x86_64-linux-gnu/libopenblas.so:
-
 libcrispasr-core.a:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libdl.a:
@@ -473,7 +485,7 @@ libcrispasr-core.a:
 
 /usr/lib/x86_64-linux-gnu/libpthread.a:
 
-/usr/lib/x86_64-linux-gnu/libcblas.so:
+/usr/lib/x86_64-linux-gnu/libopenblas.so:
 
 ../ggml/src/libggml.so.0.23.0:
 

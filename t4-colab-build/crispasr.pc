@@ -5,6 +5,6 @@ includedir=${prefix}/include
 
 Name: crispasr
 Description: Port of OpenAI's Whisper model in C/C++
-Version: 0.8.34
+Version: 0.8.36
 Libs: -L${libdir} -lggml  -lggml-base -lcrispasr
 Cflags: -I${includedir}

@@ -97,12 +97,14 @@ bin/crispasr-lid: examples/cli/CMakeFiles/crispasr-lid.dir/crispasr_lid_main.cpp
 bin/crispasr-lid: examples/cli/CMakeFiles/crispasr-lid.dir/build.make
 bin/crispasr-lid: examples/cli/CMakeFiles/crispasr-lid.dir/compiler_depend.ts
 bin/crispasr-lid: crisp_lid/libcrisp_lid.a
-bin/crispasr-lid: src/libcrispasr.so.0.8.34
+bin/crispasr-lid: src/libcrispasr.so.0.8.36
 bin/crispasr-lid: crisp_lid/libcrisp_lid.a
 bin/crispasr-lid: src/libcrispasr_c2pa_native.a
 bin/crispasr-lid: src/libaudioseal.a
 bin/crispasr-lid: glint/libglint.a
 bin/crispasr-lid: src/libgigaam.a
+bin/crispasr-lid: src/libxasr.a
+bin/crispasr-lid: src/libdolphin.a
 bin/crispasr-lid: src/libwespeaker.a
 bin/crispasr-lid: src/libnemotron.a
 bin/crispasr-lid: src/libparakeet.a
@@ -135,6 +137,8 @@ bin/crispasr-lid: src/libomniasr.a
 bin/crispasr-lid: src/libvibevoice.a
 bin/crispasr-lid: src/libpiano-transcription.a
 bin/crispasr-lid: src/libbasic-pitch.a
+bin/crispasr-lid: src/libonsets-and-frames.a
+bin/crispasr-lid: src/libhft-transformer.a
 bin/crispasr-lid: src/libmt3.a
 bin/crispasr-lid: src/libkugelaudio.a
 bin/crispasr-lid: src/libecapa-lid.a
@@ -149,6 +153,7 @@ bin/crispasr-lid: src/libmimo_tokenizer.a
 bin/crispasr-lid: src/libmoss_audio.a
 bin/crispasr-lid: src/libmoss_tts.a
 bin/crispasr-lid: src/libmoss_tts_local.a
+bin/crispasr-lid: src/libhojo_asr.a
 bin/crispasr-lid: src/libmoss_transcribe.a
 bin/crispasr-lid: src/libmoss_transcribe_diarize.a
 bin/crispasr-lid: src/libbreeze_tts_2.a
@@ -197,7 +202,6 @@ bin/crispasr-lid: crisp_truecase/libcrisp_truecase.a
 bin/crispasr-lid: src/libpyannote-seg.a
 bin/crispasr-lid: src/libsilero-lid.a
 bin/crispasr-lid: src/libmel-band-roformer.a
-bin/crispasr-lid: /usr/lib/x86_64-linux-gnu/libopenblas.so
 bin/crispasr-lid: src/libcrepe.a
 bin/crispasr-lid: src/libbtc-chords.a
 bin/crispasr-lid: src/libtabcnn.a
@@ -207,7 +211,7 @@ bin/crispasr-lid: src/libbeat-this.a
 bin/crispasr-lid: src/libcrispasr-core.a
 bin/crispasr-lid: /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so
 bin/crispasr-lid: /usr/lib/x86_64-linux-gnu/libpthread.a
-bin/crispasr-lid: /usr/lib/x86_64-linux-gnu/libcblas.so
+bin/crispasr-lid: /usr/lib/x86_64-linux-gnu/libopenblas.so
 bin/crispasr-lid: ggml/src/libggml.so.0.23.0
 bin/crispasr-lid: ggml/src/ggml-cuda/libggml-cuda.so.0.23.0
 bin/crispasr-lid: ggml/src/libggml-cpu.so.0.23.0

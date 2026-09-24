@@ -331,6 +331,34 @@ gigaam/fast:
 .PHONY : gigaam/fast
 
 # Convenience name for target.
+src/CMakeFiles/dolphin.dir/rule:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/dolphin.dir/rule
+.PHONY : src/CMakeFiles/dolphin.dir/rule
+
+# Convenience name for target.
+dolphin: src/CMakeFiles/dolphin.dir/rule
+.PHONY : dolphin
+
+# fast build rule for target.
+dolphin/fast:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/dolphin.dir/build.make src/CMakeFiles/dolphin.dir/build
+.PHONY : dolphin/fast
+
+# Convenience name for target.
+src/CMakeFiles/xasr.dir/rule:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/xasr.dir/rule
+.PHONY : src/CMakeFiles/xasr.dir/rule
+
+# Convenience name for target.
+xasr: src/CMakeFiles/xasr.dir/rule
+.PHONY : xasr
+
+# fast build rule for target.
+xasr/fast:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/xasr.dir/build.make src/CMakeFiles/xasr.dir/build
+.PHONY : xasr/fast
+
+# Convenience name for target.
 src/CMakeFiles/wespeaker.dir/rule:
 	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/wespeaker.dir/rule
 .PHONY : src/CMakeFiles/wespeaker.dir/rule
@@ -695,6 +723,20 @@ moss_tts_local/fast:
 .PHONY : moss_tts_local/fast
 
 # Convenience name for target.
+src/CMakeFiles/hojo_asr.dir/rule:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/hojo_asr.dir/rule
+.PHONY : src/CMakeFiles/hojo_asr.dir/rule
+
+# Convenience name for target.
+hojo_asr: src/CMakeFiles/hojo_asr.dir/rule
+.PHONY : hojo_asr
+
+# fast build rule for target.
+hojo_asr/fast:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/hojo_asr.dir/build.make src/CMakeFiles/hojo_asr.dir/build
+.PHONY : hojo_asr/fast
+
+# Convenience name for target.
 src/CMakeFiles/moss_transcribe.dir/rule:
 	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/moss_transcribe.dir/rule
 .PHONY : src/CMakeFiles/moss_transcribe.dir/rule
@@ -819,6 +861,34 @@ piano-transcription: src/CMakeFiles/piano-transcription.dir/rule
 piano-transcription/fast:
 	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/piano-transcription.dir/build.make src/CMakeFiles/piano-transcription.dir/build
 .PHONY : piano-transcription/fast
+
+# Convenience name for target.
+src/CMakeFiles/onsets-and-frames.dir/rule:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/onsets-and-frames.dir/rule
+.PHONY : src/CMakeFiles/onsets-and-frames.dir/rule
+
+# Convenience name for target.
+onsets-and-frames: src/CMakeFiles/onsets-and-frames.dir/rule
+.PHONY : onsets-and-frames
+
+# fast build rule for target.
+onsets-and-frames/fast:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/onsets-and-frames.dir/build.make src/CMakeFiles/onsets-and-frames.dir/build
+.PHONY : onsets-and-frames/fast
+
+# Convenience name for target.
+src/CMakeFiles/hft-transformer.dir/rule:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/hft-transformer.dir/rule
+.PHONY : src/CMakeFiles/hft-transformer.dir/rule
+
+# Convenience name for target.
+hft-transformer: src/CMakeFiles/hft-transformer.dir/rule
+.PHONY : hft-transformer
+
+# fast build rule for target.
+hft-transformer/fast:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/hft-transformer.dir/build.make src/CMakeFiles/hft-transformer.dir/build
+.PHONY : hft-transformer/fast
 
 # Convenience name for target.
 src/CMakeFiles/basic-pitch.dir/rule:
@@ -6788,6 +6858,30 @@ dia_tts.cpp.s:
 	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/dia-tts.dir/build.make src/CMakeFiles/dia-tts.dir/dia_tts.cpp.s
 .PHONY : dia_tts.cpp.s
 
+dolphin.o: dolphin.cpp.o
+.PHONY : dolphin.o
+
+# target to build an object file
+dolphin.cpp.o:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/dolphin.dir/build.make src/CMakeFiles/dolphin.dir/dolphin.cpp.o
+.PHONY : dolphin.cpp.o
+
+dolphin.i: dolphin.cpp.i
+.PHONY : dolphin.i
+
+# target to preprocess a source file
+dolphin.cpp.i:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/dolphin.dir/build.make src/CMakeFiles/dolphin.dir/dolphin.cpp.i
+.PHONY : dolphin.cpp.i
+
+dolphin.s: dolphin.cpp.s
+.PHONY : dolphin.s
+
+# target to generate assembly for a file
+dolphin.cpp.s:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/dolphin.dir/build.make src/CMakeFiles/dolphin.dir/dolphin.cpp.s
+.PHONY : dolphin.cpp.s
+
 dots_tts.o: dots_tts.cpp.o
 .PHONY : dots_tts.o
 
@@ -7148,6 +7242,30 @@ granite_speech.cpp.s:
 	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/granite_speech.dir/build.make src/CMakeFiles/granite_speech.dir/granite_speech.cpp.s
 .PHONY : granite_speech.cpp.s
 
+hft_transformer.o: hft_transformer.cpp.o
+.PHONY : hft_transformer.o
+
+# target to build an object file
+hft_transformer.cpp.o:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/hft-transformer.dir/build.make src/CMakeFiles/hft-transformer.dir/hft_transformer.cpp.o
+.PHONY : hft_transformer.cpp.o
+
+hft_transformer.i: hft_transformer.cpp.i
+.PHONY : hft_transformer.i
+
+# target to preprocess a source file
+hft_transformer.cpp.i:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/hft-transformer.dir/build.make src/CMakeFiles/hft-transformer.dir/hft_transformer.cpp.i
+.PHONY : hft_transformer.cpp.i
+
+hft_transformer.s: hft_transformer.cpp.s
+.PHONY : hft_transformer.s
+
+# target to generate assembly for a file
+hft_transformer.cpp.s:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/hft-transformer.dir/build.make src/CMakeFiles/hft-transformer.dir/hft_transformer.cpp.s
+.PHONY : hft_transformer.cpp.s
+
 higgs_stt.o: higgs_stt.cpp.o
 .PHONY : higgs_stt.o
 
@@ -7171,6 +7289,30 @@ higgs_stt.s: higgs_stt.cpp.s
 higgs_stt.cpp.s:
 	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/higgs_stt.dir/build.make src/CMakeFiles/higgs_stt.dir/higgs_stt.cpp.s
 .PHONY : higgs_stt.cpp.s
+
+hojo_asr.o: hojo_asr.cpp.o
+.PHONY : hojo_asr.o
+
+# target to build an object file
+hojo_asr.cpp.o:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/hojo_asr.dir/build.make src/CMakeFiles/hojo_asr.dir/hojo_asr.cpp.o
+.PHONY : hojo_asr.cpp.o
+
+hojo_asr.i: hojo_asr.cpp.i
+.PHONY : hojo_asr.i
+
+# target to preprocess a source file
+hojo_asr.cpp.i:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/hojo_asr.dir/build.make src/CMakeFiles/hojo_asr.dir/hojo_asr.cpp.i
+.PHONY : hojo_asr.cpp.i
+
+hojo_asr.s: hojo_asr.cpp.s
+.PHONY : hojo_asr.s
+
+# target to generate assembly for a file
+hojo_asr.cpp.s:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/hojo_asr.dir/build.make src/CMakeFiles/hojo_asr.dir/hojo_asr.cpp.s
+.PHONY : hojo_asr.cpp.s
 
 htdemucs.o: htdemucs.cpp.o
 .PHONY : htdemucs.o
@@ -7915,6 +8057,30 @@ omnivoice.s: omnivoice.cpp.s
 omnivoice.cpp.s:
 	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/omnivoice.dir/build.make src/CMakeFiles/omnivoice.dir/omnivoice.cpp.s
 .PHONY : omnivoice.cpp.s
+
+onsets_and_frames.o: onsets_and_frames.cpp.o
+.PHONY : onsets_and_frames.o
+
+# target to build an object file
+onsets_and_frames.cpp.o:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/onsets-and-frames.dir/build.make src/CMakeFiles/onsets-and-frames.dir/onsets_and_frames.cpp.o
+.PHONY : onsets_and_frames.cpp.o
+
+onsets_and_frames.i: onsets_and_frames.cpp.i
+.PHONY : onsets_and_frames.i
+
+# target to preprocess a source file
+onsets_and_frames.cpp.i:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/onsets-and-frames.dir/build.make src/CMakeFiles/onsets-and-frames.dir/onsets_and_frames.cpp.i
+.PHONY : onsets_and_frames.cpp.i
+
+onsets_and_frames.s: onsets_and_frames.cpp.s
+.PHONY : onsets_and_frames.s
+
+# target to generate assembly for a file
+onsets_and_frames.cpp.s:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/onsets-and-frames.dir/build.make src/CMakeFiles/onsets-and-frames.dir/onsets_and_frames.cpp.s
+.PHONY : onsets_and_frames.cpp.s
 
 openvoice2.o: openvoice2.cpp.o
 .PHONY : openvoice2.o
@@ -8948,6 +9114,30 @@ wespeaker.cpp.s:
 	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/wespeaker.dir/build.make src/CMakeFiles/wespeaker.dir/wespeaker.cpp.s
 .PHONY : wespeaker.cpp.s
 
+xasr.o: xasr.cpp.o
+.PHONY : xasr.o
+
+# target to build an object file
+xasr.cpp.o:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/xasr.dir/build.make src/CMakeFiles/xasr.dir/xasr.cpp.o
+.PHONY : xasr.cpp.o
+
+xasr.i: xasr.cpp.i
+.PHONY : xasr.i
+
+# target to preprocess a source file
+xasr.cpp.i:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/xasr.dir/build.make src/CMakeFiles/xasr.dir/xasr.cpp.i
+.PHONY : xasr.cpp.i
+
+xasr.s: xasr.cpp.s
+.PHONY : xasr.s
+
+# target to generate assembly for a file
+xasr.cpp.s:
+	cd /content/CrispASR/t4-colab-build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/xasr.dir/build.make src/CMakeFiles/xasr.dir/xasr.cpp.s
+.PHONY : xasr.cpp.s
+
 zonos_tts.o: zonos_tts.cpp.o
 .PHONY : zonos_tts.o
 
@@ -9010,6 +9200,7 @@ help:
 	@echo "... csm-tts"
 	@echo "... ctc-align"
 	@echo "... dia-tts"
+	@echo "... dolphin"
 	@echo "... dots-tts"
 	@echo "... ecapa-lid"
 	@echo "... f5-tts"
@@ -9024,7 +9215,9 @@ help:
 	@echo "... glm-asr"
 	@echo "... granite_nle"
 	@echo "... granite_speech"
+	@echo "... hft-transformer"
 	@echo "... higgs_stt"
+	@echo "... hojo_asr"
 	@echo "... htdemucs"
 	@echo "... indextts"
 	@echo "... irodori-tts"
@@ -9053,6 +9246,7 @@ help:
 	@echo "... nemotron"
 	@echo "... omniasr"
 	@echo "... omnivoice"
+	@echo "... onsets-and-frames"
 	@echo "... openvoice2"
 	@echo "... orpheus"
 	@echo "... outetts"
@@ -9086,6 +9280,7 @@ help:
 	@echo "... wav2vec2-ggml"
 	@echo "... webrtc-vad"
 	@echo "... wespeaker"
+	@echo "... xasr"
 	@echo "... zonos-tts"
 	@echo "... __/examples/talk-llama/llama-adapter.o"
 	@echo "... __/examples/talk-llama/llama-adapter.i"
@@ -9735,6 +9930,9 @@ help:
 	@echo "... dia_tts.o"
 	@echo "... dia_tts.i"
 	@echo "... dia_tts.s"
+	@echo "... dolphin.o"
+	@echo "... dolphin.i"
+	@echo "... dolphin.s"
 	@echo "... dots_tts.o"
 	@echo "... dots_tts.i"
 	@echo "... dots_tts.s"
@@ -9780,9 +9978,15 @@ help:
 	@echo "... granite_speech.o"
 	@echo "... granite_speech.i"
 	@echo "... granite_speech.s"
+	@echo "... hft_transformer.o"
+	@echo "... hft_transformer.i"
+	@echo "... hft_transformer.s"
 	@echo "... higgs_stt.o"
 	@echo "... higgs_stt.i"
 	@echo "... higgs_stt.s"
+	@echo "... hojo_asr.o"
+	@echo "... hojo_asr.i"
+	@echo "... hojo_asr.s"
 	@echo "... htdemucs.o"
 	@echo "... htdemucs.i"
 	@echo "... htdemucs.s"
@@ -9876,6 +10080,9 @@ help:
 	@echo "... omnivoice.o"
 	@echo "... omnivoice.i"
 	@echo "... omnivoice.s"
+	@echo "... onsets_and_frames.o"
+	@echo "... onsets_and_frames.i"
+	@echo "... onsets_and_frames.s"
 	@echo "... openvoice2.o"
 	@echo "... openvoice2.i"
 	@echo "... openvoice2.s"
@@ -10005,6 +10212,9 @@ help:
 	@echo "... wespeaker.o"
 	@echo "... wespeaker.i"
 	@echo "... wespeaker.s"
+	@echo "... xasr.o"
+	@echo "... xasr.i"
+	@echo "... xasr.s"
 	@echo "... zonos_tts.o"
 	@echo "... zonos_tts.i"
 	@echo "... zonos_tts.s"
